@@ -90,7 +90,6 @@ summary.betadelta <- function(object,
 #' @keywords methods
 vcov.betadelta <- function(object,
                            ...) {
-  p <- length(object$beta)
   out <- object$vcov
   rownames(out) <- colnames(out) <- names(object$beta)
   return(out)
