@@ -1,0 +1,55 @@
+---
+title: "betaDelta: Confidence Intervals for Standardized Regression Coefficients"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{betaDelta: Confidence Intervals for Standardized Regression Coefficients}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+<!-- badges: start -->
+[![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
+[![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
+[![R-CMD-check](https://github.com/jeksterslab/betaDelta/workflows/R-CMD-check/badge.svg)](https://github.com/jeksterslab/betaDelta/actions)
+[![test-coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml)
+[![lint](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml)
+[![codecov](https://codecov.io/gh/jeksterslab/betaDelta/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaDelta)
+<!-- badges: end -->
+
+## Description
+
+Generates confidence intervals for standardized regression coefficients
+using delta method standard errors for models fitted by `lm()`
+as described in Yuan and Chan (2011: http://doi.org/10.1007/s11336-011-9224-6)
+and Jones and Waller (2015: http://doi.org/10.1007/s11336-013-9380-y).
+
+## Installation
+
+You can install the CRAN release of `betaDelta` with:
+
+```r
+install.packages("betaDelta")
+```
+
+You can install the development version of `betaDelta` from
+[GitHub](https://github.com/jeksterslab/betaDelta) with:
+
+```r
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("jeksterslab/betaDelta")
+```
+
+## References
+
+Jones, J. A., & Waller, N. G. (2015).
+The normal-theory and asymptotic distribution-free (ADF) covariance matrix
+of standardized regression coefficients:
+Theoretical extensions and finite sample behavior.
+*Psychometrika*, *80*(2), 365–378.
+https://doi.org/10.1007/s11336-013-9380-y
+
+Yuan, K.-H., & Chan, W. (2011).
+Biases and standard errors of standardized regression coefficients.
+*Psychometrika*, *76*(4), 670–690.
+https://doi.org/10.1007/s11336-011-9224-6
