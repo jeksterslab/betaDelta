@@ -18,7 +18,6 @@
 #' @param type Character string.
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
 #'   If `type = "adf"`, use the asymptotic distribution-free approach.
-
 #' @references
 #' Jones, J. A., & Waller, N. G. (2015).
 #' The normal-theory and asymptotic distribution-free (ADF) covariance matrix
