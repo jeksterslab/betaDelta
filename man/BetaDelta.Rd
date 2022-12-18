@@ -15,7 +15,7 @@ If \code{type = "mvn"}, use the multivariate normal-theory approach.
 If \code{type = "adf"}, use the asymptotic distribution-free approach.}
 }
 \value{
-Returns an object of class \code{betaDelta}
+Returns an object of class \code{betadelta}
 which is a list with the following elements:
 \describe{
 \item{call}{Function call.}

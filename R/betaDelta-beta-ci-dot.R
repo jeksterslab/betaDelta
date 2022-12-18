@@ -4,7 +4,7 @@
 #'
 #' @return Returns a matrix.
 #'
-#' @param object Object of class `betaDelta`.
+#' @param object Object of class `betadelta`.
 #'
 #' @family Beta Delta Functions
 #' @keywords betaDelta ci internal

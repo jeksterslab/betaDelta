@@ -2,7 +2,7 @@
 % Please edit documentation in R/betaDelta-methods.R
 \name{summary.betadelta}
 \alias{summary.betadelta}
-\title{Summary Method for an Object of Class \code{betaDelta}}
+\title{Summary Method for an Object of Class \code{betadelta}}
 \usage{
 \method{summary}{betadelta}(object, alpha = c(0.05, 0.01, 0.001), digits = 4, ...)
 }
@@ -20,7 +20,7 @@ Returns a matrix of standardized regression slopes,
 standard errors, test statistics, p-values, and confidence intervals.
 }
 \description{
-Summary Method for an Object of Class \code{betaDelta}
+Summary Method for an Object of Class \code{betadelta}
 }
 \examples{
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)

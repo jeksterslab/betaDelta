@@ -1,4 +1,4 @@
-#' Print Method for an Object of Class `betaDelta`
+#' Print Method for an Object of Class `betadelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -36,7 +36,7 @@ print.betadelta <- function(x,
   )
 }
 
-#' Summary Method for an Object of Class `betaDelta`
+#' Summary Method for an Object of Class `betadelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -91,7 +91,7 @@ summary.betadelta <- function(object,
 vcov.betadelta <- function(object,
                            ...) {
   p <- length(object$beta)
-  out <- object$vcov[1:p, 1:p, drop = FALSE]
+  out <- object$vcov
   rownames(out) <- colnames(out) <- names(object$beta)
   return(out)
 }
