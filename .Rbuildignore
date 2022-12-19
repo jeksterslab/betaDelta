@@ -27,3 +27,6 @@
 ^make.*$
 ^betaDelta.pdf$
 ^vignettes$
+^betaDelta\.Rcheck$
+^betaDelta.*\.tar\.gz$
+^betaDelta.*\.tgz$

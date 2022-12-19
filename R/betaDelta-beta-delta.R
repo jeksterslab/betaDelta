@@ -55,19 +55,10 @@ BetaDelta <- function(object, type = "mvn") {
     p = input$p,
     k = input$k
   )
-  sigmacap_consistent <- (
-    input$sigmacap * (
-      input$n - 1
-    ) / input$n
-  )
-  vechsigmacap_consistent <- .Vech(
-    sigmacap_consistent
-  )
-  pinv_of_dcap <- .PInvDmat(.DMat(input$k))
   if (type == "adf") {
     gammacapmvn_consistent <- .GammaN(
-      sigmacap = sigmacap_consistent,
-      pinv_of_dcap = pinv_of_dcap
+      sigmacap = input$sigmacap_consistent,
+      pinv_of_dcap = input$pinv_of_dcap
     )
     gammacap <- .GammaADFUnbiased(
       gammacapadf_consistent = .GammaADFConsistent(
@@ -77,18 +68,18 @@ BetaDelta <- function(object, type = "mvn") {
           n = input$n,
           k = input$k
         ),
-        vechsigmacap_consistent = vechsigmacap_consistent,
+        vechsigmacap_consistent = input$vechsigmacap_consistent,
         n = input$n
       ),
       gammacapmvn_consistent = gammacapmvn_consistent,
-      vechsigmacap_consistent = vechsigmacap_consistent,
+      vechsigmacap_consistent = input$vechsigmacap_consistent,
       n = input$n
     )
   }
   if (type == "mvn") {
     gammacap <- .GammaN(
       sigmacap = input$sigmacap,
-      pinv_of_dcap = pinv_of_dcap
+      pinv_of_dcap = input$pinv_of_dcap
     )
   }
   avcov <- .ACov(
