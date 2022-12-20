@@ -25,6 +25,7 @@
   k <- dims[2]
   p <- k - 1
   df <- n - k
+  q <- p + 1 + 0.5 * p * (p + 1)
   sigmacap <- stats::cov(x)
   vechsigmacap <- .Vech(
     sigmacap
@@ -59,6 +60,7 @@
     n = n,
     k = k,
     p = p,
+    q = q,
     df = df,
     pinv_of_dcap = pinv_of_dcap,
     varnames = varnames,
