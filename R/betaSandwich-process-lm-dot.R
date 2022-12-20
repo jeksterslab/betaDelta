@@ -54,8 +54,7 @@
   )
   pinv_of_dcap <- .PInvDmat(.DMat(k))
   list(
-    y = y,
-    x = x,
+    x = x, # {y, X}
     dims = dims,
     n = n,
     k = k,
@@ -66,7 +65,7 @@
     xnames = xnames,
     sigmacap = sigmacap,
     vechsigmacap = vechsigmacap,
-    sigma = sigma,
+    sigma = sigma, # standard deviations
     sigmacap_consistent = sigmacap_consistent,
     vechsigmacap_consistent = vechsigmacap_consistent,
     rhocap = rhocap,

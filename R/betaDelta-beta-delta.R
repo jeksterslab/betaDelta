@@ -7,6 +7,7 @@
 #' which is a list with the following elements:
 #' \describe{
 #'   \item{call}{Function call.}
+#'   \item{lm}{Object of class `lm`.}
 #'   \item{type}{Standard error type.}
 #'   \item{beta}{Vector of standardized slopes.}
 #'   \item{vcov}{Sampling covariance matrix of the standardized slopes.}
@@ -42,15 +43,23 @@
 #' @export
 #' @family Beta Delta Functions
 #' @keywords betaDelta
-BetaDelta <- function(object, type = "mvn") {
-  stopifnot(type %in% c("mvn", "adf"))
+BetaDelta <- function(object,
+                      type = "mvn") {
+  stopifnot(
+    type %in% c(
+      "mvn",
+      "adf"
+    )
+  )
   input <- .ProcessLM(object)
   jcap <- .JacobianBetastarWRTVechSigma(
     beta = input$beta,
     sigmay = sqrt(input$sigmacap[1, 1]),
     sigmax = sqrt(diag(input$sigmacap)[-1]),
     invsigmacapx = chol2inv(
-      chol(input$sigmacap[2:input$k, 2:input$k, drop = FALSE])
+      chol(
+        input$sigmacap[2:input$k, 2:input$k, drop = FALSE]
+      )
     ),
     p = input$p,
     k = input$k
@@ -90,6 +99,7 @@ BetaDelta <- function(object, type = "mvn") {
   colnames(vcov) <- rownames(vcov) <- input$xnames
   out <- list(
     call = match.call(),
+    lm = object,
     type = type,
     beta = input$betastar,
     vcov = vcov,

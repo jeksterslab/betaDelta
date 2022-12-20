@@ -15,6 +15,9 @@
 .ACov <- function(jcap,
                   gammacap) {
   return(
-    jcap %*% tcrossprod(gammacap, jcap)
+    jcap %*% tcrossprod(
+      gammacap,
+      jcap
+    )
   )
 }

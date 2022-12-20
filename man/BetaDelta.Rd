@@ -19,6 +19,7 @@ Returns an object of class \code{betadelta}
 which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
+\item{lm}{Object of class \code{lm}.}
 \item{type}{Standard error type.}
 \item{beta}{Vector of standardized slopes.}
 \item{vcov}{Sampling covariance matrix of the standardized slopes.}
