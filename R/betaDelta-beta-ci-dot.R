@@ -5,6 +5,8 @@
 #' @return Returns a matrix.
 #'
 #' @param object Object of class `betadelta`.
+#' @param alpha Numeric vector.
+#'   Significance level.
 #'
 #' @family Beta Delta Functions
 #' @keywords betaDelta ci internal
