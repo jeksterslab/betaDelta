@@ -22,5 +22,6 @@ Imports: methods
 Suggests:
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    betaSandwich
 RoxygenNote: 7.2.3
