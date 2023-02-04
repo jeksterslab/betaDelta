@@ -28,7 +28,7 @@
 #' @export
 #' @family Beta Delta Functions
 #' @keywords betaDelta dif methods
-dif.betadelta <- function(object) {
+dif.betadelta <- function(object) { # nolint: object_name_linter
   if (object$lm_process$p < 2) {
     stop("Two or more regressors is required.")
   }

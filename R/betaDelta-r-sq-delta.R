@@ -30,7 +30,7 @@
 #' @export
 #' @family Beta Delta Functions
 #' @keywords betaDelta rsq methods
-rsq.betadelta <- function(object) {
+rsq.betadelta <- function(object) { # nolint: object_name_linter
   varnames <- c("R-squared", "Adjusted")
   est <- .RSqRSqBarofVechSigma(
     vechsigmacap = object$lm_process$vechsigmacap,
