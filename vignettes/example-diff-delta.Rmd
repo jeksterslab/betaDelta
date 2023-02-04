@@ -54,7 +54,7 @@ df <- betaDelta::nas1982
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
-## Estimate R-squared and adjusted R-squared and the corresponding sampling covariance matrix.
+## Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
 #### Multivariate Normal-Theory Approach
 
@@ -69,6 +69,8 @@ std_adf <- BetaDelta(object, type = "adf")
 ```
 
 ## Methods
+
+### diff
 
 ```{r}
 mvn <- dif(std_mvn)
