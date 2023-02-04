@@ -1,8 +1,8 @@
-#' Print Method for an Object of Class `betadelta`
+#' Print Method for an Object of Class `difbetadelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param x Object of class `betadelta`.
+#' @param x Object of class `difbetadelta`.
 #' @param ... additional arguments.
 #' @param alpha Significance level.
 #' @param digits Digits to print.
@@ -11,23 +11,22 @@
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' print(std)
+#' out <- dif(std)
+#' print(out)
 #' @export
 #' @keywords methods
-print.betadelta <- function(x,
-                            alpha = c(0.05, 0.01, 0.001),
-                            digits = 4,
-                            ...) {
-  cat("Call:\n")
-  base::print(x$call)
+print.difbetadelta <- function(x,
+                               alpha = c(0.05, 0.01, 0.001),
+                               digits = 4,
+                               ...) {
   cat(
-    "\nStandardized regression slopes with",
-    toupper(x$type),
+    "Difference between standardized regression coefficients with",
+    toupper(x$betadelta$type),
     "standard errors:\n"
   )
   base::print(
     round(
-      .BetaCI(
+      .DiffBetaCI(
         object = x,
         alpha = alpha
       ),
@@ -36,11 +35,11 @@ print.betadelta <- function(x,
   )
 }
 
-#' Summary Method for an Object of Class `betadelta`
+#' Summary Method for an Object of Class `difbetadelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `betadelta`.
+#' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
 #' @param alpha Significance level.
 #' @param digits Digits to print.
@@ -49,23 +48,22 @@ print.betadelta <- function(x,
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' summary(std)
+#' out <- dif(std)
+#' summary(out)
 #' @export
 #' @keywords methods
-summary.betadelta <- function(object,
-                              alpha = c(0.05, 0.01, 0.001),
-                              digits = 4,
-                              ...) {
-  cat("Call:\n")
-  base::print(object$call)
+summary.difbetadelta <- function(object,
+                                 alpha = c(0.05, 0.01, 0.001),
+                                 digits = 4,
+                                 ...) {
   cat(
-    "\nStandardized regression slopes with",
-    toupper(object$type),
+    "Difference between standardized regression coefficients with",
+    toupper(object$betadelta$type),
     "standard errors:\n"
   )
   return(
     round(
-      .BetaCI(
+      .DiffBetaCI(
         object = object,
         alpha = alpha
       ),
@@ -74,50 +72,56 @@ summary.betadelta <- function(object,
   )
 }
 
-#' Sampling Covariance Matrix of the Standardized Regression Slopes
+#' Sampling Covariance Matrix of
+#' Differences of Standardized Regression Slopes
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `betadelta`.
+#' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
 #' @return Returns a matrix of the variance-covariance matrix
-#'   of standardized slopes.
+#'   of differences of standardized regression slopes.
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' vcov(std)
+#' out <- dif(std)
+#' vcov(out)
 #' @export
 #' @keywords methods
-vcov.betadelta <- function(object,
-                           ...) {
-  out <- object$vcov
-  rownames(out) <- colnames(out) <- names(object$beta)
-  return(out)
+vcov.difbetadelta <- function(object,
+                              ...) {
+  return(
+    object$vcov
+  )
 }
 
-#' Standardized Regression Slopes
+#' Differences of Standardized Regression Slopes
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `betadelta`.
+#' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
-#' @return Returns a vector of standardized regression slopes.
+#' @return Returns a vector of differences of standardized regression slopes.
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' coef(std)
+#' out <- dif(std)
+#' coef(out)
 #' @export
 #' @keywords methods
-coef.betadelta <- function(object,
-                           ...) {
-  object$beta
+coef.difbetadelta <- function(object,
+                              ...) {
+  return(
+    object$est
+  )
 }
 
-#' Confidence Intervals for Standardized Regression Slopes
+#' Confidence Intervals for Differences
+#' of Standardized Regression Slopes
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `betadelta`.
+#' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
 #' @param parm a specification of which parameters
 #'   are to be given confidence intervals,
@@ -128,18 +132,21 @@ coef.betadelta <- function(object,
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' confint(std, level = 0.95)
+#' out <- dif(std)
+#' confint(out, level = 0.95)
 #' @export
 #' @keywords methods
-confint.betadelta <- function(object,
-                              parm = NULL,
-                              level = 0.95,
-                              ...) {
+confint.difbetadelta <- function(object,
+                                 parm = NULL,
+                                 level = 0.95,
+                                 ...) {
   if (is.null(parm)) {
-    parm <- 1:object$p
+    parm <- seq_len(
+      length(object$est)
+    )
   }
   return(
-    .BetaCI(
+    .DiffBetaCI(
       object = object,
       alpha = 1 - level[1]
     )[parm, 5:6]

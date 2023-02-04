@@ -20,9 +20,12 @@ which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
 \item{lm}{Object of class \code{lm}.}
+\item{lm_process}{Pre-processed object of class \code{lm}.}
 \item{type}{Standard error type.}
-\item{beta}{Vector of standardized slopes.}
+\item{gamma}{Asymptotic covariance matrix of the sample covariance matrix.}
+\item{est}{Vector of standardized slopes.}
 \item{vcov}{Sampling covariance matrix of the standardized slopes.}
+\item{acov}{Asymptotic covariance matrix of the standardized slopes.}
 \item{n}{Sample size.}
 \item{p}{Number of regressors.}
 \item{df}{\eqn{n - p - 1} degrees of freedom.}
@@ -54,6 +57,13 @@ Yuan, K.-H., & Chan, W. (2011).
 Biases and standard errors of standardized regression coefficients.
 \emph{Psychometrika}, \emph{76}(4), 670–690.
 \doi{10.1007/s11336-011-9224-6}
+}
+\seealso{
+Other Beta Delta Functions: 
+\code{\link{dif.betadelta}()},
+\code{\link{dif}()},
+\code{\link{rsq.betadelta}()},
+\code{\link{rsq}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

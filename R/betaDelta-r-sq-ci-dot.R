@@ -1,22 +1,22 @@
-#' Confidence Intervals for Standardized Regression Coefficients
+#' Confidence Intervals for R-Squared and Adjusted R-Squared
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix.
 #'
-#' @param object Object of class `betadelta`.
+#' @param object Object of class `rsqrdelta`.
 #' @param alpha Numeric vector.
 #'   Significance level.
 #'
 #' @family Beta Delta Functions
-#' @keywords betaDelta ci internal
+#' @keywords betaDelta rsq ci internal
 #' @noRd
-.BetaCI <- function(object,
-                    alpha = c(0.05, 0.01, 0.001)) {
+.RSqCI <- function(object,
+                   alpha = c(0.05, 0.01, 0.001)) {
   stopifnot(
     methods::is(
       object,
-      "betadelta"
+      "rsqbetadelta"
     )
   )
   return(
@@ -26,7 +26,7 @@
       theta = 0,
       alpha = alpha,
       z = FALSE,
-      df = object$lm_process$df
+      df = object$betadelta$lm_process$df
     )
   )
 }

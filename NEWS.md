@@ -2,6 +2,8 @@
 
 Latest development version.
 
+* Added `rsq` and `dif` methods.
+
 # betaDelta 1.0.0
 
 ## Major

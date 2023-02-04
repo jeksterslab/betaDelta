@@ -8,9 +8,12 @@
 #' \describe{
 #'   \item{call}{Function call.}
 #'   \item{lm}{Object of class `lm`.}
+#'   \item{lm_process}{Pre-processed object of class `lm`.}
 #'   \item{type}{Standard error type.}
-#'   \item{beta}{Vector of standardized slopes.}
+#'   \item{gamma}{Asymptotic covariance matrix of the sample covariance matrix.}
+#'   \item{est}{Vector of standardized slopes.}
 #'   \item{vcov}{Sampling covariance matrix of the standardized slopes.}
+#'   \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
 #'   \item{n}{Sample size.}
 #'   \item{p}{Number of regressors.}
 #'   \item{df}{\eqn{n - p - 1} degrees of freedom.}
@@ -51,61 +54,41 @@ BetaDelta <- function(object,
       "adf"
     )
   )
-  input <- .ProcessLM(object)
-  jcap <- .JacobianBetastarWRTVechSigma(
-    beta = input$beta,
-    sigmay = sqrt(input$sigmacap[1, 1]),
-    sigmax = sqrt(diag(input$sigmacap)[-1]),
-    invsigmacapx = chol2inv(
-      chol(
-        input$sigmacap[2:input$k, 2:input$k, drop = FALSE]
-      )
-    ),
-    p = input$p,
-    k = input$k
+  lm_process <- .ProcessLM(object)
+  gamma <- .Gamma(
+    x = lm_process,
+    type = type
   )
-  if (type == "adf") {
-    gammacapmvn_consistent <- .GammaN(
-      sigmacap = input$sigmacap_consistent,
-      pinv_of_dcap = input$pinv_of_dcap
-    )
-    gammacap <- .GammaADFUnbiased(
-      gammacapadf_consistent = .GammaADFConsistent(
-        d = .DofMat(
-          input$x,
-          center = colMeans(input$x),
-          n = input$n,
-          k = input$k
-        ),
-        vechsigmacap_consistent = input$vechsigmacap_consistent,
-        n = input$n
+  acov <- .ACov(
+    jcap = .JacobianBetastarWRTVechSigma(
+      beta = lm_process$beta,
+      sigmay = sqrt(lm_process$sigmacap[1, 1]),
+      sigmax = sqrt(diag(lm_process$sigmacap)[-1]),
+      invsigmacapx = chol2inv(
+        chol(
+          lm_process$sigmacap[
+            2:lm_process$k,
+            2:lm_process$k,
+            drop = FALSE
+          ]
+        )
       ),
-      gammacapmvn_consistent = gammacapmvn_consistent,
-      vechsigmacap_consistent = input$vechsigmacap_consistent,
-      n = input$n
-    )
-  }
-  if (type == "mvn") {
-    gammacap <- .GammaN(
-      sigmacap = input$sigmacap,
-      pinv_of_dcap = input$pinv_of_dcap
-    )
-  }
-  avcov <- .ACov(
-    jcap = jcap,
-    gammacap = gammacap
+      p = lm_process$p,
+      k = lm_process$k
+    ),
+    gammacap = gamma
   )
-  vcov <- (1 / input$n) * avcov
-  colnames(vcov) <- rownames(vcov) <- input$xnames
+  colnames(acov) <- rownames(acov) <- lm_process$xnames
+  vcov <- (1 / lm_process$n) * acov
   out <- list(
     call = match.call(),
     lm = object,
+    lm_process = lm_process,
     type = type,
-    beta = input$betastar,
+    gamma = gamma,
+    est = lm_process$betastar,
     vcov = vcov,
-    n = input$n,
-    p = input$p,
-    df = input$df
+    acov = acov
   )
   class(out) <- c(
     "betadelta",

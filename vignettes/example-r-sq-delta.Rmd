@@ -1,9 +1,9 @@
 ---
-title: "betaDelta: Example"
+title: "betaDelta: Example using the rsq Method"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betaDelta: Example}
+  %\VignetteIndexEntry{betaDelta: Example using the rsq Method}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,8 +21,8 @@ and number of published articles attributed to the program faculty members (`NAR
 percent of faculty members holding research grants (`PCTGRT`), and
 percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
 using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982).
-Confidence intervals for the standardized regression coefficients are generated
-using the `BetaDelta()` function from the `betaDelta` package following Yuan and Chan (2011) and Jones and Waller (2015).
+Confidence intervals for R-squared and adjusted R-squared are generated
+using the `rsq()` method from the `betaDelta` package.
 
 ```{r}
 #| message = FALSE
@@ -54,30 +54,30 @@ df <- betaDelta::nas1982
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
-## Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
+## Estimate R-squared and adjusted R-squared and the corresponding sampling covariance matrix.
 
 #### Multivariate Normal-Theory Approach
 
 ```{r}
-BetaDelta(object, type = "mvn")
+std_mvn <- BetaDelta(object, type = "mvn")
 ```
 
 #### Asymptotic Distribution-Free Approach
 
 ```{r}
-BetaDelta(object, type = "adf")
+std_adf <- BetaDelta(object, type = "adf")
 ```
 
 ## Methods
 
 ```{r}
-mvn <- BetaDelta(object, type = "mvn")
-adf <- BetaDelta(object, type = "adf")
+mvn <- rsq(std_mvn)
+adf <- rsq(std_adf)
 ```
 
 ### summary
 
-Summary of the results of `BetaDelta()`.
+Summary of the results of `rsq()`.
 
 ```{r}
 summary(mvn)
@@ -86,7 +86,7 @@ summary(adf)
 
 ### coef
 
-Calculate the standardized regression slopes.
+Calculate R-squared and adjusted R-squared.
 
 ```{r}
 coef(mvn)
@@ -95,7 +95,7 @@ coef(adf)
 
 ### vcov
 
-Calculate the sampling covariance matrix of the standardized regression slopes.
+Calculate the sampling covariance matrix of R-squared and adjusted R-squared.
 
 ```{r}
 vcov(mvn)
@@ -104,7 +104,7 @@ vcov(adf)
 
 ### confint
 
-Generate confidence intervals for standardized regression slopes.
+Generate confidence intervals for R-squared and adjusted R-squared.
 
 ```{r}
 confint(mvn, level = 0.95)
@@ -113,20 +113,8 @@ confint(adf, level = 0.95)
 
 ## References
 
-Jones, J. A., & Waller, N. G. (2015).
-The normal-theory and asymptotic distribution-free (ADF) covariance matrix
-of standardized regression coefficients:
-Theoretical extensions and finite sample behavior.
-*Psychometrika*, *80*(2), 365–378.
-https://doi.org/10.1007/s11336-013-9380-y
-
 National Research Council. (1982).
 *An assessment of research-doctorate programs in the United States: Social and behavioral sciences*.
 https://doi.org/10.17226/9781.
 Reproduced with permission from the National Academy of Sciences,
 Courtesy of the National Academies Press, Washington, D.C.
-
-Yuan, K.-H., & Chan, W. (2011).
-Biases and standard errors of standardized regression coefficients.
-*Psychometrika*, *76*(4), 670–690.
-https://doi.org/10.1007/s11336-011-9224-6

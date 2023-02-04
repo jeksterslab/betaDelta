@@ -1,4 +1,4 @@
-## ---- test-betaDelta-methods
+## ---- test-betaDelta-beta-delta-methods
 lapply(
   X = 1,
   FUN = function(i,
@@ -41,5 +41,5 @@ lapply(
     vcov.betadelta(adf)
     confint.betadelta(adf)
   },
-  text = "test-betaDelta-methods"
+  text = "test-betaDelta-beta-delta-methods"
 )
