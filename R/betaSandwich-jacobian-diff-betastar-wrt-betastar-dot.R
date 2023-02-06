@@ -7,8 +7,8 @@
 #'   Number of regressors.
 #'
 #' @return Returns a matrix.
-#' @family Beta Delta Functions
-#' @keywords betaDelta derivatives internal
+#' @family Beta Sandwich Functions
+#' @keywords betaSandwich derivatives internal
 #' @noRd
 .JacobianDiffBetastar <- function(p) {
   idx <- utils::combn(seq_len(p), 2)

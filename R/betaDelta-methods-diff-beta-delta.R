@@ -21,7 +21,7 @@ print.difbetadelta <- function(x,
                                ...) {
   cat(
     "Difference between standardized regression coefficients with",
-    toupper(x$betadelta$type),
+    toupper(x$fit$type),
     "standard errors:\n"
   )
   base::print(
@@ -58,7 +58,7 @@ summary.difbetadelta <- function(object,
                                  ...) {
   cat(
     "Difference between standardized regression coefficients with",
-    toupper(object$betadelta$type),
+    toupper(object$fit$type),
     "standard errors:\n"
   )
   return(

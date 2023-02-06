@@ -1,7 +1,8 @@
 # betaDelta 1.0.0.9000
 
-* Latest development version.
-* Added the `dif` method to generate confidence intervals for differences of standardized regression slopes.
+Latest development version.
+
+* Added the `dif` method.
 
 # betaDelta 1.0.0
 
