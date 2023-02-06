@@ -23,12 +23,9 @@ which is a list with the following elements:
 \item{lm_process}{Pre-processed object of class \code{lm}.}
 \item{type}{Standard error type.}
 \item{gamma}{Asymptotic covariance matrix of the sample covariance matrix.}
-\item{est}{Vector of standardized slopes.}
-\item{vcov}{Sampling covariance matrix of the standardized slopes.}
 \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
-\item{n}{Sample size.}
-\item{p}{Number of regressors.}
-\item{df}{\eqn{n - p - 1} degrees of freedom.}
+\item{vcov}{Sampling covariance matrix of the standardized slopes.}
+\item{est}{Vector of standardized slopes.}
 }
 }
 \description{
@@ -38,12 +35,19 @@ and Sampling Covariance Matrix
 \examples{
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 std <- BetaDelta(object)
-# Methods -------------------------------------------------------
+# Methods ----------------------------------------------------
 print(std)
 summary(std)
 coef(std)
 vcov(std)
 confint(std, level = 0.95)
+## Differences of standardized regression coefficients -------
+out <- dif(std)
+print(out)
+summary(out)
+coef(out)
+vcov(out)
+confint(out, level = 0.95)
 }
 \references{
 Jones, J. A., & Waller, N. G. (2015).
@@ -57,13 +61,6 @@ Yuan, K.-H., & Chan, W. (2011).
 Biases and standard errors of standardized regression coefficients.
 \emph{Psychometrika}, \emph{76}(4), 670–690.
 \doi{10.1007/s11336-011-9224-6}
-}
-\seealso{
-Other Beta Delta Functions: 
-\code{\link{dif.betadelta}()},
-\code{\link{dif}()},
-\code{\link{rsq.betadelta}()},
-\code{\link{rsq}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

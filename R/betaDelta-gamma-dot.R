@@ -1,8 +1,18 @@
+#' Asymptotic Covariance Matrix of the Sample Covariance Matrix
+#'
+#' @author Ivan Jacob Agaloos Pesigan
+#'
+#' @return Returns a matrix.
+#'
 #' @param x Object.
 #'   Result of `.ProcessLM()`.
 #' @param type Character string.
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
 #'   If `type = "adf"`, use the asymptotic distribution-free approach.
+#'
+#' @family Beta Delta Functions
+#' @keywords betaDelta gamma internal
+#' @noRd
 .Gamma <- function(x,
                    type) {
   if (type == "adf") {

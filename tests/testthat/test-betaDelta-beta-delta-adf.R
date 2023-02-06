@@ -1,4 +1,4 @@
-## ---- test-betaDelta-beta-adf
+## ---- test-betaDelta-beta-delta-adf
 lapply(
   X = 1,
   FUN = function(i,
@@ -44,6 +44,6 @@ lapply(
     )
   },
   tol = 0.0001,
-  text = "test-betaDelta-beta-adf"
+  text = "test-betaDelta-beta-delta-adf"
 )
 # This test compares the results of the package with Dudgeon (2017)

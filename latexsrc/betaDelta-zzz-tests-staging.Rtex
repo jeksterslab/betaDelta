@@ -48,61 +48,6 @@
 
 Staging...
 
-%% begin.rcode
-% object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-%% end.rcode
-
-%% begin.rcode
-% BetaDelta(object, type = "mvn")
-% BetaDelta(object, type = "adf")
-% out <- BetaDelta(object, type = "mvn")
-% print(out)
-% summary(out)
-% coef(out)
-% vcov(out)
-% confint(out)
-% out <- BetaDelta(object, type = "adf")
-% print(out)
-% summary(out)
-% coef(out)
-% vcov(out)
-% confint(out)
-%% end.rcode
-
-%% begin.rcode
-% BetaDelta(object, type = "mvn")
-% BetaDelta(object, type = "adf")
-% out <- rsq(BetaDelta(object, type = "mvn"))
-% print(out)
-% summary(out)
-% coef(out)
-% vcov(out)
-% confint(out)
-% out <- rsq(BetaDelta(object, type = "adf"))
-% print(out)
-% summary(out)
-% coef(out)
-% vcov(out)
-% confint(out)
-%% end.rcode
-
-%% begin.rcode
-% BetaDelta(object, type = "mvn")
-% BetaDelta(object, type = "adf")
-% out <- dif(BetaDelta(object, type = "mvn"))
-% print(out)
-% summary(out)
-% coef(out)
-% vcov(out)
-% confint(out)
-% out <- dif(BetaDelta(object, type = "adf"))
-% print(out)
-% summary(out)
-% coef(out)
-% vcov(out)
-% confint(out)
-%% end.rcode
-
 \nocite{Lib-R-Manual-2022}
 
 \printbibliography

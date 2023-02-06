@@ -1,4 +1,4 @@
-## ---- test-betaDelta-beta-mvn
+## ---- test-betaDelta-beta-delta-mvn
 lapply(
   X = 1,
   FUN = function(i,
@@ -44,6 +44,6 @@ lapply(
     )
   },
   tol = 0.0001,
-  text = "test-betaDelta-beta-mvn"
+  text = "test-betaDelta-beta-delta-mvn"
 )
 # This test compares the results of the package with Dudgeon (2017)

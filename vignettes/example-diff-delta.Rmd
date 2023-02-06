@@ -15,14 +15,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-In this example, a multiple regression model is fitted
-using program quality ratings (`QUALITY`) as the regressand/outcome variable
-and number of published articles attributed to the program faculty members (`NARTIC`),
-percent of faculty members holding research grants (`PCTGRT`), and
-percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
-using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982).
-Confidence intervals for differences of standardized regression slopes are generated
-using the `dif()` method from the `betaDelta` package.
+Confidence intervals for
+differences of standardized regression slopes
+are generated using
+the `dif()` method from the `betaDelta` package.
+In this example,
+we use the data set and the model used in
+[betaDelta: Example using BetaDelta](example-beta-delta.html).
 
 ```{r}
 #| message = FALSE

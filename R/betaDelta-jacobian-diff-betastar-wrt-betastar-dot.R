@@ -3,19 +3,25 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param x Numeric vector.
-#'   Half-vectorization of the covariance matrix of
-#'   \eqn{\left\{ Y, X_{1}, \dots, X_{p} \right\}^{\prime}}.
+#' @param p positive integer.
+#'   Number of regressors.
 #'
 #' @return Returns a matrix.
 #' @family Beta Delta Functions
 #' @keywords betaDelta derivatives internal
 #' @noRd
-.JacobianDiffBetastar <- function(x) {
-  return(
-    numDeriv::jacobian(
-      func = .DiffBeta,
-      x = x
-    )
+.JacobianDiffBetastar <- function(p) {
+  idx <- utils::combn(seq_len(p), 2)
+  q <- dim(idx)[2]
+  out <- matrix(
+    data = 0,
+    nrow = q,
+    ncol = p
   )
+  for (i in seq_len(q)) {
+    j <- idx[, i]
+    out[i, j[1]] <- 1
+    out[i, j[2]] <- -1
+  }
+  return(out)
 }
