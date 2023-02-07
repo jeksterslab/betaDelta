@@ -138,7 +138,7 @@ confint.betadelta <- function(object,
                               level = 0.95,
                               ...) {
   if (is.null(parm)) {
-    parm <- 1:object$lm_process$p
+    parm <- seq_len(object$lm_process$p)
   }
   return(
     .BetaCI(
