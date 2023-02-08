@@ -69,7 +69,7 @@ std_adf <- BetaDelta(object, type = "adf")
 
 ## Methods
 
-### diff
+### dif
 
 ```{r}
 mvn <- dif(std_mvn)
