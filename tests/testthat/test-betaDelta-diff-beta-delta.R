@@ -28,7 +28,14 @@ lapply(
                 0.4951 - 0.3915,
                 0.4951 - 0.2632,
                 0.3915 - 0.2632
-              ) - mvn$est
+              ) - coef(mvn)
+            ) <= tol
+          )
+        )
+        testthat::expect_true(
+          all(
+            abs(
+              coef(mvn) - mvn$est
             ) <= tol
           )
         )
@@ -44,7 +51,14 @@ lapply(
                 0.4951 - 0.3915,
                 0.4951 - 0.2632,
                 0.3915 - 0.2632
-              ) - adf$est
+              ) - coef(adf)
+            ) <= tol
+          )
+        )
+        testthat::expect_true(
+          all(
+            abs(
+              coef(adf) - adf$est
             ) <= tol
           )
         )

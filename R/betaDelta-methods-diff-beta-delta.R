@@ -2,11 +2,6 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param x Object of class `difbetadelta`.
-#' @param ... additional arguments.
-#' @param alpha Significance level.
-#' @param digits Digits to print.
-#'
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
@@ -14,6 +9,11 @@
 #'   p-values,
 #'   and
 #'   confidence intervals.
+#'
+#' @param x Object of class `difbetadelta`.
+#' @param ... additional arguments.
+#' @param alpha Significance level.
+#' @param digits Digits to print.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -46,11 +46,6 @@ print.difbetadelta <- function(x,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `difbetadelta`.
-#' @param ... additional arguments.
-#' @param alpha Significance level.
-#' @param digits Digits to print.
-#'
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
@@ -58,6 +53,11 @@ print.difbetadelta <- function(x,
 #'   p-values,
 #'   and
 #'   confidence intervals.
+#'
+#' @param object Object of class `difbetadelta`.
+#' @param ... additional arguments.
+#' @param alpha Significance level.
+#' @param digits Digits to print.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -91,12 +91,12 @@ summary.difbetadelta <- function(object,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `difbetadelta`.
-#' @param ... additional arguments.
-#'
 #' @return Returns a matrix of the
 #'   variance-covariance matrix
 #'   of differences of standardized regression slopes.
+#'
+#' @param object Object of class `difbetadelta`.
+#' @param ... additional arguments.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -116,10 +116,10 @@ vcov.difbetadelta <- function(object,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @return Returns a vector of differences of standardized regression slopes.
+#'
 #' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
-#'
-#' @return Returns a vector of differences of standardized regression slopes.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -140,6 +140,8 @@ coef.difbetadelta <- function(object,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @return Returns a matrix of confidence intervals.
+#'
 #' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
 #' @param parm a specification of which parameters
@@ -147,8 +149,6 @@ coef.difbetadelta <- function(object,
 #'   either a vector of numbers or a vector of names.
 #'   If missing, all parameters are considered.
 #' @param level the confidence level required.
-#'
-#' @return Returns a matrix of confidence intervals.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)

@@ -4,22 +4,23 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns an object of class `betadelta`
-#' which is a list with the following elements:
-#' \describe{
-#'   \item{call}{Function call.}
-#'   \item{lm}{Object of class `lm`.}
-#'   \item{lm_process}{Pre-processed object of class `lm`.}
-#'   \item{type}{Standard error type.}
-#'   \item{gamma}{Asymptotic covariance matrix of the sample covariance matrix.}
-#'   \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
-#'   \item{vcov}{Sampling covariance matrix of the standardized slopes.}
-#'   \item{est}{Vector of standardized slopes.}
-#' }
+#'   which is a list with the following elements:
+#'   \describe{
+#'     \item{call}{Function call.}
+#'     \item{lm}{Object of class `lm`.}
+#'     \item{lm_process}{Pre-processed object of class `lm`.}
+#'     \item{type}{Standard error type.}
+#'     \item{gamma}{Asymptotic covariance matrix of the sample covariance matrix.}
+#'     \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
+#'     \item{vcov}{Sampling covariance matrix of the standardized slopes.}
+#'     \item{est}{Vector of standardized slopes.}
+#'   }
 #'
 #' @param object Object of class `lm`.
 #' @param type Character string.
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
 #'   If `type = "adf"`, use the asymptotic distribution-free approach.
+#'
 #' @references
 #' Jones, J. A., & Waller, N. G. (2015).
 #' The normal-theory and asymptotic distribution-free (ADF) covariance matrix
@@ -32,6 +33,7 @@
 #' Biases and standard errors of standardized regression coefficients.
 #' *Psychometrika*, *76*(4), 670–690.
 #' \doi{10.1007/s11336-011-9224-6}
+#'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)

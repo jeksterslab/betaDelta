@@ -2,11 +2,6 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param x Object of class `betadelta`.
-#' @param ... additional arguments.
-#' @param alpha Significance level.
-#' @param digits Digits to print.
-#'
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
@@ -14,6 +9,11 @@
 #'   p-values,
 #'   and
 #'   confidence intervals.
+#'
+#' @param x Object of class `betadelta`.
+#' @param ... additional arguments.
+#' @param alpha Significance level.
+#' @param digits Digits to print.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -47,11 +47,6 @@ print.betadelta <- function(x,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `betadelta`.
-#' @param ... additional arguments.
-#' @param alpha Significance level.
-#' @param digits Digits to print.
-#'
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
@@ -59,6 +54,11 @@ print.betadelta <- function(x,
 #'   p-values,
 #'   and
 #'   confidence intervals.
+#'
+#' @param object Object of class `betadelta`.
+#' @param ... additional arguments.
+#' @param alpha Significance level.
+#' @param digits Digits to print.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -92,12 +92,12 @@ summary.betadelta <- function(object,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @param object Object of class `betadelta`.
-#' @param ... additional arguments.
-#'
 #' @return Returns a matrix of the
 #'   variance-covariance matrix
 #'   of standardized slopes.
+#'
+#' @param object Object of class `betadelta`.
+#' @param ... additional arguments.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -116,10 +116,10 @@ vcov.betadelta <- function(object,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @return Returns a vector of standardized regression slopes.
+#'
 #' @param object Object of class `betadelta`.
 #' @param ... additional arguments.
-#'
-#' @return Returns a vector of standardized regression slopes.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -138,6 +138,8 @@ coef.betadelta <- function(object,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @return Returns a matrix of confidence intervals.
+#'
 #' @param object Object of class `betadelta`.
 #' @param ... additional arguments.
 #' @param parm a specification of which parameters
@@ -145,8 +147,6 @@ coef.betadelta <- function(object,
 #'   either a vector of numbers or a vector of names.
 #'   If missing, all parameters are considered.
 #' @param level the confidence level required.
-#'
-#' @return Returns a matrix of confidence intervals.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
