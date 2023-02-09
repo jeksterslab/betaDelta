@@ -1,10 +1,11 @@
-#' Asymptotic Covariance Matrix of the Sample Covariance Matrix
+#' Asymptotic Covariance Matrix of the
+#' Sample Covariance Matrix
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix.
 #'
-#' @param x Object.
+#' @param object Object.
 #'   Result of `.ProcessLM()`.
 #' @param type Character string.
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
@@ -13,33 +14,33 @@
 #' @family Beta Delta Functions
 #' @keywords betaDelta gamma internal
 #' @noRd
-.Gamma <- function(x,
+.Gamma <- function(object,
                    type) {
   if (type == "adf") {
     gammacapmvn_consistent <- .GammaN(
-      sigmacap = x$sigmacap_consistent,
-      pinv_of_dcap = x$pinv_of_dcap
+      sigmacap = object$sigmacap_consistent,
+      pinv_of_dcap = object$pinv_of_dcap
     )
     gammacap <- .GammaADFUnbiased(
       gammacapadf_consistent = .GammaADFConsistent(
         d = .DofMat(
-          x$x,
-          center = colMeans(x$x),
-          n = x$n,
-          k = x$k
+          object$x,
+          center = colMeans(object$x),
+          n = object$n,
+          k = object$k
         ),
-        vechsigmacap_consistent = x$vechsigmacap_consistent,
-        n = x$n
+        vechsigmacap_consistent = object$vechsigmacap_consistent,
+        n = object$n
       ),
       gammacapmvn_consistent = gammacapmvn_consistent,
-      vechsigmacap_consistent = x$vechsigmacap_consistent,
-      n = x$n
+      vechsigmacap_consistent = object$vechsigmacap_consistent,
+      n = object$n
     )
   }
   if (type == "mvn") {
     gammacap <- .GammaN(
-      sigmacap = x$sigmacap,
-      pinv_of_dcap = x$pinv_of_dcap
+      sigmacap = object$sigmacap,
+      pinv_of_dcap = object$pinv_of_dcap
     )
   }
   return(gammacap)

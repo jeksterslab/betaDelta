@@ -7,11 +7,11 @@ dif.betadelta <- function(object, # nolint: object_name_linter
     stop("Two or more regressors is required.")
   }
   est <- object$lm_process$dif_betastar
-  acov <- .ACov(
+  acov <- .ACovDelta(
     jcap = .JacobianDiffBetastar(
       p = object$lm_process$p
     ),
-    gammacap = object$acov
+    acov = object$acov
   )
   colnames(acov) <- rownames(acov) <- names(object$lm_process$dif_betastar)
   vcov <- (1 / object$lm_process$n) * acov

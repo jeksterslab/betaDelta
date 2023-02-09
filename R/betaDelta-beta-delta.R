@@ -15,6 +15,7 @@
 #'   \item{vcov}{Sampling covariance matrix of the standardized slopes.}
 #'   \item{est}{Vector of standardized slopes.}
 #' }
+#'
 #' @param object Object of class `lm`.
 #' @param type Character string.
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
@@ -60,10 +61,10 @@ BetaDelta <- function(object,
   )
   lm_process <- .ProcessLM(object)
   gamma <- .Gamma(
-    x = lm_process,
+    object = lm_process,
     type = type
   )
-  acov <- .ACov(
+  acov <- .ACovDelta(
     jcap = .JacobianBetastarWRTVechSigma(
       beta = lm_process$beta,
       sigmay = sqrt(lm_process$sigmacap[1, 1]),
@@ -80,7 +81,7 @@ BetaDelta <- function(object,
       p = lm_process$p,
       k = lm_process$k
     ),
-    gammacap = gamma
+    acov = gamma
   )
   colnames(acov) <- rownames(acov) <- lm_process$xnames
   vcov <- (1 / lm_process$n) * acov

@@ -1,8 +1,15 @@
-#' Confidence Intervals for Differences of Standardized Regression Slopes
+#' Confidence Intervals for
+#' Differences of Standardized Regression Coefficients
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Returns a matrix.
+#' @return Returns a matrix of
+#'   differences of standardized regression slopes,
+#'   standard errors,
+#'   test statistics,
+#'   p-values,
+#'   and
+#'   confidence intervals.
 #'
 #' @param object Object of class `difbetadelta`.
 #' @param alpha Numeric vector.
@@ -25,7 +32,8 @@
       se = sqrt(diag(object$vcov)),
       theta = 0,
       alpha = alpha,
-      z = TRUE
+      z = FALSE,
+      df = object$fit$lm_process$df
     )
   )
 }

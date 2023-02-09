@@ -16,8 +16,9 @@ lapply(
     }
     df <- nas1982
     object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-    coefs <- coef(BetaDelta(object, type = "adf"))
-    adf <- .BetaCI(BetaDelta(object, type = "adf"))
+    delta <- BetaDelta(object, type = "adf")
+    coefs <- coef(delta)
+    adf <- summary(delta)
     testthat::test_that(
       paste(text, "coefs"),
       {
@@ -31,12 +32,19 @@ lapply(
       }
     )
     testthat::test_that(
-      paste(text, "adf"),
+      paste(text, "se"),
       {
         testthat::expect_true(
           all(
             abs(
               adf[, "se"] - c(0.0674, 0.0710, 0.0769)
+            ) <= tol
+          )
+        )
+        testthat::expect_true(
+          all(
+            abs(
+              sqrt(diag(vcov(delta))) - adf[, "se"]
             ) <= tol
           )
         )

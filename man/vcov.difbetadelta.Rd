@@ -13,7 +13,8 @@ Differences of Standardized Regression Slopes}
 \item{...}{additional arguments.}
 }
 \value{
-Returns a matrix of the variance-covariance matrix
+Returns a matrix of the
+variance-covariance matrix
 of differences of standardized regression slopes.
 }
 \description{

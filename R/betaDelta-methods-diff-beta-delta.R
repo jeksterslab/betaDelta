@@ -6,8 +6,15 @@
 #' @param ... additional arguments.
 #' @param alpha Significance level.
 #' @param digits Digits to print.
-#' @return Returns a matrix of standardized regression slopes,
-#'   standard errors, test statistics, p-values, and confidence intervals.
+#'
+#' @return Returns a matrix of
+#'   standardized regression slopes,
+#'   standard errors,
+#'   test statistics,
+#'   p-values,
+#'   and
+#'   confidence intervals.
+#'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
@@ -43,8 +50,15 @@ print.difbetadelta <- function(x,
 #' @param ... additional arguments.
 #' @param alpha Significance level.
 #' @param digits Digits to print.
-#' @return Returns a matrix of standardized regression slopes,
-#'   standard errors, test statistics, p-values, and confidence intervals.
+#'
+#' @return Returns a matrix of
+#'   standardized regression slopes,
+#'   standard errors,
+#'   test statistics,
+#'   p-values,
+#'   and
+#'   confidence intervals.
+#'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
@@ -79,8 +93,11 @@ summary.difbetadelta <- function(object,
 #'
 #' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
-#' @return Returns a matrix of the variance-covariance matrix
+#'
+#' @return Returns a matrix of the
+#'   variance-covariance matrix
 #'   of differences of standardized regression slopes.
+#'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
@@ -101,7 +118,9 @@ vcov.difbetadelta <- function(object,
 #'
 #' @param object Object of class `difbetadelta`.
 #' @param ... additional arguments.
+#'
 #' @return Returns a vector of differences of standardized regression slopes.
+#'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
@@ -128,7 +147,9 @@ coef.difbetadelta <- function(object,
 #'   either a vector of numbers or a vector of names.
 #'   If missing, all parameters are considered.
 #' @param level the confidence level required.
+#'
 #' @return Returns a matrix of confidence intervals.
+#'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
