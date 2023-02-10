@@ -1,9 +1,9 @@
 ---
-title: "betaDelta: Example using the dif Method"
+title: "betaDelta: Example Using the DiffBetaDelta Function"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betaDelta: Example using the dif Method}
+  %\VignetteIndexEntry{betaDelta: Example Using the DiffBetaDelta Function}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,10 +18,10 @@ knitr::opts_chunk$set(
 Confidence intervals for
 differences of standardized regression slopes
 are generated using
-the `dif()` method from the `betaDelta` package.
+the `DiffBetaDelta()` function from the `betaDelta` package.
 In this example,
 we use the data set and the model used in
-[betaDelta: Example using BetaDelta](example-beta-delta.html).
+[betaDelta: Example Using the BetaDelta Function](example-beta-delta.html).
 
 ```{r}
 #| message = FALSE
@@ -67,18 +67,16 @@ std_mvn <- BetaDelta(object, type = "mvn")
 std_adf <- BetaDelta(object, type = "adf")
 ```
 
-## Methods
-
-### dif
+## Estimate differences of standardized regression slopes and the corresponding sampling covariance matrix.
 
 ```{r}
-mvn <- dif(std_mvn)
-adf <- dif(std_adf)
+mvn <- DiffBetaDelta(std_mvn)
+adf <- DiffBetaDelta(std_adf)
 ```
 
 ### summary
 
-Summary of the results of `dif()`.
+Summary of the results of `DiffBetaDelta()`.
 
 ```{r}
 summary(mvn)

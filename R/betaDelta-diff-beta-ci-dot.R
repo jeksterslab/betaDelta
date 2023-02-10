@@ -16,14 +16,14 @@
 #'   Significance level.
 #'
 #' @family Beta Delta Functions
-#' @keywords betaDelta dif ci internal
+#' @keywords betaDelta diff ci internal
 #' @noRd
 .DiffBetaCI <- function(object,
                         alpha = c(0.05, 0.01, 0.001)) {
   stopifnot(
     methods::is(
       object,
-      "difbetadelta"
+      "diffbetadelta"
     )
   )
   return(

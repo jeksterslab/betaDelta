@@ -2,7 +2,7 @@
 
 Latest development version.
 
-* Added the `dif` method.
+* Added the `DiffBetaDelta` function.
 
 # betaDelta 1.0.0
 

@@ -16,8 +16,8 @@ lapply(
     }
     df <- nas1982
     object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-    mvn <- dif(BetaDelta(object, type = "mvn"))
-    adf <- dif(BetaDelta(object, type = "adf"))
+    mvn <- DiffBetaDelta(BetaDelta(object, type = "mvn"))
+    adf <- DiffBetaDelta(BetaDelta(object, type = "adf"))
     testthat::test_that(
       paste(text, "mvn", "multiple regression"),
       {
@@ -69,7 +69,7 @@ lapply(
       paste(text, "mvn", "simple regression"),
       {
         testthat::expect_error(
-          dif(BetaDelta(object, type = "mvn"))
+          DiffBetaDelta(BetaDelta(object, type = "mvn"))
         )
       }
     )
@@ -77,7 +77,7 @@ lapply(
       paste(text, "adf", "simple regression"),
       {
         testthat::expect_error(
-          dif(BetaDelta(object, type = "adf"))
+          DiffBetaDelta(BetaDelta(object, type = "adf"))
         )
       }
     )

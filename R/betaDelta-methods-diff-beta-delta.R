@@ -1,4 +1,4 @@
-#' Print Method for an Object of Class `difbetadelta`
+#' Print Method for an Object of Class `diffbetadelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -10,7 +10,7 @@
 #'   and
 #'   confidence intervals.
 #'
-#' @param x Object of class `difbetadelta`.
+#' @param x Object of class `diffbetadelta`.
 #' @param ... additional arguments.
 #' @param alpha Significance level.
 #' @param digits Digits to print.
@@ -18,14 +18,14 @@
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' out <- dif(std)
-#' print(out)
+#' diff <- DiffBetaDelta(std)
+#' print(diff)
 #' @export
 #' @keywords methods
-print.difbetadelta <- function(x,
-                               alpha = c(0.05, 0.01, 0.001),
-                               digits = 4,
-                               ...) {
+print.diffbetadelta <- function(x,
+                                alpha = c(0.05, 0.01, 0.001),
+                                digits = 4,
+                                ...) {
   cat(
     "Difference between standardized regression coefficients with",
     toupper(x$fit$type),
@@ -42,7 +42,7 @@ print.difbetadelta <- function(x,
   )
 }
 
-#' Summary Method for an Object of Class `difbetadelta`
+#' Summary Method for an Object of Class `diffbetadelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -54,7 +54,7 @@ print.difbetadelta <- function(x,
 #'   and
 #'   confidence intervals.
 #'
-#' @param object Object of class `difbetadelta`.
+#' @param object Object of class `diffbetadelta`.
 #' @param ... additional arguments.
 #' @param alpha Significance level.
 #' @param digits Digits to print.
@@ -62,14 +62,14 @@ print.difbetadelta <- function(x,
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' out <- dif(std)
-#' summary(out)
+#' diff <- DiffBetaDelta(std)
+#' summary(diff)
 #' @export
 #' @keywords methods
-summary.difbetadelta <- function(object,
-                                 alpha = c(0.05, 0.01, 0.001),
-                                 digits = 4,
-                                 ...) {
+summary.diffbetadelta <- function(object,
+                                  alpha = c(0.05, 0.01, 0.001),
+                                  digits = 4,
+                                  ...) {
   cat(
     "Difference between standardized regression coefficients with",
     toupper(object$fit$type),
@@ -95,18 +95,18 @@ summary.difbetadelta <- function(object,
 #'   variance-covariance matrix
 #'   of differences of standardized regression slopes.
 #'
-#' @param object Object of class `difbetadelta`.
+#' @param object Object of class `diffbetadelta`.
 #' @param ... additional arguments.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' out <- dif(std)
-#' vcov(out)
+#' diff <- DiffBetaDelta(std)
+#' vcov(diff)
 #' @export
 #' @keywords methods
-vcov.difbetadelta <- function(object,
-                              ...) {
+vcov.diffbetadelta <- function(object,
+                               ...) {
   return(
     object$vcov
   )
@@ -118,18 +118,18 @@ vcov.difbetadelta <- function(object,
 #'
 #' @return Returns a vector of differences of standardized regression slopes.
 #'
-#' @param object Object of class `difbetadelta`.
+#' @param object Object of class `diffbetadelta`.
 #' @param ... additional arguments.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' out <- dif(std)
-#' coef(out)
+#' diff <- DiffBetaDelta(std)
+#' coef(diff)
 #' @export
 #' @keywords methods
-coef.difbetadelta <- function(object,
-                              ...) {
+coef.diffbetadelta <- function(object,
+                               ...) {
   return(
     object$est
   )
@@ -142,7 +142,7 @@ coef.difbetadelta <- function(object,
 #'
 #' @return Returns a matrix of confidence intervals.
 #'
-#' @param object Object of class `difbetadelta`.
+#' @param object Object of class `diffbetadelta`.
 #' @param ... additional arguments.
 #' @param parm a specification of which parameters
 #'   are to be given confidence intervals,
@@ -153,14 +153,14 @@ coef.difbetadelta <- function(object,
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' out <- dif(std)
-#' confint(out, level = 0.95)
+#' diff <- DiffBetaDelta(std)
+#' confint(diff)
 #' @export
 #' @keywords methods
-confint.difbetadelta <- function(object,
-                                 parm = NULL,
-                                 level = 0.95,
-                                 ...) {
+confint.diffbetadelta <- function(object,
+                                  parm = NULL,
+                                  level = 0.95,
+                                  ...) {
   if (is.null(parm)) {
     parm <- seq_len(
       length(object$est)

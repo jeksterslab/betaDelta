@@ -1,9 +1,9 @@
 ---
-title: "betaDelta: Example using BetaDelta"
+title: "betaDelta: Example Using the BetaDelta Function"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betaDelta: Example using BetaDelta}
+  %\VignetteIndexEntry{betaDelta: Example Using the BetaDelta Function}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

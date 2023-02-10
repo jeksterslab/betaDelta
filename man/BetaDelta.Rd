@@ -36,19 +36,12 @@ and Sampling Covariance Matrix
 \examples{
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 std <- BetaDelta(object)
-# Methods ----------------------------------------------------
+# Methods -------------------------------------------------------
 print(std)
 summary(std)
 coef(std)
 vcov(std)
 confint(std, level = 0.95)
-## Differences of standardized regression coefficients -------
-out <- dif(std)
-print(out)
-summary(out)
-coef(out)
-vcov(out)
-confint(out, level = 0.95)
 }
 \references{
 Jones, J. A., & Waller, N. G. (2015).
@@ -62,6 +55,10 @@ Yuan, K.-H., & Chan, W. (2011).
 Biases and standard errors of standardized regression coefficients.
 \emph{Psychometrika}, \emph{76}(4), 670–690.
 \doi{10.1007/s11336-011-9224-6}
+}
+\seealso{
+Other Beta Delta Functions: 
+\code{\link{DiffBetaDelta}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

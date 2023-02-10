@@ -38,19 +38,12 @@
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' # Methods ----------------------------------------------------
+#' # Methods -------------------------------------------------------
 #' print(std)
 #' summary(std)
 #' coef(std)
 #' vcov(std)
 #' confint(std, level = 0.95)
-#' ## Differences of standardized regression coefficients -------
-#' out <- dif(std)
-#' print(out)
-#' summary(out)
-#' coef(out)
-#' vcov(out)
-#' confint(out, level = 0.95)
 #' @export
 #' @family Beta Delta Functions
 #' @keywords betaDelta
