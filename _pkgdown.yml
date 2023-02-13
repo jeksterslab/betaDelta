@@ -5,9 +5,12 @@ template:
   bootstrap: 5
 
 reference:
-- title: Functions
+- title: Standardized Regression Coefficients
   contents:
-  - has_concept("Beta Delta Functions")
+  - has_keyword("std")
+- title: Differences of Standardized Regression Coefficients
+  contents:
+  - has_keyword("diff")
 - title: Methods
   contents:
   - has_keyword("methods")

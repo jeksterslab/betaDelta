@@ -3,7 +3,7 @@
 \name{BetaDelta}
 \alias{BetaDelta}
 \title{Estimate Standardized Regression Coefficients
-and Sampling Covariance Matrix}
+and the Corresponding Sampling Covariance Matrix}
 \usage{
 BetaDelta(object, type = "mvn")
 }
@@ -31,7 +31,7 @@ of the sample covariance matrix.}
 }
 \description{
 Estimate Standardized Regression Coefficients
-and Sampling Covariance Matrix
+and the Corresponding Sampling Covariance Matrix
 }
 \examples{
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -65,3 +65,4 @@ Ivan Jacob Agaloos Pesigan
 }
 \concept{Beta Delta Functions}
 \keyword{betaDelta}
+\keyword{std}

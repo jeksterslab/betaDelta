@@ -1,5 +1,5 @@
 #' Estimate Standardized Regression Coefficients
-#' and Sampling Covariance Matrix
+#' and the Corresponding Sampling Covariance Matrix
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -46,7 +46,7 @@
 #' confint(std, level = 0.95)
 #' @export
 #' @family Beta Delta Functions
-#' @keywords betaDelta
+#' @keywords betaDelta std
 BetaDelta <- function(object,
                       type = "mvn") {
   stopifnot(
