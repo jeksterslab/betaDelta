@@ -7,9 +7,8 @@
 #'   which is a list with the following elements:
 #'   \describe{
 #'     \item{call}{Function call.}
-#'     \item{lm}{Object of class `lm`.}
-#'     \item{lm_process}{Pre-processed object of class `lm`.}
-#'     \item{type}{Standard error type.}
+#'     \item{args}{Function arguments.}
+#'     \item{lm_process}{Processed `lm` object.}
 #'     \item{gamma}{Asymptotic covariance matrix
 #'       of the sample covariance matrix.}
 #'     \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
@@ -83,9 +82,11 @@ BetaDelta <- function(object,
   vcov <- (1 / lm_process$n) * acov
   out <- list(
     call = match.call(),
-    lm = object,
+    args = list(
+      object = object,
+      type = type
+    ),
     lm_process = lm_process,
-    type = type,
     gamma = gamma,
     acov = acov,
     vcov = vcov,

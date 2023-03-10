@@ -19,9 +19,8 @@ Returns an object of class \code{betadelta}
 which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
-\item{lm}{Object of class \code{lm}.}
-\item{lm_process}{Pre-processed object of class \code{lm}.}
-\item{type}{Standard error type.}
+\item{args}{Function arguments.}
+\item{lm_process}{Processed \code{lm} object.}
 \item{gamma}{Asymptotic covariance matrix
 of the sample covariance matrix.}
 \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
