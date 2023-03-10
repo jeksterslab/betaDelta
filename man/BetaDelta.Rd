@@ -11,20 +11,24 @@ BetaDelta(object, type = "mvn")
 \item{object}{Object of class \code{lm}.}
 
 \item{type}{Character string.
-If \code{type = "mvn"}, use the multivariate normal-theory approach.
-If \code{type = "adf"}, use the asymptotic distribution-free approach.}
+If \code{type = "mvn"},
+use the multivariate normal-theory approach.
+If \code{type = "adf"},
+use the asymptotic distribution-free approach.}
 }
 \value{
-Returns an object of class \code{betadelta}
-which is a list with the following elements:
+Returns an object
+of class \code{betadelta} which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
 \item{args}{Function arguments.}
 \item{lm_process}{Processed \code{lm} object.}
 \item{gamma}{Asymptotic covariance matrix
 of the sample covariance matrix.}
-\item{acov}{Asymptotic covariance matrix of the standardized slopes.}
-\item{vcov}{Sampling covariance matrix of the standardized slopes.}
+\item{acov}{Asymptotic covariance matrix
+of the standardized slopes.}
+\item{vcov}{Sampling covariance matrix
+of the standardized slopes.}
 \item{est}{Vector of standardized slopes.}
 }
 }

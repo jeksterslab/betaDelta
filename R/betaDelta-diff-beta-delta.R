@@ -3,8 +3,8 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Returns an object of class `diffbetadelta`
-#'   which is a list with the following elements:
+#' @return Returns an object
+#'   of class `diffbetadelta` which is a list with the following elements:
 #'   \describe{
 #'     \item{fit}{The argument `object`.}
 #'     \item{vcov}{Sampling covariance matrix of

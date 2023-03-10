@@ -3,23 +3,27 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Returns an object of class `betadelta`
-#'   which is a list with the following elements:
+#' @return Returns an object
+#'   of class `betadelta` which is a list with the following elements:
 #'   \describe{
 #'     \item{call}{Function call.}
 #'     \item{args}{Function arguments.}
 #'     \item{lm_process}{Processed `lm` object.}
 #'     \item{gamma}{Asymptotic covariance matrix
 #'       of the sample covariance matrix.}
-#'     \item{acov}{Asymptotic covariance matrix of the standardized slopes.}
-#'     \item{vcov}{Sampling covariance matrix of the standardized slopes.}
+#'     \item{acov}{Asymptotic covariance matrix
+#'       of the standardized slopes.}
+#'     \item{vcov}{Sampling covariance matrix
+#'       of the standardized slopes.}
 #'     \item{est}{Vector of standardized slopes.}
 #'   }
 #'
 #' @param object Object of class `lm`.
 #' @param type Character string.
-#'   If `type = "mvn"`, use the multivariate normal-theory approach.
-#'   If `type = "adf"`, use the asymptotic distribution-free approach.
+#'   If `type = "mvn"`,
+#'   use the multivariate normal-theory approach.
+#'   If `type = "adf"`,
+#'   use the asymptotic distribution-free approach.
 #'
 #' @references
 #' Jones, J. A., & Waller, N. G. (2015).
