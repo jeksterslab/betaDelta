@@ -9,16 +9,16 @@ author <- c(
            role = c("aut", "cre", "cph"),
            email = "r.jeksterslab@gmail.com",
            comment = c(ORCID = "0000-0003-4818-8420")),
-    person(given = "Shu Fai",
-           family = "Cheung",
-           role = "ctb",
-           email = "shufai.cheung@gmail.com",
-           comment = c(ORCID = "0000-0002-9871-9448")),
     person(given = "Rongwei", 
            family = "Sun", 
            role = "ctb",
            email = "irissun_s@hotmail.com", 
-           comment = c(ORCID = "0000-0003-0034-1422"))
+           comment = c(ORCID = "0000-0003-0034-1422")),
+    person(given = "Shu Fai",
+           family = "Cheung",
+           role = "ctb",
+           email = "shufai.cheung@gmail.com",
+           comment = c(ORCID = "0000-0002-9871-9448"))
     )
 
 bibentry(
