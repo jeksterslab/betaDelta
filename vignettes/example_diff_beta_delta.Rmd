@@ -21,7 +21,7 @@ are generated using
 the `DiffBetaDelta()` function from the `betaDelta` package.
 In this example,
 we use the data set and the model used in
-[betaDelta: Example Using the BetaDelta Function](example-beta-delta.html).
+[betaDelta: Example Using the BetaDelta Function](example_beta_delta.html).
 
 ```{r}
 #| message = FALSE
