@@ -36,7 +36,7 @@ bibentry(
     author_text, " ",
     "(", "In Press", ")", ".", " ",
     title, ".", " ",
-    "Multivariate Behavioral Research", " "
+    "Multivariate Behavioral Research", ".", " "
   ),
   header = paste(
     "To cite",

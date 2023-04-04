@@ -51,6 +51,10 @@ Theoretical extensions and finite sample behavior.
 *Psychometrika*, *80*(2), 365–378.
 https://doi.org/10.1007/s11336-013-9380-y
 
+Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (In Press).
+betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R.
+*Multivariate Behavioral Research*.
+
 Yuan, K.-H., & Chan, W. (2011).
 Biases and standard errors of standardized regression coefficients.
 *Psychometrika*, *76*(4), 670–690.

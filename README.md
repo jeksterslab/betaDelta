@@ -114,6 +114,10 @@ programs in the United States: Social and behavioral sciences*.
 National Academy of Sciences, Courtesy of the National Academies Press,
 Washington, D.C.
 
+Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (In Press). betaDelta and
+betaSandwich: Confidence intervals for standardized regression
+coefficients in R. *Multivariate Behavioral Research*.
+
 Yuan, K.-H., & Chan, W. (2011). Biases and standard errors of
 standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 <https://doi.org/10.1007/s11336-011-9224-6>
