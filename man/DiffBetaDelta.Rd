@@ -16,6 +16,7 @@ the output of the \code{BetaDelta()} function.}
 Returns an object
 of class \code{diffbetadelta} which is a list with the following elements:
 \describe{
+\item{call}{Function call.}
 \item{fit}{The argument \code{object}.}
 \item{vcov}{Sampling covariance matrix of
 differences of standardized slopes.}

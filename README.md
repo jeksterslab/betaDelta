@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2023-03-12
+2023-04-04
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -22,7 +22,9 @@ Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by `lm()` as
 described in Yuan and Chan (2011:
 <http://doi.org/10.1007/s11336-011-9224-6>) and Jones and Waller (2015:
-<http://doi.org/10.1007/s11336-013-9380-y>).
+<http://doi.org/10.1007/s11336-013-9380-y>). A description of the
+package and code examples are presented in Pesigan, Sun, and Cheung (In
+Press: Multivariate Behavioral Research).
 
 ## Installation
 

@@ -6,6 +6,7 @@
 #' @return Returns an object
 #'   of class `diffbetadelta` which is a list with the following elements:
 #'   \describe{
+#'     \item{call}{Function call.}
 #'     \item{fit}{The argument `object`.}
 #'     \item{vcov}{Sampling covariance matrix of
 #'       differences of standardized slopes.}
@@ -50,6 +51,7 @@ DiffBetaDelta <- function(object) {
   colnames(acov) <- rownames(acov) <- names(object$lm_process$dif_betastar)
   vcov <- (1 / object$lm_process$n) * acov
   out <- list(
+    call = match.call(),
     fit = object,
     acov = acov,
     vcov = vcov,

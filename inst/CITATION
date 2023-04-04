@@ -21,16 +21,22 @@ author <- c(
            comment = c(ORCID = "0000-0002-9871-9448"))
     )
 
+note <- sprintf(
+  "R package version %s",
+  meta$Version
+)
+
 bibentry(
   bibtype = "Unpublished",
   author = author,
   title = title,
   year = year,
-  note = "Under Review",
+  note = note,
   textVersion = paste0(
     author_text, " ",
-    "(", "Under Review", ")", ".", " ",
-    title, " "
+    "(", "In Press", ")", ".", " ",
+    title, ".", " ",
+    "Multivariate Behavioral Research", " "
   ),
   header = paste(
     "To cite",
