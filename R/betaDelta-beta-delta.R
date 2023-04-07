@@ -33,6 +33,12 @@
 #' *Psychometrika*, *80*(2), 365–378.
 #' \doi{10.1007/s11336-013-9380-y}
 #'
+#' Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
+#' betaDelta and betaSandwich:
+#' Confidence intervals for standardized regression coefficients in R.
+#' *Multivariate Behavioral Research*.
+#' \doi{10.1080/00273171.2023.2201277}
+#'
 #' Yuan, K.-H., & Chan, W. (2011).
 #' Biases and standard errors of standardized regression coefficients.
 #' *Psychometrika*, *76*(4), 670–690.
