@@ -123,6 +123,11 @@ Yuan, K.-H., & Chan, W. (2011). Biases and standard errors of
 standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 <https://doi.org/10.1007/s11336-011-9224-6>
 
+## Other Feature
+
+The package can also be used to generate confidence intervals for
+differences of standardized regression coefficients.
+
 ## Documentation
 
 See [GitHub Pages](https://jeksterslab.github.io/betaDelta/index.html)
