@@ -1,4 +1,4 @@
 library(testthat)
-library(betaDelta)
+library(betaSandwich)
 
-test_check("betaDelta")
+test_check("betaSandwich")

@@ -25,5 +25,5 @@
 ^docs$
 ^latex.*$
 ^make.*$
-^betaDelta.pdf$
+^betaSandwich.pdf$
 ^vignettes$
