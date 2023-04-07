@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\input{latexsrc/preamble/preamble}
+
+%% begin.rcode
+% #| label = "root",
+% #| include = FALSE
+% root <- rprojroot::is_rstudio_project
+%% end.rcode
+
+%% begin.rcode
+% #| label = "knitr",
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   "latexsrc",
+% #|   "r-scripts",
+% #|   "knitr.R"
+% #| )
+%% end.rcode
+
+%% begin.rcode
+% #| label = "biblatex",
+% #| echo = FALSE,
+% #| warning = FALSE,
+% #| results = "asis"
+% cat(
+%   .PreambleBiblatexCombined(
+%     path = root$find_file(
+%       "latexsrc",
+%       "bib"
+%     ),
+%     output_path = root$find_file(
+%       "latexsrc"
+%     )
+%   )
+% )
+%% end.rcode
+
+\title{betaDelta: Confidence Intervals for Standardized Regression Coefficients}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Description}
+
+Generates confidence intervals for standardized regression coefficients
+using delta method standard errors for models fitted by \texttt{lm()}
+as described in \Textcite{Lib-Regression-Standardized-Coefficients-Delta-Yuan-2011}
+and \Textcite{Lib-Regression-Standardized-Coefficients-Delta-Jones-2015}.
+
+\section*{Installation}
+
+You can install the released version of
+\texttt{betaDelta}
+from
+\href{https://github.com/jeksterslab/betaDelta}{GitHub}
+with:
+
+%% begin.rcode
+% #| eval = FALSE
+% install.packages("remotes")
+% remotes::install_github("jeksterslab/betaDelta")
+%% end.rcode
+
+\section*{More Information}
+
+See
+\href{https://jeksterslab.github.io/betaDelta/index.html}{GitHub Pages}
+for package documentation.
+
+\nocite{Lib-R-Manual-2022}
+
+\printbibliography
+
+\end{document}
