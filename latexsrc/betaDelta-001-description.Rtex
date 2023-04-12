@@ -53,15 +53,20 @@ and \Textcite{Lib-Regression-Standardized-Coefficients-Delta-Jones-2015}.
 
 \section*{Installation}
 
-You can install the released version of
-\texttt{betaDelta}
-from
+You can install the CRAN release of \texttt{betaDelta} with:
+
+%% begin.rcode
+% #| eval = FALSE
+% install.packages("betaDelta")
+%% end.rcode
+
+You can install the development version of \texttt{betaDelta} from
 \href{https://github.com/jeksterslab/betaDelta}{GitHub}
 with:
 
 %% begin.rcode
 % #| eval = FALSE
-% install.packages("remotes")
+% if (!require("remotes")) install.packages("remotes")
 % remotes::install_github("jeksterslab/betaDelta")
 %% end.rcode
 
