@@ -1,6 +1,4 @@
-# betaDelta 1.0.0.9000
-
-Latest development version.
+# betaDelta 1.0.1
 
 * Added the `DiffBetaDelta()` function.
 
