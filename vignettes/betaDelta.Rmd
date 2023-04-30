@@ -11,6 +11,7 @@ vignette: >
 <!-- badges: start -->
 [![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
 [![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
+[![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
 [![R-CMD-check](https://github.com/jeksterslab/betaDelta/workflows/R-CMD-check/badge.svg)](https://github.com/jeksterslab/betaDelta/actions)
 [![test-coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml)
 [![lint](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml)
@@ -42,6 +43,75 @@ if (!require("remotes")) install.packages("remotes")
 remotes::install_github("jeksterslab/betaDelta")
 ```
 
+## Example
+
+In this example, a multiple regression model is fitted
+using program quality ratings (`QUALITY`) as the regressand/outcome variable
+and number of published articles attributed to the program faculty members (`NARTIC`),
+percent of faculty members holding research grants (`PCTGRT`), and
+percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
+using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982).
+Confidence intervals for the standardized regression coefficients are generated
+using the `BetaDelta()` function from the `betaDelta` package following Yuan and Chan (2011) and Jones and Waller (2015).
+
+```{r}
+#| message = FALSE
+library(betaDelta)
+```
+
+```{r}
+#| echo = FALSE
+if (!exists("nas1982")) {
+  try(
+    data(
+      "nas1982",
+      package = "betaDelta"
+    ),
+    silent = TRUE
+  )
+}
+df <- nas1982
+```
+
+```{r}
+#| eval = FALSE
+df <- betaDelta::nas1982
+```
+
+### Fit the regression model using the `lm()` function.
+
+```{r}
+object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+```
+
+### Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
+
+#### Multivariate Normal-Theory Approach
+
+```{r}
+BetaDelta(object, type = "mvn")
+```
+
+#### Asymptotic Distribution-Free Approach
+
+```{r}
+BetaDelta(object, type = "adf")
+```
+
+## Other Feature
+
+The package can also be used to generate confidence intervals for
+differences of standardized regression coefficients.
+
+## Citation
+
+To cite `betaDelta` in publications, please use: 
+
+Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
+betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R.
+*Multivariate Behavioral Research*.
+https://doi.org/10.1080/00273171.2023.2201277
+
 ## References
 
 Jones, J. A., & Waller, N. G. (2015).
@@ -50,6 +120,12 @@ of standardized regression coefficients:
 Theoretical extensions and finite sample behavior.
 *Psychometrika*, *80*(2), 365–378.
 https://doi.org/10.1007/s11336-013-9380-y
+
+National Research Council. (1982).
+*An assessment of research-doctorate programs in the United States: Social and behavioral sciences*.
+https://doi.org/10.17226/9781.
+Reproduced with permission from the National Academy of Sciences,
+Courtesy of the National Academies Press, Washington, D.C.
 
 Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
 betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R.
@@ -60,8 +136,3 @@ Yuan, K.-H., & Chan, W. (2011).
 Biases and standard errors of standardized regression coefficients.
 *Psychometrika*, *76*(4), 670–690.
 https://doi.org/10.1007/s11336-011-9224-6
-
-## Other Feature
-
-The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients.

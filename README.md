@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2023-04-26
+2023-04-30
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -10,6 +10,7 @@ Ivan Jacob Agaloos Pesigan
 Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
 [![R-Universe
 Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
+[![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
 [![R-CMD-check](https://github.com/jeksterslab/betaDelta/workflows/R-CMD-check/badge.svg)](https://github.com/jeksterslab/betaDelta/actions)
 [![test-coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml)
 [![lint](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml)
@@ -100,7 +101,21 @@ BetaDelta(object, type = "adf")
 #> PCTSUPP 0.2632 0.0769 3.4231 0.0014 -0.0088 0.0558 0.1081 0.4184 0.4707 0.5353
 ```
 
-### References
+## Other Feature
+
+The package can also be used to generate confidence intervals for
+differences of standardized regression coefficients.
+
+## Citation
+
+To cite `betaDelta` in publications, please use:
+
+Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023). betaDelta and
+betaSandwich: Confidence intervals for standardized regression
+coefficients in R. *Multivariate Behavioral Research*.
+<https://doi.org/10.1080/00273171.2023.2201277>
+
+## References
 
 Jones, J. A., & Waller, N. G. (2015). The normal-theory and asymptotic
 distribution-free (ADF) covariance matrix of standardized regression
@@ -122,11 +137,6 @@ coefficients in R. *Multivariate Behavioral Research*.
 Yuan, K.-H., & Chan, W. (2011). Biases and standard errors of
 standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 <https://doi.org/10.1007/s11336-011-9224-6>
-
-## Other Feature
-
-The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients.
 
 ## Documentation
 

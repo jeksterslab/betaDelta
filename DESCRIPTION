@@ -20,7 +20,9 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.5.0)
-Imports: methods
+Imports:
+    methods,
+    mice
 Suggests:
     knitr,
     rmarkdown,
