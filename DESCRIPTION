@@ -23,5 +23,6 @@ Depends: R (>= 3.5.0)
 Suggests:
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    betaSandwich
 RoxygenNote: 7.2.3
