@@ -65,31 +65,10 @@ BetaDelta <- function(object,
     )
   )
   lm_process <- .ProcessLM(object)
-  gamma <- .Gamma(
-    object = lm_process,
+  std <- .BetaDelta(
+    lm_process = lm_process,
     type = type
   )
-  acov <- .ACovDelta(
-    jcap = .JacobianBetastarWRTVechSigma(
-      beta = lm_process$beta,
-      sigmay = sqrt(lm_process$sigmacap[1, 1]),
-      sigmax = sqrt(diag(lm_process$sigmacap)[-1]),
-      invsigmacapx = chol2inv(
-        chol(
-          lm_process$sigmacap[
-            2:lm_process$k,
-            2:lm_process$k,
-            drop = FALSE
-          ]
-        )
-      ),
-      p = lm_process$p,
-      k = lm_process$k
-    ),
-    acov = gamma
-  )
-  colnames(acov) <- rownames(acov) <- lm_process$xnames
-  vcov <- (1 / lm_process$n) * acov
   out <- list(
     call = match.call(),
     args = list(
@@ -97,11 +76,12 @@ BetaDelta <- function(object,
       type = type
     ),
     lm_process = lm_process,
-    gamma = gamma,
-    acov = acov,
-    vcov = vcov,
+    gamma = std$gamma,
+    acov = std$acov,
+    vcov = std$vcov,
     est = lm_process$betastar
   )
+  attributes(out)$mi <- FALSE
   class(out) <- c(
     "betadelta",
     class(out)

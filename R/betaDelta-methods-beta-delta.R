@@ -160,7 +160,7 @@ confint.betadelta <- function(object,
                               ...) {
   if (is.null(parm)) {
     parm <- seq_len(
-      object$lm_process$p
+      length(object$est)
     )
   }
   return(

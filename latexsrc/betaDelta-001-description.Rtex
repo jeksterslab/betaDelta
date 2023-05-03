@@ -50,6 +50,8 @@ Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by \texttt{lm()}
 as described in \Textcite{Lib-Regression-Standardized-Coefficients-Delta-Yuan-2011}
 and \Textcite{Lib-Regression-Standardized-Coefficients-Delta-Jones-2015}.
+A description of the package and code examples
+are presented in \Textcite{Lib-Regression-Standardized-Coefficients-Delta-Pesigan-2023}.
 
 \section*{Installation}
 

@@ -21,7 +21,7 @@
 #' @family Derivatives Functions
 #' @keywords strRegression derivatives internal
 #' @noRd
-.JacobianBetastarWRTVechSigma <- function(beta,
+.JacobianBetaStarWRTVechSigma <- function(beta,
                                           sigmay,
                                           sigmax,
                                           invsigmacapx,

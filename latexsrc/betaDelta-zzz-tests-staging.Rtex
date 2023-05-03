@@ -82,6 +82,11 @@
 % confint(adf)
 %% end.rcode
 
+%% begin.rcode
+% out <- BetaDeltaMI(object, m = 5)
+% confint(out)
+%% end.rcode
+
 \nocite{Lib-R-Manual-2023}
 
 \printbibliography

@@ -16,7 +16,7 @@
 #'
 #' @param object Object of class `betadelta`,
 #'   that is,
-#'   the output of the `BetaDelta()` function.
+#'   the output of the [BetaDelta()] function.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
@@ -33,7 +33,7 @@
 #' @keywords betaDelta diff
 DiffBetaDelta <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "betadelta"
     )

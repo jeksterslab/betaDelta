@@ -49,3 +49,8 @@ contact:
   given-names: Ivan Jacob Agaloos
   email: r.jeksterslab@gmail.com
   orcid: https://orcid.org/0000-0003-4818-8420
+keywords:
+- confidence-intervals
+- delta-method-standard-errors
+- r-package
+- standardized-regression-coefficients

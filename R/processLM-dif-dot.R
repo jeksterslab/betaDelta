@@ -38,8 +38,8 @@
   }
   return(
     list(
-      dif_betastar = dif_betastar,
       dif_beta = dif_beta,
+      dif_betastar = dif_betastar,
       dif_idx = dif_idx
     )
   )

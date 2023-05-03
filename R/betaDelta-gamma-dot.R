@@ -6,7 +6,7 @@
 #' @return Returns a matrix.
 #'
 #' @param object Object.
-#'   Result of `.ProcessLM()`.
+#'   Result of [.ProcessLM()].
 #' @param type Character string.
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
 #'   If `type = "adf"`, use the asymptotic distribution-free approach.

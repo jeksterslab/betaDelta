@@ -10,7 +10,7 @@ DiffBetaDelta(object)
 \arguments{
 \item{object}{Object of class \code{betadelta},
 that is,
-the output of the \code{BetaDelta()} function.}
+the output of the \code{\link[=BetaDelta]{BetaDelta()}} function.}
 }
 \value{
 Returns an object
