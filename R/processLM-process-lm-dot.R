@@ -19,13 +19,17 @@
 #'     \item{df}{`n - k` degrees of freedom.}
 #'     \item{mu}{Mean vector of the model matrix.}
 #'     \item{sigmacap}{Covariance matrix of the model matrix.}
-#'     \item{vechsigmacap}{Half-vectorization of the covariance matrix of the model matrix.}
-#'     \item{sigmacapx}{Covariance matrix of the regressors in the model matrix.}
+#'     \item{vechsigmacap}{Half-vectorization of the covariance matrix
+#'       of the model matrix.}
+#'     \item{sigmacapx}{Covariance matrix of the regressors
+#'       in the model matrix.}
 #'     \item{vechsigmacapx}{Half-vectorization of the covariance matrix
 #'       of the regressors in the model matrix.}
 #'     \item{sigma}{Standard deviation vector of the model matrix.}
-#'     \item{sigmacap_consistent}{Consistent estimate of the covariance matrix of the model matrix.}
-#'     \item{vechsigmacap_consistent}{Half-vectorization of the consistent estimate
+#'     \item{sigmacap_consistent}{Consistent estimate of the covariance matrix
+#'       of the model matrix.}
+#'     \item{vechsigmacap_consistent}{Half-vectorization
+#'       of the consistent estimate
 #'       of the covariance matrix of the model matrix.}
 #'     \item{pinv_of_dcap}{Moore-Penrose inverse of the duplication matrix.}
 #'     \item{rhocap}{Correlation matrix of the model matrix.}
@@ -39,7 +43,8 @@
 #'     \item{rsq}{Vector of multiple correlation coefficients
 #'       (R-squared and adjusted R-squared).}
 #'     \item{dif_beta}{Differences of partial regression slopes.}
-#'     \item{dif_betastar}{Differences of standardized partial regression slopes.}
+#'     \item{dif_betastar}{Differences of standardized
+#'       partial regression slopes.}
 #'     \item{dif_idx}{Differences index.}
 #'   }
 #'
