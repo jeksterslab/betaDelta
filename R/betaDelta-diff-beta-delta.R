@@ -43,7 +43,7 @@ DiffBetaDelta <- function(object) {
   }
   est <- object$lm_process$dif_betastar
   acov <- .ACovDelta(
-    jcap = .JacobianDiffBetastar(
+    jcap = .JacobianDiffBetaStar(
       p = object$lm_process$p
     ),
     acov = object$acov

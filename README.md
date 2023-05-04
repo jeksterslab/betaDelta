@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2023-05-03
+2023-05-04
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -81,10 +81,14 @@ BetaDelta(object, type = "mvn")
 #> BetaDelta(object = object, type = "mvn")
 #> 
 #> Standardized regression slopes with MVN standard errors:
-#>            est     se      t     p   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4951 0.0759 6.5272 0.000  0.2268 0.2905 0.3421 0.6482 0.6998 0.7635
-#> PCTGRT  0.3915 0.0770 5.0824 0.000  0.1190 0.1837 0.2360 0.5469 0.5993 0.6640
-#> PCTSUPP 0.2632 0.0747 3.5224 0.001 -0.0011 0.0616 0.1124 0.4141 0.4649 0.5276
+#>            est     se      t df     p   0.05%   0.5%   2.5%  97.5%  99.5%
+#> NARTIC  0.4951 0.0759 6.5272 42 0.000  0.2268 0.2905 0.3421 0.6482 0.6998
+#> PCTGRT  0.3915 0.0770 5.0824 42 0.000  0.1190 0.1837 0.2360 0.5469 0.5993
+#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 -0.0011 0.0616 0.1124 0.4141 0.4649
+#>         99.95%
+#> NARTIC  0.7635
+#> PCTGRT  0.6640
+#> PCTSUPP 0.5276
 ```
 
 #### Asymptotic Distribution-Free Approach
@@ -95,10 +99,14 @@ BetaDelta(object, type = "adf")
 #> BetaDelta(object = object, type = "adf")
 #> 
 #> Standardized regression slopes with ADF standard errors:
-#>            est     se      t      p   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4951 0.0674 7.3490 0.0000  0.2568 0.3134 0.3592 0.6311 0.6769 0.7335
-#> PCTGRT  0.3915 0.0710 5.5164 0.0000  0.1404 0.2000 0.2483 0.5347 0.5830 0.6426
-#> PCTSUPP 0.2632 0.0769 3.4231 0.0014 -0.0088 0.0558 0.1081 0.4184 0.4707 0.5353
+#>            est     se      t df      p   0.05%   0.5%   2.5%  97.5%  99.5%
+#> NARTIC  0.4951 0.0674 7.3490 42 0.0000  0.2568 0.3134 0.3592 0.6311 0.6769
+#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000  0.1404 0.2000 0.2483 0.5347 0.5830
+#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 -0.0088 0.0558 0.1081 0.4184 0.4707
+#>         99.95%
+#> NARTIC  0.7335
+#> PCTGRT  0.6426
+#> PCTSUPP 0.5353
 ```
 
 ## Other Feature

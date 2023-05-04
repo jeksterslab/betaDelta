@@ -5,7 +5,8 @@
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
-#'   test statistics,
+#'   test statistics,,
+#'   degrees of freedom,
 #'   p-values,
 #'   and
 #'   confidence intervals.
@@ -51,6 +52,7 @@ print.betadelta <- function(x,
 #'   standardized regression slopes,
 #'   standard errors,
 #'   test statistics,
+#'   degrees of freedom,
 #'   p-values,
 #'   and
 #'   confidence intervals.
@@ -167,6 +169,6 @@ confint.betadelta <- function(object,
     .BetaCI(
       object = object,
       alpha = 1 - level[1]
-    )[parm, 5:6]
+    )[parm, 6:7] # always t
   )
 }

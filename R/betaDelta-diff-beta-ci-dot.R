@@ -32,8 +32,7 @@
       se = sqrt(diag(object$vcov)),
       theta = 0,
       alpha = alpha,
-      z = FALSE,
-      df = object$fit$lm_process$df
+      z = TRUE
     )
   )
 }
