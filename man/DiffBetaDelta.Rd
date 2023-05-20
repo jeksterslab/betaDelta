@@ -38,6 +38,7 @@ summary(diff)
 coef(diff)
 vcov(diff)
 confint(diff, level = 0.95)
+
 }
 \seealso{
 Other Beta Delta Functions: 

@@ -20,8 +20,9 @@
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
 #' print(std)
-#' @export
+#'
 #' @keywords methods
+#' @export
 print.betadelta <- function(x,
                             alpha = c(0.05, 0.01, 0.001),
                             digits = 4,
@@ -66,8 +67,9 @@ print.betadelta <- function(x,
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
 #' summary(std)
-#' @export
+#'
 #' @keywords methods
+#' @export
 summary.betadelta <- function(object,
                               alpha = c(0.05, 0.01, 0.001),
                               digits = 4,
@@ -105,8 +107,9 @@ summary.betadelta <- function(object,
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
 #' vcov(std)
-#' @export
+#'
 #' @keywords methods
+#' @export
 vcov.betadelta <- function(object,
                            ...) {
   return(
@@ -127,8 +130,9 @@ vcov.betadelta <- function(object,
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
 #' coef(std)
-#' @export
+#'
 #' @keywords methods
+#' @export
 coef.betadelta <- function(object,
                            ...) {
   return(
@@ -154,8 +158,9 @@ coef.betadelta <- function(object,
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
 #' confint(std, level = 0.95)
-#' @export
+#'
 #' @keywords methods
+#' @export
 confint.betadelta <- function(object,
                               parm = NULL,
                               level = 0.95,

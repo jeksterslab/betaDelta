@@ -28,9 +28,10 @@
 #' coef(diff)
 #' vcov(diff)
 #' confint(diff, level = 0.95)
-#' @export
+#'
 #' @family Beta Delta Functions
 #' @keywords betaDelta diff
+#' @export
 DiffBetaDelta <- function(object) {
   stopifnot(
     inherits(

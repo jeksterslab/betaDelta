@@ -53,9 +53,10 @@
 #' coef(std)
 #' vcov(std)
 #' confint(std, level = 0.95)
-#' @export
+#'
 #' @family Beta Delta Functions
 #' @keywords betaDelta std
+#' @export
 BetaDelta <- function(object,
                       type = "mvn") {
   stopifnot(

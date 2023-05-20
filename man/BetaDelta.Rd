@@ -45,6 +45,7 @@ summary(std)
 coef(std)
 vcov(std)
 confint(std, level = 0.95)
+
 }
 \references{
 Jones, J. A., & Waller, N. G. (2015).

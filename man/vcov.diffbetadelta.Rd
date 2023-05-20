@@ -26,6 +26,7 @@ object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 std <- BetaDelta(object)
 diff <- DiffBetaDelta(std)
 vcov(diff)
+
 }
 \author{
 Ivan Jacob Agaloos Pesigan

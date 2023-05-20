@@ -21,8 +21,9 @@
 #' std <- BetaDelta(object)
 #' diff <- DiffBetaDelta(std)
 #' print(diff)
-#' @export
+#'
 #' @keywords methods
+#' @export
 print.diffbetadelta <- function(x,
                                 alpha = c(0.05, 0.01, 0.001),
                                 digits = 4,
@@ -68,8 +69,9 @@ print.diffbetadelta <- function(x,
 #' std <- BetaDelta(object)
 #' diff <- DiffBetaDelta(std)
 #' summary(diff)
-#' @export
+#'
 #' @keywords methods
+#' @export
 summary.diffbetadelta <- function(object,
                                   alpha = c(0.05, 0.01, 0.001),
                                   digits = 4,
@@ -109,8 +111,9 @@ summary.diffbetadelta <- function(object,
 #' std <- BetaDelta(object)
 #' diff <- DiffBetaDelta(std)
 #' vcov(diff)
-#' @export
+#'
 #' @keywords methods
+#' @export
 vcov.diffbetadelta <- function(object,
                                ...) {
   return(
@@ -132,8 +135,9 @@ vcov.diffbetadelta <- function(object,
 #' std <- BetaDelta(object)
 #' diff <- DiffBetaDelta(std)
 #' coef(diff)
-#' @export
+#'
 #' @keywords methods
+#' @export
 coef.diffbetadelta <- function(object,
                                ...) {
   return(
@@ -161,8 +165,9 @@ coef.diffbetadelta <- function(object,
 #' std <- BetaDelta(object)
 #' diff <- DiffBetaDelta(std)
 #' confint(diff)
-#' @export
+#'
 #' @keywords methods
+#' @export
 confint.diffbetadelta <- function(object,
                                   parm = NULL,
                                   level = 0.95,

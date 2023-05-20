@@ -32,6 +32,7 @@ Summary Method for an Object of Class \code{betadelta}
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 std <- BetaDelta(object)
 summary(std)
+
 }
 \author{
 Ivan Jacob Agaloos Pesigan
