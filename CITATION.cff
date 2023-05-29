@@ -52,5 +52,6 @@ contact:
 keywords:
 - confidence-intervals
 - delta-method-standard-errors
+- r
 - r-package
 - standardized-regression-coefficients
