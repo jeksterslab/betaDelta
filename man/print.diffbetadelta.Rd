@@ -4,7 +4,7 @@
 \alias{print.diffbetadelta}
 \title{Print Method for an Object of Class \code{diffbetadelta}}
 \usage{
-\method{print}{diffbetadelta}(x, alpha = c(0.05, 0.01, 0.001), digits = 4, ...)
+\method{print}{diffbetadelta}(x, alpha = 0.05, digits = 4, ...)
 }
 \arguments{
 \item{x}{Object of class \code{diffbetadelta}.}
