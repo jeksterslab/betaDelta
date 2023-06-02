@@ -13,7 +13,10 @@
 #'
 #' @param x Object of class `diffbetadelta`.
 #' @param ... additional arguments.
-#' @param alpha Significance level.
+#' @param alpha Numeric vector.
+#'   Significance level \eqn{\alpha}.
+#'   If `alpha = NULL`,
+#'   use the argument `alpha` used in `x`.
 #' @param digits Digits to print.
 #'
 #' @examples
@@ -25,7 +28,7 @@
 #' @keywords methods
 #' @export
 print.diffbetadelta <- function(x,
-                                alpha = 0.05,
+                                alpha = NULL,
                                 digits = 4,
                                 ...) {
   cat("Call:\n")
@@ -61,7 +64,10 @@ print.diffbetadelta <- function(x,
 #'
 #' @param object Object of class `diffbetadelta`.
 #' @param ... additional arguments.
-#' @param alpha Significance level.
+#' @param alpha Numeric vector.
+#'   Significance level \eqn{\alpha}.
+#'   If `alpha = NULL`,
+#'   use the argument `alpha` used in `object`.
 #' @param digits Digits to print.
 #'
 #' @examples
@@ -73,7 +79,7 @@ print.diffbetadelta <- function(x,
 #' @keywords methods
 #' @export
 summary.diffbetadelta <- function(object,
-                                  alpha = c(0.05, 0.01, 0.001),
+                                  alpha = NULL,
                                   digits = 4,
                                   ...) {
   cat("Call:\n")
@@ -177,10 +183,18 @@ confint.diffbetadelta <- function(object,
       length(object$est)
     )
   }
+  ci <- .DiffBetaCI(
+    object = object,
+    alpha = 1 - level[1]
+  )[parm, 5:6, drop = FALSE] # always z
+  varnames <- colnames(ci)
+  varnames <- gsub(
+    pattern = "%",
+    replacement = " %",
+    x = varnames
+  )
+  colnames(ci) <- varnames
   return(
-    .DiffBetaCI(
-      object = object,
-      alpha = 1 - level[1]
-    )[parm, 5:6] # always z
+    ci
   )
 }

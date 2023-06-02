@@ -97,13 +97,13 @@ object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 #### Multivariate Normal-Theory Approach
 
 ```{r}
-BetaDelta(object, type = "mvn")
+BetaDelta(object, type = "mvn", alpha = 0.05)
 ```
 
 #### Asymptotic Distribution-Free Approach
 
 ```{r}
-BetaDelta(object, type = "adf")
+BetaDelta(object, type = "adf", alpha = 0.05)
 ```
 
 ## Other Feature

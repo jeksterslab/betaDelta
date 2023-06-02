@@ -77,8 +77,8 @@ std_adf <- BetaDelta(object, type = "adf")
 ## Estimate differences of standardized regression slopes and the corresponding sampling covariance matrix.
 
 ```{r}
-mvn <- DiffBetaDelta(std_mvn)
-adf <- DiffBetaDelta(std_adf)
+mvn <- DiffBetaDelta(std_mvn, alpha = 0.05)
+adf <- DiffBetaDelta(std_adf, alpha = 0.05)
 ```
 
 ### summary

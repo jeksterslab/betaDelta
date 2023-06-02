@@ -5,12 +5,15 @@
 \title{Estimate Differences of Standardized Slopes
 and the Corresponding Sampling Covariance Matrix}
 \usage{
-DiffBetaDelta(object)
+DiffBetaDelta(object, alpha = c(0.05, 0.01, 0.001))
 }
 \arguments{
 \item{object}{Object of class \code{betadelta},
 that is,
 the output of the \code{\link[=BetaDelta]{BetaDelta()}} function.}
+
+\item{alpha}{Numeric vector.
+Significance level \eqn{\alpha}.}
 }
 \value{
 Returns an object
@@ -18,6 +21,7 @@ of class \code{diffbetadelta} which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
 \item{fit}{The argument \code{object}.}
+\item{args}{Function arguments.}
 \item{vcov}{Sampling covariance matrix of
 differences of standardized slopes.}
 \item{est}{Vector of

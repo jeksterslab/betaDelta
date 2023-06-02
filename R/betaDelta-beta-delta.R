@@ -24,6 +24,8 @@
 #'   use the multivariate normal-theory approach.
 #'   If `type = "adf"`,
 #'   use the asymptotic distribution-free approach.
+#' @param alpha Numeric vector.
+#'   Significance level \eqn{\alpha}.
 #'
 #' @references
 #' Jones, J. A., & Waller, N. G. (2015).
@@ -58,7 +60,8 @@
 #' @keywords betaDelta std
 #' @export
 BetaDelta <- function(object,
-                      type = "mvn") {
+                      type = "mvn",
+                      alpha = c(0.05, 0.01, 0.001)) {
   stopifnot(
     type %in% c(
       "mvn",
@@ -74,7 +77,8 @@ BetaDelta <- function(object,
     call = match.call(),
     args = list(
       object = object,
-      type = type
+      type = type,
+      alpha = alpha
     ),
     lm_process = lm_process,
     gamma = std$gamma,

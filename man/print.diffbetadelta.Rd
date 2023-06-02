@@ -4,12 +4,15 @@
 \alias{print.diffbetadelta}
 \title{Print Method for an Object of Class \code{diffbetadelta}}
 \usage{
-\method{print}{diffbetadelta}(x, alpha = 0.05, digits = 4, ...)
+\method{print}{diffbetadelta}(x, alpha = NULL, digits = 4, ...)
 }
 \arguments{
 \item{x}{Object of class \code{diffbetadelta}.}
 
-\item{alpha}{Significance level.}
+\item{alpha}{Numeric vector.
+Significance level \eqn{\alpha}.
+If \code{alpha = NULL},
+use the argument \code{alpha} used in \code{x}.}
 
 \item{digits}{Digits to print.}
 

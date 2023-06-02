@@ -13,18 +13,24 @@
 #'
 #' @param object Object of class `betadelta`.
 #' @param alpha Numeric vector.
-#'   Significance level.
+#'   Significance level \eqn{\alpha}.
 #'
 #' @family Beta Delta Functions
 #' @keywords betaDelta ci internal
 #' @noRd
 .BetaCI <- function(object,
-                    alpha = c(0.05, 0.01, 0.001)) {
+                    alpha = NULL) {
   stopifnot(
     inherits(
       object,
       "betadelta"
     )
+  )
+  if (is.null(alpha)) {
+    alpha <- object$args$alpha
+  }
+  stopifnot(
+    all(alpha > 0 & alpha < 1)
   )
   return(
     .CIWald(

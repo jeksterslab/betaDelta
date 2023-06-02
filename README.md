@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2023-05-29
+2023-06-02
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -76,9 +76,9 @@ object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 #### Multivariate Normal-Theory Approach
 
 ``` r
-BetaDelta(object, type = "mvn")
+BetaDelta(object, type = "mvn", alpha = 0.05)
 #> Call:
-#> BetaDelta(object = object, type = "mvn")
+#> BetaDelta(object = object, type = "mvn", alpha = 0.05)
 #> 
 #> Standardized regression slopes with MVN standard errors:
 #>            est     se      t df     p   2.5%  97.5%
@@ -90,9 +90,9 @@ BetaDelta(object, type = "mvn")
 #### Asymptotic Distribution-Free Approach
 
 ``` r
-BetaDelta(object, type = "adf")
+BetaDelta(object, type = "adf", alpha = 0.05)
 #> Call:
-#> BetaDelta(object = object, type = "adf")
+#> BetaDelta(object = object, type = "adf", alpha = 0.05)
 #> 
 #> Standardized regression slopes with ADF standard errors:
 #>            est     se      t df      p   2.5%  97.5%
