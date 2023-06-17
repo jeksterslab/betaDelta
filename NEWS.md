@@ -1,6 +1,6 @@
-# betaDelta 1.0.1.9000
+# betaDelta 1.0.2
 
-Latest development version.
+* Added degrees of freedom to the table of results.
 
 # betaDelta 1.0.1
 
