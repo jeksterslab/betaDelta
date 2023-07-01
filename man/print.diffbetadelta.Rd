@@ -22,7 +22,7 @@ use the argument \code{alpha} used in \code{x}.}
 Returns a matrix of
 standardized regression slopes,
 standard errors,
-test statistics,,
+test statistics,
 degrees of freedom,
 p-values,
 and

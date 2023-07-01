@@ -5,7 +5,7 @@
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
-#'   test statistics,,
+#'   test statistics,
 #'   degrees of freedom,
 #'   p-values,
 #'   and
