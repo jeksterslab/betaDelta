@@ -2,6 +2,12 @@
 title: "betaDelta: Confidence Intervals for Standardized Regression Coefficients"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @Pesigan-Sun-Cheung-2023
+  @Yuan-Chan-2011
+  @Jones-Waller-2015
 vignette: >
   %\VignetteIndexEntry{betaDelta: Confidence Intervals for Standardized Regression Coefficients}
   %\VignetteEngine{knitr::rmarkdown}
@@ -12,9 +18,14 @@ vignette: >
 [![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
 [![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
 [![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
-[![R-CMD-check](https://github.com/jeksterslab/betaDelta/workflows/R-CMD-check/badge.svg)](https://github.com/jeksterslab/betaDelta/actions)
-[![test-coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yaml)
-[![lint](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yaml)
+[![Make Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
+[![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
+[![R Package Test Coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml)
+[![Lint R Package](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml)
+[![Package Website (GitHub Pages)](https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml)
+[![Compile LaTeX](https://github.com/jeksterslab/betaDelta/actions/workflows/latex.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/latex.yml)
+[![Shell Check](https://github.com/jeksterslab/betaDelta/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/shellcheck.yml)
+[![pages-build-deployment](https://github.com/jeksterslab/betaDelta/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/jeksterslab/betaDelta/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaDelta)
 <!-- badges: end -->
 
@@ -50,9 +61,9 @@ using program quality ratings (`QUALITY`) as the regressand/outcome variable
 and number of published articles attributed to the program faculty members (`NARTIC`),
 percent of faculty members holding research grants (`PCTGRT`), and
 percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
-using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982).
+using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA [@NationalResearchCouncil-1982].
 Confidence intervals for the standardized regression coefficients are generated
-using the `BetaDelta()` function from the `betaDelta` package following Yuan and Chan (2011) and Jones and Waller (2015).
+using the `BetaDelta()` function from the `betaDelta` package following @Yuan-Chan-2011 and @Jones-Waller-2015.
 
 ```{r}
 #| message = FALSE
@@ -112,27 +123,14 @@ betaDelta and betaSandwich: Confidence intervals for standardized regression coe
 *Multivariate Behavioral Research*.
 https://doi.org/10.1080/00273171.2023.2201277
 
+## Documentation
+
+See
+[GitHub Pages](https://jeksterslab.github.io/betaDelta/index.html)
+for package documentation.
+
+## Citation
+
+To cite `betaDelta` in publications, please cite @Pesigan-Sun-Cheung-2023.
+
 ## References
-
-Jones, J. A., & Waller, N. G. (2015).
-The normal-theory and asymptotic distribution-free (ADF) covariance matrix
-of standardized regression coefficients:
-Theoretical extensions and finite sample behavior.
-*Psychometrika*, *80*(2), 365–378.
-https://doi.org/10.1007/s11336-013-9380-y
-
-National Research Council. (1982).
-*An assessment of research-doctorate programs in the United States: Social and behavioral sciences*.
-https://doi.org/10.17226/9781.
-Reproduced with permission from the National Academy of Sciences,
-Courtesy of the National Academies Press, Washington, D.C.
-
-Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
-betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R.
-*Multivariate Behavioral Research*.
-https://doi.org/10.1080/00273171.2023.2201277
-
-Yuan, K.-H., & Chan, W. (2011).
-Biases and standard errors of standardized regression coefficients.
-*Psychometrika*, *76*(4), 670–690.
-https://doi.org/10.1007/s11336-011-9224-6

@@ -1,0 +1,144 @@
+---
+title: "betaDelta"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: github_document
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @Pesigan-Sun-Cheung-2023
+  @Yuan-Chan-2011
+  @Jones-Waller-2015
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+<!-- badges: start -->
+[![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
+[![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
+[![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
+[![Make Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
+[![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
+[![R Package Test Coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml)
+[![Lint R Package](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml)
+[![Package Website (GitHub Pages)](https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml)
+[![Compile LaTeX](https://github.com/jeksterslab/betaDelta/actions/workflows/latex.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/latex.yml)
+[![Shell Check](https://github.com/jeksterslab/betaDelta/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/shellcheck.yml)
+[![pages-build-deployment](https://github.com/jeksterslab/betaDelta/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/pages/pages-build-deployment)
+[![codecov](https://codecov.io/gh/jeksterslab/betaDelta/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaDelta)
+<!-- badges: end -->
+
+## Description
+
+Generates confidence intervals for standardized regression coefficients
+using delta method standard errors for models fitted by `lm()`
+as described in Yuan and Chan (2011: http://doi.org/10.1007/s11336-011-9224-6)
+and Jones and Waller (2015: http://doi.org/10.1007/s11336-013-9380-y).
+A description of the package and code examples
+are presented in Pesigan, Sun, and Cheung (2023: https://doi.org/10.1080/00273171.2023.2201277).
+
+## Installation
+
+You can install the CRAN release of `betaDelta` with:
+
+```r
+install.packages("betaDelta")
+```
+
+You can install the development version of `betaDelta` from
+[GitHub](https://github.com/jeksterslab/betaDelta) with:
+
+```r
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("jeksterslab/betaDelta")
+```
+
+## Example
+
+In this example, a multiple regression model is fitted
+using program quality ratings (`QUALITY`) as the regressand/outcome variable
+and number of published articles attributed to the program faculty members (`NARTIC`),
+percent of faculty members holding research grants (`PCTGRT`), and
+percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
+using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA [@NationalResearchCouncil-1982].
+Confidence intervals for the standardized regression coefficients are generated
+using the `BetaDelta()` function from the `betaDelta` package following @Yuan-Chan-2011 and @Jones-Waller-2015.
+
+```{r}
+#| message = FALSE
+library(betaDelta)
+```
+
+```{r}
+#| echo = FALSE
+if (!exists("nas1982")) {
+  try(
+    data(
+      "nas1982",
+      package = "betaDelta"
+    ),
+    silent = TRUE
+  )
+}
+df <- nas1982
+```
+
+```{r}
+#| eval = FALSE
+df <- betaDelta::nas1982
+```
+
+### Fit the regression model using the `lm()` function.
+
+```{r}
+object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+```
+
+### Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
+
+#### Multivariate Normal-Theory Approach
+
+```{r}
+BetaDelta(object, type = "mvn", alpha = 0.05)
+```
+
+#### Asymptotic Distribution-Free Approach
+
+```{r}
+BetaDelta(object, type = "adf", alpha = 0.05)
+```
+
+## Other Feature
+
+The package can also be used to generate confidence intervals for
+differences of standardized regression coefficients.
+
+## Citation
+
+To cite `betaDelta` in publications, please use: 
+
+Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
+betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R.
+*Multivariate Behavioral Research*.
+https://doi.org/10.1080/00273171.2023.2201277
+
+## Documentation
+
+See
+[GitHub Pages](https://jeksterslab.github.io/betaDelta/index.html)
+for package documentation.
+
+## Citation
+
+To cite `betaDelta` in publications, please cite @Pesigan-Sun-Cheung-2023.
+
+## References
