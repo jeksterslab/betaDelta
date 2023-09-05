@@ -84,13 +84,116 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-Generates confidence intervals for standardized regression coefficients
-    using delta method standard errors for models fitted by lm()
-    as described in Yuan and Chan (2011) &lt;<a href="https://doi.org/10.1007/s11336-011-9224-6" class="external-link">doi:10.1007/s11336-011-9224-6</a>&gt;
-    and Jones and Waller (2015) &lt;<a href="https://doi.org/10.1007/s11336-013-9380-y" class="external-link">doi:10.1007/s11336-013-9380-y</a>&gt;.
-    A description of the package and code examples
-    are presented in Pesigan, Sun, and Cheung (2023) &lt;<a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link">doi:10.1080/00273171.2023.2201277</a>&gt;.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="betadelta">betaDelta<a class="anchor" aria-label="anchor" href="#betadelta"></a>
+</h1></div>
+<p>Ivan Jacob Agaloos Pesigan 2023-09-05</p>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
+
+<div class="section level2">
+<h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
+</h2>
+<p>Generates confidence intervals for standardized regression coefficients using delta method standard errors for models fitted by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> as described in Yuan and Chan (2011: <a href="http://doi.org/10.1007/s11336-011-9224-6" class="external-link uri">http://doi.org/10.1007/s11336-011-9224-6</a>) and Jones and Waller (2015: <a href="http://doi.org/10.1007/s11336-013-9380-y" class="external-link uri">http://doi.org/10.1007/s11336-013-9380-y</a>). A description of the package and code examples are presented in Pesigan, Sun, and Cheung (2023: <a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link uri">https://doi.org/10.1080/00273171.2023.2201277</a>).</p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the CRAN release of <code>betaDelta</code> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"betaDelta"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version of <code>betaDelta</code> from <a href="https://github.com/jeksterslab/betaDelta">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jeksterslab/betaDelta"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<p>In this example, a multiple regression model is fitted using program quality ratings (<code>QUALITY</code>) as the regressand/outcome variable and number of published articles attributed to the program faculty members (<code>NARTIC</code>), percent of faculty members holding research grants (<code>PCTGRT</code>), and percentage of program graduates who received support (<code>PCTSUPP</code>) as regressor/predictor variables using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982). Confidence intervals for the standardized regression coefficients are generated using the <code><a href="reference/BetaDelta.html">BetaDelta()</a></code> function from the <code>betaDelta</code> package following Yuan &amp; Chan (2011) and Jones &amp; Waller (2015).</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/betaDelta">betaDelta</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">betaDelta</span><span class="fu">::</span><span class="va"><a href="reference/nas1982.html">nas1982</a></span></span></code></pre></div>
+<div class="section level3">
+<h3 id="fit-the-regression-model-using-the-lm-function">Fit the regression model using the <code>lm()</code> function.<a class="anchor" aria-label="anchor" href="#fit-the-regression-model-using-the-lm-function"></a>
+</h3>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="estimate-the-standardized-regression-slopes-and-the-corresponding-sampling-covariance-matrix">Estimate the standardized regression slopes and the corresponding sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate-the-standardized-regression-slopes-and-the-corresponding-sampling-covariance-matrix"></a>
+</h3>
+<div class="section level4">
+<h4 id="multivariate-normal-theory-approach">Multivariate Normal-Theory Approach<a class="anchor" aria-label="anchor" href="#multivariate-normal-theory-approach"></a>
+</h4>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; BetaDelta(object = object, type = "mvn", alpha = 0.05)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Standardized regression slopes with MVN standard errors:</span></span>
+<span><span class="co">#&gt;            est     se      t df     p   2.5%  97.5%</span></span>
+<span><span class="co">#&gt; NARTIC  0.4951 0.0759 6.5272 42 0.000 0.3421 0.6482</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="asymptotic-distribution-free-approach">Asymptotic Distribution-Free Approach<a class="anchor" aria-label="anchor" href="#asymptotic-distribution-free-approach"></a>
+</h4>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; BetaDelta(object = object, type = "adf", alpha = 0.05)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Standardized regression slopes with ADF standard errors:</span></span>
+<span><span class="co">#&gt;            est     se      t df      p   2.5%  97.5%</span></span>
+<span><span class="co">#&gt; NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="other-feature">Other Feature<a class="anchor" aria-label="anchor" href="#other-feature"></a>
+</h2>
+<p>The package can also be used to generate confidence intervals for differences of standardized regression coefficients.</p>
+</div>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<p>To cite <code>betaDelta</code> in publications, please use:</p>
+<p>Pesigan, I. J. A., Sun, R. W., &amp; Cheung, S. F. (2023). betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R. <em>Multivariate Behavioral Research</em>. <a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link uri">https://doi.org/10.1080/00273171.2023.2201277</a></p>
+</div>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<p>See <a href="https://jeksterslab.github.io/betaDelta/index.html" class="external-link">GitHub Pages</a> for package documentation.</p>
+</div>
+<div class="section level2">
+<h2 id="citation-1">Citation<a class="anchor" aria-label="anchor" href="#citation-1"></a>
+</h2>
+<p>To cite <code>betaDelta</code> in publications, please cite Pesigan et al. (2023).</p>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-Jones-Waller-2015" class="csl-entry">
+Jones, J. A., &amp; Waller, N. G. (2015). The normal-theory and asymptotic distribution-free (ADF) covariance matrix of standardized regression coefficients: Theoretical extensions and finite sample behavior. <em>Psychometrika</em>, <em>80</em>(2), 365–378. <a href="https://doi.org/10.1007/s11336-013-9380-y" class="external-link uri">https://doi.org/10.1007/s11336-013-9380-y</a>
+</div>
+<div id="ref-NationalResearchCouncil-1982" class="csl-entry">
+National Research Council. (1982). <em>An assessment of research-doctorate programs in the United States: Social and behavioral sciences</em>. National Academies Press. <a href="https://doi.org/10.17226/9781" class="external-link uri">https://doi.org/10.17226/9781</a>
+</div>
+<div id="ref-Pesigan-Sun-Cheung-2023" class="csl-entry">
+Pesigan, I. J. A., Sun, R. W., &amp; Cheung, S. F. (2023). <span class="nocase">betaDelta</span> and <span class="nocase">betaSandwich</span>: Confidence intervals for standardized regression coefficients in R. <em>Multivariate Behavioral Research</em>, 1–4. <a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link uri">https://doi.org/10.1080/00273171.2023.2201277</a>
+</div>
+<div id="ref-Yuan-Chan-2011" class="csl-entry">
+Yuan, K.-H., &amp; Chan, W. (2011). Biases and standard errors of standardized regression coefficients. <em>Psychometrika</em>, <em>76</em>(4), 670–690. <a href="https://doi.org/10.1007/s11336-011-9224-6" class="external-link uri">https://doi.org/10.1007/s11336-011-9224-6</a>
+</div>
+</div>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -123,7 +226,23 @@ Generates confidence intervals for standardized regression coefficients
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=betaDelta" class="external-link"><img src="https://www.r-pkg.org/badges/version/betaDelta" alt="CRAN Status"></a></li>
+<li><a href="https://jeksterslab.r-universe.dev" class="external-link"><img src="https://jeksterslab.r-universe.dev/badges/betaDelta" alt="R-Universe Status"></a></li>
+<li><a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link"><img src="https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg" alt="DOI"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg" alt="Make Project"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg" alt="R Package Test Coverage"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml/badge.svg" alt="Lint R Package"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml/badge.svg" alt="Package Website (GitHub Pages)"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/latex.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/latex.yml/badge.svg" alt="Compile LaTeX"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/shellcheck.yml"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/shellcheck.yml/badge.svg" alt="Shell Check"></a></li>
+<li><a href="https://github.com/jeksterslab/betaDelta/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/jeksterslab/betaDelta/actions/workflows/pages/pages-build-deployment/badge.svg" alt="pages-build-deployment"></a></li>
+<li><a href="https://codecov.io/gh/jeksterslab/betaDelta" class="external-link"><img src="https://codecov.io/gh/jeksterslab/betaDelta/branch/main/graph/badge.svg?token=KVLUET3DJ6" alt="codecov"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
