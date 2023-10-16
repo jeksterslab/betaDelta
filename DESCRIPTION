@@ -25,4 +25,3 @@ Suggests:
     rmarkdown,
     testthat,
     betaSandwich
-RoxygenNote: 7.2.3
