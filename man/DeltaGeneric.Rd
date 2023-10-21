@@ -76,7 +76,8 @@ DeltaGeneric(
   func = g,
   mu = mu,
   sigmacap = sigmasq,
-  n = n
+  n = n,
+  alpha = 0.05
 )
 }
 \author{
