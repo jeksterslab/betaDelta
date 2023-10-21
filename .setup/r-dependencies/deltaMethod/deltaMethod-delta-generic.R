@@ -116,15 +116,20 @@ DeltaGeneric <- function(object,
     coef = coef,
     def = def
   )
-  return(
-    .CIWald(
-      est = est,
-      se = se,
-      theta = theta,
-      alpha = alpha,
-      z = z,
-      df = df,
-      test = FALSE
-    )
+  ci <-  .CIWald(
+    est = est,
+    se = se,
+    theta = theta,
+    alpha = alpha,
+    z = z,
+    df = df,
+    test = FALSE
   )
+  def <- do.call(
+    what = "rbind",
+    args = def
+  )
+  dim(def) <- NULL
+  rownames(ci) <- def
+  return(ci)
 }
