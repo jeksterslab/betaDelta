@@ -5,28 +5,25 @@
 \title{Delta Method Confidence Intervals (Generic)}
 \usage{
 DeltaGeneric(
-  func,
-  mu,
-  sigma,
-  n,
+  object,
+  def,
   theta = 0,
   alpha = c(0.05, 0.01, 0.001),
   z = TRUE,
-  df,
-  test = FALSE
+  df
 )
 }
 \arguments{
-\item{func}{An R function the input of which is \code{mu}.
-The function should return a vector of any length.}
+\item{object}{R object.
+Fitted model object with \code{coef} and \code{vcov} methods
+that return a named vector of
+estimated parameters and sampling variance-covariance matrix,
+respectively.}
 
-\item{mu}{Numeric vector.
-Input of \code{func}.}
-
-\item{sigma}{Numeric vector or matrix.
-Asymptotic covariance matrix of \code{mu}.}
-
-\item{n}{Sample size.}
+\item{def}{List of character strings.
+A list of defined functions of parameters.
+The string should be a valid R expression when parsed
+and should result a single value when evaluated.}
 
 \item{theta}{Numeric vector.
 Parameter values when the null hypothesis is true.}
@@ -42,12 +39,6 @@ use the t distribution.}
 
 \item{df}{Numeric.
 Degrees of freedom if \code{z = FALSE}.}
-
-\item{test}{Logical.
-If \code{TRUE},
-return only the results of hypothesis tests.
-If \code{FALSE},
-return both results of hypothesis tests and confidence intervals.}
 }
 \value{
 Returns a numeric matrix with the following variables:
@@ -58,7 +49,6 @@ Returns a numeric matrix with the following variables:
 \item{p}{p value}
 \item{ci}{Confidence intervals}
 }
-Note that if \code{test = TRUE}, the \code{ci} columns are omitted.
 }
 \description{
 Calculates delta method confidence intervals
@@ -66,17 +56,15 @@ for a function of parameters
 using a numerical Jacobian.
 }
 \examples{
-g <- function(x) {
-  1 / x
-}
-mu <- 100
-sigma <- 225
-n <- 30
+object <- glm(
+  formula = vs ~ wt + disp,
+  family = "binomial",
+  data = mtcars
+)
+def <- list("exp(wt)", "exp(disp)")
 DeltaGeneric(
-  func = g,
-  mu = mu,
-  sigma = sigma,
-  n = n,
+  object = object,
+  def = def,
   alpha = 0.05
 )
 }
