@@ -7,7 +7,7 @@
 DeltaGeneric(
   func,
   mu,
-  sigmacap,
+  sigma,
   n,
   theta = 0,
   alpha = c(0.05, 0.01, 0.001),
@@ -23,7 +23,7 @@ The function should return a vector of any length.}
 \item{mu}{Numeric vector.
 Input of \code{func}.}
 
-\item{sigmacap}{Numeric vector or matrix.
+\item{sigma}{Numeric vector or matrix.
 Asymptotic covariance matrix of \code{mu}.}
 
 \item{n}{Sample size.}
@@ -70,12 +70,12 @@ g <- function(x) {
   1 / x
 }
 mu <- 100
-sigmasq <- 225
+sigma <- 225
 n <- 30
 DeltaGeneric(
   func = g,
   mu = mu,
-  sigmacap = sigmasq,
+  sigma = sigma,
   n = n,
   alpha = 0.05
 )
