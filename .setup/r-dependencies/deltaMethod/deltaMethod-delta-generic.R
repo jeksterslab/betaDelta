@@ -21,7 +21,7 @@
 #'
 #' @param mu Numeric vector.
 #'   Input of `func`.
-#' @param sigmacap Numeric vector or matrix.
+#' @param sigma Numeric vector or matrix.
 #'   Asymptotic covariance matrix of `mu`.
 #' @param n Sample size.
 #' @param theta Numeric vector.
@@ -46,12 +46,12 @@
 #'   1 / x
 #' }
 #' mu <- 100
-#' sigmasq <- 225
+#' sigma <- 225
 #' n <- 30
 #' DeltaGeneric(
 #'   func = g,
 #'   mu = mu,
-#'   sigmacap = sigmasq,
+#'   sigma = sigma,
 #'   n = n,
 #'   alpha = 0.05
 #' )
@@ -61,7 +61,7 @@
 #' @keywords deltaMethod
 DeltaGeneric <- function(func,
                          mu,
-                         sigmacap,
+                         sigma,
                          n,
                          theta = 0,
                          alpha = c(0.05, 0.01, 0.001),
@@ -72,7 +72,7 @@ DeltaGeneric <- function(func,
     is.vector(mu)
   )
   stopifnot(
-    is.vector(sigmacap) | is.matrix(sigmacap)
+    is.vector(sigma) | is.matrix(sigma)
   )
   k <- length(mu)
   j <- numDeriv::jacobian(
@@ -81,17 +81,17 @@ DeltaGeneric <- function(func,
   )
   if (k == 1) {
     # univariate
-    sigmacap <- as.vector(sigmacap)
-    stopifnot(length(sigmacap) == 1)
-    vcov <- j^2 * (sigmacap / n)
+    sigma <- as.vector(sigma)
+    stopifnot(length(sigma) == 1)
+    vcov <- j^2 * (sigma / n)
     se <- as.vector(sqrt(vcov))
   } else {
     # multivariate
     stopifnot(
-      sigmacap == t(sigmacap),
-      dim(sigmacap)[1] == k
+      sigma == t(sigma),
+      dim(sigma)[1] == k
     )
-    vcov <- j %*% (sigmacap / n) %*% t(j)
+    vcov <- j %*% (sigma / n) %*% t(j)
     se <- as.vector(sqrt(diag(vcov)))
   }
   est <- func(mu)
