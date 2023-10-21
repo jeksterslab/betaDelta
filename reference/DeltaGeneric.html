@@ -71,7 +71,7 @@ using a numerical Jacobian.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">DeltaGeneric</span><span class="op">(</span></span>
 <span>  <span class="va">func</span>,</span>
 <span>  <span class="va">mu</span>,</span>
-<span>  <span class="va">sigmacap</span>,</span>
+<span>  <span class="va">sigma</span>,</span>
 <span>  <span class="va">n</span>,</span>
 <span>  theta <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span><span class="op">)</span>,</span>
@@ -93,7 +93,7 @@ The function should return a vector of any length.</p></dd>
 Input of <code>func</code>.</p></dd>
 
 
-<dt>sigmacap</dt>
+<dt>sigma</dt>
 <dd><p>Numeric vector or matrix.
 Asymptotic covariance matrix of <code>mu</code>.</p></dd>
 
@@ -166,12 +166,12 @@ return both results of hypothesis tests and confidence intervals.</p></dd>
 <span class="r-in"><span>  <span class="fl">1</span> <span class="op">/</span> <span class="va">x</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">100</span></span></span>
-<span class="r-in"><span><span class="va">sigmasq</span> <span class="op">&lt;-</span> <span class="fl">225</span></span></span>
+<span class="r-in"><span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">225</span></span></span>
 <span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">30</span></span></span>
 <span class="r-in"><span><span class="fu">DeltaGeneric</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  func <span class="op">=</span> <span class="va">g</span>,</span></span>
 <span class="r-in"><span>  mu <span class="op">=</span> <span class="va">mu</span>,</span></span>
-<span class="r-in"><span>  sigmacap <span class="op">=</span> <span class="va">sigmasq</span>,</span></span>
+<span class="r-in"><span>  sigma <span class="op">=</span> <span class="va">sigma</span>,</span></span>
 <span class="r-in"><span>  n <span class="op">=</span> <span class="va">n</span>,</span></span>
 <span class="r-in"><span>  alpha <span class="op">=</span> <span class="fl">0.05</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
