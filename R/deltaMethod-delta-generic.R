@@ -1,5 +1,9 @@
 #' Delta Method Confidence Intervals (Generic)
 #'
+#' Calculates delta method confidence intervals
+#' for a function of parameters
+#' using a numerical Jacobian.
+#'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a numeric matrix with the following variables:

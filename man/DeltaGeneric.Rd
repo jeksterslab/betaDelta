@@ -61,7 +61,9 @@ Returns a numeric matrix with the following variables:
 Note that if \code{test = TRUE}, the \code{ci} columns are omitted.
 }
 \description{
-Delta Method Confidence Intervals (Generic)
+Calculates delta method confidence intervals
+for a function of parameters
+using a numerical Jacobian.
 }
 \examples{
 g <- function(x) {
