@@ -14,16 +14,16 @@
 #'     \item{p}{p value}
 #'     \item{ci}{Confidence intervals}
 #'   }
-#'   Note that if `test = TRUE`, the `ci` columns are omitted.
 #'
-#' @param func An R function the input of which is `mu`.
-#'   The function should return a vector of any length.
-#'
-#' @param mu Numeric vector.
-#'   Input of `func`.
-#' @param sigma Numeric vector or matrix.
-#'   Asymptotic covariance matrix of `mu`.
-#' @param n Sample size.
+#' @param object R object.
+#'   Fitted model object with `coef` and `vcov` methods
+#'   that return a named vector of
+#'   estimated parameters and sampling variance-covariance matrix,
+#'   respectively.
+#' @param def List of character strings.
+#'   A list of defined functions of parameters.
+#'   The string should be a valid R expression when parsed
+#'   and should result a single value when evaluated.
 #' @param theta Numeric vector.
 #'   Parameter values when the null hypothesis is true.
 #' @param alpha Numeric vector.
@@ -35,66 +35,87 @@
 #'   use the t distribution.
 #' @param df Numeric.
 #'   Degrees of freedom if `z = FALSE`.
-#' @param test Logical.
-#'   If `TRUE`,
-#'   return only the results of hypothesis tests.
-#'   If `FALSE`,
-#'   return both results of hypothesis tests and confidence intervals.
 #'
 #' @examples
-#' g <- function(x) {
-#'   1 / x
-#' }
-#' mu <- 100
-#' sigma <- 225
-#' n <- 30
+#' object <- glm(
+#'   formula = vs ~ wt + disp,
+#'   family = "binomial",
+#'   data = mtcars
+#' )
+#' def <- list("exp(wt)", "exp(disp)")
 #' DeltaGeneric(
-#'   func = g,
-#'   mu = mu,
-#'   sigma = sigma,
-#'   n = n,
+#'   object = object,
+#'   def = def,
 #'   alpha = 0.05
 #' )
 #' @importFrom numDeriv jacobian
 #' @export
 #' @family Delta Method Functions
 #' @keywords deltaMethod
-DeltaGeneric <- function(func,
-                         mu,
-                         sigma,
-                         n,
+DeltaGeneric <- function(object,
+                         def,
                          theta = 0,
                          alpha = c(0.05, 0.01, 0.001),
                          z = TRUE,
-                         df,
-                         test = FALSE) {
-  stopifnot(
-    is.vector(mu)
+                         df) {
+  ## function
+  func <- function(coef,
+                   def) {
+    env <- list2env(
+      as.list(coef)
+    )
+    sapply(
+      X = def,
+      FUN = function(i) {
+        return(
+          eval(
+            parse(text = i),
+            envir = env
+          )
+        )
+      }
+    )
+  }
+  ## identify coefficients used and do delta only for them
+  defs_exp <- lapply(
+    X = def,
+    FUN = function(x) {
+      parse(text = x)
+    }
   )
-  stopifnot(
-    is.vector(sigma) | is.matrix(sigma)
+  def_vars <- unique(
+    unlist(
+      sapply(
+        X = defs_exp,
+        FUN = all.vars
+      )
+    )
   )
-  k <- length(mu)
+  ## def to be used as names
+  def_vec <- def
+  dim(def_vec) <- NULL
+  coef <- stats::coef(object)[def_vars]
+  vcov <- stats::vcov(object)[def_vars, def_vars]
+  k <- length(coef)
   j <- numDeriv::jacobian(
     func = func,
-    x = mu
+    x = coef,
+    def = def
   )
   if (k == 1) {
     # univariate
-    sigma <- as.vector(sigma)
-    stopifnot(length(sigma) == 1)
-    vcov <- j^2 * (sigma / n)
+    vcov <- as.vector(vcov)
+    vcov <- j^2 * vcov
     se <- as.vector(sqrt(vcov))
   } else {
     # multivariate
-    stopifnot(
-      sigma == t(sigma),
-      dim(sigma)[1] == k
-    )
-    vcov <- j %*% (sigma / n) %*% t(j)
+    vcov <- j %*% vcov %*% t(j)
     se <- as.vector(sqrt(diag(vcov)))
   }
-  est <- func(mu)
+  est <- func(
+    coef = coef,
+    def = def
+  )
   return(
     .CIWald(
       est = est,
@@ -103,7 +124,7 @@ DeltaGeneric <- function(func,
       alpha = alpha,
       z = z,
       df = df,
-      test = test
+      test = FALSE
     )
   )
 }
