@@ -20,7 +20,8 @@ project <- "betaDelta"
 pkg_cran <- c(
   "lavaan",
   "mice",
-  "betaSandwich"
+  "betaSandwich",
+  "numDeriv"
 )
 
 pkg_github <- c()
