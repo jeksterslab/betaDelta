@@ -116,7 +116,7 @@ DeltaGeneric <- function(object,
     coef = coef,
     def = def
   )
-  ci <- .CIWald(
+  ci <-  .CIWald(
     est = est,
     se = se,
     theta = theta,

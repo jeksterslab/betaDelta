@@ -32,6 +32,17 @@ lapply(
         )
       }
     )
+    object <- glm(
+      formula = vs ~ wt + disp,
+      family = "binomial",
+      data = mtcars
+    )
+    def <- list("exp(wt)", "exp(disp)")
+    DeltaGeneric(
+      object = object,
+      def = def,
+      alpha = 0.05
+    )
   },
   text = "test-zzz-coverage"
 )
