@@ -1,18 +1,20 @@
-#' Delta Method Confidence Intervals (Generic)
+#' Delta Method (Generic)
 #'
-#' Calculates delta method confidence intervals
+#' Calculates delta method sampling variance-covariance matrix
 #' for a function of parameters
 #' using a numerical Jacobian.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Returns a numeric matrix with the following variables:
+#' @return Returns an object
+#'   of class `deltamethod` which is a list with the following elements:
 #'   \describe{
-#'     \item{est}{Estimates}
-#'     \item{se}{Standard errors}
-#'     \item{t or z}{Test statistics}
-#'     \item{p}{p value}
-#'     \item{ci}{Confidence intervals}
+#'     \item{call}{Function call.}
+#'     \item{args}{Function arguments.}
+#'     \item{coef}{Estimates.}
+#'     \item{vcov}{Sampling variance-covariance matrix.}
+#'     \item{jacobian}{Jacobian matrix.}
+#'     \item{fun}{Function used ("DeltaGeneric").}
 #'   }
 #'
 #' @param object R object.
@@ -48,7 +50,6 @@
 #'   def = def,
 #'   alpha = 0.05
 #' )
-#' @importFrom numDeriv jacobian
 #' @export
 #' @family Delta Method Functions
 #' @keywords deltaMethod
@@ -57,7 +58,25 @@ DeltaGeneric <- function(object,
                          theta = 0,
                          alpha = c(0.05, 0.01, 0.001),
                          z = TRUE,
-                         df) {
+                         df = NULL) {
+  if (!z) {
+    if (is.null(df)) {
+      stop(
+        paste0(
+          "Please provide a value for the argument `df`.\n",
+          "Otherwise, set `z = TRUE`.\n"
+        )
+      )
+    }
+  }
+  args <- list(
+    object = object,
+    def = def,
+    theta = theta,
+    alpha = alpha,
+    z = z,
+    df = df
+  )
   ## function
   func <- function(coef,
                    def) {
@@ -105,31 +124,39 @@ DeltaGeneric <- function(object,
   if (k == 1) {
     # univariate
     vcov <- as.vector(vcov)
-    vcov <- j^2 * vcov
-    se <- as.vector(sqrt(vcov))
+    vcov <- matrix(
+      data = j^2 * vcov,
+      nrow = 1,
+      ncol = 1
+    )
   } else {
     # multivariate
     vcov <- j %*% vcov %*% t(j)
-    se <- as.vector(sqrt(diag(vcov)))
   }
   est <- func(
     coef = coef,
     def = def
-  )
-  ci <- .CIWald(
-    est = est,
-    se = se,
-    theta = theta,
-    alpha = alpha,
-    z = z,
-    df = df,
-    test = FALSE
   )
   def <- do.call(
     what = "rbind",
     args = def
   )
   dim(def) <- NULL
-  rownames(ci) <- def
-  return(ci)
+  names(est) <- def
+  colnames(vcov) <- rownames(vcov) <- def
+  out <- list(
+    call = match.call(),
+    args = args,
+    est = est,
+    vcov = vcov,
+    jacobian = j,
+    fun = "DeltaGeneric"
+  )
+  class(out) <- c(
+    "deltamethod",
+    class(out)
+  )
+  return(
+    out
+  )
 }

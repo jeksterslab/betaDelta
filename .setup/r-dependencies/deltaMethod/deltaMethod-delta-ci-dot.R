@@ -1,29 +1,29 @@
 #' Confidence Intervals for
-#' Standardized Regression Coefficients
+#' Deltma Method
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix of
-#'   standardized regression slopes,
+#'   estimates,
 #'   standard errors,
 #'   test statistics,
 #'   p-values,
 #'   and
 #'   confidence intervals.
 #'
-#' @param object Object of class `betadelta`.
+#' @param object Object of class `deltamethod`.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
 #'
-#' @family Beta Delta Functions
-#' @keywords betaDelta ci internal
+#' @family Delta Method Functions
+#' @keywords deltaMethod ci internal
 #' @noRd
-.BetaCI <- function(object,
-                    alpha = NULL) {
+.DeltaCI <- function(object,
+                     alpha) {
   stopifnot(
     inherits(
       object,
-      "betadelta"
+      "deltamethod"
     )
   )
   if (is.null(alpha)) {
@@ -36,10 +36,10 @@
     .CIWald(
       est = object$est,
       se = sqrt(diag(object$vcov)),
-      theta = 0,
+      theta = object$args$theta,
       alpha = alpha,
-      z = FALSE,
-      df = object$lm_process$df
+      z = object$args$z,
+      df = object$args$df
     )
   )
 }
