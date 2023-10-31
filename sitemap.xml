@@ -49,10 +49,16 @@
     <loc>https://github.com/jeksterslab/betaDelta/reference/coef.betadelta.html</loc>
   </url>
   <url>
+    <loc>https://github.com/jeksterslab/betaDelta/reference/coef.deltamethod.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/coef.diffbetadelta.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/confint.betadelta.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/jeksterslab/betaDelta/reference/confint.deltamethod.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/confint.diffbetadelta.html</loc>
@@ -67,16 +73,25 @@
     <loc>https://github.com/jeksterslab/betaDelta/reference/print.betadelta.html</loc>
   </url>
   <url>
+    <loc>https://github.com/jeksterslab/betaDelta/reference/print.deltamethod.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/print.diffbetadelta.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/summary.betadelta.html</loc>
   </url>
   <url>
+    <loc>https://github.com/jeksterslab/betaDelta/reference/summary.deltamethod.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/summary.diffbetadelta.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/vcov.betadelta.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/jeksterslab/betaDelta/reference/vcov.deltamethod.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/vcov.diffbetadelta.html</loc>
