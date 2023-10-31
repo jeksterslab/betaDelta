@@ -2,7 +2,7 @@
 % Please edit documentation in R/deltaMethod-delta-generic.R
 \name{DeltaGeneric}
 \alias{DeltaGeneric}
-\title{Delta Method Confidence Intervals (Generic)}
+\title{Delta Method (Generic)}
 \usage{
 DeltaGeneric(
   object,
@@ -10,7 +10,7 @@ DeltaGeneric(
   theta = 0,
   alpha = c(0.05, 0.01, 0.001),
   z = TRUE,
-  df
+  df = NULL
 )
 }
 \arguments{
@@ -41,17 +41,19 @@ use the t distribution.}
 Degrees of freedom if \code{z = FALSE}.}
 }
 \value{
-Returns a numeric matrix with the following variables:
+Returns an object
+of class \code{deltamethod} which is a list with the following elements:
 \describe{
-\item{est}{Estimates}
-\item{se}{Standard errors}
-\item{t or z}{Test statistics}
-\item{p}{p value}
-\item{ci}{Confidence intervals}
+\item{call}{Function call.}
+\item{args}{Function arguments.}
+\item{coef}{Estimates.}
+\item{vcov}{Sampling variance-covariance matrix.}
+\item{jacobian}{Jacobian matrix.}
+\item{fun}{Function used ("DeltaGeneric").}
 }
 }
 \description{
-Calculates delta method confidence intervals
+Calculates delta method sampling variance-covariance matrix
 for a function of parameters
 using a numerical Jacobian.
 }
