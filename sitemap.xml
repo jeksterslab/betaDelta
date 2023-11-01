@@ -16,6 +16,9 @@
     <loc>https://github.com/jeksterslab/betaDelta/articles/example_beta_delta.html</loc>
   </url>
   <url>
+    <loc>https://github.com/jeksterslab/betaDelta/articles/example_delta_generic.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/jeksterslab/betaDelta/articles/example_diff_beta_delta.html</loc>
   </url>
   <url>
@@ -35,6 +38,9 @@
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/BetaDelta.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/jeksterslab/betaDelta/reference/Delta.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.html</loc>
