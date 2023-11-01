@@ -111,6 +111,28 @@
 % confint(adf)
 %% end.rcode
 
+%% begin.rcode
+% object <- glm(
+%   formula = vs ~ wt + disp,
+%   family = "binomial",
+%   data = mtcars
+% )
+% b <- coef(object)
+% c <- vcov(object)
+% grad <- exp(b)
+% result <- c(sqrt(grad[2] %*% c[2, 2] %*% grad[2]),
+% sqrt(grad[3] %*% c[3, 3] %*% grad[3]))
+%
+% def <- list("exp(wt)", "exp(disp)")
+% out <- DeltaGeneric(
+%   object = object,
+%   def = def,
+%   alpha = 0.05
+% )
+% sqrt(diag(out$vcov))
+%% end.rcode
+
+
 \nocite{Lib-R-Manual-2023}
 
 \printbibliography
