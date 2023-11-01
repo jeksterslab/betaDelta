@@ -73,6 +73,11 @@ lapply(
     coef(out)
     vcov(out)
     confint(out)
+    func <- function(x) {
+      y <- exp(x[2])
+      names(y) <- paste0("exp", "(", names(x[2]), ")")
+      return(y)
+    }
     out <- Delta(
       coef = coef,
       vcov = vcov,
