@@ -1,4 +1,4 @@
-#' Delta Method (Generic)
+#' Delta Method (Generic Object Input)
 #'
 #' Calculates delta method sampling variance-covariance matrix
 #' for a function of parameters
