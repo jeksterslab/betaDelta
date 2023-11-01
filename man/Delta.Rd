@@ -25,8 +25,11 @@ Matrix of sampling variance-covariance matrix of parameters.}
 \item{func}{R function.
 \enumerate{
 \item The first argument \code{x} is the argument \code{coef}.
-\item The function algebraically manipulates \code{coef} to return at a new numeric vector.
-\item \code{func} can take additional named arguments passed using \code{...}.
+\item The function algebraically manipulates \code{coef}
+to return at a new numeric vector.
+It is best to have a named vector as an output.
+\item The function can take additional named arguments
+passed using \code{...}.
 }}
 
 \item{...}{Additional arguments to pass to \code{func}.}
@@ -55,7 +58,7 @@ of class \code{deltamethod} which is a list with the following elements:
 \item{coef}{Estimates.}
 \item{vcov}{Sampling variance-covariance matrix.}
 \item{jacobian}{Jacobian matrix.}
-\item{fun}{Function used ("DeltaGeneric").}
+\item{fun}{Function used ("Delta").}
 }
 }
 \description{

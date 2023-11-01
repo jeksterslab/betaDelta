@@ -15,7 +15,7 @@ reference:
 - title: Differences of Standardized Regression Coefficients
   contents:
   - has_keyword("diff")
-- title: Delta Method (Generic)
+- title: Delta Method (General)
   contents:
   - has_keyword("deltaMethod")
 - title: Methods
@@ -24,3 +24,14 @@ reference:
 - title: Data
   contents:
   - has_keyword("data")
+
+articles:
+- title: Examples
+  contents:
+  - example-beta-delta
+  - example-diff-beta-delta
+  - example-delta
+  - example-delta-generic
+- title: Session Information
+  contents:
+  - session/session

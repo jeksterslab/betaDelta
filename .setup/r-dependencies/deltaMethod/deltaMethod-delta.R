@@ -14,7 +14,7 @@
 #'     \item{coef}{Estimates.}
 #'     \item{vcov}{Sampling variance-covariance matrix.}
 #'     \item{jacobian}{Jacobian matrix.}
-#'     \item{fun}{Function used ("DeltaGeneric").}
+#'     \item{fun}{Function used ("Delta").}
 #'   }
 #'
 #' @param coef Numeric vector.
@@ -23,8 +23,11 @@
 #'   Matrix of sampling variance-covariance matrix of parameters.
 #' @param func R function.
 #'   1. The first argument `x` is the argument `coef`.
-#'   2. The function algebraically manipulates `coef` to return at a new numeric vector.
-#'   3. `func` can take additional named arguments passed using `...`.
+#'   2. The function algebraically manipulates `coef`
+#'      to return at a new numeric vector.
+#'      It is best to have a named vector as an output.
+#'   3. The function can take additional named arguments
+#'      passed using `...`.
 #' @param ... Additional arguments to pass to `func`.
 #' @param theta Numeric vector.
 #'   Parameter values when the null hypothesis is true.
@@ -108,6 +111,7 @@ Delta <- function(coef,
     x = coef,
     ...
   )
+  colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
     args = args,

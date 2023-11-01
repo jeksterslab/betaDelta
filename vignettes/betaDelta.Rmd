@@ -109,10 +109,13 @@ BetaDelta(object, type = "mvn", alpha = 0.05)
 BetaDelta(object, type = "adf", alpha = 0.05)
 ```
 
-## Other Feature
+## Other Features
 
 The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients.
+differences of standardized regression coefficients
+using the `DiffBetaDelta()` function.
+It can also be used as a general approach to performing the delta method
+using the `Delta()` and `DeltaGeneric()` functions.
 
 ## Citation
 

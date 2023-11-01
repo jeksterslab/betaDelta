@@ -112,10 +112,13 @@ BetaDelta(object, type = "adf", alpha = 0.05)
 #> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184
 ```
 
-## Other Feature
+## Other Features
 
 The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients.
+differences of standardized regression coefficients using the
+`DiffBetaDelta()` function. It can also be used as a general approach to
+performing the delta method using the `Delta()` and `DeltaGeneric()`
+functions.
 
 ## Citation
 
