@@ -18,11 +18,27 @@ lapply(
       sqrt(grad[2] %*% vcov[2, 2] %*% grad[2]),
       sqrt(grad[3] %*% vcov[3, 3] %*% grad[3])
     )
-    def <- list("exp(wt)", "exp(disp)")
+    def <- list(
+      "exp(wt)",
+      "exp(disp)"
+    )
     out <- DeltaGeneric(
       object = object,
       def = def,
       alpha = 0.05
+    )
+    testthat::test_that(
+      paste(text, "error"),
+      {
+        testthat::expect_error(
+          DeltaGeneric(
+            object = object,
+            def = def,
+            alpha = 0.05,
+            z = FALSE
+          )
+        )
+      }
     )
     testthat::test_that(
       paste(text, "est"),
