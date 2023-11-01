@@ -3,11 +3,12 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   betaDelta: betaDelta.html
-  example_beta_delta: example_beta_delta.html
-  example_delta_generic: example_delta_generic.html
-  example_diff_beta_delta: example_diff_beta_delta.html
+  example-beta-delta: example-beta-delta.html
+  example-delta-generic: example-delta-generic.html
+  example-delta: example-delta.html
+  example-diff-beta-delta: example-diff-beta-delta.html
   session: session/session.html
-last_built: 2023-11-01T17:42Z
+last_built: 2023-11-01T19:59Z
 urls:
   reference: https://github.com/jeksterslab/betaDelta/reference
   article: https://github.com/jeksterslab/betaDelta/articles

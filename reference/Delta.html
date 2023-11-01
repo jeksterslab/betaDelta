@@ -14,7 +14,7 @@ using a numerical Jacobian."><!-- mathjax --><script src="https://cdnjs.cloudfla
     
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.3.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,14 +28,8 @@ using a numerical Jacobian."><!-- mathjax --><script src="https://cdnjs.cloudfla
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/example_beta_delta.html">betaDelta: Example Using the BetaDelta Function</a>
-    <a class="dropdown-item" href="../articles/example_delta_generic.html">betaDelta: Example Using the DeltaGeneric Function</a>
-    <a class="dropdown-item" href="../articles/example_diff_beta_delta.html">betaDelta: Example Using the DiffBetaDelta Function</a>
-    <a class="dropdown-item" href="../articles/session/session.html">betaDelta: Session</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -95,8 +89,11 @@ Matrix of sampling variance-covariance matrix of parameters.</p></dd>
 
 <dt>func</dt>
 <dd><p>R function.</p><ol><li><p>The first argument <code>x</code> is the argument <code>coef</code>.</p></li>
-<li><p>The function algebraically manipulates <code>coef</code> to return at a new numeric vector.</p></li>
-<li><p><code>func</code> can take additional named arguments passed using <code>...</code>.</p></li>
+<li><p>The function algebraically manipulates <code>coef</code>
+to return at a new numeric vector.
+It is best to have a named vector as an output.</p></li>
+<li><p>The function can take additional named arguments
+passed using <code>...</code>.</p></li>
 </ol></dd>
 
 
@@ -148,7 +145,7 @@ of class <code>deltamethod</code> which is a list with the following elements:</
 <dd><p>Jacobian matrix.</p></dd>
 
 <dt>fun</dt>
-<dd><p>Function used ("DeltaGeneric").</p></dd>
+<dd><p>Function used ("Delta").</p></dd>
 
 
 </dl></div>
