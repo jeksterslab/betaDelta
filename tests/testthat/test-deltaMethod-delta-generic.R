@@ -56,7 +56,7 @@ lapply(
     confint(out)
     out <- DeltaGeneric(
       object = object,
-      def = def,
+      def = list("exp(wt)"),
       alpha = 0.05,
       z = FALSE,
       df = 30
