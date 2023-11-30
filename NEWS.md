@@ -1,4 +1,10 @@
+# betaDelta 1.0.4.9000
+
+* Latest development version.
+
 # betaDelta 1.0.4
+
+## Patch
 
 * Added the `Delta()` and `DeltaGeneric()` functions.
 
