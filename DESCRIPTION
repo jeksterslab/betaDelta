@@ -27,4 +27,3 @@ Suggests:
     rmarkdown,
     testthat,
     betaSandwich
-RoxygenNote: 7.3.0
