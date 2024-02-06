@@ -27,4 +27,4 @@ Suggests:
     rmarkdown,
     testthat,
     betaSandwich
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1
