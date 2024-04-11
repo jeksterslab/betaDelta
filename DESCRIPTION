@@ -11,6 +11,9 @@ Description: Generates confidence intervals for standardized regression coeffici
     using delta method standard errors for models fitted by lm()
     as described in Yuan and Chan (2011) <doi:10.1007/s11336-011-9224-6>
     and Jones and Waller (2015) <doi:10.1007/s11336-013-9380-y>.
+    The package can also be used to generate confidence intervals for
+    differences of standardized regression coefficients 
+    and as a general approach to performing the delta method.
     A description of the package and code examples
     are presented in Pesigan, Sun, and Cheung (2023) <doi:10.1080/00273171.2023.2201277>.
 URL: https://github.com/jeksterslab/betaDelta,
@@ -25,7 +28,7 @@ Imports: numDeriv
 Suggests: knitr, rmarkdown, testthat, betaSandwich
 RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2024-04-08 17:13:50 UTC; root
+Packaged: 2024-04-11 17:20:25 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
     (<https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
