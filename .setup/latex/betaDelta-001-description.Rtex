@@ -79,6 +79,9 @@ Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by \texttt{lm()}
 as described in \Textcite{Yuan-Chan-2011}
 and \Textcite{Jones-Waller-2013b}.
+The package can also be used to generate confidence intervals for
+differences of standardized regression coefficients 
+and as a general approach to performing the delta method.
 A description of the package and code examples
 are presented in \Textcite{Pesigan-Sun-Cheung-2023}.
 
