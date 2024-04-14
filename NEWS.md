@@ -1,6 +1,8 @@
-# betaDelta 1.0.4.9000
+# betaDelta 1.0.5
 
-* Latest development version.
+## Patch
+
+* Minor documentation edits.
 
 # betaDelta 1.0.4
 

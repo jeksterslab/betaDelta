@@ -8,7 +8,7 @@ message: 'To cite package "betaDelta" in publications use:'
 type: software
 license: MIT
 title: 'betaDelta: Confidence Intervals for Standardized Regression Coefficients'
-version: 1.0.4.9000
+version: 1.0.5
 doi: 10.1080/00273171.2023.2201277
 abstract: Generates confidence intervals for standardized regression coefficients
   using delta method standard errors for models fitted by lm() as described in Yuan
@@ -42,7 +42,7 @@ preferred-citation:
   year: '2023'
   doi: 10.1080/00273171.2023.2201277
   journal: Multivariate Behavioral Research
-  notes: R package version 1.0.4.9000
+  notes: R package version 1.0.5
 repository: https://CRAN.R-project.org/package=betaDelta
 repository-code: https://github.com/jeksterslab/betaDelta
 url: https://jeksterslab.github.io/betaDelta/
