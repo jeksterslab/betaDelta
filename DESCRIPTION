@@ -1,6 +1,6 @@
 Package: betaDelta
 Title: Confidence Intervals for Standardized Regression Coefficients
-Version: 1.0.4.9000
+Version: 1.0.5
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -28,7 +28,7 @@ Imports: numDeriv
 Suggests: knitr, rmarkdown, testthat, betaSandwich
 RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2024-04-11 17:20:25 UTC; root
+Packaged: 2024-04-14 16:39:26 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
     (<https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
