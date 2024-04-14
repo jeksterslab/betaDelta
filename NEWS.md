@@ -1,3 +1,7 @@
+# betaDelta 1.0.5.9000
+
+* Latest development version.
+
 # betaDelta 1.0.5
 
 ## Patch
