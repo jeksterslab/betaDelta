@@ -32,7 +32,7 @@
 #' The normal-theory and asymptotic distribution-free (ADF) covariance matrix
 #' of standardized regression coefficients:
 #' Theoretical extensions and finite sample behavior.
-#' *Psychometrika*, *80*(2), 365–378.
+#' *Psychometrika*, *80*(2), 365<U+2013>378.
 #' \doi{10.1007/s11336-013-9380-y}
 #'
 #' Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
@@ -43,7 +43,7 @@
 #'
 #' Yuan, K.-H., & Chan, W. (2011).
 #' Biases and standard errors of standardized regression coefficients.
-#' *Psychometrika*, *76*(4), 670–690.
+#' *Psychometrika*, *76*(4), 670<U+2013>690.
 #' \doi{10.1007/s11336-011-9224-6}
 #'
 #' @examples

@@ -144,7 +144,7 @@ To cite `betaDelta` in publications, please cite Pesigan et al. (2023).
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
-line-spacing="2">
+entry-spacing="0" line-spacing="2">
 
 <div id="ref-Jones-Waller-2015" class="csl-entry">
 
