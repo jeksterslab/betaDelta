@@ -26,7 +26,7 @@ Matrix of sampling variance-covariance matrix of parameters.}
 \enumerate{
 \item The first argument \code{x} is the argument \code{coef}.
 \item The function algebraically manipulates \code{coef}
-to return at a new numeric vector.
+to return a new numeric vector.
 It is best to have a named vector as an output.
 \item The function can take additional named arguments
 passed using \code{...}.
