@@ -55,7 +55,7 @@ Jones, J. A., & Waller, N. G. (2015).
 The normal-theory and asymptotic distribution-free (ADF) covariance matrix
 of standardized regression coefficients:
 Theoretical extensions and finite sample behavior.
-\emph{Psychometrika}, \emph{80}(2), 365<U+2013>378.
+\emph{Psychometrika}, \emph{80}(2), 365–378.
 \doi{10.1007/s11336-013-9380-y}
 
 Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
@@ -66,7 +66,7 @@ Confidence intervals for standardized regression coefficients in R.
 
 Yuan, K.-H., & Chan, W. (2011).
 Biases and standard errors of standardized regression coefficients.
-\emph{Psychometrika}, \emph{76}(4), 670<U+2013>690.
+\emph{Psychometrika}, \emph{76}(4), 670–690.
 \doi{10.1007/s11336-011-9224-6}
 }
 \seealso{
