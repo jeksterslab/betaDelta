@@ -137,8 +137,9 @@ corresponding sampling covariance matrix.<a class="anchor" aria-label="anchor" h
 <span><span class="co">#&gt;                   est     se      z      p    2.5%  97.5%</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT  0.1037 0.1357 0.7640 0.4449 -0.1623 0.3696</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP 0.2319 0.1252 1.8524 0.0640 -0.0135 0.4773</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1227 1.0451 0.2960 -0.1123 0.3688</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1227 1.0451 0.2960 -0.1123 0.3688</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; DiffBetaDelta(object = std_adf, alpha = 0.05)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -152,11 +153,12 @@ corresponding sampling covariance matrix.<a class="anchor" aria-label="anchor" h
 <h3 id="coef">coef<a class="anchor" aria-label="anchor" href="#coef"></a>
 </h3>
 <p>Calculate differences of standardized regression slopes.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP </span></span>
-<span><span class="co">#&gt;      0.1036564      0.2318974      0.1282410</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      0.1036564      0.2318974      0.1282410</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP </span></span>
 <span><span class="co">#&gt;      0.1036564      0.2318974      0.1282410</span></span></code></pre></div>
 </div>
@@ -165,13 +167,14 @@ corresponding sampling covariance matrix.<a class="anchor" aria-label="anchor" h
 </h3>
 <p>Calculate the sampling covariance matrix of differences of
 standardized regression slopes.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT    0.018408653    0.009511262   -0.008897391</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP   0.009511262    0.015672035    0.006160773</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP  -0.008897391    0.006160773    0.015058164</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PCTGRT-PCTSUPP  -0.008897391    0.006160773    0.015058164</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT    0.014681407    0.006928651   -0.007752755</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP   0.006928651    0.013938955    0.007010303</span></span>
@@ -182,13 +185,14 @@ standardized regression slopes.</p>
 </h3>
 <p>Generate confidence intervals for differences of standardized
 regression slopes.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">mvn</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                      2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT  -0.16226855 0.3695814</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP -0.01346652 0.4772614</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP -0.11226950 0.3687516</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adf</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PCTGRT-PCTSUPP -0.11226950 0.3687516</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adf</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                        2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT  -0.1338262589 0.3411391</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP  0.0004975295 0.4632974</span></span>

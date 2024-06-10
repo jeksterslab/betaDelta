@@ -164,8 +164,9 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <span><span class="co">#&gt;         99.95%</span></span>
 <span><span class="co">#&gt; NARTIC  0.7635</span></span>
 <span><span class="co">#&gt; PCTGRT  0.6640</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.5276</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.5276</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; BetaDelta(object = object, type = "adf")</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -183,11 +184,12 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <h3 id="coef">coef<a class="anchor" aria-label="anchor" href="#coef"></a>
 </h3>
 <p>Calculate the standardized regression slopes.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    NARTIC    PCTGRT   PCTSUPP </span></span>
-<span><span class="co">#&gt; 0.4951451 0.3914887 0.2632477</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 0.4951451 0.3914887 0.2632477</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    NARTIC    PCTGRT   PCTSUPP </span></span>
 <span><span class="co">#&gt; 0.4951451 0.3914887 0.2632477</span></span></code></pre></div>
 </div>
@@ -196,13 +198,14 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 </h3>
 <p>Calculate the sampling covariance matrix of the standardized
 regression slopes.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               NARTIC       PCTGRT      PCTSUPP</span></span>
 <span><span class="co">#&gt; NARTIC   0.005754524 -0.003360334 -0.002166127</span></span>
 <span><span class="co">#&gt; PCTGRT  -0.003360334  0.005933462 -0.001769723</span></span>
-<span><span class="co">#&gt; PCTSUPP -0.002166127 -0.001769723  0.005585256</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PCTSUPP -0.002166127 -0.001769723  0.005585256</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               NARTIC       PCTGRT      PCTSUPP</span></span>
 <span><span class="co">#&gt; NARTIC   0.004539472 -0.002552698 -0.001742698</span></span>
 <span><span class="co">#&gt; PCTGRT  -0.002552698  0.005036538 -0.001906216</span></span>
@@ -212,13 +215,14 @@ regression slopes.</p>
 <h3 id="confint">confint<a class="anchor" aria-label="anchor" href="#confint"></a>
 </h3>
 <p>Generate confidence intervals for standardized regression slopes.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">mvn</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; NARTIC  0.3420563 0.6482339</span></span>
 <span><span class="co">#&gt; PCTGRT  0.2360380 0.5469395</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.1124272 0.4140682</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adf</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.1124272 0.4140682</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adf</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; NARTIC  0.3591757 0.6311146</span></span>
 <span><span class="co">#&gt; PCTGRT  0.2482683 0.5347091</span></span>
