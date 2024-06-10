@@ -17,12 +17,12 @@ vignette: >
 In this example, we use the delta method to calculate the odds ratio, the associated standard errors, and confidence intervals within a logistic regression model.
 
 
-```r
+``` r
 library(betaDelta)
 ```
 
 
-```r
+``` r
 object <- glm(
   formula = vs ~ wt + disp,
   family = "binomial",
@@ -44,7 +44,7 @@ DeltaGeneric(
 ## Methods
 
 
-```r
+``` r
 delta <- DeltaGeneric(
   object = object,
   def = def,
@@ -57,7 +57,7 @@ delta <- DeltaGeneric(
 Summary of the results of `DeltaGeneric()`.
 
 
-```r
+``` r
 summary(delta)
 #> Call:
 #> DeltaGeneric(object = object, def = def, alpha = 0.05)
@@ -71,7 +71,7 @@ summary(delta)
 Calculate the estimates.
 
 
-```r
+``` r
 coef(delta)
 #>   exp(wt) exp(disp) 
 #> 5.0852960 0.9661524
@@ -82,7 +82,7 @@ coef(delta)
 Calculate the sampling covariance matrix.
 
 
-```r
+``` r
 vcov(delta)
 #>               exp(wt)     exp(disp)
 #> exp(wt)   57.46443026 -0.0977480169
@@ -94,7 +94,7 @@ vcov(delta)
 Generate confidence intervals.
 
 
-```r
+``` r
 confint(delta, level = 0.95)
 #>                2.5 %     97.5 %
 #> exp(wt)   -9.7722691 19.9428612
