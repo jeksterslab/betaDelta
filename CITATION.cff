@@ -42,7 +42,6 @@ preferred-citation:
   year: '2023'
   doi: 10.1080/00273171.2023.2201277
   journal: Multivariate Behavioral Research
-  notes: R package version 1.0.5.9000
 repository: https://CRAN.R-project.org/package=betaDelta
 repository-code: https://github.com/jeksterslab/betaDelta
 url: https://jeksterslab.github.io/betaDelta/
