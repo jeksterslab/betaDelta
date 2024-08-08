@@ -1,108 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/404.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/betaDelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/example-delta-generic.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/example-delta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/example-diff-beta-delta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/articles/session.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/index.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/BetaDelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/Delta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/betaDelta-package.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/coef.betadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/coef.deltamethod.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/coef.diffbetadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/confint.betadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/confint.deltamethod.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/confint.diffbetadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/nas1982.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/print.betadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/print.deltamethod.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/print.diffbetadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/summary.betadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/summary.deltamethod.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/summary.diffbetadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/vcov.betadelta.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/vcov.deltamethod.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/jeksterslab/betaDelta/reference/vcov.diffbetadelta.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://github.com/jeksterslab/betaDelta/404.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/LICENSE-text.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/LICENSE.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/betaDelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/example-delta-generic.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/example-delta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/example-diff-beta-delta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/index.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/articles/session.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/authors.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/index.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/news/index.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/BetaDelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/Delta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/betaDelta-package.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/coef.betadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/coef.deltamethod.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/coef.diffbetadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/confint.betadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/confint.deltamethod.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/confint.diffbetadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/index.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/nas1982.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/print.betadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/print.deltamethod.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/print.diffbetadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/summary.betadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/summary.deltamethod.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/summary.diffbetadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/vcov.betadelta.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/vcov.deltamethod.html</loc></url>
+<url><loc>https://github.com/jeksterslab/betaDelta/reference/vcov.diffbetadelta.html</loc></url>
 </urlset>
+
