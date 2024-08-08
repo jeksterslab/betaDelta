@@ -10,6 +10,9 @@ license: MIT
 title: 'betaDelta: Confidence Intervals for Standardized Regression Coefficients'
 version: 1.0.5.9000
 doi: 10.1080/00273171.2023.2201277
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.betaDelta
 abstract: Generates confidence intervals for standardized regression coefficients
   using delta method standard errors for models fitted by lm() as described in Yuan
   and Chan (2011) <https://doi.org/10.1007/s11336-011-9224-6> and Jones and Waller
