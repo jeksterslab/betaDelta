@@ -498,7 +498,7 @@ installed.packages()[, c("Package", "Version")]
 
 ```
 #>                total        used        free      shared  buff/cache   available
-#> Mem:            31Gi       4.4Gi       3.5Gi       6.2Gi        23Gi        20Gi
+#> Mem:            31Gi       7.7Gi       594Mi       6.3Gi        23Gi        16Gi
 #> Swap:             0B          0B          0B
-#> Total:          31Gi       4.4Gi       3.5Gi
+#> Total:          31Gi       7.7Gi       594Mi
 ```
