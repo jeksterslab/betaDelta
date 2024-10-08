@@ -20,12 +20,6 @@
 #' @noRd
 .DeltaCI <- function(object,
                      alpha) {
-  stopifnot(
-    inherits(
-      object,
-      "deltamethod"
-    )
-  )
   if (is.null(alpha)) {
     alpha <- object$args$alpha
   }

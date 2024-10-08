@@ -63,6 +63,12 @@ BetaDelta <- function(object,
                       type = "mvn",
                       alpha = c(0.05, 0.01, 0.001)) {
   stopifnot(
+    inherits(
+      x = object,
+      what = "lm"
+    )
+  )
+  stopifnot(
     type %in% c(
       "mvn",
       "adf"
