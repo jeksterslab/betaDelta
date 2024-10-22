@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2024-10-08
+2024-10-22
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -10,7 +10,7 @@ Ivan Jacob Agaloos Pesigan
 [![CRAN
 Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
 [![R-Universe
-Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
+Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev/betaDelta)
 [![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
 [![Make
 Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
