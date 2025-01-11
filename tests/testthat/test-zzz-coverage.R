@@ -5,7 +5,7 @@ lapply(
                  text) {
     message(text)
     testthat::test_that(
-      paste(text, "methods"),
+      paste(text, "coverage"),
       {
         testthat::skip_on_cran()
         out <- betaDelta:::.DiagofVech(
