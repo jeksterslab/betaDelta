@@ -5,22 +5,22 @@ lapply(
                  text,
                  tol) {
     message(text)
-    if (!exists("nas1982")) {
-      try(
-        data(
-          "nas1982",
-          package = "betaDelta"
-        ),
-        silent = TRUE
-      )
-    }
-    df <- nas1982
-    object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-    mvn <- DiffBetaDelta(BetaDelta(object, type = "mvn"))
-    adf <- DiffBetaDelta(BetaDelta(object, type = "adf"))
     testthat::test_that(
       paste(text, "mvn", "multiple regression"),
       {
+        testthat::skip_on_cran()
+        if (!exists("nas1982")) {
+          try(
+            data(
+              "nas1982",
+              package = "betaDelta"
+            ),
+            silent = TRUE
+          )
+        }
+        df <- nas1982
+        object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+        mvn <- DiffBetaDelta(BetaDelta(object, type = "mvn"))
         testthat::expect_true(
           all(
             abs(
@@ -44,6 +44,19 @@ lapply(
     testthat::test_that(
       paste(text, "adf", "multiple regression"),
       {
+        testthat::skip_on_cran()
+        if (!exists("nas1982")) {
+          try(
+            data(
+              "nas1982",
+              package = "betaDelta"
+            ),
+            silent = TRUE
+          )
+        }
+        df <- nas1982
+        object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+        adf <- DiffBetaDelta(BetaDelta(object, type = "adf"))
         testthat::expect_true(
           all(
             abs(
@@ -64,10 +77,21 @@ lapply(
         )
       }
     )
-    object <- lm(QUALITY ~ NARTIC, data = df)
     testthat::test_that(
       paste(text, "mvn", "simple regression"),
       {
+        testthat::skip_on_cran()
+        if (!exists("nas1982")) {
+          try(
+            data(
+              "nas1982",
+              package = "betaDelta"
+            ),
+            silent = TRUE
+          )
+        }
+        df <- nas1982
+        object <- lm(QUALITY ~ NARTIC, data = df)
         testthat::expect_error(
           DiffBetaDelta(BetaDelta(object, type = "mvn"))
         )
@@ -76,6 +100,18 @@ lapply(
     testthat::test_that(
       paste(text, "adf", "simple regression"),
       {
+        testthat::skip_on_cran()
+        if (!exists("nas1982")) {
+          try(
+            data(
+              "nas1982",
+              package = "betaDelta"
+            ),
+            silent = TRUE
+          )
+        }
+        df <- nas1982
+        object <- lm(QUALITY ~ NARTIC, data = df)
         testthat::expect_error(
           DiffBetaDelta(BetaDelta(object, type = "adf"))
         )
