@@ -28,7 +28,7 @@ Imports: numDeriv
 Suggests: knitr, rmarkdown, testthat, betaSandwich
 RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2025-01-12 23:09:01 UTC; root
+Packaged: 2025-01-13 00:33:48 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
     (<https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
