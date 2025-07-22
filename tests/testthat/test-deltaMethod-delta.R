@@ -25,7 +25,7 @@ lapply(
         func <- function(x) {
           y <- exp(x)
           names(y) <- paste0("exp", "(", names(x), ")")
-          return(y[-1])
+          y[-1]
         }
         out <- Delta(
           coef = coef,
@@ -64,7 +64,7 @@ lapply(
         func <- function(x) {
           y <- exp(x)
           names(y) <- paste0("exp", "(", names(x), ")")
-          return(y[-1])
+          y[-1]
         }
         out <- Delta(
           coef = coef,
@@ -101,7 +101,7 @@ lapply(
         func <- function(x) {
           y <- exp(x)
           names(y) <- paste0("exp", "(", names(x), ")")
-          return(y[-1])
+          y[-1]
         }
         out <- Delta(
           coef = coef,
@@ -138,7 +138,7 @@ lapply(
         func <- function(x) {
           y <- exp(x)
           names(y) <- paste0("exp", "(", names(x), ")")
-          return(y[-1])
+          y[-1]
         }
         out <- Delta(
           coef = coef,
@@ -154,7 +154,7 @@ lapply(
         func <- function(x) {
           y <- exp(x)
           names(y) <- paste0("exp", "(", names(x), ")")
-          return(y)
+          y
         }
         out <- Delta(
           coef = coef[2],
