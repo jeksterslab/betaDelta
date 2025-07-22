@@ -43,5 +43,5 @@
       pinv_of_dcap = object$pinv_of_dcap
     )
   }
-  return(gammacap)
+  gammacap
 }

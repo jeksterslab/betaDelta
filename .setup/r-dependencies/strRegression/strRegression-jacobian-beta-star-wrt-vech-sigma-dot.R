@@ -89,7 +89,5 @@
     ,
     moments$vechsigmacapx
   ] <- betastar_wrt_vechsigmacapx
-  return(
-    jcap
-  )
+  jcap
 }

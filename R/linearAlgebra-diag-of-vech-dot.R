@@ -21,17 +21,19 @@
                         loc = FALSE) {
   if (length(x) == 1) {
     if (loc) {
-      return(1)
+      out <- 1
     } else {
-      return(x[1])
+      out <- x[1]
+    }
+  } else {
+    j <- 0.5 * (
+      2 * k * 1:k - 2 * k + 3 * 1:k - (1:k) * (1:k)
+    )
+    if (loc) {
+      out <- j
+    } else {
+      out <- x[j]
     }
   }
-  j <- 0.5 * (
-    2 * k * 1:k - 2 * k + 3 * 1:k - (1:k) * (1:k)
-  )
-  if (loc) {
-    return(j)
-  } else {
-    return(x[j])
-  }
+  out
 }

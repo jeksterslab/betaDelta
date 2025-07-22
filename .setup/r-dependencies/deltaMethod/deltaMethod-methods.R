@@ -93,17 +93,23 @@ summary.deltamethod <- function(object,
                                 alpha = NULL,
                                 digits = 4,
                                 ...) {
-  cat("Call:\n")
-  base::print(object$call)
-  return(
-    round(
-      .DeltaCI(
-        object = object,
-        alpha = alpha
-      ),
+  if (interactive()) {
+    # nocov start
+    cat("Call:\n")
+    base::print(object$call)
+    # nocov end
+  }
+  ci <- .DeltaCI(
+    object = object,
+    alpha = alpha
+  )
+  if (!is.null(digits)) {
+    ci <- round(
+      x = ci,
       digits = digits
     )
-  )
+  }
+  ci
 }
 
 #' Sampling Covariance Matrix
@@ -134,9 +140,7 @@ summary.deltamethod <- function(object,
 #' @export
 vcov.deltamethod <- function(object,
                              ...) {
-  return(
-    object$vcov
-  )
+  object$vcov
 }
 
 #' Estimates
@@ -166,9 +170,7 @@ vcov.deltamethod <- function(object,
 #' @export
 coef.deltamethod <- function(object,
                              ...) {
-  return(
-    object$est
-  )
+  object$est
 }
 
 #' Confidence Intervals
@@ -226,7 +228,5 @@ confint.deltamethod <- function(object,
     x = varnames
   )
   colnames(ci) <- varnames
-  return(
-    ci
-  )
+  ci
 }

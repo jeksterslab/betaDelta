@@ -75,7 +75,7 @@ object <- glm(
 func <- function(x) {
   y <- exp(x)
   names(y) <- paste0("exp", "(", names(x), ")")
-  return(y[-1])
+  y[-1]
 }
 Delta(
   coef = coef(object),

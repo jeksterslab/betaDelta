@@ -97,7 +97,5 @@ BetaDelta <- function(object,
     "betadelta",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }
