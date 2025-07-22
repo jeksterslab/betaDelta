@@ -91,15 +91,17 @@ summary.betadelta <- function(object,
     )
     # nocov end
   }
-  return(
-    round(
-      .BetaCI(
-        object = object,
-        alpha = alpha
-      ),
+  ci <- .BetaCI(
+    object = object,
+    alpha = alpha
+  )
+  if (!is.null(digits)) {
+    ci <- round(
+      x = ci,
       digits = digits
     )
-  )
+  }
+  ci
 }
 
 #' Sampling Covariance Matrix of the Standardized Regression Slopes
@@ -122,9 +124,7 @@ summary.betadelta <- function(object,
 #' @export
 vcov.betadelta <- function(object,
                            ...) {
-  return(
-    object$vcov
-  )
+  object$vcov
 }
 
 #' Standardized Regression Slopes
@@ -145,9 +145,7 @@ vcov.betadelta <- function(object,
 #' @export
 coef.betadelta <- function(object,
                            ...) {
-  return(
-    object$est
-  )
+  object$est
 }
 
 #' Confidence Intervals for Standardized Regression Slopes
@@ -191,7 +189,5 @@ confint.betadelta <- function(object,
     x = varnames
   )
   colnames(ci) <- varnames
-  return(
-    ci
-  )
+  ci
 }

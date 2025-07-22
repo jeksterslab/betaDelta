@@ -93,15 +93,17 @@ summary.diffbetadelta <- function(object,
     )
     # nocov end
   }
-  return(
-    round(
-      .DiffBetaCI(
-        object = object,
-        alpha = alpha
-      ),
+  ci <- .DiffBetaCI(
+    object = object,
+    alpha = alpha
+  )
+  if (!is.null(digits)) {
+    ci <- round(
+      x = ci,
       digits = digits
     )
-  )
+  }
+  ci
 }
 
 #' Sampling Covariance Matrix of
@@ -126,9 +128,7 @@ summary.diffbetadelta <- function(object,
 #' @export
 vcov.diffbetadelta <- function(object,
                                ...) {
-  return(
-    object$vcov
-  )
+  object$vcov
 }
 
 #' Differences of Standardized Regression Slopes
@@ -150,9 +150,7 @@ vcov.diffbetadelta <- function(object,
 #' @export
 coef.diffbetadelta <- function(object,
                                ...) {
-  return(
-    object$est
-  )
+  object$est
 }
 
 #' Confidence Intervals for Differences
@@ -198,7 +196,5 @@ confint.diffbetadelta <- function(object,
     x = varnames
   )
   colnames(ci) <- varnames
-  return(
-    ci
-  )
+  ci
 }

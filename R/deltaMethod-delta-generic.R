@@ -86,11 +86,9 @@ DeltaGeneric <- function(object,
     sapply(
       X = def,
       FUN = function(i) {
-        return(
-          eval(
-            parse(text = i),
-            envir = env
-          )
+        eval(
+          parse(text = i),
+          envir = env
         )
       }
     )
@@ -156,7 +154,5 @@ DeltaGeneric <- function(object,
     "deltamethod",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

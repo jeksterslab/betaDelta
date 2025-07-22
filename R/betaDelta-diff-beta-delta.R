@@ -72,7 +72,5 @@ DiffBetaDelta <- function(object,
     "diffbetadelta",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

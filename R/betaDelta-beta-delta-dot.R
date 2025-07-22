@@ -71,12 +71,10 @@
   )
   colnames(acov) <- rownames(acov) <- lm_process$xnames
   vcov <- (1 / lm_process$n) * acov
-  return(
-    list(
-      gamma = gamma,
-      acov = acov,
-      vcov = vcov,
-      est = lm_process$betastar
-    )
+  list(
+    gamma = gamma,
+    acov = acov,
+    vcov = vcov,
+    est = lm_process$betastar
   )
 }
