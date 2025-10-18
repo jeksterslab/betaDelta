@@ -14,8 +14,7 @@
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="betaDelta: Example Using the BetaDelta Function">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -25,7 +24,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,29 +98,13 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <h4 id="multivariate-normal-theory-approach">Multivariate Normal-Theory Approach<a class="anchor" aria-label="anchor" href="#multivariate-normal-theory-approach"></a>
 </h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; BetaDelta(object = object, type = "mvn", alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Standardized regression slopes with MVN standard errors:</span></span>
-<span><span class="co">#&gt;            est     se      t df     p   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0759 6.5272 42 0.000 0.3421 0.6482</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="asymptotic-distribution-free-approach">Asymptotic Distribution-Free Approach<a class="anchor" aria-label="anchor" href="#asymptotic-distribution-free-approach"></a>
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; BetaDelta(object = object, type = "adf", alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Standardized regression slopes with ADF standard errors:</span></span>
-<span><span class="co">#&gt;            est     se      t df      p   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -136,6 +119,16 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <p>Summary of the results of <code><a href="../reference/BetaDelta.html">BetaDelta()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               est         se        t df            p        0.05%       0.5%</span></span>
+<span><span class="co">#&gt; NARTIC  0.4951451 0.07585858 6.527213 42 6.924862e-08  0.226776787 0.29047366</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3914887 0.07702897 5.082357 42 8.144652e-06  0.118979841 0.18365947</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632477 0.07473457 3.522435 42 1.045529e-03 -0.001144198 0.06160887</span></span>
+<span><span class="co">#&gt;              2.5%     97.5%     99.5%    99.95%</span></span>
+<span><span class="co">#&gt; NARTIC  0.3420563 0.6482339 0.6998166 0.7635135</span></span>
+<span><span class="co">#&gt; PCTGRT  0.2360380 0.5469395 0.5993180 0.6639976</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.1124272 0.4140682 0.4648865 0.5276396</span></span>
+<span><span class="co">#&gt; attr(,"fit")</span></span>
+<span><span class="co">#&gt; attr(,"print_summary")</span></span>
 <span><span class="co">#&gt;            est     se      t df     p   0.05%   0.5%   2.5%  97.5%  99.5%</span></span>
 <span><span class="co">#&gt; NARTIC  0.4951 0.0759 6.5272 42 0.000  0.2268 0.2905 0.3421 0.6482 0.6998</span></span>
 <span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5.0824 42 0.000  0.1190 0.1837 0.2360 0.5469 0.5993</span></span>
@@ -144,7 +137,21 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <span><span class="co">#&gt; NARTIC  0.7635</span></span>
 <span><span class="co">#&gt; PCTGRT  0.6640</span></span>
 <span><span class="co">#&gt; PCTSUPP 0.5276</span></span>
+<span><span class="co">#&gt; attr(,"digits")</span></span>
+<span><span class="co">#&gt; [1] 4</span></span>
+<span><span class="co">#&gt; attr(,"class")</span></span>
+<span><span class="co">#&gt; [1] "summary.betadelta"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               est         se        t df            p        0.05%       0.5%</span></span>
+<span><span class="co">#&gt; NARTIC  0.4951451 0.06737560 7.349027 42 4.624211e-09  0.256787407 0.31336130</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3914887 0.07096857 5.516368 42 1.964333e-06  0.140419984 0.20001082</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632477 0.07690311 3.423109 42 1.392828e-03 -0.008815928 0.05575802</span></span>
+<span><span class="co">#&gt;              2.5%     97.5%     99.5%    99.95%</span></span>
+<span><span class="co">#&gt; NARTIC  0.3591757 0.6311146 0.6769290 0.7335029</span></span>
+<span><span class="co">#&gt; PCTGRT  0.2482683 0.5347091 0.5829666 0.6425575</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.1080509 0.4184444 0.4707374 0.5353113</span></span>
+<span><span class="co">#&gt; attr(,"fit")</span></span>
+<span><span class="co">#&gt; attr(,"print_summary")</span></span>
 <span><span class="co">#&gt;            est     se      t df      p   0.05%   0.5%   2.5%  97.5%  99.5%</span></span>
 <span><span class="co">#&gt; NARTIC  0.4951 0.0674 7.3490 42 0.0000  0.2568 0.3134 0.3592 0.6311 0.6769</span></span>
 <span><span class="co">#&gt; PCTGRT  0.3915 0.0710 5.5164 42 0.0000  0.1404 0.2000 0.2483 0.5347 0.5830</span></span>
@@ -152,7 +159,11 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <span><span class="co">#&gt;         99.95%</span></span>
 <span><span class="co">#&gt; NARTIC  0.7335</span></span>
 <span><span class="co">#&gt; PCTGRT  0.6426</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.5353</span></span></code></pre></div>
+<span><span class="co">#&gt; PCTSUPP 0.5353</span></span>
+<span><span class="co">#&gt; attr(,"digits")</span></span>
+<span><span class="co">#&gt; [1] 4</span></span>
+<span><span class="co">#&gt; attr(,"class")</span></span>
+<span><span class="co">#&gt; [1] "summary.betadelta"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="coef">coef<a class="anchor" aria-label="anchor" href="#coef"></a>
