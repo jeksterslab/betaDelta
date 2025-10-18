@@ -1,13 +1,8 @@
-# betaDelta 1.0.7
-
-## Patch
-
-* Minor edits to methods.
-
 # betaDelta 1.0.6
 
 ## Patch
 
+* Minor edits to methods.
 * Minor edits to tests.
 
 # betaDelta 1.0.5
