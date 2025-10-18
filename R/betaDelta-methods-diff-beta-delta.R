@@ -31,10 +31,12 @@ print.diffbetadelta <- function(x,
                                 alpha = NULL,
                                 digits = 4,
                                 ...) {
-  summary.diffbetadelta(
-    object = x,
-    alpha = alpha,
-    digits = digits
+  print.summary.diffbetadelta(
+    summary.diffbetadelta(
+      object = x,
+      alpha = alpha,
+      digits = digits
+    )
   )
 }
 

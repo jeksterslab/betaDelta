@@ -30,10 +30,12 @@ print.betadelta <- function(x,
                             alpha = NULL,
                             digits = 4,
                             ...) {
-  summary.betadelta(
-    object = x,
-    alpha = alpha,
-    digits = digits
+  print.summary.betadelta(
+    summary.betadelta(
+      object = x,
+      alpha = alpha,
+      digits = digits
+    )
   )
 }
 
