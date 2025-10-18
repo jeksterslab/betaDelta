@@ -99,6 +99,7 @@ summary.betadelta <- function(object,
 
 #' @noRd
 #' @keywords internal
+#' @exportS3Method print summary.betadelta
 print.summary.betadelta <- function(x,
                                     ...) {
   print_summary <- attr(

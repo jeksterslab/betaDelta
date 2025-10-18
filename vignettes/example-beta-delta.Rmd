@@ -76,16 +76,10 @@ Summary of the results of `BetaDelta()`.
 
 ``` r
 summary(mvn)
-#>               est         se        t df            p        0.05%       0.5%
-#> NARTIC  0.4951451 0.07585858 6.527213 42 6.924862e-08  0.226776787 0.29047366
-#> PCTGRT  0.3914887 0.07702897 5.082357 42 8.144652e-06  0.118979841 0.18365947
-#> PCTSUPP 0.2632477 0.07473457 3.522435 42 1.045529e-03 -0.001144198 0.06160887
-#>              2.5%     97.5%     99.5%    99.95%
-#> NARTIC  0.3420563 0.6482339 0.6998166 0.7635135
-#> PCTGRT  0.2360380 0.5469395 0.5993180 0.6639976
-#> PCTSUPP 0.1124272 0.4140682 0.4648865 0.5276396
-#> attr(,"fit")
-#> attr(,"print_summary")
+#> Call:
+#> BetaDelta(object = object, type = "mvn")
+#> 
+#> Standardized regression slopes with MVN standard errors:
 #>            est     se      t df     p   0.05%   0.5%   2.5%  97.5%  99.5%
 #> NARTIC  0.4951 0.0759 6.5272 42 0.000  0.2268 0.2905 0.3421 0.6482 0.6998
 #> PCTGRT  0.3915 0.0770 5.0824 42 0.000  0.1190 0.1837 0.2360 0.5469 0.5993
@@ -94,21 +88,11 @@ summary(mvn)
 #> NARTIC  0.7635
 #> PCTGRT  0.6640
 #> PCTSUPP 0.5276
-#> attr(,"digits")
-#> [1] 4
-#> attr(,"class")
-#> [1] "summary.betadelta"
 summary(adf)
-#>               est         se        t df            p        0.05%       0.5%
-#> NARTIC  0.4951451 0.06737560 7.349027 42 4.624211e-09  0.256787407 0.31336130
-#> PCTGRT  0.3914887 0.07096857 5.516368 42 1.964333e-06  0.140419984 0.20001082
-#> PCTSUPP 0.2632477 0.07690311 3.423109 42 1.392828e-03 -0.008815928 0.05575802
-#>              2.5%     97.5%     99.5%    99.95%
-#> NARTIC  0.3591757 0.6311146 0.6769290 0.7335029
-#> PCTGRT  0.2482683 0.5347091 0.5829666 0.6425575
-#> PCTSUPP 0.1080509 0.4184444 0.4707374 0.5353113
-#> attr(,"fit")
-#> attr(,"print_summary")
+#> Call:
+#> BetaDelta(object = object, type = "adf")
+#> 
+#> Standardized regression slopes with ADF standard errors:
 #>            est     se      t df      p   0.05%   0.5%   2.5%  97.5%  99.5%
 #> NARTIC  0.4951 0.0674 7.3490 42 0.0000  0.2568 0.3134 0.3592 0.6311 0.6769
 #> PCTGRT  0.3915 0.0710 5.5164 42 0.0000  0.1404 0.2000 0.2483 0.5347 0.5830
@@ -117,10 +101,6 @@ summary(adf)
 #> NARTIC  0.7335
 #> PCTGRT  0.6426
 #> PCTSUPP 0.5353
-#> attr(,"digits")
-#> [1] 4
-#> attr(,"class")
-#> [1] "summary.betadelta"
 ```
 
 ### coef
