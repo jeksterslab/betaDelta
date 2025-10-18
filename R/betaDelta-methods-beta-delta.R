@@ -30,21 +30,10 @@ print.betadelta <- function(x,
                             alpha = NULL,
                             digits = 4,
                             ...) {
-  cat("Call:\n")
-  base::print(x$call)
-  cat(
-    "\nStandardized regression slopes with",
-    toupper(x$args$type),
-    "standard errors:\n"
-  )
-  base::print(
-    round(
-      .BetaCI(
-        object = x,
-        alpha = alpha
-      ),
-      digits = digits
-    )
+  summary.betadelta(
+    object = x,
+    alpha = alpha,
+    digits = digits
   )
 }
 
@@ -80,28 +69,55 @@ summary.betadelta <- function(object,
                               alpha = NULL,
                               digits = 4,
                               ...) {
-  if (interactive()) {
-    # nocov start
-    cat("Call:\n")
-    base::print(object$call)
-    cat(
-      "\nStandardized regression slopes with",
-      toupper(object$args$type),
-      "standard errors:\n"
-    )
-    # nocov end
-  }
   ci <- .BetaCI(
     object = object,
     alpha = alpha
   )
-  if (!is.null(digits)) {
-    ci <- round(
-      x = ci,
-      digits = digits
-    )
-  }
+  print_summary <- round(
+    x = ci,
+    digits = digits
+  )
+  attr(
+    x = ci,
+    which = "fit"
+  ) <- object
+  attr(
+    x = ci,
+    which = "print_summary"
+  ) <- print_summary
+  attr(
+    x = ci,
+    which = "alpha"
+  ) <- alpha
+  attr(
+    x = ci,
+    which = "digits"
+  ) <- digits
+  class(ci) <- "summary.betadelta"
   ci
+}
+
+#' @noRd
+#' @keywords internal
+print.summary.betadelta <- function(x,
+                                    ...) {
+  print_summary <- attr(
+    x = x,
+    which = "print_summary"
+  )
+  object <- attr(
+    x = x,
+    which = "fit"
+  )
+  cat("Call:\n")
+  base::print(object$call)
+  cat(
+    "\nStandardized regression slopes with",
+    toupper(object$args$type),
+    "standard errors:\n"
+  )
+  print(print_summary)
+  invisible(x)
 }
 
 #' Sampling Covariance Matrix of the Standardized Regression Slopes

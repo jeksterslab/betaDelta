@@ -1,3 +1,9 @@
+# betaDelta 1.0.7
+
+## Patch
+
+* Minor edits to methods.
+
 # betaDelta 1.0.6
 
 ## Patch
