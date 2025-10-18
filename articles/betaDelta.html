@@ -129,12 +129,28 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 </h4>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Call:</span></span>
+<span><span class="co">## BetaDelta(object = object, type = "mvn", alpha = 0.05)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Standardized regression slopes with MVN standard errors:</span></span>
+<span><span class="co">##            est     se      t df     p   2.5%  97.5%</span></span>
+<span><span class="co">## NARTIC  0.4951 0.0759 6.5272 42 0.000 0.3421 0.6482</span></span>
+<span><span class="co">## PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469</span></span>
+<span><span class="co">## PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="asymptotic-distribution-free-approach">Asymptotic Distribution-Free Approach<a class="anchor" aria-label="anchor" href="#asymptotic-distribution-free-approach"></a>
 </h4>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Call:</span></span>
+<span><span class="co">## BetaDelta(object = object, type = "adf", alpha = 0.05)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Standardized regression slopes with ADF standard errors:</span></span>
+<span><span class="co">##            est     se      t df      p   2.5%  97.5%</span></span>
+<span><span class="co">## NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311</span></span>
+<span><span class="co">## PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347</span></span>
+<span><span class="co">## PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184</span></span></code></pre>
 </div>
 </div>
 </div>
