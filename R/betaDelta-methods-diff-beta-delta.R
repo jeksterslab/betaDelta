@@ -101,6 +101,7 @@ summary.diffbetadelta <- function(object,
 
 #' @noRd
 #' @keywords internal
+#' @exportS3Method print summary.diffbetadelta
 print.summary.diffbetadelta <- function(x,
                                         ...) {
   print_summary <- attr(
