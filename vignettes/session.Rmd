@@ -43,7 +43,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] betaDelta_1.0.7
+#> [1] betaDelta_1.0.6
 #> 
 #> loaded via a namespace (and not attached):
 #> [1] compiler_4.5.1      tools_4.5.1         rProject_0.0.21    
@@ -57,7 +57,7 @@ sessionInfo()
 ``` r
 installed.packages()[, c("Package", "Version")]
 #>                   Package             Version      
-#> betaDelta         "betaDelta"         "1.0.7"      
+#> betaDelta         "betaDelta"         "1.0.6"      
 #> abind             "abind"             "1.4-8"      
 #> Amelia            "Amelia"            "1.8.3"      
 #> arm               "arm"               "1.14-4"     
@@ -461,10 +461,10 @@ installed.packages()[, c("Package", "Version")]
 #> Core(s) per socket:                   12
 #> Socket(s):                            2
 #> Stepping:                             2
-#> CPU(s) scaling MHz:                   62%
+#> CPU(s) scaling MHz:                   67%
 #> CPU max MHz:                          3300.0000
 #> CPU min MHz:                          1200.0000
-#> BogoMIPS:                             4988.69
+#> BogoMIPS:                             4988.39
 #> Flags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm xsaveopt cqm_llc cqm_occup_llc dtherm ida arat pln pts md_clear flush_l1d
 #> L1d cache:                            768 KiB (24 instances)
 #> L1i cache:                            768 KiB (24 instances)
@@ -494,7 +494,7 @@ installed.packages()[, c("Package", "Version")]
 
 ```
 #>                total        used        free      shared  buff/cache   available
-#> Mem:           251Gi        12Gi       221Gi       7.4Gi        26Gi       239Gi
+#> Mem:           251Gi        10Gi       183Gi       5.5Gi        65Gi       241Gi
 #> Swap:             0B          0B          0B
-#> Total:         251Gi        12Gi       221Gi
+#> Total:         251Gi        10Gi       183Gi
 ```
