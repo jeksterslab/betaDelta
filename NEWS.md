@@ -3,7 +3,6 @@
 ## Patch
 
 * Minor edits to methods.
-* Minor edits to tests.
 
 # betaDelta 1.0.5
 
