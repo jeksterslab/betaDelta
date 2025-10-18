@@ -89,16 +89,10 @@ confidence intervals.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">std</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               est         se        t df            p        0.05%       0.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.4951451 0.07585858 6.527213 42 6.924862e-08  0.226776787 0.29047366</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.3914887 0.07702897 5.082357 42 8.144652e-06  0.118979841 0.18365947</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.2632477 0.07473457 3.522435 42 1.045529e-03 -0.001144198 0.06160887</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              2.5%     97.5%     99.5%    99.95%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.3420563 0.6482339 0.6998166 0.7635135</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.2360380 0.5469395 0.5993180 0.6639976</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.1124272 0.4140682 0.4648865 0.5276396</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"fit")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"print_summary")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> BetaDelta(object = object)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Standardized regression slopes with MVN standard errors:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            est     se      t df     p   0.05%   0.5%   2.5%  97.5%  99.5%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.4951 0.0759 6.5272 42 0.000  0.2268 0.2905 0.3421 0.6482 0.6998</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.3915 0.0770 5.0824 42 0.000  0.1190 0.1837 0.2360 0.5469 0.5993</span>
@@ -107,10 +101,6 @@ confidence intervals.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.7635</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.6640</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.5276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"digits")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "summary.betadelta"</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

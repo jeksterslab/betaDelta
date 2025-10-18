@@ -112,35 +112,23 @@ corresponding sampling covariance matrix.<a class="anchor" aria-label="anchor" h
 <p>Summary of the results of <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                      est        se         z          p        2.5%     97.5%</span></span>
-<span><span class="co">#&gt; NARTIC-PCTGRT  0.1036564 0.1356785 0.7639856 0.44487583 -0.16226855 0.3695814</span></span>
-<span><span class="co">#&gt; NARTIC-PCTSUPP 0.2318974 0.1251880 1.8523936 0.06396933 -0.01346652 0.4772614</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282410 0.1227117 1.0450594 0.29599550 -0.11226950 0.3687516</span></span>
-<span><span class="co">#&gt; attr(,"fit")</span></span>
-<span><span class="co">#&gt; attr(,"print_summary")</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; DiffBetaDelta(object = std_mvn, alpha = 0.05)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Difference between standardized regression coefficients with MVN standard errors:</span></span>
 <span><span class="co">#&gt;                   est     se      z      p    2.5%  97.5%</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT  0.1037 0.1357 0.7640 0.4449 -0.1623 0.3696</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP 0.2319 0.1252 1.8524 0.0640 -0.0135 0.4773</span></span>
 <span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1227 1.0451 0.2960 -0.1123 0.3688</span></span>
-<span><span class="co">#&gt; attr(,"digits")</span></span>
-<span><span class="co">#&gt; [1] 4</span></span>
-<span><span class="co">#&gt; attr(,"class")</span></span>
-<span><span class="co">#&gt; [1] "summary.diffbetadelta"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                      est        se         z          p          2.5%     97.5%</span></span>
-<span><span class="co">#&gt; NARTIC-PCTGRT  0.1036564 0.1211669 0.8554849 0.39228277 -0.1338262589 0.3411391</span></span>
-<span><span class="co">#&gt; NARTIC-PCTSUPP 0.2318974 0.1180634 1.9641781 0.04950944  0.0004975295 0.4632974</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282410 0.1215033 1.0554529 0.29121826 -0.1099011119 0.3663832</span></span>
-<span><span class="co">#&gt; attr(,"fit")</span></span>
-<span><span class="co">#&gt; attr(,"print_summary")</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; DiffBetaDelta(object = std_adf, alpha = 0.05)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Difference between standardized regression coefficients with ADF standard errors:</span></span>
 <span><span class="co">#&gt;                   est     se      z      p    2.5%  97.5%</span></span>
 <span><span class="co">#&gt; NARTIC-PCTGRT  0.1037 0.1212 0.8555 0.3923 -0.1338 0.3411</span></span>
 <span><span class="co">#&gt; NARTIC-PCTSUPP 0.2319 0.1181 1.9642 0.0495  0.0005 0.4633</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1215 1.0555 0.2912 -0.1099 0.3664</span></span>
-<span><span class="co">#&gt; attr(,"digits")</span></span>
-<span><span class="co">#&gt; [1] 4</span></span>
-<span><span class="co">#&gt; attr(,"class")</span></span>
-<span><span class="co">#&gt; [1] "summary.diffbetadelta"</span></span></code></pre></div>
+<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1215 1.0555 0.2912 -0.1099 0.3664</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="coef">coef<a class="anchor" aria-label="anchor" href="#coef"></a>

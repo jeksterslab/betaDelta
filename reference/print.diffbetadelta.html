@@ -90,16 +90,10 @@ confidence intervals.</p>
 <span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="DiffBetaDelta.html">DiffBetaDelta</a></span><span class="op">(</span><span class="va">std</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">diff</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      est        se         z          p      0.05%        0.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTGRT  0.1036564 0.1356785 0.7639856 0.44487583 -0.3427973 -0.24582822</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTSUPP 0.2318974 0.1251880 1.8523936 0.06396933 -0.1800370 -0.09056547</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT-PCTSUPP 0.1282410 0.1227117 1.0450594 0.29599550 -0.2755451 -0.18784339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       2.5%     97.5%     99.5%    99.95%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTGRT  -0.16226855 0.3695814 0.4531410 0.5501101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTSUPP -0.01346652 0.4772614 0.5543604 0.6438319</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT-PCTSUPP -0.11226950 0.3687516 0.4443255 0.5320272</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"fit")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"print_summary")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> DiffBetaDelta(object = std)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Difference between standardized regression coefficients with MVN standard errors:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                   est     se      z      p   0.05%    0.5%    2.5%  97.5%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTGRT  0.1037 0.1357 0.7640 0.4449 -0.3428 -0.2458 -0.1623 0.3696</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTSUPP 0.2319 0.1252 1.8524 0.0640 -0.1800 -0.0906 -0.0135 0.4773</span>
@@ -108,10 +102,6 @@ confidence intervals.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTGRT  0.4531 0.5501</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC-PCTSUPP 0.5544 0.6438</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT-PCTSUPP 0.4443 0.5320</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"digits")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "summary.diffbetadelta"</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
