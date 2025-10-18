@@ -1,6 +1,6 @@
 Package: betaDelta
 Title: Confidence Intervals for Standardized Regression Coefficients
-Version: 1.0.6
+Version: 1.0.7
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -30,4 +30,4 @@ Suggests:
     rmarkdown,
     testthat,
     betaSandwich
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3.9000

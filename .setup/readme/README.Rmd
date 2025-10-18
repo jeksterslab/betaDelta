@@ -23,9 +23,9 @@ knitr::opts_chunk$set(
 ```
 
 <!-- badges: start -->
-[![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
-[![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev/betaDelta)
 [![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
+[![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
+[![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
 [![Make Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
 [![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
 [![R Package Test Coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml)
@@ -127,15 +127,6 @@ differences of standardized regression coefficients
 using the `DiffBetaDelta()` function.
 It can also be used as a general approach to performing the delta method
 using the `Delta()` and `DeltaGeneric()` functions.
-
-## Citation
-
-To cite `betaDelta` in publications, please use: 
-
-Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
-betaDelta and betaSandwich: Confidence intervals for standardized regression coefficients in R.
-*Multivariate Behavioral Research*.
-https://doi.org/10.1080/00273171.2023.2201277
 
 ## Documentation
 

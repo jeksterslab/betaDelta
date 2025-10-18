@@ -1,17 +1,17 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2025-07-22
+2025-10-18
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
 [![CRAN
 Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
 [![R-Universe
-Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev/betaDelta)
-[![DOI](https://zenodo.org/badge/DOI/10.1080/00273171.2023.2201277.svg)](https://doi.org/10.1080/00273171.2023.2201277)
+Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
 [![Make
 Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
 [![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
@@ -92,28 +92,12 @@ object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 
 ``` r
 BetaDelta(object, type = "mvn", alpha = 0.05)
-#> Call:
-#> BetaDelta(object = object, type = "mvn", alpha = 0.05)
-#> 
-#> Standardized regression slopes with MVN standard errors:
-#>            est     se      t df     p   2.5%  97.5%
-#> NARTIC  0.4951 0.0759 6.5272 42 0.000 0.3421 0.6482
-#> PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469
-#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141
 ```
 
 #### Asymptotic Distribution-Free Approach
 
 ``` r
 BetaDelta(object, type = "adf", alpha = 0.05)
-#> Call:
-#> BetaDelta(object = object, type = "adf", alpha = 0.05)
-#> 
-#> Standardized regression slopes with ADF standard errors:
-#>            est     se      t df      p   2.5%  97.5%
-#> NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311
-#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347
-#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184
 ```
 
 ## Other Features
@@ -123,15 +107,6 @@ differences of standardized regression coefficients using the
 `DiffBetaDelta()` function. It can also be used as a general approach to
 performing the delta method using the `Delta()` and `DeltaGeneric()`
 functions.
-
-## Citation
-
-To cite `betaDelta` in publications, please use:
-
-Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023). betaDelta and
-betaSandwich: Confidence intervals for standardized regression
-coefficients in R. *Multivariate Behavioral Research*.
-<https://doi.org/10.1080/00273171.2023.2201277>
 
 ## Documentation
 

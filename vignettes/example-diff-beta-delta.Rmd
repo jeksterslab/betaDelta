@@ -73,15 +73,35 @@ Summary of the results of `DiffBetaDelta()`.
 
 ``` r
 summary(mvn)
+#>                      est        se         z          p        2.5%     97.5%
+#> NARTIC-PCTGRT  0.1036564 0.1356785 0.7639856 0.44487583 -0.16226855 0.3695814
+#> NARTIC-PCTSUPP 0.2318974 0.1251880 1.8523936 0.06396933 -0.01346652 0.4772614
+#> PCTGRT-PCTSUPP 0.1282410 0.1227117 1.0450594 0.29599550 -0.11226950 0.3687516
+#> attr(,"fit")
+#> attr(,"print_summary")
 #>                   est     se      z      p    2.5%  97.5%
 #> NARTIC-PCTGRT  0.1037 0.1357 0.7640 0.4449 -0.1623 0.3696
 #> NARTIC-PCTSUPP 0.2319 0.1252 1.8524 0.0640 -0.0135 0.4773
 #> PCTGRT-PCTSUPP 0.1282 0.1227 1.0451 0.2960 -0.1123 0.3688
+#> attr(,"digits")
+#> [1] 4
+#> attr(,"class")
+#> [1] "summary.diffbetadelta"
 summary(adf)
+#>                      est        se         z          p          2.5%     97.5%
+#> NARTIC-PCTGRT  0.1036564 0.1211669 0.8554849 0.39228277 -0.1338262589 0.3411391
+#> NARTIC-PCTSUPP 0.2318974 0.1180634 1.9641781 0.04950944  0.0004975295 0.4632974
+#> PCTGRT-PCTSUPP 0.1282410 0.1215033 1.0554529 0.29121826 -0.1099011119 0.3663832
+#> attr(,"fit")
+#> attr(,"print_summary")
 #>                   est     se      z      p    2.5%  97.5%
 #> NARTIC-PCTGRT  0.1037 0.1212 0.8555 0.3923 -0.1338 0.3411
 #> NARTIC-PCTSUPP 0.2319 0.1181 1.9642 0.0495  0.0005 0.4633
 #> PCTGRT-PCTSUPP 0.1282 0.1215 1.0555 0.2912 -0.1099 0.3664
+#> attr(,"digits")
+#> [1] 4
+#> attr(,"class")
+#> [1] "summary.diffbetadelta"
 ```
 
 ### coef
