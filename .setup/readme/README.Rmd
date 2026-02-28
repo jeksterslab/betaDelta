@@ -61,8 +61,8 @@ You can install the development version of `betaDelta` from
 [GitHub](https://github.com/jeksterslab/betaDelta) with:
 
 ```r
-if (!require("remotes")) install.packages("remotes")
-remotes::install_github("jeksterslab/betaDelta")
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("jeksterslab/betaDelta")
 ```
 
 ## Example
