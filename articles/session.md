@@ -33,7 +33,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] betaDelta_1.0.6.9000
+#> [1] betaDelta_1.0.7
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] compiler_4.5.2      cli_3.6.5.9000      tools_4.5.2        
@@ -48,7 +48,7 @@ sessionInfo()
 
 installed.packages()[, c("Package", "Version")]
 #>                   Package             Version     
-#> betaDelta         "betaDelta"         "1.0.6.9000"
+#> betaDelta         "betaDelta"         "1.0.7"     
 #> abind             "abind"             "1.4-8"     
 #> Amelia            "Amelia"            "1.8.3"     
 #> arm               "arm"               "1.14-4"    
@@ -505,6 +505,6 @@ installed.packages()[, c("Package", "Version")]
 ## Memory
 
     #>                total        used        free      shared  buff/cache   available
-    #> Mem:            23Gi       4.5Gi       6.9Gi       138Mi        12Gi        18Gi
+    #> Mem:            23Gi       5.1Gi       6.1Gi       176Mi        12Gi        18Gi
     #> Swap:           11Gi       5.0Mi        11Gi
-    #> Total:          34Gi       4.5Gi        18Gi
+    #> Total:          34Gi       5.1Gi        17Gi
