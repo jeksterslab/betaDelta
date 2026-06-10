@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2026-03-01
+2026-06-10
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -14,7 +14,8 @@ Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.
 Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
 [![Make
 Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
-[![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
+[![R-CMD-check-standard](https://github.com/jeksterslab/betaDelta/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-standard.yml)
+[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaDelta/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-oldrel.yml)
 [![R Package Test
 Coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml)
 [![Lint R
@@ -136,7 +137,7 @@ To cite `betaDelta` in publications, please cite Pesigan et al. (2023).
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-Jones-Waller-2015" class="csl-entry">
 
@@ -164,6 +165,14 @@ Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
 standardized regression coefficients in R. *Multivariate Behavioral
 Research*, *58*(6), 1183–1186.
 <https://doi.org/10.1080/00273171.2023.2201277>
+
+</div>
+
+<div id="ref-RCoreTeam-2026" class="csl-entry">
+
+R Core Team. (2026). *R: A language and environment for statistical
+computing*. R Foundation for Statistical Computing.
+<https://www.R-project.org/>
 
 </div>
 

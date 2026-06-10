@@ -45,8 +45,8 @@ confint(diff, level = 0.95)
 
 }
 \seealso{
-Other Beta Delta Functions: 
-\code{\link{BetaDelta}()}
+Other Beta Delta Functions:
+\code{\link[=BetaDelta]{BetaDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

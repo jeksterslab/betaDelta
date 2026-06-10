@@ -71,8 +71,8 @@ DeltaGeneric(
 )
 }
 \seealso{
-Other Delta Method Functions: 
-\code{\link{Delta}()}
+Other Delta Method Functions:
+\code{\link[=Delta]{Delta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

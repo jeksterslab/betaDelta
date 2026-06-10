@@ -8,6 +8,7 @@ nocite: |
   @Pesigan-Sun-Cheung-2023
   @Yuan-Chan-2011
   @Jones-Waller-2015
+  @RCoreTeam-2026
 vignette: >
   %\VignetteIndexEntry{betaDelta: Confidence Intervals for Standardized Regression Coefficients}
   %\VignetteEngine{knitr::rmarkdown}
@@ -19,7 +20,8 @@ vignette: >
 [![CRAN Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.org/package=betaDelta)
 [![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
 [![Make Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
-[![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
+[![R-CMD-check-standard](https://github.com/jeksterslab/betaDelta/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-standard.yml)
+[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaDelta/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-oldrel.yml)
 [![R Package Test Coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml)
 [![Lint R Package](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/lint.yml)
 [![Package Website (GitHub Pages)](https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/pkgdown-gh-pages.yml)
