@@ -70,8 +70,8 @@ Biases and standard errors of standardized regression coefficients.
 \doi{10.1007/s11336-011-9224-6}
 }
 \seealso{
-Other Beta Delta Functions: 
-\code{\link{DiffBetaDelta}()}
+Other Beta Delta Functions:
+\code{\link[=DiffBetaDelta]{DiffBetaDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
