@@ -7,7 +7,8 @@ Status](https://www.r-pkg.org/badges/version/betaDelta)](https://cran.r-project.
 Status](https://jeksterslab.r-universe.dev/badges/betaDelta)](https://jeksterslab.r-universe.dev)
 [![Make
 Project](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/make.yml)
-[![R-CMD-check](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-full.yml)
+[![R-CMD-check-standard](https://github.com/jeksterslab/betaDelta/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-standard.yml)
+[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaDelta/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/check-oldrel.yml)
 [![R Package Test
 Coverage](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaDelta/actions/workflows/test-coverage.yml)
 [![Lint R
@@ -155,6 +156,10 @@ Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023). betaDelta and
 betaSandwich: Confidence intervals for standardized regression
 coefficients in R. *Multivariate Behavioral Research*, *58*(6),
 1183–1186. <https://doi.org/10.1080/00273171.2023.2201277>
+
+R Core Team. (2026). *R: A language and environment for statistical
+computing*. R Foundation for Statistical Computing.
+<https://www.R-project.org/>
 
 Yuan, K.-H., & Chan, W. (2011). Biases and standard errors of
 standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
