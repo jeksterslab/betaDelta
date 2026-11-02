@@ -39,19 +39,15 @@ presented in Pesigan, Sun, and Cheung (2023:
 
 You can install the CRAN release of `betaDelta` with:
 
-``` r
-
-install.packages("betaDelta")
-```
+\
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"betaDelta"``)`
 
 You can install the development version of `betaDelta` from
 [GitHub](https://github.com/jeksterslab/betaDelta) with:
 
-``` r
-
-if (!require("pak")) install.packages("pak")
-pak::pkg_install("jeksterslab/betaDelta")
-```
+\
+`if`` ``(``!`[`require`](https://rdrr.io/r/base/library.html)`(`[`"pak"`](https://pak.r-lib.org/)`)``)`` `[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"pak"``)`\
+`pak``::`[`pkg_install`](https://pak.r-lib.org/reference/pkg_install.html)`(``"jeksterslab/betaDelta"``)`
 
 ## Example
 
@@ -68,31 +64,23 @@ regression coefficients are generated using the
 function from the `betaDelta` package following Yuan & Chan (2011) and
 Jones & Waller (2015).
 
-``` r
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
-library(betaDelta)
-```
-
-``` r
-
-df <- betaDelta::nas1982
-```
+\
+`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
 
 ### Fit the regression model using the `lm()` function.
 
-``` r
-
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-```
+\
+`object`` ``<-`` `[`lm`](https://rdrr.io/r/stats/lm.html)`(``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
 
 ### Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
 #### Multivariate Normal-Theory Approach
 
-``` r
-
-BetaDelta(object, type = "mvn", alpha = 0.05)
-```
+\
+[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`
 
     ## Call:
     ## BetaDelta(object = object, type = "mvn", alpha = 0.05)
@@ -105,10 +93,8 @@ BetaDelta(object, type = "mvn", alpha = 0.05)
 
 #### Asymptotic Distribution-Free Approach
 
-``` r
-
-BetaDelta(object, type = "adf", alpha = 0.05)
-```
+\
+[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`
 
     ## Call:
     ## BetaDelta(object = object, type = "adf", alpha = 0.05)

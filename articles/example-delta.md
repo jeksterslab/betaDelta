@@ -4,96 +4,82 @@ In this example, we use the delta method to calculate the odds ratio,
 the associated standard errors, and confidence intervals within a
 logistic regression model.
 
-``` r
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
-library(betaDelta)
-```
-
-``` r
-
-object <- glm(
-  formula = vs ~ wt + disp,
-  family = "binomial",
-  data = mtcars
-)
-func <- function(x) {
-  y <- exp(x)
-  names(y) <- paste0("exp", "(", names(x), ")")
-  return(y[-1])
-}
-Delta(
-  coef = coef(object),
-  vcov = vcov(object),
-  func = func,
-  alpha = 0.05
-)
-#> Call:
-#> Delta(coef = coef(object), vcov = vcov(object), func = func, 
-#>     alpha = 0.05)
-#>              est     se       z      p    2.5%   97.5%
-#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429
-#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952
-```
+\
+`object`` ``<-`` `[`glm`](https://rdrr.io/r/stats/glm.html)`(`\
+`  formula ``=`` ``vs`` ``~`` ``wt`` ``+`` ``disp``,`\
+`  family ``=`` ``"binomial"``,`\
+`  data ``=`` ``mtcars`\
+`)`\
+`func`` ``<-`` ``function``(``x``)`` ``{`\
+`  ``y`` ``<-`` `[`exp`](https://rdrr.io/r/base/Log.html)`(``x``)`\
+`  `[`names`](https://rdrr.io/r/base/names.html)`(``y``)`` ``<-`` `[`paste0`](https://rdrr.io/r/base/paste.html)`(``"exp"``, ``"("``, `[`names`](https://rdrr.io/r/base/names.html)`(``x``)``, ``")"``)`\
+`  `[`return`](https://rdrr.io/r/base/function.html)`(``y``[``-``1``]``)`\
+`}`\
+[`Delta`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)`(`\
+`  coef ``=`` `[`coef`](https://rdrr.io/r/stats/coef.html)`(``object``)``,`\
+`  vcov ``=`` `[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object``)``,`\
+`  func ``=`` ``func``,`\
+`  alpha ``=`` ``0.05`\
+`)`\
+`#> Call:`\
+`#> Delta(coef = coef(object), vcov = vcov(object), func = func, `\
+`#>     alpha = 0.05)`\
+`#>              est     se       z      p    2.5%   97.5%`\
+`#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429`\
+`#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952`
 
 ## Methods
 
-``` r
-
-delta <- Delta(
-  coef = coef(object),
-  vcov = vcov(object),
-  func = func,
-  alpha = 0.05
-)
-```
+\
+`delta`` ``<-`` `[`Delta`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)`(`\
+`  coef ``=`` `[`coef`](https://rdrr.io/r/stats/coef.html)`(``object``)``,`\
+`  vcov ``=`` `[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object``)``,`\
+`  func ``=`` ``func``,`\
+`  alpha ``=`` ``0.05`\
+`)`
 
 ### summary
 
 Summary of the results of
 [`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md).
 
-``` r
-
-summary(delta)
-#>              est     se       z      p    2.5%   97.5%
-#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429
-#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952
-```
+\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``delta``)`\
+`#>              est     se       z      p    2.5%   97.5%`\
+`#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429`\
+`#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952`
 
 ### coef
 
 Calculate the estimates.
 
-``` r
-
-coef(delta)
-#>   exp(wt) exp(disp) 
-#> 5.0852960 0.9661524
-```
+\
+[`coef`](https://rdrr.io/r/stats/coef.html)`(``delta``)`\
+`#>   exp(wt) exp(disp) `\
+`#> 5.0852960 0.9661524`
 
 ### vcov
 
 Calculate the sampling covariance matrix.
 
-``` r
-
-vcov(delta)
-#>               exp(wt)     exp(disp)
-#> exp(wt)   57.46443026 -0.0977480169
-#> exp(disp) -0.09774802  0.0002203662
-```
+\
+[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``delta``)`\
+`#>               exp(wt)     exp(disp)`\
+`#> exp(wt)   57.46443026 -0.0977480169`\
+`#> exp(disp) -0.09774802  0.0002203662`
 
 ### confint
 
 Generate confidence intervals.
 
-``` r
-
-confint(delta, level = 0.95)
-#>                2.5 %     97.5 %
-#> exp(wt)   -9.7722691 19.9428612
-#> exp(disp)  0.9370572  0.9952475
-```
+\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``delta``, level ``=`` ``0.95``)`\
+`#>                2.5 %     97.5 %`\
+`#> exp(wt)   -9.7722691 19.9428612`\
+`#> exp(disp)  0.9370572  0.9952475`
 
 ## References
 

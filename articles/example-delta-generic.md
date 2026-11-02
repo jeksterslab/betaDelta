@@ -4,89 +4,75 @@ In this example, we use the delta method to calculate the odds ratio,
 the associated standard errors, and confidence intervals within a
 logistic regression model.
 
-``` r
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
-library(betaDelta)
-```
-
-``` r
-
-object <- glm(
-  formula = vs ~ wt + disp,
-  family = "binomial",
-  data = mtcars
-)
-def <- list("exp(wt)", "exp(disp)")
-DeltaGeneric(
-  object = object,
-  def = def,
-  alpha = 0.05
-)
-#> Call:
-#> DeltaGeneric(object = object, def = def, alpha = 0.05)
-#>              est     se       z      p    2.5%   97.5%
-#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429
-#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952
-```
+\
+`object`` ``<-`` `[`glm`](https://rdrr.io/r/stats/glm.html)`(`\
+`  formula ``=`` ``vs`` ``~`` ``wt`` ``+`` ``disp``,`\
+`  family ``=`` ``"binomial"``,`\
+`  data ``=`` ``mtcars`\
+`)`\
+`def`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(``"exp(wt)"``, ``"exp(disp)"``)`\
+[`DeltaGeneric`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)`(`\
+`  object ``=`` ``object``,`\
+`  def ``=`` ``def``,`\
+`  alpha ``=`` ``0.05`\
+`)`\
+`#> Call:`\
+`#> DeltaGeneric(object = object, def = def, alpha = 0.05)`\
+`#>              est     se       z      p    2.5%   97.5%`\
+`#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429`\
+`#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952`
 
 ## Methods
 
-``` r
-
-delta <- DeltaGeneric(
-  object = object,
-  def = def,
-  alpha = 0.05
-)
-```
+\
+`delta`` ``<-`` `[`DeltaGeneric`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)`(`\
+`  object ``=`` ``object``,`\
+`  def ``=`` ``def``,`\
+`  alpha ``=`` ``0.05`\
+`)`
 
 ### summary
 
 Summary of the results of
 [`DeltaGeneric()`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md).
 
-``` r
-
-summary(delta)
-#>              est     se       z      p    2.5%   97.5%
-#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429
-#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952
-```
+\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``delta``)`\
+`#>              est     se       z      p    2.5%   97.5%`\
+`#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429`\
+`#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952`
 
 ### coef
 
 Calculate the estimates.
 
-``` r
-
-coef(delta)
-#>   exp(wt) exp(disp) 
-#> 5.0852960 0.9661524
-```
+\
+[`coef`](https://rdrr.io/r/stats/coef.html)`(``delta``)`\
+`#>   exp(wt) exp(disp) `\
+`#> 5.0852960 0.9661524`
 
 ### vcov
 
 Calculate the sampling covariance matrix.
 
-``` r
-
-vcov(delta)
-#>               exp(wt)     exp(disp)
-#> exp(wt)   57.46443026 -0.0977480169
-#> exp(disp) -0.09774802  0.0002203662
-```
+\
+[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``delta``)`\
+`#>               exp(wt)     exp(disp)`\
+`#> exp(wt)   57.46443026 -0.0977480169`\
+`#> exp(disp) -0.09774802  0.0002203662`
 
 ### confint
 
 Generate confidence intervals.
 
-``` r
-
-confint(delta, level = 0.95)
-#>                2.5 %     97.5 %
-#> exp(wt)   -9.7722691 19.9428612
-#> exp(disp)  0.9370572  0.9952475
-```
+\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``delta``, level ``=`` ``0.95``)`\
+`#>                2.5 %     97.5 %`\
+`#> exp(wt)   -9.7722691 19.9428612`\
+`#> exp(disp)  0.9370572  0.9952475`
 
 ## References
 

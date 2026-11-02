@@ -13,148 +13,128 @@ regression coefficients are generated using the
 function from the `betaDelta` package following Yuan & Chan (2011) and
 Jones & Waller (2015).
 
-``` r
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
-library(betaDelta)
-```
-
-``` r
-
-df <- betaDelta::nas1982
-```
+\
+`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
 
 ## Fit the regression model using the `lm()` function.
 
-``` r
-
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-```
+\
+`object`` ``<-`` `[`lm`](https://rdrr.io/r/stats/lm.html)`(``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
 
 ## Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
 #### Multivariate Normal-Theory Approach
 
-``` r
-
-BetaDelta(object, type = "mvn", alpha = 0.05)
-#> Call:
-#> BetaDelta(object = object, type = "mvn", alpha = 0.05)
-#> 
-#> Standardized regression slopes with MVN standard errors:
-#>            est     se      t df     p   2.5%  97.5%
-#> NARTIC  0.4951 0.0759 6.5272 42 0.000 0.3421 0.6482
-#> PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469
-#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141
-```
+\
+[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> BetaDelta(object = object, type = "mvn", alpha = 0.05)`\
+`#> `\
+`#> Standardized regression slopes with MVN standard errors:`\
+`#>            est     se      t df     p   2.5%  97.5%`\
+`#> NARTIC  0.4951 0.0759 6.5272 42 0.000 0.3421 0.6482`\
+`#> PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469`\
+`#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141`
 
 #### Asymptotic Distribution-Free Approach
 
-``` r
-
-BetaDelta(object, type = "adf", alpha = 0.05)
-#> Call:
-#> BetaDelta(object = object, type = "adf", alpha = 0.05)
-#> 
-#> Standardized regression slopes with ADF standard errors:
-#>            est     se      t df      p   2.5%  97.5%
-#> NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311
-#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347
-#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184
-```
+\
+[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> BetaDelta(object = object, type = "adf", alpha = 0.05)`\
+`#> `\
+`#> Standardized regression slopes with ADF standard errors:`\
+`#>            est     se      t df      p   2.5%  97.5%`\
+`#> NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311`\
+`#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347`\
+`#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184`
 
 ## Methods
 
-``` r
-
-mvn <- BetaDelta(object, type = "mvn")
-adf <- BetaDelta(object, type = "adf")
-```
+\
+`mvn`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`\
+`adf`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
 
 ### summary
 
 Summary of the results of
 [`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md).
 
-``` r
-
-summary(mvn)
-#> Call:
-#> BetaDelta(object = object, type = "mvn")
-#> 
-#> Standardized regression slopes with MVN standard errors:
-#>            est     se      t df     p   0.05%   0.5%   2.5%  97.5%  99.5%
-#> NARTIC  0.4951 0.0759 6.5272 42 0.000  0.2268 0.2905 0.3421 0.6482 0.6998
-#> PCTGRT  0.3915 0.0770 5.0824 42 0.000  0.1190 0.1837 0.2360 0.5469 0.5993
-#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 -0.0011 0.0616 0.1124 0.4141 0.4649
-#>         99.95%
-#> NARTIC  0.7635
-#> PCTGRT  0.6640
-#> PCTSUPP 0.5276
-summary(adf)
-#> Call:
-#> BetaDelta(object = object, type = "adf")
-#> 
-#> Standardized regression slopes with ADF standard errors:
-#>            est     se      t df      p   0.05%   0.5%   2.5%  97.5%  99.5%
-#> NARTIC  0.4951 0.0674 7.3490 42 0.0000  0.2568 0.3134 0.3592 0.6311 0.6769
-#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000  0.1404 0.2000 0.2483 0.5347 0.5830
-#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 -0.0088 0.0558 0.1081 0.4184 0.4707
-#>         99.95%
-#> NARTIC  0.7335
-#> PCTGRT  0.6426
-#> PCTSUPP 0.5353
-```
+\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``mvn``)`\
+`#> Call:`\
+`#> BetaDelta(object = object, type = "mvn")`\
+`#> `\
+`#> Standardized regression slopes with MVN standard errors:`\
+`#>            est     se      t df     p   0.05%   0.5%   2.5%  97.5%  99.5%`\
+`#> NARTIC  0.4951 0.0759 6.5272 42 0.000  0.2268 0.2905 0.3421 0.6482 0.6998`\
+`#> PCTGRT  0.3915 0.0770 5.0824 42 0.000  0.1190 0.1837 0.2360 0.5469 0.5993`\
+`#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 -0.0011 0.0616 0.1124 0.4141 0.4649`\
+`#>         99.95%`\
+`#> NARTIC  0.7635`\
+`#> PCTGRT  0.6640`\
+`#> PCTSUPP 0.5276`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``adf``)`\
+`#> Call:`\
+`#> BetaDelta(object = object, type = "adf")`\
+`#> `\
+`#> Standardized regression slopes with ADF standard errors:`\
+`#>            est     se      t df      p   0.05%   0.5%   2.5%  97.5%  99.5%`\
+`#> NARTIC  0.4951 0.0674 7.3490 42 0.0000  0.2568 0.3134 0.3592 0.6311 0.6769`\
+`#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000  0.1404 0.2000 0.2483 0.5347 0.5830`\
+`#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 -0.0088 0.0558 0.1081 0.4184 0.4707`\
+`#>         99.95%`\
+`#> NARTIC  0.7335`\
+`#> PCTGRT  0.6426`\
+`#> PCTSUPP 0.5353`
 
 ### coef
 
 Calculate the standardized regression slopes.
 
-``` r
-
-coef(mvn)
-#>    NARTIC    PCTGRT   PCTSUPP 
-#> 0.4951451 0.3914887 0.2632477
-coef(adf)
-#>    NARTIC    PCTGRT   PCTSUPP 
-#> 0.4951451 0.3914887 0.2632477
-```
+\
+[`coef`](https://rdrr.io/r/stats/coef.html)`(``mvn``)`\
+`#>    NARTIC    PCTGRT   PCTSUPP `\
+`#> 0.4951451 0.3914887 0.2632477`\
+[`coef`](https://rdrr.io/r/stats/coef.html)`(``adf``)`\
+`#>    NARTIC    PCTGRT   PCTSUPP `\
+`#> 0.4951451 0.3914887 0.2632477`
 
 ### vcov
 
 Calculate the sampling covariance matrix of the standardized regression
 slopes.
 
-``` r
-
-vcov(mvn)
-#>               NARTIC       PCTGRT      PCTSUPP
-#> NARTIC   0.005754524 -0.003360334 -0.002166127
-#> PCTGRT  -0.003360334  0.005933462 -0.001769723
-#> PCTSUPP -0.002166127 -0.001769723  0.005585256
-vcov(adf)
-#>               NARTIC       PCTGRT      PCTSUPP
-#> NARTIC   0.004539472 -0.002552698 -0.001742698
-#> PCTGRT  -0.002552698  0.005036538 -0.001906216
-#> PCTSUPP -0.001742698 -0.001906216  0.005914088
-```
+\
+[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``mvn``)`\
+`#>               NARTIC       PCTGRT      PCTSUPP`\
+`#> NARTIC   0.005754524 -0.003360334 -0.002166127`\
+`#> PCTGRT  -0.003360334  0.005933462 -0.001769723`\
+`#> PCTSUPP -0.002166127 -0.001769723  0.005585256`\
+[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``adf``)`\
+`#>               NARTIC       PCTGRT      PCTSUPP`\
+`#> NARTIC   0.004539472 -0.002552698 -0.001742698`\
+`#> PCTGRT  -0.002552698  0.005036538 -0.001906216`\
+`#> PCTSUPP -0.001742698 -0.001906216  0.005914088`
 
 ### confint
 
 Generate confidence intervals for standardized regression slopes.
 
-``` r
-
-confint(mvn, level = 0.95)
-#>             2.5 %    97.5 %
-#> NARTIC  0.3420563 0.6482339
-#> PCTGRT  0.2360380 0.5469395
-#> PCTSUPP 0.1124272 0.4140682
-confint(adf, level = 0.95)
-#>             2.5 %    97.5 %
-#> NARTIC  0.3591757 0.6311146
-#> PCTGRT  0.2482683 0.5347091
-#> PCTSUPP 0.1080509 0.4184444
-```
+\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``mvn``, level ``=`` ``0.95``)`\
+`#>             2.5 %    97.5 %`\
+`#> NARTIC  0.3420563 0.6482339`\
+`#> PCTGRT  0.2360380 0.5469395`\
+`#> PCTSUPP 0.1124272 0.4140682`\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``adf``, level ``=`` ``0.95``)`\
+`#>             2.5 %    97.5 %`\
+`#> NARTIC  0.3591757 0.6311146`\
+`#> PCTGRT  0.2482683 0.5347091`\
+`#> PCTSUPP 0.1080509 0.4184444`
 
 ## References
 
