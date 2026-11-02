@@ -24,6 +24,17 @@
 #'   use the multivariate normal-theory approach.
 #'   If `type = "adf"`,
 #'   use the asymptotic distribution-free approach.
+#' @param std_y Logical.
+#'   Standardize \eqn{y}.
+#'   With `std_y = FALSE`, \eqn{y} is left in its original units
+#'   (\eqn{b_j \sigma_{x_j}}).
+#' @param std_x Character vector or `NULL`.
+#'   Names of the regressors to standardize.
+#'   `NULL` (default) standardizes all regressors;
+#'   `character(0)` standardizes none (\eqn{b_j / \sigma_y}).
+#'   Leaving a dummy variable out keeps its 0-1 contrast.
+#'   The delta method accounts for the sampling variability
+#'   of the standard deviations.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
 #'
@@ -61,7 +72,9 @@
 #' @export
 BetaDelta <- function(object,
                       type = "mvn",
-                      alpha = c(0.05, 0.01, 0.001)) {
+                      alpha = c(0.05, 0.01, 0.001),
+                      std_y = TRUE,
+                      std_x = NULL) {
   stopifnot(
     inherits(
       x = object,
@@ -75,23 +88,32 @@ BetaDelta <- function(object,
     )
   )
   lm_process <- .ProcessLM(object)
+  index <- .BetaStarSelectIndex(
+    std_x = std_x,
+    xnames = lm_process$xnames
+  )
   std <- .BetaDelta(
     lm_process = lm_process,
-    type = type
+    type = type,
+    std_y = std_y,
+    std_x = index
   )
   out <- list(
     call = match.call(),
     args = list(
       object = object,
       type = type,
-      alpha = alpha
+      alpha = alpha,
+      std_y = std_y,
+      std_x = std_x
     ),
     lm_process = lm_process,
     gamma = std$gamma,
     acov = std$acov,
     vcov = std$vcov,
-    est = lm_process$betastar
+    est = std$est
   )
+  attributes(out)$std <- std_y && all(index)
   attributes(out)$mi <- FALSE
   class(out) <- c(
     "betadelta",

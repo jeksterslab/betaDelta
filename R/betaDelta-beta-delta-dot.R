@@ -43,30 +43,63 @@
 #'
 #' @family Beta Delta Functions
 #' @keywords betaDelta std internal
+#' @param std_y Logical.
+#'   Standardize \eqn{y}.
+#' @param std_x Logical vector.
+#'   Standardize each regressor.
 #' @noRd
 .BetaDelta <- function(lm_process,
-                       type) {
+                       type,
+                       std_y = TRUE,
+                       std_x = rep(x = TRUE, times = lm_process$p)) {
   gamma <- .Gamma(
     object = lm_process,
     type = type
   )
-  acov <- .ACovDelta(
-    jcap = .JacobianBetaStarWRTVechSigma(
+  sigmay <- sqrt(lm_process$sigmacap[1, 1])
+  sigmax <- sqrt(diag(lm_process$sigmacap)[-1])
+  invsigmacapx <- chol2inv(
+    chol(
+      lm_process$sigmacap[
+        2:lm_process$k,
+        2:lm_process$k,
+        drop = FALSE
+      ]
+    )
+  )
+  if (std_y && all(std_x)) {
+    jcap <- .JacobianBetaStarWRTVechSigma(
       beta = lm_process$beta,
-      sigmay = sqrt(lm_process$sigmacap[1, 1]),
-      sigmax = sqrt(diag(lm_process$sigmacap)[-1]),
-      invsigmacapx = chol2inv(
-        chol(
-          lm_process$sigmacap[
-            2:lm_process$k,
-            2:lm_process$k,
-            drop = FALSE
-          ]
-        )
-      ),
+      sigmay = sigmay,
+      sigmax = sigmax,
+      invsigmacapx = invsigmacapx,
       p = lm_process$p,
       k = lm_process$k
-    ),
+    )
+    est <- lm_process$betastar
+  } else {
+    jcap <- .JacobianBetaStarSelectWRTThetaStar(
+      betastar = lm_process$betastar,
+      sigmay = sigmay,
+      sigmax = sigmax,
+      std_y = std_y,
+      std_x = std_x
+    ) %*% .JacobianThetaStarWRTVechSigma(
+      beta = lm_process$beta,
+      sigmay = sigmay,
+      sigmax = sigmax,
+      invsigmacapx = invsigmacapx,
+      p = lm_process$p,
+      k = lm_process$k
+    )
+    est <- .BetaStarSelectLM(
+      lm_process = lm_process,
+      std_y = std_y,
+      std_x = std_x
+    )
+  }
+  acov <- .ACovDelta(
+    jcap = jcap,
     acov = gamma
   )
   colnames(acov) <- rownames(acov) <- lm_process$xnames
@@ -75,6 +108,6 @@
     gamma = gamma,
     acov = acov,
     vcov = vcov,
-    est = lm_process$betastar
+    est = est
   )
 }
