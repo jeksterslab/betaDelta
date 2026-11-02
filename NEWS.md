@@ -1,8 +1,12 @@
 # betaDelta 1.0.7.9000
 
-## Patch
+## Minor
 
-* Latest development version.
+* Selective standardization: the arguments `std_y` and `std_x` standardize
+  only y or only the named regressors (for example, leave a dummy
+  variable in its 0-1 units). The defaults give the same results as
+  before.
+* `DiffBetaDelta()` stops when the slopes are not fully standardized.
 
 # betaDelta 1.0.7
 
