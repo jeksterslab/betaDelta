@@ -1,5 +1,16 @@
 # betaDelta 1.0.7.9000
 
+## Major
+
+* Added `RSqDelta()`, `SCorDelta()`, `PCorDelta()`, `DeltaRSqDelta()`, and
+  `FSqDelta()`: delta-method intervals for R-squared and adjusted
+  R-squared, semipartial correlations, squared partial correlations, the
+  improvement in R-squared, and Cohen's f-squared (global and local), with
+  normal-theory or ADF standard errors, as in betaMC and betaNB.
+* The new functions and `DiffBetaDelta()` return objects of class
+  `esdelta` with one set of methods. `DiffBetaDelta()` objects also keep
+  the class `diffbetadelta`.
+
 ## Minor
 
 * Selective standardization: the arguments `std_y` and `std_x` standardize

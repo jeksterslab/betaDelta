@@ -1,0 +1,110 @@
+---
+title: "betaDelta: Example Using the RSqDelta, SCorDelta, PCorDelta, DeltaRSqDelta, and FSqDelta Functions"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @Pesigan-Sun-Cheung-2023
+  @NationalResearchCouncil-1982
+vignette: >
+  %\VignetteIndexEntry{betaDelta: Example Using the RSqDelta, SCorDelta, PCorDelta, DeltaRSqDelta, and FSqDelta Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Confidence intervals for
+R-squared,
+semipartial correlations,
+squared partial correlations,
+the improvement in R-squared,
+and Cohen's f-squared
+are generated using
+the `RSqDelta()`, `SCorDelta()`, `PCorDelta()`, `DeltaRSqDelta()`,
+and `FSqDelta()` functions from the `betaDelta` package.
+In this example,
+we use the data set and the model used in
+[betaDelta: Example Using the BetaDelta Function](example-beta-delta.html).
+
+```{r}
+#| message = FALSE
+library(betaDelta)
+```
+
+```{r}
+#| echo = FALSE
+if (!exists("nas1982")) {
+  try(
+    data(
+      "nas1982",
+      package = "betaDelta"
+    ),
+    silent = TRUE
+  )
+}
+df <- nas1982
+```
+
+```{r}
+#| eval = FALSE
+df <- betaDelta::nas1982
+```
+
+## Fit the regression model using the `lm()` function.
+
+```{r}
+object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+```
+
+## Estimate the standardized regression slopes and the sampling covariance matrix.
+
+```{r}
+std_mvn <- BetaDelta(object, type = "mvn")
+std_adf <- BetaDelta(object, type = "adf")
+```
+
+## R-squared and adjusted R-squared
+
+```{r}
+summary(RSqDelta(std_adf, alpha = 0.05))
+```
+
+## Semipartial correlations
+
+```{r}
+summary(SCorDelta(std_adf, alpha = 0.05))
+```
+
+## Squared partial correlations
+
+```{r}
+summary(PCorDelta(std_adf, alpha = 0.05))
+```
+
+## Improvement in R-squared
+
+```{r}
+summary(DeltaRSqDelta(std_adf, alpha = 0.05))
+```
+
+## Cohen's f-squared and local f-squared
+
+```{r}
+summary(FSqDelta(std_adf, alpha = 0.05))
+```
+
+## Comparing covariance estimators
+
+```{r}
+confint(DeltaRSqDelta(std_mvn), level = 0.95)
+confint(DeltaRSqDelta(std_adf), level = 0.95)
+```
+
+## References

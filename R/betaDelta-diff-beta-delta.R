@@ -13,6 +13,7 @@
 #'       differences of standardized slopes.}
 #'     \item{est}{Vector of
 #'       differences of standardized slopes.}
+#'     \item{fun}{Function used ("DiffBetaDelta").}
 #'   }
 #'
 #' @param object Object of class `betadelta`,
@@ -51,7 +52,7 @@ DiffBetaDelta <- function(object,
   }
   est <- object$lm_process$dif_betastar
   acov <- .ACovDelta(
-    jcap = .JacobianDiffBetaStar(
+    jcap = .JacDiffBetaStar(
       p = object$lm_process$p
     ),
     acov = object$acov
@@ -69,9 +70,11 @@ DiffBetaDelta <- function(object,
     ),
     acov = acov,
     vcov = vcov,
-    est = est
+    est = est,
+    fun = "DiffBetaDelta"
   )
   class(out) <- c(
+    "esdelta",
     "diffbetadelta",
     class(out)
   )

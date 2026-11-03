@@ -11,6 +11,17 @@ reference:
 - title: Differences of Standardized Regression Coefficients
   contents:
   - has_keyword("diff")
+- title: R-Squared
+  contents:
+  - has_keyword("rsq")
+- title: Semipartial and Squared Partial Correlations
+  contents:
+  - has_keyword("scor")
+  - has_keyword("pcor")
+- title: Improvement in R-Squared and Cohen's f-Squared
+  contents:
+  - has_keyword("deltarsq")
+  - has_keyword("fsq")
 - title: Delta Method (General)
   contents:
   - has_keyword("deltaMethod")
@@ -26,6 +37,7 @@ articles:
   contents:
   - example-beta-delta
   - example-diff-beta-delta
+  - example-es-delta
   - example-delta
   - example-delta-generic
 - title: Session Information
