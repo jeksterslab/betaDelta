@@ -12,6 +12,30 @@
   : Estimate Differences of Standardized Slopes and the Corresponding
   Sampling Covariance Matrix
 
+## R-Squared
+
+- [`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md)
+  : Estimate R-Squared and Adjusted R-Squared and the Corresponding
+  Sampling Covariance Matrix
+
+## Semipartial and Squared Partial Correlations
+
+- [`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md)
+  : Estimate Semipartial Correlation Coefficients and the Corresponding
+  Sampling Covariance Matrix
+- [`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md)
+  : Estimate Squared Partial Correlation Coefficients and the
+  Corresponding Sampling Covariance Matrix
+
+## Improvement in R-Squared and Cohen’s f-Squared
+
+- [`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md)
+  : Estimate Improvement in R-Squared and the Corresponding Sampling
+  Covariance Matrix
+- [`FSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md)
+  : Estimate Cohen's f-Squared and Local f-Squared and the Corresponding
+  Sampling Covariance Matrix
+
 ## Delta Method (General)
 
 - [`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)
@@ -27,8 +51,10 @@
 - [`coef(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/coef.deltamethod.md)
   : Estimates
 
-- [`coef(`*`<diffbetadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/coef.diffbetadelta.md)
-  : Differences of Standardized Regression Slopes
+- [`coef(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/coef.esdelta.md)
+  :
+
+  Estimates for an Object of Class `esdelta`
 
 - [`confint(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.betadelta.md)
   : Confidence Intervals for Standardized Regression Slopes
@@ -36,9 +62,10 @@
 - [`confint(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.deltamethod.md)
   : Confidence Intervals
 
-- [`confint(`*`<diffbetadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.diffbetadelta.md)
-  : Confidence Intervals for Differences of Standardized Regression
-  Slopes
+- [`confint(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.esdelta.md)
+  :
+
+  Confidence Intervals for an Object of Class `esdelta`
 
 - [`print(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.betadelta.md)
   :
@@ -50,10 +77,15 @@
 
   Print Method for an Object of Class `deltamethod`
 
-- [`print(`*`<diffbetadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.diffbetadelta.md)
+- [`print(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.esdelta.md)
   :
 
-  Print Method for an Object of Class `diffbetadelta`
+  Print Method for an Object of Class `esdelta`
+
+- [`print(`*`<summary.esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.summary.esdelta.md)
+  :
+
+  Print Method for an Object of Class `summary.esdelta`
 
 - [`summary(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/summary.betadelta.md)
   :
@@ -65,10 +97,10 @@
 
   Summary Method for an Object of Class `deltamethod`
 
-- [`summary(`*`<diffbetadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/summary.diffbetadelta.md)
+- [`summary(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/summary.esdelta.md)
   :
 
-  Summary Method for an Object of Class `diffbetadelta`
+  Summary Method for an Object of Class `esdelta`
 
 - [`vcov(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.betadelta.md)
   : Sampling Covariance Matrix of the Standardized Regression Slopes
@@ -76,9 +108,10 @@
 - [`vcov(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.deltamethod.md)
   : Sampling Covariance Matrix
 
-- [`vcov(`*`<diffbetadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.diffbetadelta.md)
-  : Sampling Covariance Matrix of Differences of Standardized Regression
-  Slopes
+- [`vcov(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.esdelta.md)
+  :
+
+  Sampling Covariance Matrix for an Object of Class `esdelta`
 
 ## Data
 

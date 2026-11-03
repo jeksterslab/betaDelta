@@ -1,11 +1,11 @@
-# Confidence Intervals for Differences of Standardized Regression Slopes
+# Confidence Intervals for an Object of Class `esdelta`
 
-Confidence Intervals for Differences of Standardized Regression Slopes
+Confidence Intervals for an Object of Class `esdelta`
 
 ## Usage
 
 ``` r
-# S3 method for class 'diffbetadelta'
+# S3 method for class 'esdelta'
 confint(object, parm = NULL, level = 0.95, ...)
 ```
 
@@ -13,7 +13,7 @@ confint(object, parm = NULL, level = 0.95, ...)
 
 - object:
 
-  Object of class `diffbetadelta`.
+  Object of class `esdelta`.
 
 - parm:
 
@@ -42,10 +42,9 @@ Ivan Jacob Agaloos Pesigan
 ``` r
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 std <- BetaDelta(object)
-diff <- DiffBetaDelta(std)
-confint(diff)
-#>                      2.5 %    97.5 %
-#> NARTIC-PCTGRT  -0.16226855 0.3695814
-#> NARTIC-PCTSUPP -0.01346652 0.4772614
-#> PCTGRT-PCTSUPP -0.11226950 0.3687516
+out <- RSqDelta(std)
+confint(out, level = 0.95)
+#>         2.5 %    97.5 %
+#> rsq 0.7031917 0.9058608
+#> adj 0.6819911 0.8991366
 ```

@@ -46,10 +46,19 @@ following elements:
 
   Vector of differences of standardized slopes.
 
+- fun:
+
+  Function used ("DiffBetaDelta").
+
 ## See also
 
 Other Beta Delta Functions:
-[`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)
+[`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md),
+[`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md),
+[`FSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md),
+[`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md),
+[`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md),
+[`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md)
 
 ## Author
 
@@ -66,7 +75,7 @@ print(diff)
 #> Call:
 #> DiffBetaDelta(object = std)
 #> 
-#> Difference between standardized regression coefficients with MVN standard errors:
+#> Differences of standardized regression slopes with MVN standard errors:
 #>                   est     se      z      p   0.05%    0.5%    2.5%  97.5%
 #> NARTIC-PCTGRT  0.1037 0.1357 0.7640 0.4449 -0.3428 -0.2458 -0.1623 0.3696
 #> NARTIC-PCTSUPP 0.2319 0.1252 1.8524 0.0640 -0.1800 -0.0906 -0.0135 0.4773
@@ -79,7 +88,7 @@ summary(diff)
 #> Call:
 #> DiffBetaDelta(object = std)
 #> 
-#> Difference between standardized regression coefficients with MVN standard errors:
+#> Differences of standardized regression slopes with MVN standard errors:
 #>                   est     se      z      p   0.05%    0.5%    2.5%  97.5%
 #> NARTIC-PCTGRT  0.1037 0.1357 0.7640 0.4449 -0.3428 -0.2458 -0.1623 0.3696
 #> NARTIC-PCTSUPP 0.2319 0.1252 1.8524 0.0640 -0.1800 -0.0906 -0.0135 0.4773

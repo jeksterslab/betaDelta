@@ -6,6 +6,9 @@
   Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.md):
 - [betaDelta: Example Using the DiffBetaDelta
   Function](https://github.com/jeksterslab/betaDelta/articles/example-diff-beta-delta.md):
+- [betaDelta: Example Using the RSqDelta, SCorDelta, PCorDelta,
+  DeltaRSqDelta, and FSqDelta
+  Functions](https://github.com/jeksterslab/betaDelta/articles/example-es-delta.md):
 - [betaDelta: Example Using the Delta
   Function](https://github.com/jeksterslab/betaDelta/articles/example-delta.md):
 - [betaDelta: Example Using the DeltaGeneric

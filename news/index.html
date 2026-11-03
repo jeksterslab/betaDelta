@@ -37,6 +37,11 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.7.9000" id="betadelta-1079000">betaDelta 1.0.7.9000<a class="anchor" aria-label="anchor" href="#betadelta-1079000"></a></h2>
 <div class="section level3">
+<h3 id="major-1-0-7-9000">Major<a class="anchor" aria-label="anchor" href="#major-1-0-7-9000"></a></h3>
+<ul><li>Added <code><a href="../reference/RSqDelta.html">RSqDelta()</a></code>, <code><a href="../reference/SCorDelta.html">SCorDelta()</a></code>, <code><a href="../reference/PCorDelta.html">PCorDelta()</a></code>, <code><a href="../reference/DeltaRSqDelta.html">DeltaRSqDelta()</a></code>, and <code><a href="../reference/FSqDelta.html">FSqDelta()</a></code>: delta-method intervals for R-squared and adjusted R-squared, semipartial correlations, squared partial correlations, the improvement in R-squared, and Cohen’s f-squared (global and local), with normal-theory or ADF standard errors, as in betaMC and betaNB.</li>
+<li>The new functions and <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> return objects of class <code>esdelta</code> with one set of methods. <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> objects also keep the class <code>diffbetadelta</code>.</li>
+</ul></div>
+<div class="section level3">
 <h3 id="minor-1-0-7-9000">Minor<a class="anchor" aria-label="anchor" href="#minor-1-0-7-9000"></a></h3>
 <ul><li>Selective standardization: the arguments <code>std_y</code> and <code>std_x</code> standardize only y or only the named regressors (for example, leave a dummy variable in its 0-1 units). The defaults give the same results as before.</li>
 <li>
