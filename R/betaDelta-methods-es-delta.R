@@ -1,17 +1,16 @@
-#' Print Method for an Object of Class `diffbetadelta`
+#' Print Method for an Object of Class `esdelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Prints a matrix of
-#'   standardized regression slopes,
+#'   estimates,
 #'   standard errors,
 #'   test statistics,
-#'   degrees of freedom,
 #'   p-values,
 #'   and
 #'   confidence intervals.
 #'
-#' @param x Object of class `diffbetadelta`.
+#' @param x Object of class `esdelta`.
 #' @param ... additional arguments.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
@@ -22,17 +21,17 @@
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' diff <- DiffBetaDelta(std)
-#' print(diff)
+#' out <- RSqDelta(std)
+#' print(out)
 #'
 #' @keywords methods
 #' @export
-print.diffbetadelta <- function(x,
-                                alpha = NULL,
-                                digits = 4,
-                                ...) {
-  print.summary.diffbetadelta(
-    summary.diffbetadelta(
+print.esdelta <- function(x,
+                          alpha = NULL,
+                          digits = 4,
+                          ...) {
+  print.summary.esdelta(
+    summary.esdelta(
       object = x,
       alpha = alpha,
       digits = digits
@@ -40,20 +39,19 @@ print.diffbetadelta <- function(x,
   )
 }
 
-#' Summary Method for an Object of Class `diffbetadelta`
+#' Summary Method for an Object of Class `esdelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix of
-#'   standardized regression slopes,
+#'   estimates,
 #'   standard errors,
 #'   test statistics,
-#'   degrees of freedom,
 #'   p-values,
 #'   and
 #'   confidence intervals.
 #'
-#' @param object Object of class `diffbetadelta`.
+#' @param object Object of class `esdelta`.
 #' @param ... additional arguments.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
@@ -64,16 +62,16 @@ print.diffbetadelta <- function(x,
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' diff <- DiffBetaDelta(std)
-#' summary(diff)
+#' out <- RSqDelta(std)
+#' summary(out)
 #'
 #' @keywords methods
 #' @export
-summary.diffbetadelta <- function(object,
-                                  alpha = NULL,
-                                  digits = 4,
-                                  ...) {
-  ci <- .DiffBetaCI(
+summary.esdelta <- function(object,
+                            alpha = NULL,
+                            digits = 4,
+                            ...) {
+  ci <- .ESDeltaCI(
     object = object,
     alpha = alpha
   )
@@ -97,15 +95,35 @@ summary.diffbetadelta <- function(object,
     x = ci,
     which = "digits"
   ) <- digits
-  class(ci) <- "summary.diffbetadelta"
+  class(ci) <- "summary.esdelta"
   ci
 }
 
-#' @noRd
-#' @keywords internal
-#' @exportS3Method print summary.diffbetadelta
-print.summary.diffbetadelta <- function(x,
-                                        ...) {
+#' Print Method for an Object of Class `summary.esdelta`
+#'
+#' @author Ivan Jacob Agaloos Pesigan
+#'
+#' @return Prints a matrix of
+#'   estimates,
+#'   standard errors,
+#'   test statistics,
+#'   p-values,
+#'   and
+#'   confidence intervals.
+#'
+#' @param x Object of class `summary.esdelta`.
+#' @param ... additional arguments.
+#'
+#' @examples
+#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+#' std <- BetaDelta(object)
+#' out <- RSqDelta(std)
+#' summary(out)
+#'
+#' @keywords methods
+#' @export
+print.summary.esdelta <- function(x,
+                                  ...) {
   print_summary <- attr(
     x = x,
     which = "print_summary"
@@ -114,72 +132,82 @@ print.summary.diffbetadelta <- function(x,
     x = x,
     which = "fit"
   )
+  label <- switch(
+    EXPR = object$fun,
+    RSqDelta = "R-squared and adjusted R-squared",
+    SCorDelta = "Semipartial correlations",
+    PCorDelta = "Squared partial correlations",
+    DeltaRSqDelta = "Improvement in R-squared",
+    FSqDelta = "Cohen's f-squared (fsq) and local f-squared",
+    DiffBetaDelta = "Differences of standardized regression slopes"
+  )
   cat("Call:\n")
   base::print(object$call)
   cat(
-    "\nDifference between standardized regression coefficients with",
+    "\n",
+    label,
+    " with ",
     toupper(object$fit$args$type),
-    "standard errors:\n"
+    " standard errors:\n",
+    sep = ""
   )
   print(print_summary)
   invisible(x)
 }
 
-#' Sampling Covariance Matrix of
-#' Differences of Standardized Regression Slopes
+#' Sampling Covariance Matrix for an Object of Class `esdelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix of the
 #'   variance-covariance matrix
-#'   of differences of standardized regression slopes.
+#'   of the estimates.
 #'
-#' @param object Object of class `diffbetadelta`.
+#' @param object Object of class `esdelta`.
 #' @param ... additional arguments.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' diff <- DiffBetaDelta(std)
-#' vcov(diff)
+#' out <- RSqDelta(std)
+#' vcov(out)
 #'
 #' @keywords methods
 #' @export
-vcov.diffbetadelta <- function(object,
-                               ...) {
+vcov.esdelta <- function(object,
+                         ...) {
   object$vcov
 }
 
-#' Differences of Standardized Regression Slopes
+#' Estimates for an Object of Class `esdelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Returns a vector of differences of standardized regression slopes.
+#' @return Returns a vector of estimates.
 #'
-#' @param object Object of class `diffbetadelta`.
+#' @param object Object of class `esdelta`.
 #' @param ... additional arguments.
 #'
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' diff <- DiffBetaDelta(std)
-#' coef(diff)
+#' out <- RSqDelta(std)
+#' coef(out)
 #'
 #' @keywords methods
 #' @export
-coef.diffbetadelta <- function(object,
-                               ...) {
+coef.esdelta <- function(object,
+                         ...) {
   object$est
 }
 
-#' Confidence Intervals for Differences
-#' of Standardized Regression Slopes
+#' Confidence Intervals for an Object of Class `esdelta`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix of confidence intervals.
 #'
-#' @param object Object of class `diffbetadelta`.
+#' @param object Object of class `esdelta`.
 #' @param ... additional arguments.
 #' @param parm a specification of which parameters
 #'   are to be given confidence intervals,
@@ -190,24 +218,24 @@ coef.diffbetadelta <- function(object,
 #' @examples
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
 #' std <- BetaDelta(object)
-#' diff <- DiffBetaDelta(std)
-#' confint(diff)
+#' out <- RSqDelta(std)
+#' confint(out, level = 0.95)
 #'
 #' @keywords methods
 #' @export
-confint.diffbetadelta <- function(object,
-                                  parm = NULL,
-                                  level = 0.95,
-                                  ...) {
+confint.esdelta <- function(object,
+                            parm = NULL,
+                            level = 0.95,
+                            ...) {
   if (is.null(parm)) {
     parm <- seq_along(
       object$est
     )
   }
-  ci <- .DiffBetaCI(
+  ci <- .ESDeltaCI(
     object = object,
     alpha = 1 - level[1]
-  )[parm, 5:6, drop = FALSE] # always z
+  )[parm, 5:6, drop = FALSE]
   varnames <- colnames(ci)
   varnames <- gsub(
     pattern = "%",

@@ -17,11 +17,11 @@
 #' @family Structure of Regression Functions
 #' @keywords strRegression internal
 #' @noRd
-.JacobianBetaStarSelectWRTThetaStar <- function(betastar,
-                                                sigmay,
-                                                sigmax,
-                                                std_y = TRUE,
-                                                std_x) {
+.JacBetaStarSelWRTThetaStar <- function(betastar,
+                                        sigmay,
+                                        sigmax,
+                                        std_y = TRUE,
+                                        std_x) {
   p <- length(betastar)
   scale <- sigmay^(1 - std_y) * sigmax^(std_x - 1)
   jcap <- matrix(

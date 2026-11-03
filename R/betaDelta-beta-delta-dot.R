@@ -68,7 +68,7 @@
     )
   )
   if (std_y && all(std_x)) {
-    jcap <- .JacobianBetaStarWRTVechSigma(
+    jcap <- .JacBetaStarWRTVechSigma(
       beta = lm_process$beta,
       sigmay = sigmay,
       sigmax = sigmax,
@@ -78,13 +78,13 @@
     )
     est <- lm_process$betastar
   } else {
-    jcap <- .JacobianBetaStarSelectWRTThetaStar(
+    jcap <- .JacBetaStarSelWRTThetaStar(
       betastar = lm_process$betastar,
       sigmay = sigmay,
       sigmax = sigmax,
       std_y = std_y,
       std_x = std_x
-    ) %*% .JacobianThetaStarWRTVechSigma(
+    ) %*% .JacThetaStarWRTVechSigma(
       beta = lm_process$beta,
       sigmay = sigmay,
       sigmax = sigmax,

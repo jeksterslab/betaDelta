@@ -90,7 +90,12 @@ Biases and standard errors of standardized regression coefficients.
 }
 \seealso{
 Other Beta Delta Functions:
-\code{\link[=DiffBetaDelta]{DiffBetaDelta()}}
+\code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}},
+\code{\link[=DiffBetaDelta]{DiffBetaDelta()}},
+\code{\link[=FSqDelta]{FSqDelta()}},
+\code{\link[=PCorDelta]{PCorDelta()}},
+\code{\link[=RSqDelta]{RSqDelta()}},
+\code{\link[=SCorDelta]{SCorDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

@@ -26,6 +26,7 @@ of class \code{diffbetadelta} which is a list with the following elements:
 differences of standardized slopes.}
 \item{est}{Vector of
 differences of standardized slopes.}
+\item{fun}{Function used ("DiffBetaDelta").}
 }
 }
 \description{
@@ -46,7 +47,12 @@ confint(diff, level = 0.95)
 }
 \seealso{
 Other Beta Delta Functions:
-\code{\link[=BetaDelta]{BetaDelta()}}
+\code{\link[=BetaDelta]{BetaDelta()}},
+\code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}},
+\code{\link[=FSqDelta]{FSqDelta()}},
+\code{\link[=PCorDelta]{PCorDelta()}},
+\code{\link[=RSqDelta]{RSqDelta()}},
+\code{\link[=SCorDelta]{SCorDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

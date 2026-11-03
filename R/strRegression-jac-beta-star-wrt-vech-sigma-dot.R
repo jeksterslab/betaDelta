@@ -21,12 +21,12 @@
 #' @family Derivatives Functions
 #' @keywords strRegression derivatives internal
 #' @noRd
-.JacobianBetaStarWRTVechSigma <- function(beta,
-                                          sigmay,
-                                          sigmax,
-                                          invsigmacapx,
-                                          p,
-                                          k) {
+.JacBetaStarWRTVechSigma <- function(beta,
+                                     sigmay,
+                                     sigmax,
+                                     invsigmacapx,
+                                     p,
+                                     k) {
   iden <- diag(p)
   dsigmax <- iden
   dinvsigmax <- iden
