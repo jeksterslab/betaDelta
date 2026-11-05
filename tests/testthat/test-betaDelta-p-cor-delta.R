@@ -39,7 +39,10 @@ lapply(
         ref <- (function() {
           sapply(1:3, function(j) {
             z <- as.matrix(df[paste0("x", setdiff(1:3, j))])
-            stats::cor(stats::resid(stats::lm(df$y ~ z)), stats::resid(stats::lm(df[[paste0("x", j)]] ~ z)))^2
+            stats::cor(
+              stats::resid(stats::lm(df$y ~ z)),
+              stats::resid(stats::lm(df[[paste0("x", j)]] ~ z))
+            )^2
           })
         })()
         for (type in c("mvn", "adf")) {
