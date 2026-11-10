@@ -94,7 +94,7 @@ following elements:
 ## See also
 
 Other Delta Method Functions:
-[`DeltaGeneric()`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)
+[`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)
 
 ## Author
 

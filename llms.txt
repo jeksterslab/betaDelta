@@ -1,6 +1,6 @@
 # betaDelta
 
-Ivan Jacob Agaloos Pesigan 2026-11-05
+Ivan Jacob Agaloos Pesigan 2026-11-10
 
 ## Description
 
@@ -40,7 +40,7 @@ number of published articles attributed to the program faculty members
 ratings of 46 doctoral programs in psychology in the USA (National
 Research Council, 1982). Confidence intervals for the standardized
 regression coefficients are generated using the
-[`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)
+[`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)
 function from the `betaDelta` package following Yuan & Chan (2011) and
 Jones & Waller (2015).
 
@@ -48,7 +48,7 @@ Jones & Waller (2015).
 [`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
 \
-`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
+`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://jeksterslab.github.io/betaDelta/reference/nas1982.md)
 
 ### Fit the regression model using the `lm()` function.
 
@@ -60,7 +60,7 @@ Jones & Waller (2015).
 #### Multivariate Normal-Theory Approach
 
 \
-[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`\
+[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> BetaDelta(object = object, type = "mvn", alpha = 0.05)`\
 `#> `\
@@ -73,7 +73,7 @@ Jones & Waller (2015).
 #### Asymptotic Distribution-Free Approach
 
 \
-[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
+[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> BetaDelta(object = object, type = "adf", alpha = 0.05)`\
 `#> `\
@@ -87,12 +87,12 @@ Jones & Waller (2015).
 
 The package can also be used to generate confidence intervals for
 differences of standardized regression coefficients using the
-[`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+[`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
 function. It can also be used as a general approach to performing the
 delta method using the
-[`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)
+[`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)
 and
-[`DeltaGeneric()`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)
+[`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)
 functions.
 
 ## Documentation
@@ -133,120 +133,120 @@ standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 
 ## Standardized Regression Coefficients
 
-- [`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)
+- [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)
   : Estimate Standardized Regression Coefficients and the Corresponding
   Sampling Covariance Matrix
 
 ## Differences of Standardized Regression Coefficients
 
-- [`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+- [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   : Estimate Differences of Standardized Slopes and the Corresponding
   Sampling Covariance Matrix
 
 ## R-Squared
 
-- [`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md)
+- [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md)
   : Estimate R-Squared and Adjusted R-Squared and the Corresponding
   Sampling Covariance Matrix
 
 ## Semipartial and Squared Partial Correlations
 
-- [`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md)
+- [`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
   : Estimate Semipartial Correlation Coefficients and the Corresponding
   Sampling Covariance Matrix
-- [`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md)
+- [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md)
   : Estimate Squared Partial Correlation Coefficients and the
   Corresponding Sampling Covariance Matrix
 
 ## Improvement in R-Squared and Cohen’s f-Squared
 
-- [`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md)
+- [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)
   : Estimate Improvement in R-Squared and the Corresponding Sampling
   Covariance Matrix
-- [`FSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md)
+- [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md)
   : Estimate Cohen's f-Squared and Local f-Squared and the Corresponding
   Sampling Covariance Matrix
 
 ## Delta Method (General)
 
-- [`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)
+- [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)
   : Delta Method
-- [`DeltaGeneric()`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)
+- [`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)
   : Delta Method (Generic Object Input)
 
 ## Methods
 
-- [`coef(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/coef.betadelta.md)
+- [`coef(`*`<betadelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/coef.betadelta.md)
   : Standardized Regression Slopes
 
-- [`coef(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/coef.deltamethod.md)
+- [`coef(`*`<deltamethod>`*`)`](https://jeksterslab.github.io/betaDelta/reference/coef.deltamethod.md)
   : Estimates
 
-- [`coef(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/coef.esdelta.md)
+- [`coef(`*`<esdelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/coef.esdelta.md)
   :
 
   Estimates for an Object of Class `esdelta`
 
-- [`confint(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.betadelta.md)
+- [`confint(`*`<betadelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/confint.betadelta.md)
   : Confidence Intervals for Standardized Regression Slopes
 
-- [`confint(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.deltamethod.md)
+- [`confint(`*`<deltamethod>`*`)`](https://jeksterslab.github.io/betaDelta/reference/confint.deltamethod.md)
   : Confidence Intervals
 
-- [`confint(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/confint.esdelta.md)
+- [`confint(`*`<esdelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/confint.esdelta.md)
   :
 
   Confidence Intervals for an Object of Class `esdelta`
 
-- [`print(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.betadelta.md)
+- [`print(`*`<betadelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/print.betadelta.md)
   :
 
   Print Method for an Object of Class `betadelta`
 
-- [`print(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.deltamethod.md)
+- [`print(`*`<deltamethod>`*`)`](https://jeksterslab.github.io/betaDelta/reference/print.deltamethod.md)
   :
 
   Print Method for an Object of Class `deltamethod`
 
-- [`print(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.esdelta.md)
+- [`print(`*`<esdelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/print.esdelta.md)
   :
 
   Print Method for an Object of Class `esdelta`
 
-- [`print(`*`<summary.esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/print.summary.esdelta.md)
+- [`print(`*`<summary.esdelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/print.summary.esdelta.md)
   :
 
   Print Method for an Object of Class `summary.esdelta`
 
-- [`summary(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/summary.betadelta.md)
+- [`summary(`*`<betadelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/summary.betadelta.md)
   :
 
   Summary Method for an Object of Class `betadelta`
 
-- [`summary(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/summary.deltamethod.md)
+- [`summary(`*`<deltamethod>`*`)`](https://jeksterslab.github.io/betaDelta/reference/summary.deltamethod.md)
   :
 
   Summary Method for an Object of Class `deltamethod`
 
-- [`summary(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/summary.esdelta.md)
+- [`summary(`*`<esdelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/summary.esdelta.md)
   :
 
   Summary Method for an Object of Class `esdelta`
 
-- [`vcov(`*`<betadelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.betadelta.md)
+- [`vcov(`*`<betadelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/vcov.betadelta.md)
   : Sampling Covariance Matrix of the Standardized Regression Slopes
 
-- [`vcov(`*`<deltamethod>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.deltamethod.md)
+- [`vcov(`*`<deltamethod>`*`)`](https://jeksterslab.github.io/betaDelta/reference/vcov.deltamethod.md)
   : Sampling Covariance Matrix
 
-- [`vcov(`*`<esdelta>`*`)`](https://github.com/jeksterslab/betaDelta/reference/vcov.esdelta.md)
+- [`vcov(`*`<esdelta>`*`)`](https://jeksterslab.github.io/betaDelta/reference/vcov.esdelta.md)
   :
 
   Sampling Covariance Matrix for an Object of Class `esdelta`
 
 ## Data
 
-- [`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
+- [`nas1982`](https://jeksterslab.github.io/betaDelta/reference/nas1982.md)
   : 1982 National Academy of Sciences Doctoral Programs Data
 
 # Articles
@@ -254,18 +254,18 @@ standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 ### Examples
 
 - [betaDelta: Example Using the BetaDelta
-  Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.md):
+  Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md):
 - [betaDelta: Example Using the DiffBetaDelta
-  Function](https://github.com/jeksterslab/betaDelta/articles/example-diff-beta-delta.md):
+  Function](https://jeksterslab.github.io/betaDelta/articles/example-diff-beta-delta.md):
 - [betaDelta: Example Using the RSqDelta, SCorDelta, PCorDelta,
   DeltaRSqDelta, and FSqDelta
-  Functions](https://github.com/jeksterslab/betaDelta/articles/example-es-delta.md):
+  Functions](https://jeksterslab.github.io/betaDelta/articles/example-es-delta.md):
 - [betaDelta: Example Using the Delta
-  Function](https://github.com/jeksterslab/betaDelta/articles/example-delta.md):
+  Function](https://jeksterslab.github.io/betaDelta/articles/example-delta.md):
 - [betaDelta: Example Using the DeltaGeneric
-  Function](https://github.com/jeksterslab/betaDelta/articles/example-delta-generic.md):
+  Function](https://jeksterslab.github.io/betaDelta/articles/example-delta-generic.md):
 
 ### Session Information
 
 - [betaDelta:
-  Session](https://github.com/jeksterslab/betaDelta/articles/session.md):
+  Session](https://jeksterslab.github.io/betaDelta/articles/session.md):

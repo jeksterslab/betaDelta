@@ -97,12 +97,12 @@ standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 ## See also
 
 Other Beta Delta Functions:
-[`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md),
-[`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md),
-[`FSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md),
-[`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md),
-[`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md),
-[`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md)
+[`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
+[`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md),
+[`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md),
+[`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
+[`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
+[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
 
 ## Author
 

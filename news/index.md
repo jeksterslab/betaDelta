@@ -5,20 +5,20 @@
 ### Major
 
 - Added
-  [`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md),
-  [`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md),
-  [`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md),
-  [`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md),
+  [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
+  [`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md),
+  [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
+  [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
   and
-  [`FSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md):
+  [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md):
   delta-method intervals for R-squared and adjusted R-squared,
   semipartial correlations, squared partial correlations, the
   improvement in R-squared, and Cohen’s f-squared (global and local),
   with normal-theory or ADF standard errors, as in betaMC and betaNB.
 - The new functions and
-  [`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+  [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   return objects of class `esdelta` with one set of methods.
-  [`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+  [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   objects also keep the class `diffbetadelta`.
 
 ### Minor
@@ -27,7 +27,7 @@
   standardize only y or only the named regressors (for example, leave a
   dummy variable in its 0-1 units). The defaults give the same results
   as before.
-- [`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+- [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   stops when the slopes are not fully standardized.
 
 ## betaDelta 1.0.7
@@ -61,9 +61,9 @@ CRAN release: 2023-11-03
 ### Patch
 
 - Added the
-  [`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)
+  [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)
   and
-  [`DeltaGeneric()`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)
+  [`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)
   functions.
 
 ## betaDelta 1.0.3
@@ -89,7 +89,7 @@ CRAN release: 2023-04-25
 ### Patch
 
 - Added the
-  [`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+  [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   function.
 
 ## betaDelta 1.0.0

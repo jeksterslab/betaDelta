@@ -18,7 +18,7 @@ logistic regression model.
 `  `[`names`](https://rdrr.io/r/base/names.html)`(``y``)`` ``<-`` `[`paste0`](https://rdrr.io/r/base/paste.html)`(``"exp"``, ``"("``, `[`names`](https://rdrr.io/r/base/names.html)`(``x``)``, ``")"``)`\
 `  `[`return`](https://rdrr.io/r/base/function.html)`(``y``[``-``1``]``)`\
 `}`\
-[`Delta`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)`(`\
+[`Delta`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)`(`\
 `  coef ``=`` `[`coef`](https://rdrr.io/r/stats/coef.html)`(``object``)``,`\
 `  vcov ``=`` `[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object``)``,`\
 `  func ``=`` ``func``,`\
@@ -34,7 +34,7 @@ logistic regression model.
 ## Methods
 
 \
-`delta`` ``<-`` `[`Delta`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)`(`\
+`delta`` ``<-`` `[`Delta`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)`(`\
 `  coef ``=`` `[`coef`](https://rdrr.io/r/stats/coef.html)`(``object``)``,`\
 `  vcov ``=`` `[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object``)``,`\
 `  func ``=`` ``func``,`\
@@ -44,7 +44,7 @@ logistic regression model.
 ### summary
 
 Summary of the results of
-[`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md).
+[`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md).
 
 \
 [`summary`](https://rdrr.io/r/base/summary.html)`(``delta``)`\

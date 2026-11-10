@@ -9,7 +9,7 @@ number of published articles attributed to the program faculty members
 ratings of 46 doctoral programs in psychology in the USA (National
 Research Council, 1982). Confidence intervals for the standardized
 regression coefficients are generated using the
-[`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)
+[`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)
 function from the `betaDelta` package following Yuan & Chan (2011) and
 Jones & Waller (2015).
 
@@ -17,7 +17,7 @@ Jones & Waller (2015).
 [`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
 \
-`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
+`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://jeksterslab.github.io/betaDelta/reference/nas1982.md)
 
 ## Fit the regression model using the `lm()` function.
 
@@ -29,7 +29,7 @@ Jones & Waller (2015).
 #### Multivariate Normal-Theory Approach
 
 \
-[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`\
+[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> BetaDelta(object = object, type = "mvn", alpha = 0.05)`\
 `#> `\
@@ -42,7 +42,7 @@ Jones & Waller (2015).
 #### Asymptotic Distribution-Free Approach
 
 \
-[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
+[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> BetaDelta(object = object, type = "adf", alpha = 0.05)`\
 `#> `\
@@ -55,13 +55,13 @@ Jones & Waller (2015).
 ## Methods
 
 \
-`mvn`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`\
-`adf`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
+`mvn`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`\
+`adf`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
 
 ### summary
 
 Summary of the results of
-[`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md).
+[`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md).
 
 \
 [`summary`](https://rdrr.io/r/base/summary.html)`(``mvn``)`\

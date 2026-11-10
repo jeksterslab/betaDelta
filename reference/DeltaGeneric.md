@@ -79,7 +79,7 @@ following elements:
 ## See also
 
 Other Delta Method Functions:
-[`Delta()`](https://github.com/jeksterslab/betaDelta/reference/Delta.md)
+[`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)
 
 ## Author
 

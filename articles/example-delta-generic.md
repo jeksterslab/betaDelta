@@ -14,7 +14,7 @@ logistic regression model.
 `  data ``=`` ``mtcars`\
 `)`\
 `def`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(``"exp(wt)"``, ``"exp(disp)"``)`\
-[`DeltaGeneric`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)`(`\
+[`DeltaGeneric`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)`(`\
 `  object ``=`` ``object``,`\
 `  def ``=`` ``def``,`\
 `  alpha ``=`` ``0.05`\
@@ -28,7 +28,7 @@ logistic regression model.
 ## Methods
 
 \
-`delta`` ``<-`` `[`DeltaGeneric`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md)`(`\
+`delta`` ``<-`` `[`DeltaGeneric`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)`(`\
 `  object ``=`` ``object``,`\
 `  def ``=`` ``def``,`\
 `  alpha ``=`` ``0.05`\
@@ -37,7 +37,7 @@ logistic regression model.
 ### summary
 
 Summary of the results of
-[`DeltaGeneric()`](https://github.com/jeksterslab/betaDelta/reference/DeltaGeneric.md).
+[`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md).
 
 \
 [`summary`](https://rdrr.io/r/base/summary.html)`(``delta``)`\

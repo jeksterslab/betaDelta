@@ -3,21 +3,21 @@
 Confidence intervals for R-squared, semipartial correlations, squared
 partial correlations, the improvement in R-squared, and Cohen’s
 f-squared are generated using the
-[`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md),
-[`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md),
-[`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md),
-[`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md),
+[`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
+[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md),
+[`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
+[`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
 and
-[`FSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md)
+[`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md)
 functions from the `betaDelta` package. In this example, we use the data
 set and the model used in [betaDelta: Example Using the BetaDelta
-Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.md).
+Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md).
 
 \
 [`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
 \
-`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
+`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://jeksterslab.github.io/betaDelta/reference/nas1982.md)
 
 ## Fit the regression model using the `lm()` function.
 
@@ -27,13 +27,13 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 ## Estimate the standardized regression slopes and the sampling covariance matrix.
 
 \
-`std_mvn`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`\
-`std_adf`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
+`std_mvn`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`\
+`std_adf`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
 
 ## R-squared and adjusted R-squared
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`RSqDelta`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(`[`RSqDelta`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> RSqDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -45,7 +45,7 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 ## Semipartial correlations
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`SCorDelta`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(`[`SCorDelta`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> SCorDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -58,7 +58,7 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 ## Squared partial correlations
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`PCorDelta`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(`[`PCorDelta`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> PCorDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -71,7 +71,7 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 ## Improvement in R-squared
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`DeltaRSqDelta`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(`[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> DeltaRSqDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -84,7 +84,7 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 ## Cohen’s f-squared and local f-squared
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`FSqDelta`](https://github.com/jeksterslab/betaDelta/reference/FSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(`[`FSqDelta`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> FSqDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -98,12 +98,12 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 ## Comparing covariance estimators
 
 \
-[`confint`](https://rdrr.io/r/stats/confint.html)`(`[`DeltaRSqDelta`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md)`(``std_mvn``)``, level ``=`` ``0.95``)`\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(`[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``std_mvn``)``, level ``=`` ``0.95``)`\
 `#>                2.5 %    97.5 %`\
 `#> NARTIC   0.055421734 0.3163632`\
 `#> PCTGRT   0.017881671 0.2174267`\
 `#> PCTSUPP -0.008779331 0.1225237`\
-[`confint`](https://rdrr.io/r/stats/confint.html)`(`[`DeltaRSqDelta`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md)`(``std_adf``)``, level ``=`` ``0.95``)`\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(`[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``std_adf``)``, level ``=`` ``0.95``)`\
 `#>                2.5 %    97.5 %`\
 `#> NARTIC   0.072394224 0.2993907`\
 `#> PCTGRT   0.025067308 0.2102410`\

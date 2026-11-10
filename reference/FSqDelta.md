@@ -14,7 +14,7 @@ FSqDelta(object, alpha = c(0.05, 0.01, 0.001))
 - object:
 
   Object of class `betadelta`, that is, the output of the
-  [`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)
+  [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)
   function.
 
 - alpha:
@@ -61,12 +61,12 @@ sampling covariance matrix of the variances and covariances stored in
 ## See also
 
 Other Beta Delta Functions:
-[`BetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md),
-[`DeltaRSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/DeltaRSqDelta.md),
-[`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md),
-[`PCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/PCorDelta.md),
-[`RSqDelta()`](https://github.com/jeksterslab/betaDelta/reference/RSqDelta.md),
-[`SCorDelta()`](https://github.com/jeksterslab/betaDelta/reference/SCorDelta.md)
+[`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md),
+[`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
+[`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md),
+[`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
+[`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
+[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
 
 ## Author
 

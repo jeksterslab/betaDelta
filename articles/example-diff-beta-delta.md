@@ -2,16 +2,16 @@
 
 Confidence intervals for differences of standardized regression slopes
 are generated using the
-[`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)
+[`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
 function from the `betaDelta` package. In this example, we use the data
 set and the model used in [betaDelta: Example Using the BetaDelta
-Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.md).
+Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md).
 
 \
 [`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
 
 \
-`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://github.com/jeksterslab/betaDelta/reference/nas1982.md)
+`df`` ``<-`` ``betaDelta``::`[`nas1982`](https://jeksterslab.github.io/betaDelta/reference/nas1982.md)
 
 ## Fit the regression model using the `lm()` function.
 
@@ -23,23 +23,23 @@ Function](https://github.com/jeksterslab/betaDelta/articles/example-beta-delta.m
 #### Multivariate Normal-Theory Approach
 
 \
-`std_mvn`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`
+`std_mvn`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`
 
 #### Asymptotic Distribution-Free Approach
 
 \
-`std_adf`` ``<-`` `[`BetaDelta`](https://github.com/jeksterslab/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
+`std_adf`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
 
 ## Estimate differences of standardized regression slopes and the corresponding sampling covariance matrix.
 
 \
-`mvn`` ``<-`` `[`DiffBetaDelta`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)`(``std_mvn``, alpha ``=`` ``0.05``)`\
-`adf`` ``<-`` `[`DiffBetaDelta`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)`
+`mvn`` ``<-`` `[`DiffBetaDelta`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)`(``std_mvn``, alpha ``=`` ``0.05``)`\
+`adf`` ``<-`` `[`DiffBetaDelta`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)`
 
 ### summary
 
 Summary of the results of
-[`DiffBetaDelta()`](https://github.com/jeksterslab/betaDelta/reference/DiffBetaDelta.md).
+[`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md).
 
 \
 [`summary`](https://rdrr.io/r/base/summary.html)`(``mvn``)`\
