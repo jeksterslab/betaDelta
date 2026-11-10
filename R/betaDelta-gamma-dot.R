@@ -24,8 +24,8 @@
     gammacap <- .GammaADFUnbiased(
       gammacapadf_consistent = .GammaADFConsistent(
         d = .DofMat(
-          object$x,
-          center = colMeans(object$x),
+          x = object$x,
+          center = colMeans(x = object$x),
           n = object$n,
           k = object$k
         ),

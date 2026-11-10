@@ -4,37 +4,30 @@ lapply(
   FUN = function(i,
                  tol,
                  text) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     testthat::test_that(
-      paste(text, "error"),
-      {
-        testthat::skip_on_cran()
-        object <- glm(
+      desc = paste(text, "error"),
+      code = {
+        object <- stats::glm(
           formula = vs ~ wt + disp,
           family = "binomial",
           data = mtcars
         )
-        coef <- coef(object)
-        vcov <- vcov(object)
-        est <- exp(coef)
+        coef <- stats::coef(object = object)
+        vcov <- stats::vcov(object = object)
+        est <- exp(x = coef)
         grad <- est
         se <- c(
-          sqrt(grad[2] %*% vcov[2, 2] %*% grad[2]),
-          sqrt(grad[3] %*% vcov[3, 3] %*% grad[3])
+          sqrt(x = grad[2] %*% vcov[2, 2] %*% grad[2]),
+          sqrt(x = grad[3] %*% vcov[3, 3] %*% grad[3])
         )
         func <- function(x) {
-          y <- exp(x)
-          names(y) <- paste0("exp", "(", names(x), ")")
+          y <- exp(x = x)
+          names(x = y) <- paste0("exp", "(", names(x = x), ")")
           y[-1]
         }
         out <- Delta(
@@ -44,7 +37,7 @@ lapply(
           alpha = 0.05
         )
         testthat::expect_error(
-          Delta(
+          object = Delta(
             coef = coef,
             vcov = vcov,
             func = func,
@@ -55,25 +48,24 @@ lapply(
       }
     )
     testthat::test_that(
-      paste(text, "est"),
-      {
-        testthat::skip_on_cran()
-        object <- glm(
+      desc = paste(text, "est"),
+      code = {
+        object <- stats::glm(
           formula = vs ~ wt + disp,
           family = "binomial",
           data = mtcars
         )
-        coef <- coef(object)
-        vcov <- vcov(object)
-        est <- exp(coef)
+        coef <- stats::coef(object = object)
+        vcov <- stats::vcov(object = object)
+        est <- exp(x = coef)
         grad <- est
         se <- c(
-          sqrt(grad[2] %*% vcov[2, 2] %*% grad[2]),
-          sqrt(grad[3] %*% vcov[3, 3] %*% grad[3])
+          sqrt(x = grad[2] %*% vcov[2, 2] %*% grad[2]),
+          sqrt(x = grad[3] %*% vcov[3, 3] %*% grad[3])
         )
         func <- function(x) {
-          y <- exp(x)
-          names(y) <- paste0("exp", "(", names(x), ")")
+          y <- exp(x = x)
+          names(x = y) <- paste0("exp", "(", names(x = x), ")")
           y[-1]
         }
         out <- Delta(
@@ -83,34 +75,33 @@ lapply(
           alpha = 0.05
         )
         testthat::expect_true(
-          all(
+          object = all(
             abs(
-              est[-1] - out$est
+              x = est[-1] - out$est
             ) <= tol
           )
         )
       }
     )
     testthat::test_that(
-      paste(text, "se"),
-      {
-        testthat::skip_on_cran()
-        object <- glm(
+      desc = paste(text, "se"),
+      code = {
+        object <- stats::glm(
           formula = vs ~ wt + disp,
           family = "binomial",
           data = mtcars
         )
-        coef <- coef(object)
-        vcov <- vcov(object)
-        est <- exp(coef)
+        coef <- stats::coef(object = object)
+        vcov <- stats::vcov(object = object)
+        est <- exp(x = coef)
         grad <- est
         se <- c(
-          sqrt(grad[2] %*% vcov[2, 2] %*% grad[2]),
-          sqrt(grad[3] %*% vcov[3, 3] %*% grad[3])
+          sqrt(x = grad[2] %*% vcov[2, 2] %*% grad[2]),
+          sqrt(x = grad[3] %*% vcov[3, 3] %*% grad[3])
         )
         func <- function(x) {
-          y <- exp(x)
-          names(y) <- paste0("exp", "(", names(x), ")")
+          y <- exp(x = x)
+          names(x = y) <- paste0("exp", "(", names(x = x), ")")
           y[-1]
         }
         out <- Delta(
@@ -120,34 +111,33 @@ lapply(
           alpha = 0.05
         )
         testthat::expect_true(
-          all(
+          object = all(
             abs(
-              se - sqrt(diag(out$vcov))
+              x = se - sqrt(x = diag(x = out$vcov))
             ) <= tol
           )
         )
       }
     )
     testthat::test_that(
-      paste(text, "coverage"),
-      {
-        testthat::skip_on_cran()
-        object <- glm(
+      desc = paste(text, "coverage"),
+      code = {
+        object <- stats::glm(
           formula = vs ~ wt + disp,
           family = "binomial",
           data = mtcars
         )
-        coef <- coef(object)
-        vcov <- vcov(object)
-        est <- exp(coef)
+        coef <- stats::coef(object = object)
+        vcov <- stats::vcov(object = object)
+        est <- exp(x = coef)
         grad <- est
         se <- c(
-          sqrt(grad[2] %*% vcov[2, 2] %*% grad[2]),
-          sqrt(grad[3] %*% vcov[3, 3] %*% grad[3])
+          sqrt(x = grad[2] %*% vcov[2, 2] %*% grad[2]),
+          sqrt(x = grad[3] %*% vcov[3, 3] %*% grad[3])
         )
         func <- function(x) {
-          y <- exp(x)
-          names(y) <- paste0("exp", "(", names(x), ")")
+          y <- exp(x = x)
+          names(x = y) <- paste0("exp", "(", names(x = x), ")")
           y[-1]
         }
         out <- Delta(
@@ -156,14 +146,14 @@ lapply(
           func = func,
           alpha = 0.05
         )
-        print(out)
-        summary(out)
-        coef(out)
-        vcov(out)
-        confint(out)
+        print(x = out)
+        summary(object = out)
+        stats::coef(object = out)
+        stats::vcov(object = out)
+        stats::confint(object = out)
         func <- function(x) {
-          y <- exp(x)
-          names(y) <- paste0("exp", "(", names(x), ")")
+          y <- exp(x = x)
+          names(x = y) <- paste0("exp", "(", names(x = x), ")")
           y
         }
         out <- Delta(
@@ -174,13 +164,13 @@ lapply(
           z = FALSE,
           df = 30
         )
-        print(out)
-        summary(out)
-        coef(out)
-        vcov(out)
-        confint(out)
+        print(x = out)
+        summary(object = out)
+        stats::coef(object = out)
+        stats::vcov(object = out)
+        stats::confint(object = out)
         testthat::expect_true(
-          TRUE
+          object = TRUE
         )
       }
     )

@@ -56,11 +56,11 @@
     object = lm_process,
     type = type
   )
-  sigmay <- sqrt(lm_process$sigmacap[1, 1])
-  sigmax <- sqrt(diag(lm_process$sigmacap)[-1])
+  sigmay <- sqrt(x = lm_process$sigmacap[1, 1])
+  sigmax <- sqrt(x = diag(x = lm_process$sigmacap)[-1])
   invsigmacapx <- chol2inv(
-    chol(
-      lm_process$sigmacap[
+    x = chol(
+      x = lm_process$sigmacap[
         2:lm_process$k,
         2:lm_process$k,
         drop = FALSE
@@ -102,7 +102,7 @@
     jcap = jcap,
     acov = gamma
   )
-  colnames(acov) <- rownames(acov) <- lm_process$xnames
+  colnames(x = acov) <- rownames(x = acov) <- lm_process$xnames
   vcov <- (1 / lm_process$n) * acov
   list(
     gamma = gamma,

@@ -1,5 +1,5 @@
-#' Estimate Cohen's f-Squared and Local f-Squared and the Corresponding Sampling
-#' Covariance Matrix
+#' Estimate Cohen's f-Squared and Local f-Squared
+#' and the Corresponding Sampling Covariance Matrix
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -47,15 +47,15 @@ FSqDelta <- function(object,
   ]
   rsq <- lm_process$rsq[1]
   srsq <- lm_process$betastar^2 / diag(
-    chol2inv(
-      chol(rhocapx)
+    x = chol2inv(
+      x = chol(x = rhocapx)
     )
   )
   est <- c(
     rsq / (1 - rsq),
     srsq / (1 - rsq)
   )
-  names(est) <- c(
+  names(x = est) <- c(
     "fsq",
     lm_process$xnames
   )

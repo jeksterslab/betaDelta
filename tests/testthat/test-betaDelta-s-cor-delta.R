@@ -4,59 +4,58 @@ lapply(
   FUN = function(i,
                  text,
                  tol) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     # effect size as a function of the covariance matrix
     es <- function(sigmacap) {
-      rhocap <- stats::cov2cor(sigmacap)
+      rhocap <- stats::cov2cor(V = sigmacap)
       rhocapx <- rhocap[-1, -1, drop = FALSE]
-      betastar <- drop(solve(rhocapx, rhocap[-1, 1]))
-      rsq <- drop(crossprod(betastar, rhocapx %*% betastar))
-      srsq <- betastar^2 / diag(solve(rhocapx))
-      betastar / sqrt(diag(solve(rhocapx)))
+      betastar <- drop(x = solve(a = rhocapx, b = rhocap[-1, 1]))
+      rsq <- drop(x = crossprod(x = betastar, y = rhocapx %*% betastar))
+      srsq <- betastar^2 / diag(x = solve(a = rhocapx))
+      betastar / sqrt(x = diag(x = solve(a = rhocapx)))
     }
     n <- 2000
-    x <- matrix(data = stats::rnorm(n * 3), ncol = 3)
+    x <- matrix(data = stats::rnorm(n = n * 3), ncol = 3)
     x[, 2] <- 0.5 * x[, 1] + x[, 2]
-    y <- drop(x %*% c(0.4, 0.3, 0.2)) + stats::rnorm(n) * sqrt(1 + x[, 1]^2)
-    colnames(x) <- c("x1", "x2", "x3")
+    y <- drop(
+      x = x %*% c(0.4, 0.3, 0.2)
+    ) + stats::rnorm(n = n) * sqrt(x = 1 + x[, 1]^2)
+    colnames(x = x) <- c("x1", "x2", "x3")
     df <- data.frame(y = y, x)
-    object <- lm(y ~ x1 + x2 + x3, data = df)
+    object <- stats::lm(formula = y ~ x1 + x2 + x3, data = df)
 
     testthat::test_that(
-      paste(text, "estimates"),
-      {
-        testthat::skip_on_cran()
+      desc = paste(text, "estimates"),
+      code = {
         ref <- (function() {
-          sapply(
-            1:3,
-            function(j) {
-              stats::cor(
-                df$y,
-                stats::resid(
-                  stats::lm(
-                    df[[paste0("x", j)]] ~ as.matrix(
-                      df[paste0("x", setdiff(1:3, j))]
-                    )
-                  )
+          sapply(X = 1:3, FUN = function(j) {
+            stats::cor(
+              x = df$y,
+              y = stats::resid(
+                object = stats::lm(
+                  formula = df[[paste0(
+                    "x",
+                    j
+                  )]] ~ as.matrix(x = df[paste0("x", setdiff(x = 1:3, y = j))])
                 )
               )
-            }
-          )
+            )
+          })
         })()
         for (type in c("mvn", "adf")) {
           testthat::expect_equal(
-            unname(coef(SCorDelta(BetaDelta(object, type = type)))),
-            unname(ref),
+            object = unname(
+              obj = stats::coef(
+                object = SCorDelta(
+                  object = BetaDelta(object = object, type = type)
+                )
+              )
+            ),
+            expected = unname(obj = ref),
             tolerance = tol
           )
         }
@@ -64,56 +63,63 @@ lapply(
     )
 
     testthat::test_that(
-      paste(text, "standard errors against a Monte Carlo of the same vcov"),
-      {
-        testthat::skip_on_cran()
+      desc = paste(
+        text,
+        "standard errors against a Monte Carlo of the same vcov"
+      ),
+      code = {
         k <- 4
         for (type in c("mvn", "adf")) {
-          fit <- BetaDelta(object, type = type)
-          sigmacap <- stats::cov(df)
-          vech <- sigmacap[lower.tri(sigmacap, diag = TRUE)]
+          fit <- BetaDelta(object = object, type = type)
+          sigmacap <- stats::cov(x = df)
+          vech <- sigmacap[lower.tri(x = sigmacap, diag = TRUE)]
           draws <- matrix(
-            data = stats::rnorm(2e4 * length(vech)),
-            ncol = length(vech)
-          ) %*% chol(fit$gamma / n)
-          draws <- sweep(draws, 2, vech, "+")
+            data = stats::rnorm(n = 2e4 * length(x = vech)),
+            ncol = length(x = vech)
+          ) %*% chol(x = fit$gamma / n)
+          draws <- sweep(x = draws, MARGIN = 2, STATS = vech, FUN = "+")
           values <- t(
-            apply(
+            x = apply(
               X = draws,
               MARGIN = 1,
               FUN = function(v) {
                 s <- matrix(data = 0, nrow = k, ncol = k)
-                s[lower.tri(s, diag = TRUE)] <- v
-                s[upper.tri(s)] <- t(s)[upper.tri(s)]
-                es(s)
+                s[lower.tri(x = s, diag = TRUE)] <- v
+                s[upper.tri(x = s)] <- t(x = s)[upper.tri(x = s)]
+                es(sigmacap = s)
               }
             )
           )
-          if (nrow(values) == 1) {
-            values <- t(values)
+          if (nrow(x = values) == 1) {
+            values <- t(x = values)
           }
-          out <- SCorDelta(fit)
-          ratio <- sqrt(diag(vcov(out))) / apply(values, 2, stats::sd)
-          testthat::expect_true(all(abs(ratio - 1) < 0.03))
+          out <- SCorDelta(object = fit)
+          ratio <- sqrt(
+            x = diag(x = stats::vcov(object = out))
+          ) / apply(X = values, MARGIN = 2, FUN = stats::sd)
+          testthat::expect_true(object = all(abs(x = ratio - 1) < 0.03))
         }
       }
     )
 
     testthat::test_that(
-      paste(text, "errors"),
-      {
-        testthat::skip_on_cran()
-        testthat::expect_error(SCorDelta(object))
-        testthat::expect_error(SCorDelta(list()))
-        one <- BetaDelta(lm(y ~ x1, data = df))
+      desc = paste(text, "errors"),
+      code = {
+        testthat::expect_error(object = SCorDelta(object = object))
+        testthat::expect_error(object = SCorDelta(object = list()))
+        one <- BetaDelta(object = stats::lm(formula = y ~ x1, data = df))
         if (2 > 1) {
           testthat::expect_error(
-            SCorDelta(one),
-            "Two or more regressors"
+            object = SCorDelta(object = one),
+            regexp = "Two or more regressors"
           )
         } else {
-          out <- SCorDelta(one)
-          testthat::expect_true(all(is.finite(sqrt(diag(vcov(out))))))
+          out <- SCorDelta(object = one)
+          testthat::expect_true(
+            object = all(
+              is.finite(x = sqrt(x = diag(x = stats::vcov(object = out))))
+            )
+          )
         }
       }
     )

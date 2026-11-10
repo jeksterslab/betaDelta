@@ -47,7 +47,7 @@ DiffBetaDelta <- function(object,
   if (object$lm_process$p < 2) {
     stop("Two or more regressors is required.")
   }
-  if (isFALSE(attributes(object)$std)) {
+  if (isFALSE(x = attributes(x = object)$std)) {
     stop("Differences need fully standardized slopes.")
   }
   est <- object$lm_process$dif_betastar
@@ -57,8 +57,8 @@ DiffBetaDelta <- function(object,
     ),
     acov = object$acov
   )
-  colnames(acov) <- rownames(acov) <- names(
-    object$lm_process$dif_betastar
+  colnames(x = acov) <- rownames(x = acov) <- names(
+    x = object$lm_process$dif_betastar
   )
   vcov <- (1 / object$lm_process$n) * acov
   out <- list(
@@ -73,10 +73,10 @@ DiffBetaDelta <- function(object,
     est = est,
     fun = "DiffBetaDelta"
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "esdelta",
     "diffbetadelta",
-    class(out)
+    class(x = out)
   )
   out
 }

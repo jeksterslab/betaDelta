@@ -3,32 +3,25 @@ lapply(
   X = 1,
   FUN = function(i,
                  text) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     testthat::test_that(
-      paste(text, "coverage"),
-      {
-        testthat::skip_on_cran()
+      desc = paste(text, "coverage"),
+      code = {
         out <- betaDelta:::.DiagofVech(
           x = 0,
           k = 1,
           loc = TRUE
         )
         testthat::test_that(
-          paste(text, "one"),
-          {
+          desc = paste(text, "one"),
+          code = {
             testthat::expect_equal(
-              out,
-              1
+              object = out,
+              expected = 1
             )
           }
         )
@@ -38,15 +31,15 @@ lapply(
           loc = TRUE
         )
         testthat::test_that(
-          paste(text, "one, three"),
-          {
+          desc = paste(text, "one, three"),
+          code = {
             testthat::expect_equal(
-              out,
-              c(1, 3)
+              object = out,
+              expected = c(1, 3)
             )
           }
         )
-        object <- glm(
+        object <- stats::glm(
           formula = vs ~ wt + disp,
           family = "binomial",
           data = mtcars
@@ -58,7 +51,7 @@ lapply(
           alpha = 0.05
         )
         testthat::expect_true(
-          TRUE
+          object = TRUE
         )
       }
     )
