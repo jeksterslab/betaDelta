@@ -3,24 +3,17 @@ lapply(
   X = 1,
   FUN = function(i,
                  text) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     testthat::test_that(
-      paste(text, "methods"),
-      {
-        testthat::skip_on_cran()
-        if (!exists("nas1982")) {
+      desc = paste(text, "methods"),
+      code = {
+        if (!exists(x = "nas1982")) {
           try(
-            data(
+            expr = utils::data(
               "nas1982",
               package = "betaDelta"
             ),
@@ -28,38 +21,41 @@ lapply(
           )
         }
         df <- nas1982
-        object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-        mvn <- BetaDelta(object, type = "mvn")
-        print.betadelta(mvn)
-        summary.betadelta(mvn)
-        print.summary.betadelta(summary.betadelta(mvn))
-        coef.betadelta(mvn)
-        vcov.betadelta(mvn)
-        confint.betadelta(mvn)
-        adf <- BetaDelta(object, type = "adf")
-        print.betadelta(adf)
-        summary.betadelta(adf)
-        print.summary.betadelta(summary.betadelta(adf))
-        coef.betadelta(adf)
-        vcov.betadelta(adf)
-        confint.betadelta(adf)
-        object <- lm(QUALITY ~ NARTIC, data = df)
-        mvn <- BetaDelta(object, type = "mvn")
-        print.betadelta(mvn)
-        summary.betadelta(mvn)
-        print.summary.betadelta(summary.betadelta(mvn))
-        coef.betadelta(mvn)
-        vcov.betadelta(mvn)
-        confint.betadelta(mvn)
-        adf <- BetaDelta(object, type = "adf")
-        print.betadelta(adf)
-        summary.betadelta(adf)
-        print.summary.betadelta(summary.betadelta(adf))
-        coef.betadelta(adf)
-        vcov.betadelta(adf)
-        confint.betadelta(adf)
+        object <- stats::lm(
+          formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+          data = df
+        )
+        mvn <- BetaDelta(object = object, type = "mvn")
+        print.betadelta(x = mvn)
+        summary.betadelta(object = mvn)
+        print.summary.betadelta(x = summary.betadelta(object = mvn))
+        coef.betadelta(object = mvn)
+        vcov.betadelta(object = mvn)
+        confint.betadelta(object = mvn)
+        adf <- BetaDelta(object = object, type = "adf")
+        print.betadelta(x = adf)
+        summary.betadelta(object = adf)
+        print.summary.betadelta(x = summary.betadelta(object = adf))
+        coef.betadelta(object = adf)
+        vcov.betadelta(object = adf)
+        confint.betadelta(object = adf)
+        object <- stats::lm(formula = QUALITY ~ NARTIC, data = df)
+        mvn <- BetaDelta(object = object, type = "mvn")
+        print.betadelta(x = mvn)
+        summary.betadelta(object = mvn)
+        print.summary.betadelta(x = summary.betadelta(object = mvn))
+        coef.betadelta(object = mvn)
+        vcov.betadelta(object = mvn)
+        confint.betadelta(object = mvn)
+        adf <- BetaDelta(object = object, type = "adf")
+        print.betadelta(x = adf)
+        summary.betadelta(object = adf)
+        print.summary.betadelta(x = summary.betadelta(object = adf))
+        coef.betadelta(object = adf)
+        vcov.betadelta(object = adf)
+        confint.betadelta(object = adf)
         testthat::expect_true(
-          TRUE
+          object = TRUE
         )
       }
     )

@@ -40,7 +40,7 @@
                      call) {
   lm_process <- object$lm_process
   jcap <- jcap %*% solve(
-    .JacVechSigmaWRTThetaStar(
+    a = .JacVechSigmaWRTThetaStar(
       betastar = lm_process$betastar,
       sigmay = lm_process$sigma[1],
       sigmax = lm_process$sigma[-1],
@@ -57,7 +57,7 @@
     jcap = jcap,
     acov = object$gamma
   )
-  colnames(acov) <- rownames(acov) <- names(est)
+  colnames(x = acov) <- rownames(x = acov) <- names(x = est)
   out <- list(
     call = call,
     fit = object,
@@ -70,9 +70,9 @@
     est = est,
     fun = fun
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "esdelta",
-    class(out)
+    class(x = out)
   )
   out
 }

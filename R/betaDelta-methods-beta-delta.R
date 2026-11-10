@@ -31,7 +31,7 @@ print.betadelta <- function(x,
                             digits = 4,
                             ...) {
   print.summary.betadelta(
-    summary.betadelta(
+    x = summary.betadelta(
       object = x,
       alpha = alpha,
       digits = digits
@@ -95,7 +95,7 @@ summary.betadelta <- function(object,
     x = ci,
     which = "digits"
   ) <- digits
-  class(ci) <- "summary.betadelta"
+  class(x = ci) <- "summary.betadelta"
   ci
 }
 
@@ -113,14 +113,14 @@ print.summary.betadelta <- function(x,
     which = "fit"
   )
   cat("Call:\n")
-  base::print(object$call)
+  base::print(x = object$call)
   cat(
     "\nStandardized regression slopes with",
-    toupper(object$args$type),
+    toupper(x = object$args$type),
     "standard errors:\n"
   )
-  print(print_summary)
-  invisible(x)
+  print(x = print_summary)
+  invisible(x = x)
 }
 
 #' Sampling Covariance Matrix of the Standardized Regression Slopes
@@ -192,21 +192,21 @@ confint.betadelta <- function(object,
                               parm = NULL,
                               level = 0.95,
                               ...) {
-  if (is.null(parm)) {
+  if (is.null(x = parm)) {
     parm <- seq_along(
-      object$est
+      along.with = object$est
     )
   }
   ci <- .BetaCI(
     object = object,
     alpha = 1 - level[1]
   )[parm, 6:7, drop = FALSE] # always t
-  varnames <- colnames(ci)
+  varnames <- colnames(x = ci)
   varnames <- gsub(
     pattern = "%",
     replacement = " %",
     x = varnames
   )
-  colnames(ci) <- varnames
+  colnames(x = ci) <- varnames
   ci
 }

@@ -2,8 +2,8 @@
 % Please edit documentation in R/betaDelta-f-sq-delta.R
 \name{FSqDelta}
 \alias{FSqDelta}
-\title{Estimate Cohen's f-Squared and Local f-Squared and the Corresponding Sampling
-Covariance Matrix}
+\title{Estimate Cohen's f-Squared and Local f-Squared
+and the Corresponding Sampling Covariance Matrix}
 \usage{
 FSqDelta(object, alpha = c(0.05, 0.01, 0.001))
 }
@@ -30,8 +30,8 @@ each regressor.}
 }
 }
 \description{
-Estimate Cohen's f-Squared and Local f-Squared and the Corresponding Sampling
-Covariance Matrix
+Estimate Cohen's f-Squared and Local f-Squared
+and the Corresponding Sampling Covariance Matrix
 }
 \details{
 The sampling covariance matrix is obtained by the delta method

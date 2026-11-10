@@ -87,7 +87,7 @@ BetaDelta <- function(object,
       "adf"
     )
   )
-  lm_process <- .ProcessLM(object)
+  lm_process <- .ProcessLM(object = object)
   index <- .BetaStarSelectIndex(
     std_x = std_x,
     xnames = lm_process$xnames
@@ -113,11 +113,11 @@ BetaDelta <- function(object,
     vcov = std$vcov,
     est = std$est
   )
-  attributes(out)$std <- std_y && all(index)
-  attributes(out)$mi <- FALSE
-  class(out) <- c(
+  attributes(x = out)$std <- std_y && all(index)
+  attributes(x = out)$mi <- FALSE
+  class(x = out) <- c(
     "betadelta",
-    class(out)
+    class(x = out)
   )
   out
 }
