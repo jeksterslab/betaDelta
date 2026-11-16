@@ -30,7 +30,7 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

@@ -23,6 +23,8 @@
 - [`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
   : Estimate Semipartial Correlation Coefficients and the Corresponding
   Sampling Covariance Matrix
+- [`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md)
+  : Squared Signed-Semipartial Confidence Intervals
 - [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md)
   : Estimate Squared Partial Correlation Coefficients and the
   Corresponding Sampling Covariance Matrix

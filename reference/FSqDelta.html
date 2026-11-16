@@ -9,7 +9,7 @@ and the Corresponding Sampling Covariance Matrix"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,6 +92,38 @@ each regressor.</p></dd>
     <p>The sampling covariance matrix is obtained by the delta method
 from the sampling covariance matrix of the variances and covariances
 stored in <code>object</code> (normal-theory or asymptotically distribution-free).</p>
+<p>Let \(\boldsymbol{\beta}^{\ast}\) be the vector of standardized slopes,
+\(\boldsymbol{R}_{x}\) the correlation matrix of the regressors,
+\(r^{jj}\) the \(j\)th diagonal element of \(\boldsymbol{R}_{x}^{-1}\),
+and \(R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+\boldsymbol{\beta}^{\ast}\).
+The semipartial correlation of regressor \(j\) is
+$$sr_{j} = \beta^{\ast}_{j} / \sqrt{r^{jj}} = \beta^{\ast}_{j} \sqrt{1 -
+R^{2}_{j \cdot -j}},$$
+where \(R^{2}_{j \cdot -j}\) is the R-squared from regressing regressor
+\(j\)
+on the other regressors.
+Its square, \(sr^{2}_{j}\), is the change in \(R^{2}\) when regressor
+\(j\) is added last.
+Because \(1 / r^{jj} = 1 - R^{2}_{j \cdot -j}\), \(sr_{j}\) shrinks
+toward zero
+as regressor \(j\) becomes more redundant with the other regressors.
+Cohen's f-squared and the local f-squared of regressor \(j\) are
+$$f^{2} = \frac{R^{2}}{1 - R^{2}}, \quad f^{2}_{j} = \frac{sr^{2}_{j}}{1
+- R^{2}}.$$
+By convention (Cohen, 1988), values of about 0.02, 0.15, and 0.35 are small,
+medium, and large effects.
+For an effect size \(g\left( \boldsymbol{\theta}^{\ast} \right)\)
+that is a function of the standardized parameters,
+the sampling variance is approximated by the delta method,
+$$\widehat{\operatorname{var}} \left( \hat{g} \right) =
+\boldsymbol{J}_{g} \,
+\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}} \,
+\boldsymbol{J}_{g}^{\prime},$$
+where \(\boldsymbol{J}_{g}\) is the Jacobian of \(g\) and
+\(\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}}\) is the
+sampling covariance matrix
+stored in <code>object</code> (<code><a href="BetaDelta.html">BetaDelta()</a></code>).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -110,11 +142,14 @@ stored in <code>object</code> (normal-theory or asymptotically distribution-free
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">FSqDelta</span><span class="op">(</span><span class="va">std</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">FSqDelta</span><span class="op">(</span>object <span class="op">=</span> <span class="va">std</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Methods -------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> FSqDelta(object = std)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -129,7 +164,7 @@ stored in <code>object</code> (normal-theory or asymptotically distribution-free
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  2.2727</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  1.5547</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.8856</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> FSqDelta(object = std)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -144,16 +179,16 @@ stored in <code>object</code> (normal-theory or asymptotically distribution-free
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  2.2727</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  1.5547</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.8856</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       fsq    NARTIC    PCTGRT   PCTSUPP </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4.1157764 0.9509843 0.6018924 0.2909455 </span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                fsq      NARTIC        PCTGRT       PCTSUPP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> fsq     1.83090366 0.292190379  0.1757962533  0.0810437672</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.29219038 0.161335262  0.0047781399  0.0012330834</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.17579625 0.004778140  0.0838405969 -0.0003089663</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.08104377 0.001233083 -0.0003089663  0.0326604105</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> fsq      1.46373175 6.7678211</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC   0.16373420 1.7382345</span>

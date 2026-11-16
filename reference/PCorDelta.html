@@ -9,7 +9,7 @@ Sampling Covariance Matrix"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,6 +92,38 @@ coefficients.</p></dd>
 from the sampling covariance matrix of the variances and covariances
 stored in <code>object</code> (normal-theory or asymptotically distribution-free).
 Two or more regressors are required.</p>
+<p>Let \(\boldsymbol{\beta}^{\ast}\) be the vector of standardized slopes,
+\(\boldsymbol{R}_{x}\) the correlation matrix of the regressors,
+\(r^{jj}\) the \(j\)th diagonal element of \(\boldsymbol{R}_{x}^{-1}\),
+and \(R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+\boldsymbol{\beta}^{\ast}\).
+The semipartial correlation of regressor \(j\) is
+$$sr_{j} = \beta^{\ast}_{j} / \sqrt{r^{jj}} = \beta^{\ast}_{j} \sqrt{1 -
+R^{2}_{j \cdot -j}},$$
+where \(R^{2}_{j \cdot -j}\) is the R-squared from regressing regressor
+\(j\)
+on the other regressors.
+Its square, \(sr^{2}_{j}\), is the change in \(R^{2}\) when regressor
+\(j\) is added last.
+Because \(1 / r^{jj} = 1 - R^{2}_{j \cdot -j}\), \(sr_{j}\) shrinks
+toward zero
+as regressor \(j\) becomes more redundant with the other regressors.
+The squared partial correlation is
+$$pr^{2}_{j} = \frac{sr^{2}_{j}}{1 - R^{2} + sr^{2}_{j}},$$
+the proportion of the variance in the outcome not explained by the other
+regressors
+that is explained by regressor \(j\).
+For an effect size \(g\left( \boldsymbol{\theta}^{\ast} \right)\)
+that is a function of the standardized parameters,
+the sampling variance is approximated by the delta method,
+$$\widehat{\operatorname{var}} \left( \hat{g} \right) =
+\boldsymbol{J}_{g} \,
+\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}} \,
+\boldsymbol{J}_{g}^{\prime},$$
+where \(\boldsymbol{J}_{g}\) is the Jacobian of \(g\) and
+\(\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}}\) is the
+sampling covariance matrix
+stored in <code>object</code> (<code><a href="BetaDelta.html">BetaDelta()</a></code>).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -110,11 +142,14 @@ Two or more regressors are required.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">PCorDelta</span><span class="op">(</span><span class="va">std</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">PCorDelta</span><span class="op">(</span>object <span class="op">=</span> <span class="va">std</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Methods -------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCorDelta(object = std)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -123,7 +158,7 @@ Two or more regressors are required.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.4874 0.1055 4.6192 0.0000  0.1402  0.2156 0.2806 0.6943 0.7593 0.8347</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.3757 0.1128 3.3299 0.0009  0.0044  0.0851 0.1546 0.5969 0.6664 0.7470</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.2254 0.1084 2.0783 0.0377 -0.1315 -0.0540 0.0128 0.4379 0.5047 0.5822</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCorDelta(object = std)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -132,15 +167,15 @@ Two or more regressors are required.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.4874 0.1055 4.6192 0.0000  0.1402  0.2156 0.2806 0.6943 0.7593 0.8347</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.3757 0.1128 3.3299 0.0009  0.0044  0.0851 0.1546 0.5969 0.6664 0.7470</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.2254 0.1084 2.0783 0.0377 -0.1315 -0.0540 0.0128 0.4379 0.5047 0.5822</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    NARTIC    PCTGRT   PCTSUPP </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.4874382 0.3757383 0.2253739 </span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               NARTIC        PCTGRT       PCTSUPP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.0111356142  4.891979e-04  1.943878e-04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.0004891979  1.273271e-02 -7.224846e-05</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.0001943878 -7.224846e-05  1.175953e-02</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.28061220 0.6942642</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.15457732 0.5968994</span>

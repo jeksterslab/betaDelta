@@ -58,6 +58,34 @@ sampling covariance matrix of the variances and covariances stored in
 `object` (normal-theory or asymptotically distribution-free). Two or
 more regressors are required.
 
+Let \\(\boldsymbol{\beta}^{\ast}\\) be the vector of standardized
+slopes, \\(\boldsymbol{R}\_{x}\\) the correlation matrix of the
+regressors, \\(r^{jj}\\) the \\(j\\)th diagonal element of
+\\(\boldsymbol{R}\_{x}^{-1}\\), and \\(R^{2} =
+\boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}\_{x}
+\boldsymbol{\beta}^{\ast}\\). The semipartial correlation of regressor
+\\(j\\) is \$\$sr\_{j} = \beta^{\ast}\_{j} / \sqrt{r^{jj}} =
+\beta^{\ast}\_{j} \sqrt{1 - R^{2}\_{j \cdot -j}},\$\$ where \\(R^{2}\_{j
+\cdot -j}\\) is the R-squared from regressing regressor \\(j\\) on the
+other regressors. Its square, \\(sr^{2}\_{j}\\), is the change in
+\\(R^{2}\\) when regressor \\(j\\) is added last. Because \\(1 / r^{jj}
+= 1 - R^{2}\_{j \cdot -j}\\), \\(sr\_{j}\\) shrinks toward zero as
+regressor \\(j\\) becomes more redundant with the other regressors. The
+squared partial correlation is \$\$pr^{2}\_{j} = \frac{sr^{2}\_{j}}{1 -
+R^{2} + sr^{2}\_{j}},\$\$ the proportion of the variance in the outcome
+not explained by the other regressors that is explained by regressor
+\\(j\\). For an effect size \\(g\left( \boldsymbol{\theta}^{\ast}
+\right)\\) that is a function of the standardized parameters, the
+sampling variance is approximated by the delta method,
+\$\$\widehat{\operatorname{var}} \left( \hat{g} \right) =
+\boldsymbol{J}\_{g} \\,
+\widehat{\boldsymbol{\Sigma}}\_{\boldsymbol{\theta}^{\ast}} \\,
+\boldsymbol{J}\_{g}^{\prime},\$\$ where \\(\boldsymbol{J}\_{g}\\) is the
+Jacobian of \\(g\\) and
+\\(\widehat{\boldsymbol{\Sigma}}\_{\boldsymbol{\theta}^{\ast}}\\) is the
+sampling covariance matrix stored in `object`
+([`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)).
+
 ## See also
 
 Other Beta Delta Functions:
@@ -75,11 +103,14 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-std <- BetaDelta(object)
-out <- PCorDelta(std)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+std <- BetaDelta(object = object)
+out <- PCorDelta(object = std)
 # Methods -------------------------------------------------------
-print(out)
+print(x = out)
 #> Call:
 #> PCorDelta(object = std)
 #> 
@@ -88,7 +119,7 @@ print(out)
 #> NARTIC  0.4874 0.1055 4.6192 0.0000  0.1402  0.2156 0.2806 0.6943 0.7593 0.8347
 #> PCTGRT  0.3757 0.1128 3.3299 0.0009  0.0044  0.0851 0.1546 0.5969 0.6664 0.7470
 #> PCTSUPP 0.2254 0.1084 2.0783 0.0377 -0.1315 -0.0540 0.0128 0.4379 0.5047 0.5822
-summary(out)
+summary(object = out)
 #> Call:
 #> PCorDelta(object = std)
 #> 
@@ -97,15 +128,15 @@ summary(out)
 #> NARTIC  0.4874 0.1055 4.6192 0.0000  0.1402  0.2156 0.2806 0.6943 0.7593 0.8347
 #> PCTGRT  0.3757 0.1128 3.3299 0.0009  0.0044  0.0851 0.1546 0.5969 0.6664 0.7470
 #> PCTSUPP 0.2254 0.1084 2.0783 0.0377 -0.1315 -0.0540 0.0128 0.4379 0.5047 0.5822
-coef(out)
+coef(object = out)
 #>    NARTIC    PCTGRT   PCTSUPP 
 #> 0.4874382 0.3757383 0.2253739 
-vcov(out)
+vcov(object = out)
 #>               NARTIC        PCTGRT       PCTSUPP
 #> NARTIC  0.0111356142  4.891979e-04  1.943878e-04
 #> PCTGRT  0.0004891979  1.273271e-02 -7.224846e-05
 #> PCTSUPP 0.0001943878 -7.224846e-05  1.175953e-02
-confint(out, level = 0.95)
+confint(object = out, level = 0.95)
 #>              2.5 %    97.5 %
 #> NARTIC  0.28061220 0.6942642
 #> PCTGRT  0.15457732 0.5968994

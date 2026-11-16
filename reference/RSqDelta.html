@@ -9,7 +9,7 @@ Covariance Matrix"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,6 +91,28 @@ R-squared.</p></dd>
     <p>The sampling covariance matrix is obtained by the delta method
 from the sampling covariance matrix of the variances and covariances
 stored in <code>object</code> (normal-theory or asymptotically distribution-free).</p>
+<p>Let \(\boldsymbol{\beta}^{\ast}\) be the vector of standardized slopes,
+\(\boldsymbol{R}_{x}\) the correlation matrix of the regressors,
+\(r^{jj}\) the \(j\)th diagonal element of \(\boldsymbol{R}_{x}^{-1}\),
+and \(R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+\boldsymbol{\beta}^{\ast}\).
+The R-squared and the adjusted R-squared are
+$$R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+\boldsymbol{\beta}^{\ast}, \quad \bar{R}^{2} = 1 - \left( 1 - R^{2} \right)
+\frac{n - 1}{n - k},$$
+where \(n\) is the sample size and \(k\) is the number of parameters
+in the regression model, including the intercept.
+For an effect size \(g\left( \boldsymbol{\theta}^{\ast} \right)\)
+that is a function of the standardized parameters,
+the sampling variance is approximated by the delta method,
+$$\widehat{\operatorname{var}} \left( \hat{g} \right) =
+\boldsymbol{J}_{g} \,
+\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}} \,
+\boldsymbol{J}_{g}^{\prime},$$
+where \(\boldsymbol{J}_{g}\) is the Jacobian of \(g\) and
+\(\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}}\) is the
+sampling covariance matrix
+stored in <code>object</code> (<code><a href="BetaDelta.html">BetaDelta()</a></code>).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -109,11 +131,14 @@ stored in <code>object</code> (normal-theory or asymptotically distribution-free
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">RSqDelta</span><span class="op">(</span><span class="va">std</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">RSqDelta</span><span class="op">(</span>object <span class="op">=</span> <span class="va">std</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Methods -------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RSqDelta(object = std)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -121,7 +146,7 @@ stored in <code>object</code> (normal-theory or asymptotically distribution-free
 <span class="r-out co"><span class="r-pr">#&gt;</span>        est     se       z p  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.8045 0.0517 15.5608 0 0.6344 0.6714 0.7032 0.9059 0.9377 0.9747</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.7906 0.0554 14.2713 0 0.6083 0.6479 0.6820 0.8991 0.9333 0.9728</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RSqDelta(object = std)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -129,14 +154,14 @@ stored in <code>object</code> (normal-theory or asymptotically distribution-free
 <span class="r-out co"><span class="r-pr">#&gt;</span>        est     se       z p  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.8045 0.0517 15.5608 0 0.6344 0.6714 0.7032 0.9059 0.9377 0.9747</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.7906 0.0554 14.2713 0 0.6083 0.6479 0.6820 0.8991 0.9333 0.9728</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       rsq       adj </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.8045263 0.7905638 </span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             rsq         adj</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.002673125 0.002864062</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.002864062 0.003068638</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.7031917 0.9058608</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.6819911 0.8991366</span>

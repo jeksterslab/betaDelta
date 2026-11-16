@@ -11,7 +11,7 @@ using a numerical Jacobian."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +119,7 @@ of class <code>deltamethod</code> which is a list with the following elements:</
 <dt>args</dt>
 <dd><p>Function arguments.</p></dd>
 
-<dt>coef</dt>
+<dt>est</dt>
 <dd><p>Estimates.</p></dd>
 
 <dt>vcov</dt>
@@ -145,7 +145,7 @@ of class <code>deltamethod</code> which is a list with the following elements:</
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  formula <span class="op">=</span> <span class="va">vs</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">disp</span>,</span></span>
 <span class="r-in"><span>  family <span class="op">=</span> <span class="st">"binomial"</span>,</span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">mtcars</span></span></span>
@@ -156,14 +156,14 @@ of class <code>deltamethod</code> which is a list with the following elements:</
 <span class="r-in"><span>  <span class="va">y</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu">Delta</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  coef <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  vcov <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  coef <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  vcov <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  func <span class="op">=</span> <span class="va">func</span>,</span></span>
 <span class="r-in"><span>  alpha <span class="op">=</span> <span class="fl">0.05</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Delta(coef = coef(object), vcov = vcov(object), func = func, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     alpha = 0.05)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Delta(coef = stats::coef(object), vcov = stats::vcov(object), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     func = func, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              est     se       z      p    2.5%   97.5%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952</span>

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,17 +35,21 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.0.7.9000" id="betadelta-1079000">betaDelta 1.0.7.9000<a class="anchor" aria-label="anchor" href="#betadelta-1079000"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.1.0" id="betadelta-110">betaDelta 1.1.0<a class="anchor" aria-label="anchor" href="#betadelta-110"></a></h2>
 <div class="section level3">
-<h3 id="major-1-0-7-9000">Major<a class="anchor" aria-label="anchor" href="#major-1-0-7-9000"></a></h3>
-<ul><li>Added <code><a href="../reference/RSqDelta.html">RSqDelta()</a></code>, <code><a href="../reference/SCorDelta.html">SCorDelta()</a></code>, <code><a href="../reference/PCorDelta.html">PCorDelta()</a></code>, <code><a href="../reference/DeltaRSqDelta.html">DeltaRSqDelta()</a></code>, and <code><a href="../reference/FSqDelta.html">FSqDelta()</a></code>: delta-method intervals for R-squared and adjusted R-squared, semipartial correlations, squared partial correlations, the improvement in R-squared, and Cohen’s f-squared (global and local), with normal-theory or ADF standard errors, as in betaMC and betaNB.</li>
-<li>The new functions and <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> return objects of class <code>esdelta</code> with one set of methods. <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> objects also keep the class <code>diffbetadelta</code>.</li>
+<h3 id="major-1-1-0">Major<a class="anchor" aria-label="anchor" href="#major-1-1-0"></a></h3>
+<ul><li>Added <code><a href="../reference/RSqDelta.html">RSqDelta()</a></code>, <code><a href="../reference/SCorDelta.html">SCorDelta()</a></code>, <code><a href="../reference/SCorSqDelta.html">SCorSqDelta()</a></code>, <code><a href="../reference/PCorDelta.html">PCorDelta()</a></code>, <code><a href="../reference/DeltaRSqDelta.html">DeltaRSqDelta()</a></code>, and <code><a href="../reference/FSqDelta.html">FSqDelta()</a></code>: delta-method intervals for R-squared and adjusted R-squared, semipartial correlations, squared signed-semipartial and squared partial correlations, the improvement in R-squared, and Cohen’s f-squared (global and local), with normal-theory or ADF standard errors.</li>
+<li>The new functions and <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> return objects of class <code>esdelta</code> with one set of <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code>, <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, <code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code>, <code><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov()</a></code>, and <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code> methods. <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> objects also keep the class <code>diffbetadelta</code>.</li>
+<li>Added a package help page and equations in the help pages of the effect-size functions.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="minor-1-0-7-9000">Minor<a class="anchor" aria-label="anchor" href="#minor-1-0-7-9000"></a></h3>
+<h3 id="minor-1-1-0">Minor<a class="anchor" aria-label="anchor" href="#minor-1-1-0"></a></h3>
 <ul><li>Selective standardization: the arguments <code>std_y</code> and <code>std_x</code> standardize only y or only the named regressors (for example, leave a dummy variable in its 0-1 units). The defaults give the same results as before.</li>
 <li>
 <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> stops when the slopes are not fully standardized.</li>
+<li>Examples and vignettes use named arguments and <code>pkg::fn()</code> calls; the effect-size vignette shows the <code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code>, <code><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov()</a></code>, and <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code> methods.</li>
+<li>Removed betaSandwich, betaMC, and betaNB from <code>Suggests</code>.</li>
+<li>Internal functions are refreshed from their source libraries.</li>
 </ul></div>
 </div>
     <div class="section level2">

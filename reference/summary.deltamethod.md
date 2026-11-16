@@ -30,8 +30,8 @@ summary(object, alpha = NULL, digits = 4, ...)
 
 ## Value
 
-Returns a matrix of standardized regression slopes, standard errors,
-test statistics, degrees of freedom, p-values, and confidence intervals.
+Returns a matrix of estimates, standard errors, test statistics, degrees
+of freedom (if z = FALSE), p-values, and confidence intervals.
 
 ## Author
 
@@ -40,7 +40,7 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

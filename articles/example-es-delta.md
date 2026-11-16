@@ -14,7 +14,7 @@ set and the model used in [betaDelta: Example Using the BetaDelta
 Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md).
 
 \
-[`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
+[`library`](https://rdrr.io/r/base/library.html)`(``package ``=`` ``"betaDelta"``)`
 
 \
 `df`` ``<-`` ``betaDelta``::`[`nas1982`](https://jeksterslab.github.io/betaDelta/reference/nas1982.md)
@@ -22,18 +22,18 @@ Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md
 ## Fit the regression model using the `lm()` function.
 
 \
-`object`` ``<-`` `[`lm`](https://rdrr.io/r/stats/lm.html)`(``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
+`object`` ``<-`` ``stats``::`[`lm`](https://rdrr.io/r/stats/lm.html)`(``formula ``=`` ``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
 
 ## Estimate the standardized regression slopes and the sampling covariance matrix.
 
 \
-`std_mvn`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"mvn"``)`\
-`std_adf`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object``, type ``=`` ``"adf"``)`
+`std_mvn`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object ``=`` ``object``, type ``=`` ``"mvn"``)`\
+`std_adf`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object ``=`` ``object``, type ``=`` ``"adf"``)`
 
 ## R-squared and adjusted R-squared
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`RSqDelta`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``object ``=`` `[`RSqDelta`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md)`(``object ``=`` ``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> RSqDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -45,7 +45,7 @@ Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md
 ## Semipartial correlations
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`SCorDelta`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``object ``=`` `[`SCorDelta`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)`(``object ``=`` ``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> SCorDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -55,10 +55,21 @@ Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md
 `#> PCTGRT  0.3430 0.0689 4.9812 0e+00 0.2080 0.4780`\
 `#> PCTSUPP 0.2385 0.0701 3.4003 7e-04 0.1010 0.3759`
 
+## Squared signed-semipartial correlations
+
+The interval of the signed semipartial correlation, squared as a set.
+
+\
+[`SCorSqDelta`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md)`(``object ``=`` ``std_adf``, level ``=`` ``0.95``)`\
+`#>               est      lower     upper`\
+`#> NARTIC  0.1858925 0.08971856 0.3167151`\
+`#> PCTGRT  0.1176542 0.04328240 0.2284561`\
+`#> PCTSUPP 0.0568722 0.01020445 0.1413315`
+
 ## Squared partial correlations
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`PCorDelta`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``object ``=`` `[`PCorDelta`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md)`(``object ``=`` ``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> PCorDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -71,7 +82,7 @@ Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md
 ## Improvement in R-squared
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``object ``=`` `[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``object ``=`` ``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> DeltaRSqDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -84,7 +95,7 @@ Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md
 ## Cohen’s f-squared and local f-squared
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(`[`FSqDelta`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md)`(``std_adf``, alpha ``=`` ``0.05``)``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``object ``=`` `[`FSqDelta`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md)`(``object ``=`` ``std_adf``, alpha ``=`` ``0.05``)``)`\
 `#> Call:`\
 `#> FSqDelta(object = std_adf, alpha = 0.05)`\
 `#> `\
@@ -98,16 +109,39 @@ Function](https://jeksterslab.github.io/betaDelta/articles/example-beta-delta.md
 ## Comparing covariance estimators
 
 \
-[`confint`](https://rdrr.io/r/stats/confint.html)`(`[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``std_mvn``)``, level ``=`` ``0.95``)`\
+`stats``::`[`confint`](https://rdrr.io/r/stats/confint.html)`(``object ``=`` `[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``object ``=`` ``std_mvn``)``, level ``=`` ``0.95``)`\
 `#>                2.5 %    97.5 %`\
 `#> NARTIC   0.055421734 0.3163632`\
 `#> PCTGRT   0.017881671 0.2174267`\
 `#> PCTSUPP -0.008779331 0.1225237`\
-[`confint`](https://rdrr.io/r/stats/confint.html)`(`[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``std_adf``)``, level ``=`` ``0.95``)`\
+`stats``::`[`confint`](https://rdrr.io/r/stats/confint.html)`(``object ``=`` `[`DeltaRSqDelta`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)`(``object ``=`` ``std_adf``)``, level ``=`` ``0.95``)`\
 `#>                2.5 %    97.5 %`\
 `#> NARTIC   0.072394224 0.2993907`\
 `#> PCTGRT   0.025067308 0.2102410`\
 `#> PCTSUPP -0.008691312 0.1224357`
+
+## Extracting estimates, sampling covariance matrices, and confidence intervals
+
+The [`coef()`](https://rdrr.io/r/stats/coef.html),
+[`vcov()`](https://rdrr.io/r/stats/vcov.html), and
+[`confint()`](https://rdrr.io/r/stats/confint.html) methods work on the
+output of every effect-size function.
+
+\
+`scor`` ``<-`` `[`SCorDelta`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)`(``object ``=`` ``std_adf``)`\
+`stats``::`[`coef`](https://rdrr.io/r/stats/coef.html)`(``object ``=`` ``scor``)`\
+`#>    NARTIC    PCTGRT   PCTSUPP `\
+`#> 0.4311525 0.3430075 0.2384789`\
+`stats``::`[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object ``=`` ``scor``)`\
+`#>                NARTIC        PCTGRT       PCTSUPP`\
+`#> NARTIC   0.0045098317 -0.0002254421 -0.0005799174`\
+`#> PCTGRT  -0.0002254421  0.0047417123 -0.0008555208`\
+`#> PCTSUPP -0.0005799174 -0.0008555208  0.0049189025`\
+`stats``::`[`confint`](https://rdrr.io/r/stats/confint.html)`(``object ``=`` ``scor``, level ``=`` ``0.95``)`\
+`#>             2.5 %    97.5 %`\
+`#> NARTIC  0.2995306 0.5627744`\
+`#> PCTGRT  0.2080442 0.4779708`\
+`#> PCTSUPP 0.1010171 0.3759408`
 
 ## References
 

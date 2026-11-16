@@ -75,7 +75,7 @@ following elements:
 
   Function arguments.
 
-- coef:
+- est:
 
   Estimates.
 
@@ -103,7 +103,7 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars
@@ -114,14 +114,14 @@ func <- function(x) {
   y[-1]
 }
 Delta(
-  coef = coef(object),
-  vcov = vcov(object),
+  coef = stats::coef(object),
+  vcov = stats::vcov(object),
   func = func,
   alpha = 0.05
 )
 #> Call:
-#> Delta(coef = coef(object), vcov = vcov(object), func = func, 
-#>     alpha = 0.05)
+#> Delta(coef = stats::coef(object), vcov = stats::vcov(object), 
+#>     func = func, alpha = 0.05)
 #>              est     se       z      p    2.5%   97.5%
 #> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429
 #> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952

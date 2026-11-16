@@ -5,28 +5,28 @@ the associated standard errors, and confidence intervals within a
 logistic regression model.
 
 \
-[`library`](https://rdrr.io/r/base/library.html)`(`[`betaDelta`](https://github.com/jeksterslab/betaDelta)`)`
+[`library`](https://rdrr.io/r/base/library.html)`(``package ``=`` ``"betaDelta"``)`
 
 \
-`object`` ``<-`` `[`glm`](https://rdrr.io/r/stats/glm.html)`(`\
+`object`` ``<-`` ``stats``::`[`glm`](https://rdrr.io/r/stats/glm.html)`(`\
 `  formula ``=`` ``vs`` ``~`` ``wt`` ``+`` ``disp``,`\
 `  family ``=`` ``"binomial"``,`\
 `  data ``=`` ``mtcars`\
 `)`\
 `func`` ``<-`` ``function``(``x``)`` ``{`\
-`  ``y`` ``<-`` `[`exp`](https://rdrr.io/r/base/Log.html)`(``x``)`\
-`  `[`names`](https://rdrr.io/r/base/names.html)`(``y``)`` ``<-`` `[`paste0`](https://rdrr.io/r/base/paste.html)`(``"exp"``, ``"("``, `[`names`](https://rdrr.io/r/base/names.html)`(``x``)``, ``")"``)`\
-`  `[`return`](https://rdrr.io/r/base/function.html)`(``y``[``-``1``]``)`\
+`  ``y`` ``<-`` `[`exp`](https://rdrr.io/r/base/Log.html)`(``x ``=`` ``x``)`\
+`  `[`names`](https://rdrr.io/r/base/names.html)`(``x ``=`` ``y``)`` ``<-`` `[`paste0`](https://rdrr.io/r/base/paste.html)`(``"exp"``, ``"("``, `[`names`](https://rdrr.io/r/base/names.html)`(``x ``=`` ``x``)``, ``")"``)`\
+`  ``y``[``-``1``]`\
 `}`\
 [`Delta`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)`(`\
-`  coef ``=`` `[`coef`](https://rdrr.io/r/stats/coef.html)`(``object``)``,`\
-`  vcov ``=`` `[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object``)``,`\
+`  coef ``=`` ``stats``::`[`coef`](https://rdrr.io/r/stats/coef.html)`(``object ``=`` ``object``)``,`\
+`  vcov ``=`` ``stats``::`[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object ``=`` ``object``)``,`\
 `  func ``=`` ``func``,`\
 `  alpha ``=`` ``0.05`\
 `)`\
 `#> Call:`\
-`#> Delta(coef = coef(object), vcov = vcov(object), func = func, `\
-`#>     alpha = 0.05)`\
+`#> Delta(coef = stats::coef(object = object), vcov = stats::vcov(object = object), `\
+`#>     func = func, alpha = 0.05)`\
 `#>              est     se       z      p    2.5%   97.5%`\
 `#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429`\
 `#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952`
@@ -35,8 +35,8 @@ logistic regression model.
 
 \
 `delta`` ``<-`` `[`Delta`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)`(`\
-`  coef ``=`` `[`coef`](https://rdrr.io/r/stats/coef.html)`(``object``)``,`\
-`  vcov ``=`` `[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object``)``,`\
+`  coef ``=`` ``stats``::`[`coef`](https://rdrr.io/r/stats/coef.html)`(``object ``=`` ``object``)``,`\
+`  vcov ``=`` ``stats``::`[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object ``=`` ``object``)``,`\
 `  func ``=`` ``func``,`\
 `  alpha ``=`` ``0.05`\
 `)`
@@ -47,7 +47,7 @@ Summary of the results of
 [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md).
 
 \
-[`summary`](https://rdrr.io/r/base/summary.html)`(``delta``)`\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``object ``=`` ``delta``)`\
 `#>              est     se       z      p    2.5%   97.5%`\
 `#> exp(wt)   5.0853 7.5805  0.6708 0.5023 -9.7723 19.9429`\
 `#> exp(disp) 0.9662 0.0148 65.0838 0.0000  0.9371  0.9952`
@@ -57,7 +57,7 @@ Summary of the results of
 Calculate the estimates.
 
 \
-[`coef`](https://rdrr.io/r/stats/coef.html)`(``delta``)`\
+`stats``::`[`coef`](https://rdrr.io/r/stats/coef.html)`(``object ``=`` ``delta``)`\
 `#>   exp(wt) exp(disp) `\
 `#> 5.0852960 0.9661524`
 
@@ -66,7 +66,7 @@ Calculate the estimates.
 Calculate the sampling covariance matrix.
 
 \
-[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``delta``)`\
+`stats``::`[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``object ``=`` ``delta``)`\
 `#>               exp(wt)     exp(disp)`\
 `#> exp(wt)   57.46443026 -0.0977480169`\
 `#> exp(disp) -0.09774802  0.0002203662`
@@ -76,7 +76,7 @@ Calculate the sampling covariance matrix.
 Generate confidence intervals.
 
 \
-[`confint`](https://rdrr.io/r/stats/confint.html)`(``delta``, level ``=`` ``0.95``)`\
+`stats``::`[`confint`](https://rdrr.io/r/stats/confint.html)`(``object ``=`` ``delta``, level ``=`` ``0.95``)`\
 `#>                2.5 %     97.5 %`\
 `#> exp(wt)   -9.7722691 19.9428612`\
 `#> exp(disp)  0.9370572  0.9952475`

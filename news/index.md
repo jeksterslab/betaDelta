@@ -1,25 +1,34 @@
 # Changelog
 
-## betaDelta 1.0.7.9000
+## betaDelta 1.1.0
 
 ### Major
 
 - Added
   [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
   [`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md),
+  [`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md),
   [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
   [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
   and
   [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md):
   delta-method intervals for R-squared and adjusted R-squared,
-  semipartial correlations, squared partial correlations, the
-  improvement in R-squared, and Cohen’s f-squared (global and local),
-  with normal-theory or ADF standard errors, as in betaMC and betaNB.
+  semipartial correlations, squared signed-semipartial and squared
+  partial correlations, the improvement in R-squared, and Cohen’s
+  f-squared (global and local), with normal-theory or ADF standard
+  errors.
 - The new functions and
   [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
-  return objects of class `esdelta` with one set of methods.
+  return objects of class `esdelta` with one set of
+  [`print()`](https://rdrr.io/r/base/print.html),
+  [`summary()`](https://rdrr.io/r/base/summary.html),
+  [`coef()`](https://rdrr.io/r/stats/coef.html),
+  [`vcov()`](https://rdrr.io/r/stats/vcov.html), and
+  [`confint()`](https://rdrr.io/r/stats/confint.html) methods.
   [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   objects also keep the class `diffbetadelta`.
+- Added a package help page and equations in the help pages of the
+  effect-size functions.
 
 ### Minor
 
@@ -29,6 +38,13 @@
   as before.
 - [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
   stops when the slopes are not fully standardized.
+- Examples and vignettes use named arguments and `pkg::fn()` calls; the
+  effect-size vignette shows the
+  [`coef()`](https://rdrr.io/r/stats/coef.html),
+  [`vcov()`](https://rdrr.io/r/stats/vcov.html), and
+  [`confint()`](https://rdrr.io/r/stats/confint.html) methods.
+- Removed betaSandwich, betaMC, and betaNB from `Suggests`.
+- Internal functions are refreshed from their source libraries.
 
 ## betaDelta 1.0.7
 

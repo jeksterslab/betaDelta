@@ -67,11 +67,14 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-std <- BetaDelta(object)
-diff <- DiffBetaDelta(std)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+std <- BetaDelta(object = object)
+diff <- DiffBetaDelta(object = std)
 # Methods -------------------------------------------------------
-print(diff)
+print(x = diff)
 #> Call:
 #> DiffBetaDelta(object = std)
 #> 
@@ -84,7 +87,7 @@ print(diff)
 #> NARTIC-PCTGRT  0.4531 0.5501
 #> NARTIC-PCTSUPP 0.5544 0.6438
 #> PCTGRT-PCTSUPP 0.4443 0.5320
-summary(diff)
+summary(object = diff)
 #> Call:
 #> DiffBetaDelta(object = std)
 #> 
@@ -97,15 +100,15 @@ summary(diff)
 #> NARTIC-PCTGRT  0.4531 0.5501
 #> NARTIC-PCTSUPP 0.5544 0.6438
 #> PCTGRT-PCTSUPP 0.4443 0.5320
-coef(diff)
+coef(object = diff)
 #>  NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP 
 #>      0.1036564      0.2318974      0.1282410 
-vcov(diff)
+vcov(object = diff)
 #>                NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP
 #> NARTIC-PCTGRT    0.018408653    0.009511262   -0.008897391
 #> NARTIC-PCTSUPP   0.009511262    0.015672035    0.006160773
 #> PCTGRT-PCTSUPP  -0.008897391    0.006160773    0.015058164
-confint(diff, level = 0.95)
+confint(object = diff, level = 0.95)
 #>                      2.5 %    97.5 %
 #> NARTIC-PCTGRT  -0.16226855 0.3695814
 #> NARTIC-PCTSUPP -0.01346652 0.4772614

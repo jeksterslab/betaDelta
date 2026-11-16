@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">betaDelta</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,24 +80,24 @@ using the <code><a href="../reference/BetaDelta.html">BetaDelta()</a></code> fun
 &amp; Chan (2011)</span> and <span class="citation">Jones &amp; Waller
 (2015)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/betaDelta" class="external-link">betaDelta</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"betaDelta"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">betaDelta</span><span class="fu">::</span><span class="va"><a href="../reference/nas1982.html">nas1982</a></span></span></code></pre></div>
 <div class="section level2">
 <h2 id="fit-the-regression-model-using-the-lm-function-">Fit the regression model using the <code>lm()</code> function.<a class="anchor" aria-label="anchor" href="#fit-the-regression-model-using-the-lm-function-"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="estimate-the-standardized-regression-slopes-and-the-corresponding-sampling-covariance-matrix-">Estimate the standardized regression slopes and the corresponding
 sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate-the-standardized-regression-slopes-and-the-corresponding-sampling-covariance-matrix-"></a>
 </h2>
-<div class="section level4">
-<h4 id="multivariate-normal-theory-approach">Multivariate Normal-Theory Approach<a class="anchor" aria-label="anchor" href="#multivariate-normal-theory-approach"></a>
-</h4>
+<div class="section level3">
+<h3 id="multivariate-normal-theory-approach">Multivariate Normal-Theory Approach<a class="anchor" aria-label="anchor" href="#multivariate-normal-theory-approach"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; BetaDelta(object = object, type = "mvn", alpha = 0.05)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -107,11 +107,11 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469</span></span>
 <span><span class="co">#&gt; PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="asymptotic-distribution-free-approach">Asymptotic Distribution-Free Approach<a class="anchor" aria-label="anchor" href="#asymptotic-distribution-free-approach"></a>
-</h4>
+<div class="section level3">
+<h3 id="asymptotic-distribution-free-approach">Asymptotic Distribution-Free Approach<a class="anchor" aria-label="anchor" href="#asymptotic-distribution-free-approach"></a>
+</h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; BetaDelta(object = object, type = "adf", alpha = 0.05)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -126,14 +126,14 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a>
 </h2>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mvn</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span><span class="op">)</span></span>
-<span><span class="va">adf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span><span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mvn</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span><span class="op">)</span></span>
+<span><span class="va">adf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="summary">summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h3>
 <p>Summary of the results of <code><a href="../reference/BetaDelta.html">BetaDelta()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; BetaDelta(object = object, type = "mvn")</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -146,7 +146,7 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <span><span class="co">#&gt; NARTIC  0.7635</span></span>
 <span><span class="co">#&gt; PCTGRT  0.6640</span></span>
 <span><span class="co">#&gt; PCTSUPP 0.5276</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; BetaDelta(object = object, type = "adf")</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -165,10 +165,10 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 </h3>
 <p>Calculate the standardized regression slopes.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    NARTIC    PCTGRT   PCTSUPP </span></span>
 <span><span class="co">#&gt; 0.4951451 0.3914887 0.2632477</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    NARTIC    PCTGRT   PCTSUPP </span></span>
 <span><span class="co">#&gt; 0.4951451 0.3914887 0.2632477</span></span></code></pre></div>
 </div>
@@ -178,12 +178,12 @@ sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate
 <p>Calculate the sampling covariance matrix of the standardized
 regression slopes.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">mvn</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">mvn</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               NARTIC       PCTGRT      PCTSUPP</span></span>
 <span><span class="co">#&gt; NARTIC   0.005754524 -0.003360334 -0.002166127</span></span>
 <span><span class="co">#&gt; PCTGRT  -0.003360334  0.005933462 -0.001769723</span></span>
 <span><span class="co">#&gt; PCTSUPP -0.002166127 -0.001769723  0.005585256</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">adf</span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">adf</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               NARTIC       PCTGRT      PCTSUPP</span></span>
 <span><span class="co">#&gt; NARTIC   0.004539472 -0.002552698 -0.001742698</span></span>
 <span><span class="co">#&gt; PCTGRT  -0.002552698  0.005036538 -0.001906216</span></span>
@@ -194,12 +194,12 @@ regression slopes.</p>
 </h3>
 <p>Generate confidence intervals for standardized regression slopes.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">mvn</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">mvn</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; NARTIC  0.3420563 0.6482339</span></span>
 <span><span class="co">#&gt; PCTGRT  0.2360380 0.5469395</span></span>
 <span><span class="co">#&gt; PCTSUPP 0.1124272 0.4140682</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adf</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">adf</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
 <span><span class="co">#&gt; NARTIC  0.3591757 0.6311146</span></span>
 <span><span class="co">#&gt; PCTGRT  0.2482683 0.5347091</span></span>

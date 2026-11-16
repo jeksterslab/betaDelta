@@ -30,10 +30,13 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-std <- BetaDelta(object)
-out <- RSqDelta(std)
-vcov(out)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+std <- BetaDelta(object = object)
+out <- RSqDelta(object = std)
+vcov(object = out)
 #>             rsq         adj
 #> rsq 0.002673125 0.002864062
 #> adj 0.002864062 0.003068638

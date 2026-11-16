@@ -58,6 +58,34 @@ The sampling covariance matrix is obtained by the delta method from the
 sampling covariance matrix of the variances and covariances stored in
 `object` (normal-theory or asymptotically distribution-free).
 
+Let \\(\boldsymbol{\beta}^{\ast}\\) be the vector of standardized
+slopes, \\(\boldsymbol{R}\_{x}\\) the correlation matrix of the
+regressors, \\(r^{jj}\\) the \\(j\\)th diagonal element of
+\\(\boldsymbol{R}\_{x}^{-1}\\), and \\(R^{2} =
+\boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}\_{x}
+\boldsymbol{\beta}^{\ast}\\). The semipartial correlation of regressor
+\\(j\\) is \$\$sr\_{j} = \beta^{\ast}\_{j} / \sqrt{r^{jj}} =
+\beta^{\ast}\_{j} \sqrt{1 - R^{2}\_{j \cdot -j}},\$\$ where \\(R^{2}\_{j
+\cdot -j}\\) is the R-squared from regressing regressor \\(j\\) on the
+other regressors. Its square, \\(sr^{2}\_{j}\\), is the change in
+\\(R^{2}\\) when regressor \\(j\\) is added last. Because \\(1 / r^{jj}
+= 1 - R^{2}\_{j \cdot -j}\\), \\(sr\_{j}\\) shrinks toward zero as
+regressor \\(j\\) becomes more redundant with the other regressors.
+Cohen's f-squared and the local f-squared of regressor \\(j\\) are
+\$\$f^{2} = \frac{R^{2}}{1 - R^{2}}, \quad f^{2}\_{j} =
+\frac{sr^{2}\_{j}}{1 - R^{2}}.\$\$ By convention (Cohen, 1988), values
+of about 0.02, 0.15, and 0.35 are small, medium, and large effects. For
+an effect size \\(g\left( \boldsymbol{\theta}^{\ast} \right)\\) that is
+a function of the standardized parameters, the sampling variance is
+approximated by the delta method, \$\$\widehat{\operatorname{var}}
+\left( \hat{g} \right) = \boldsymbol{J}\_{g} \\,
+\widehat{\boldsymbol{\Sigma}}\_{\boldsymbol{\theta}^{\ast}} \\,
+\boldsymbol{J}\_{g}^{\prime},\$\$ where \\(\boldsymbol{J}\_{g}\\) is the
+Jacobian of \\(g\\) and
+\\(\widehat{\boldsymbol{\Sigma}}\_{\boldsymbol{\theta}^{\ast}}\\) is the
+sampling covariance matrix stored in `object`
+([`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)).
+
 ## See also
 
 Other Beta Delta Functions:
@@ -75,11 +103,14 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-std <- BetaDelta(object)
-out <- FSqDelta(std)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+std <- BetaDelta(object = object)
+out <- FSqDelta(object = std)
 # Methods -------------------------------------------------------
-print(out)
+print(x = out)
 #> Call:
 #> FSqDelta(object = std)
 #> 
@@ -94,7 +125,7 @@ print(out)
 #> NARTIC  2.2727
 #> PCTGRT  1.5547
 #> PCTSUPP 0.8856
-summary(out)
+summary(object = out)
 #> Call:
 #> FSqDelta(object = std)
 #> 
@@ -109,16 +140,16 @@ summary(out)
 #> NARTIC  2.2727
 #> PCTGRT  1.5547
 #> PCTSUPP 0.8856
-coef(out)
+coef(object = out)
 #>       fsq    NARTIC    PCTGRT   PCTSUPP 
 #> 4.1157764 0.9509843 0.6018924 0.2909455 
-vcov(out)
+vcov(object = out)
 #>                fsq      NARTIC        PCTGRT       PCTSUPP
 #> fsq     1.83090366 0.292190379  0.1757962533  0.0810437672
 #> NARTIC  0.29219038 0.161335262  0.0047781399  0.0012330834
 #> PCTGRT  0.17579625 0.004778140  0.0838405969 -0.0003089663
 #> PCTSUPP 0.08104377 0.001233083 -0.0003089663  0.0326604105
-confint(out, level = 0.95)
+confint(object = out, level = 0.95)
 #>               2.5 %    97.5 %
 #> fsq      1.46373175 6.7678211
 #> NARTIC   0.16373420 1.7382345

@@ -31,9 +31,12 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-std <- BetaDelta(object)
-vcov(std)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+std <- BetaDelta(object = object)
+vcov(object = std)
 #>               NARTIC       PCTGRT      PCTSUPP
 #> NARTIC   0.005754524 -0.003360334 -0.002166127
 #> PCTGRT  -0.003360334  0.005933462 -0.001769723
