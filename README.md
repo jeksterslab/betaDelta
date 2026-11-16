@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-10
+2026-11-16
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -35,11 +35,14 @@ Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by `lm()` as
 described in Yuan and Chan (2011:
 <http://doi.org/10.1007/s11336-011-9224-6>) and Jones and Waller (2015:
-<http://doi.org/10.1007/s11336-013-9380-y>). The package can also be
-used to generate confidence intervals for differences of standardized
-regression coefficients and as a general approach to performing the
-delta method. A description of the package and code examples are
-presented in Pesigan, Sun, and Cheung (2023:
+<http://doi.org/10.1007/s11336-013-9380-y>). The package also generates
+delta method confidence intervals for differences of standardized
+regression coefficients, R-squared and adjusted R-squared, semipartial
+and squared partial correlations, the improvement in R-squared, and
+Cohen’s f-squared, with normal-theory or asymptotically
+distribution-free standard errors. It can also be used as a general
+approach to performing the delta method. A description of the package
+and code examples are presented in Pesigan, Sun, and Cheung (2023:
 <https://doi.org/10.1080/00273171.2023.2201277>).
 
 ## Installation
@@ -73,7 +76,7 @@ from the `betaDelta` package following Yuan & Chan (2011) and Jones &
 Waller (2015).
 
 ``` r
-library(betaDelta)
+library(package = "betaDelta")
 ```
 
 ``` r
@@ -83,15 +86,15 @@ df <- betaDelta::nas1982
 ### Fit the regression model using the `lm()` function.
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+object <- stats::lm(formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
 ### Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
-#### Multivariate Normal-Theory Approach
+### Multivariate Normal-Theory Approach
 
 ``` r
-BetaDelta(object, type = "mvn", alpha = 0.05)
+BetaDelta(object = object, type = "mvn", alpha = 0.05)
 #> Call:
 #> BetaDelta(object = object, type = "mvn", alpha = 0.05)
 #> 
@@ -102,10 +105,10 @@ BetaDelta(object, type = "mvn", alpha = 0.05)
 #> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141
 ```
 
-#### Asymptotic Distribution-Free Approach
+### Asymptotic Distribution-Free Approach
 
 ``` r
-BetaDelta(object, type = "adf", alpha = 0.05)
+BetaDelta(object = object, type = "adf", alpha = 0.05)
 #> Call:
 #> BetaDelta(object = object, type = "adf", alpha = 0.05)
 #> 
@@ -118,11 +121,33 @@ BetaDelta(object, type = "adf", alpha = 0.05)
 
 ## Other Features
 
-The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients using the
-`DiffBetaDelta()` function. It can also be used as a general approach to
-performing the delta method using the `Delta()` and `DeltaGeneric()`
-functions.
+| Effect size | Function |
+|----|----|
+| Standardized regression slopes | `BetaDelta()` |
+| Differences of standardized slopes | `DiffBetaDelta()` |
+| R-squared and adjusted R-squared | `RSqDelta()` |
+| Semipartial correlations | `SCorDelta()` |
+| Squared signed-semipartial correlations (interval image under squaring) | `SCorSqDelta()` |
+| Squared partial correlations | `PCorDelta()` |
+| Improvement in R-squared | `DeltaRSqDelta()` |
+| Cohen’s f-squared | `FSqDelta()` |
+| General delta method | `Delta()`, `DeltaGeneric()` |
+
+The effect-size functions take the output of `BetaDelta()`, so the
+covariance estimator (`type = "mvn"` or `"adf"`) is chosen once. For
+example:
+
+``` r
+std <- BetaDelta(object = object, type = "adf", alpha = 0.05)
+RSqDelta(object = std)
+#> Call:
+#> RSqDelta(object = std)
+#> 
+#> R-squared and adjusted R-squared with ADF standard errors:
+#>        est     se       z p  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> rsq 0.8045 0.0519 15.4910 0 0.6336 0.6708 0.7027 0.9063 0.9383 0.9754
+#> adj 0.7906 0.0556 14.2073 0 0.6075 0.6472 0.6815 0.8996 0.9339 0.9737
+```
 
 ## Documentation
 

@@ -32,7 +32,7 @@ confidence intervals.
 Print Method for an Object of Class \code{deltamethod}
 }
 \examples{
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

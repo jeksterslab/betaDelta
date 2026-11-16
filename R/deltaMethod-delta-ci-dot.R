@@ -1,5 +1,5 @@
 #' Confidence Intervals for
-#' Deltma Method
+#' Delta Method
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
@@ -20,7 +20,7 @@
 #' @noRd
 .DeltaCI <- function(object,
                      alpha) {
-  if (is.null(alpha)) {
+  if (is.null(x = alpha)) {
     alpha <- object$args$alpha
   }
   stopifnot(
@@ -28,7 +28,7 @@
   )
   .CIWald(
     est = object$est,
-    se = sqrt(diag(object$vcov)),
+    se = sqrt(x = diag(x = object$vcov)),
     theta = object$args$theta,
     alpha = alpha,
     z = object$args$z,

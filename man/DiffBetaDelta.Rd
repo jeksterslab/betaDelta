@@ -34,15 +34,18 @@ Estimate Differences of Standardized Slopes
 and the Corresponding Sampling Covariance Matrix
 }
 \examples{
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-std <- BetaDelta(object)
-diff <- DiffBetaDelta(std)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+std <- BetaDelta(object = object)
+diff <- DiffBetaDelta(object = std)
 # Methods -------------------------------------------------------
-print(diff)
-summary(diff)
-coef(diff)
-vcov(diff)
-confint(diff, level = 0.95)
+print(x = diff)
+summary(object = diff)
+coef(object = diff)
+vcov(object = diff)
+confint(object = diff, level = 0.95)
 
 }
 \seealso{

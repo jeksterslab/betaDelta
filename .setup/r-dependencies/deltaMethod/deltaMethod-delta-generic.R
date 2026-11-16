@@ -11,7 +11,7 @@
 #'   \describe{
 #'     \item{call}{Function call.}
 #'     \item{args}{Function arguments.}
-#'     \item{coef}{Estimates.}
+#'     \item{est}{Estimates.}
 #'     \item{vcov}{Sampling variance-covariance matrix.}
 #'     \item{jacobian}{Jacobian matrix.}
 #'     \item{fun}{Function used ("DeltaGeneric").}
@@ -39,7 +39,7 @@
 #'   Degrees of freedom if `z = FALSE`.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -60,7 +60,7 @@ DeltaGeneric <- function(object,
                          z = TRUE,
                          df = NULL) {
   if (!z) {
-    if (is.null(df)) {
+    if (is.null(x = df)) {
       stop(
         paste0(
           "Please provide a value for the argument `df`.\n",
@@ -81,13 +81,13 @@ DeltaGeneric <- function(object,
   func <- function(coef,
                    def) {
     env <- list2env(
-      as.list(coef)
+      x = as.list(x = coef)
     )
     sapply(
       X = def,
       FUN = function(i) {
         eval(
-          parse(text = i),
+          expr = parse(text = i),
           envir = env
         )
       }
@@ -101,8 +101,8 @@ DeltaGeneric <- function(object,
     }
   )
   def_vars <- unique(
-    unlist(
-      sapply(
+    x = unlist(
+      x = sapply(
         X = defs_exp,
         FUN = all.vars
       )
@@ -110,10 +110,10 @@ DeltaGeneric <- function(object,
   )
   ## def to be used as names
   def_vec <- def
-  dim(def_vec) <- NULL
-  coef <- stats::coef(object)[def_vars]
-  vcov <- stats::vcov(object)[def_vars, def_vars]
-  k <- length(coef)
+  dim(x = def_vec) <- NULL
+  coef <- stats::coef(object = object)[def_vars]
+  vcov <- stats::vcov(object = object)[def_vars, def_vars]
+  k <- length(x = coef)
   j <- numDeriv::jacobian(
     func = func,
     x = coef,
@@ -121,7 +121,7 @@ DeltaGeneric <- function(object,
   )
   if (k == 1) {
     # univariate
-    vcov <- as.vector(vcov)
+    vcov <- as.vector(x = vcov)
     vcov <- matrix(
       data = j^2 * vcov,
       nrow = 1,
@@ -129,7 +129,7 @@ DeltaGeneric <- function(object,
     )
   } else {
     # multivariate
-    vcov <- j %*% vcov %*% t(j)
+    vcov <- j %*% vcov %*% t(x = j)
   }
   est <- func(
     coef = coef,
@@ -139,9 +139,9 @@ DeltaGeneric <- function(object,
     what = "rbind",
     args = def
   )
-  dim(def) <- NULL
-  names(est) <- def
-  colnames(vcov) <- rownames(vcov) <- def
+  dim(x = def) <- NULL
+  names(x = est) <- def
+  colnames(x = vcov) <- rownames(x = vcov) <- def
   out <- list(
     call = match.call(),
     args = args,
@@ -150,9 +150,9 @@ DeltaGeneric <- function(object,
     jacobian = j,
     fun = "DeltaGeneric"
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "deltamethod",
-    class(out)
+    class(x = out)
   )
   out
 }

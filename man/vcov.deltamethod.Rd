@@ -19,7 +19,7 @@ variance-covariance matrix.
 Sampling Covariance Matrix
 }
 \examples{
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

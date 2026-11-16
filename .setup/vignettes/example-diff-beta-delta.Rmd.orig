@@ -30,14 +30,14 @@ we use the data set and the model used in
 
 ```{r}
 #| message = FALSE
-library(betaDelta)
+library(package = "betaDelta")
 ```
 
 ```{r}
 #| echo = FALSE
-if (!exists("nas1982")) {
+if (!exists(x = "nas1982")) {
   try(
-    data(
+    expr = utils::data(
       "nas1982",
       package = "betaDelta"
     ),
@@ -55,28 +55,28 @@ df <- betaDelta::nas1982
 ## Fit the regression model using the `lm()` function.
 
 ```{r}
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+object <- stats::lm(formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
 ## Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
-#### Multivariate Normal-Theory Approach
+### Multivariate Normal-Theory Approach
 
 ```{r}
-std_mvn <- BetaDelta(object, type = "mvn")
+std_mvn <- BetaDelta(object = object, type = "mvn")
 ```
 
-#### Asymptotic Distribution-Free Approach
+### Asymptotic Distribution-Free Approach
 
 ```{r}
-std_adf <- BetaDelta(object, type = "adf")
+std_adf <- BetaDelta(object = object, type = "adf")
 ```
 
 ## Estimate differences of standardized regression slopes and the corresponding sampling covariance matrix.
 
 ```{r}
-mvn <- DiffBetaDelta(std_mvn, alpha = 0.05)
-adf <- DiffBetaDelta(std_adf, alpha = 0.05)
+mvn <- DiffBetaDelta(object = std_mvn, alpha = 0.05)
+adf <- DiffBetaDelta(object = std_adf, alpha = 0.05)
 ```
 
 ### summary
@@ -84,8 +84,8 @@ adf <- DiffBetaDelta(std_adf, alpha = 0.05)
 Summary of the results of `DiffBetaDelta()`.
 
 ```{r}
-summary(mvn)
-summary(adf)
+summary(object = mvn)
+summary(object = adf)
 ```
 
 ### coef
@@ -93,8 +93,8 @@ summary(adf)
 Calculate differences of standardized regression slopes.
 
 ```{r}
-coef(mvn)
-coef(adf)
+stats::coef(object = mvn)
+stats::coef(object = adf)
 ```
 
 ### vcov
@@ -102,8 +102,8 @@ coef(adf)
 Calculate the sampling covariance matrix of differences of standardized regression slopes.
 
 ```{r}
-vcov(mvn)
-vcov(adf)
+stats::vcov(object = mvn)
+stats::vcov(object = adf)
 ```
 
 ### confint
@@ -111,8 +111,8 @@ vcov(adf)
 Generate confidence intervals for differences of standardized regression slopes.
 
 ```{r}
-confint(mvn, level = 0.95)
-confint(adf, level = 0.95)
+stats::confint(object = mvn, level = 0.95)
+stats::confint(object = adf, level = 0.95)
 ```
 
 ## References

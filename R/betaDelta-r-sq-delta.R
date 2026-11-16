@@ -7,6 +7,30 @@
 #'   from the sampling covariance matrix of the variances and covariances
 #'   stored in `object` (normal-theory or asymptotically distribution-free).
 #'
+#' @details
+#' Let \eqn{\boldsymbol{\beta}^{\ast}} be the vector of standardized slopes,
+#' \eqn{\boldsymbol{R}_{x}} the correlation matrix of the regressors,
+#' \eqn{r^{jj}} the \eqn{j}th diagonal element of \eqn{\boldsymbol{R}_{x}^{-1}},
+#' and \eqn{R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+#' \boldsymbol{\beta}^{\ast}}.
+#' The R-squared and the adjusted R-squared are
+#' \deqn{R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+#' \boldsymbol{\beta}^{\ast}, \quad \bar{R}^{2} = 1 - \left( 1 - R^{2} \right)
+#' \frac{n - 1}{n - k},}
+#' where \eqn{n} is the sample size and \eqn{k} is the number of parameters
+#' in the regression model, including the intercept.
+#' For an effect size \eqn{g\left( \boldsymbol{\theta}^{\ast} \right)}
+#' that is a function of the standardized parameters,
+#' the sampling variance is approximated by the delta method,
+#' \deqn{\widehat{\operatorname{var}} \left( \hat{g} \right) =
+#' \boldsymbol{J}_{g} \,
+#' \widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}} \,
+#' \boldsymbol{J}_{g}^{\prime},}
+#' where \eqn{\boldsymbol{J}_{g}} is the Jacobian of \eqn{g} and
+#' \eqn{\widehat{\boldsymbol{\Sigma}}_{\boldsymbol{\theta}^{\ast}}} is the
+#' sampling covariance matrix
+#' stored in `object` ([BetaDelta()]).
+#'
 #' @return Returns an object of class `esdelta`
 #'   which is a list with the following elements:
 #'   \describe{
@@ -26,15 +50,18 @@
 #'   Significance level \eqn{\alpha}.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
 #' # Methods -------------------------------------------------------
-#' print(out)
-#' summary(out)
-#' coef(out)
-#' vcov(out)
-#' confint(out, level = 0.95)
+#' print(x = out)
+#' summary(object = out)
+#' coef(object = out)
+#' vcov(object = out)
+#' confint(object = out, level = 0.95)
 #'
 #' @family Beta Delta Functions
 #' @keywords betaDelta rsq

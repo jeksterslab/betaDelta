@@ -12,7 +12,7 @@
 .ACovDelta <- function(jcap,
                        acov) {
   jcap %*% tcrossprod(
-    acov,
-    jcap
+    x = acov,
+    y = jcap
   )
 }

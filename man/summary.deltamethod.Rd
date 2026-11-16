@@ -20,10 +20,10 @@ use the argument \code{alpha} used in \code{object}.}
 }
 \value{
 Returns a matrix of
-standardized regression slopes,
+estimates,
 standard errors,
 test statistics,
-degrees of freedom,
+degrees of freedom (if z = FALSE),
 p-values,
 and
 confidence intervals.
@@ -32,7 +32,7 @@ confidence intervals.
 Summary Method for an Object of Class \code{deltamethod}
 }
 \examples{
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

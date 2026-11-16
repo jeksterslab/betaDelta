@@ -18,6 +18,22 @@
 #'   `k = p + 1`.
 #'
 #' @return Returns a matrix.
+#' @examples
+#' beta <- c(0.5, 0.3)
+#' sigmacapx <- matrix(data = c(1, 0.2, 0.2, 2), nrow = 2)
+#' sigmacap <- matrix(
+#'   data = c(0.89, 0.56, 0.7, 0.56, 1, 0.2, 0.7, 0.2, 2),
+#'   nrow = 3
+#' )
+#' strRegression:::.JacBetaStarWRTVechSigma(
+#'   beta = beta,
+#'   sigmay = sqrt(0.89),
+#'   sigmax = sqrt(diag(sigmacapx)),
+#'   invsigmacapx = solve(sigmacapx),
+#'   p = 2,
+#'   k = 3
+#' )
+#'
 #' @family Derivatives Functions
 #' @keywords strRegression derivatives internal
 #' @noRd
@@ -27,15 +43,15 @@
                                      invsigmacapx,
                                      p,
                                      k) {
-  iden <- diag(p)
+  iden <- diag(x = p)
   dsigmax <- iden
   dinvsigmax <- iden
-  diag(dsigmax) <- sigmax
-  diag(dinvsigmax) <- 1 / sigmax
+  diag(x = dsigmax) <- sigmax
+  diag(x = dinvsigmax) <- 1 / sigmax
   u_p <- 0.5 * p * (p + 1)
   u_k <- 0.5 * k * (k + 1)
   diags <- .DiagofVech(
-    x = seq_len(u_p),
+    x = seq_len(length.out = u_p),
     k = p,
     loc = FALSE
   )
@@ -44,23 +60,23 @@
     nrow = p,
     ncol = u_p
   )
-  for (i in seq_along(diags)) {
+  for (i in seq_along(along.with = diags)) {
     v[i, diags[i]] <- 1
   }
-  moments <- .MomentsIndex(p)
+  moments <- .MomentsIndex(p = p)
   jcap <- matrix(
-    0,
+    data = 0,
     nrow = p,
     ncol = u_k
   )
-  colnames(jcap) <- c(
+  colnames(x = jcap) <- c(
     moments$sigmaysq,
     moments$sigmayx,
     moments$vechsigmacapx
   )
-  rownames(jcap) <- paste0(
+  rownames(x = jcap) <- paste0(
     "betastar",
-    seq_len(p)
+    seq_len(length.out = p)
   )
   jcap[
     ,
@@ -71,19 +87,19 @@
     moments$sigmayx
   ] <- (1 / sigmay) * (dsigmax %*% invsigmacapx)
   betastar_wrt_vechsigmacapx <- iden
-  diag(betastar_wrt_vechsigmacapx) <- .Vec(dinvsigmax %*% beta)
+  diag(x = betastar_wrt_vechsigmacapx) <- .Vec(x = dinvsigmax %*% beta)
   betastar_wrt_vechsigmacapx <- (0.5 / sigmay) * diag(
-    betastar_wrt_vechsigmacapx
+    x = betastar_wrt_vechsigmacapx
   ) * v - (
     (
       1 / sigmay
     ) * dsigmax %*% kronecker(
-      matrix(
+      X = matrix(
         data = beta,
         nrow = 1
       ),
-      invsigmacapx
-    ) %*% .DMat(p)
+      Y = invsigmacapx
+    ) %*% .DMat(k = p)
   )
   jcap[
     ,

@@ -6,7 +6,60 @@
 \alias{betaDelta-package}
 \title{betaDelta: Confidence Intervals for Standardized Regression Coefficients}
 \description{
-Generates confidence intervals for standardized regression coefficients using delta method standard errors for models fitted by lm() as described in Yuan and Chan (2011) \doi{10.1007/s11336-011-9224-6} and Jones and Waller (2015) \doi{10.1007/s11336-013-9380-y}. The package can also be used to generate confidence intervals for differences of standardized regression coefficients and as a general approach to performing the delta method. A description of the package and code examples are presented in Pesigan, Sun, and Cheung (2023) \doi{10.1080/00273171.2023.2201277}.
+Generates confidence intervals for standardized regression coefficients
+using delta method standard errors for models fitted by \code{\link[stats:lm]{stats::lm()}}
+(Yuan & Chan, 2011; Jones & Waller, 2015). Sampling covariance matrices are
+obtained under multivariate normal theory or the asymptotically
+distribution-free approach.
+}
+\section{Standardized regression coefficients}{
+
+\code{\link[=BetaDelta]{BetaDelta()}} estimates the standardized regression coefficients
+and the corresponding sampling covariance matrix.
+The arguments \code{std_y} and \code{std_x} standardize only the outcome
+or only the named regressors.
+}
+
+\section{Functions of the standardized coefficients}{
+
+\code{\link[=DiffBetaDelta]{DiffBetaDelta()}} (differences of standardized slopes),
+\code{\link[=RSqDelta]{RSqDelta()}} (R-squared and adjusted R-squared),
+\code{\link[=SCorDelta]{SCorDelta()}} and \code{\link[=SCorSqDelta]{SCorSqDelta()}} (semipartial correlations),
+\code{\link[=PCorDelta]{PCorDelta()}} (squared partial correlations),
+\code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}} (improvement in R-squared), and
+\code{\link[=FSqDelta]{FSqDelta()}} (Cohen's f-squared and local f-squared).
+}
+
+\section{General delta method}{
+
+\code{\link[=Delta]{Delta()}} and \code{\link[=DeltaGeneric]{DeltaGeneric()}} apply the delta method
+to any function of the parameters.
+}
+
+\section{Methods}{
+
+The \code{coef()}, \code{vcov()}, \code{confint()}, \code{summary()}, and \code{print()} methods are
+available for objects of class \code{betadelta} and \code{esdelta}.
+}
+
+\references{
+Jones, J. A., & Waller, N. G. (2015).
+The normal-theory and asymptotic distribution-free (ADF) covariance matrix
+of standardized regression coefficients:
+Theoretical extensions and finite sample behavior.
+\emph{Psychometrika}, \emph{80}(2), 365--378.
+\doi{10.1007/s11336-013-9380-y}
+
+Pesigan, I. J. A., Sun, R. W., & Cheung, S. F. (2023).
+betaDelta and betaSandwich:
+Confidence intervals for standardized regression coefficients in R.
+\emph{Multivariate Behavioral Research}.
+\doi{10.1080/00273171.2023.2201277}
+
+Yuan, K.-H., & Chan, W. (2011).
+Biases and standard errors of standardized regression coefficients.
+\emph{Psychometrika}, \emph{76}(4), 670--690.
+\doi{10.1007/s11336-011-9224-6}
 }
 \seealso{
 Useful links:

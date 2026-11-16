@@ -43,13 +43,18 @@ knitr::opts_chunk$set(
 
 Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by `lm()`
-as described in Yuan and Chan (2011: http://doi.org/10.1007/s11336-011-9224-6)
-and Jones and Waller (2015: http://doi.org/10.1007/s11336-013-9380-y).
-The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients 
-and as a general approach to performing the delta method.
+as described in Yuan and Chan (2011: <http://doi.org/10.1007/s11336-011-9224-6>)
+and Jones and Waller (2015: <http://doi.org/10.1007/s11336-013-9380-y>).
+The package also generates delta method confidence intervals for
+differences of standardized regression coefficients,
+R-squared and adjusted R-squared,
+semipartial and squared partial correlations,
+the improvement in R-squared,
+and Cohen's f-squared,
+with normal-theory or asymptotically distribution-free standard errors.
+It can also be used as a general approach to performing the delta method.
 A description of the package and code examples
-are presented in Pesigan, Sun, and Cheung (2023: https://doi.org/10.1080/00273171.2023.2201277).
+are presented in Pesigan, Sun, and Cheung (2023: <https://doi.org/10.1080/00273171.2023.2201277>).
 
 ## Installation
 
@@ -80,14 +85,14 @@ using the `BetaDelta()` function from the `betaDelta` package following @Yuan-Ch
 
 ```{r}
 #| message = FALSE
-library(betaDelta)
+library(package = "betaDelta")
 ```
 
 ```{r}
 #| echo = FALSE
-if (!exists("nas1982")) {
+if (!exists(x = "nas1982")) {
   try(
-    data(
+    expr = utils::data(
       "nas1982",
       package = "betaDelta"
     ),
@@ -105,30 +110,45 @@ df <- betaDelta::nas1982
 ### Fit the regression model using the `lm()` function.
 
 ```{r}
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+object <- stats::lm(formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
 ### Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
-#### Multivariate Normal-Theory Approach
+### Multivariate Normal-Theory Approach
 
 ```{r}
-BetaDelta(object, type = "mvn", alpha = 0.05)
+BetaDelta(object = object, type = "mvn", alpha = 0.05)
 ```
 
-#### Asymptotic Distribution-Free Approach
+### Asymptotic Distribution-Free Approach
 
 ```{r}
-BetaDelta(object, type = "adf", alpha = 0.05)
+BetaDelta(object = object, type = "adf", alpha = 0.05)
 ```
 
 ## Other Features
 
-The package can also be used to generate confidence intervals for
-differences of standardized regression coefficients
-using the `DiffBetaDelta()` function.
-It can also be used as a general approach to performing the delta method
-using the `Delta()` and `DeltaGeneric()` functions.
+| Effect size | Function |
+|---|---|
+| Standardized regression slopes | `BetaDelta()` |
+| Differences of standardized slopes | `DiffBetaDelta()` |
+| R-squared and adjusted R-squared | `RSqDelta()` |
+| Semipartial correlations | `SCorDelta()` |
+| Squared signed-semipartial correlations (interval image under squaring) | `SCorSqDelta()` |
+| Squared partial correlations | `PCorDelta()` |
+| Improvement in R-squared | `DeltaRSqDelta()` |
+| Cohen's f-squared | `FSqDelta()` |
+| General delta method | `Delta()`, `DeltaGeneric()` |
+
+The effect-size functions take the output of `BetaDelta()`,
+so the covariance estimator (`type = "mvn"` or `"adf"`) is chosen once.
+For example:
+
+```{r}
+std <- BetaDelta(object = object, type = "adf", alpha = 0.05)
+RSqDelta(object = std)
+```
 
 ## Documentation
 

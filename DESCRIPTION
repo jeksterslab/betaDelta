@@ -1,6 +1,6 @@
 Package: betaDelta
 Title: Confidence Intervals for Standardized Regression Coefficients
-Version: 1.0.7.9000
+Version: 1.1.0
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -11,8 +11,10 @@ Description: Generates confidence intervals for standardized regression coeffici
     using delta method standard errors for models fitted by lm()
     as described in Yuan and Chan (2011) <doi:10.1007/s11336-011-9224-6>
     and Jones and Waller (2015) <doi:10.1007/s11336-013-9380-y>.
-    The package can also be used to generate confidence intervals for
-    differences of standardized regression coefficients 
+    The package can also be used to generate confidence intervals for R-squared,
+    adjusted R-squared, differences of standardized regression coefficients,
+    semipartial correlations, squared partial correlations,
+    the improvement in R-squared, and Cohen's f-squared,
     and as a general approach to performing the delta method.
     A description of the package and code examples
     are presented in Pesigan, Sun, and Cheung (2023) <doi:10.1080/00273171.2023.2201277>.
@@ -28,8 +30,5 @@ Imports:
 Suggests:
     knitr,
     rmarkdown,
-    testthat,
-    betaSandwich,
-    betaMC,
-    betaNB
+    testthat
 Config/roxygen2/version: 8.1.1.9000
