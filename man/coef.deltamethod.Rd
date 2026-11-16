@@ -18,7 +18,7 @@ Returns a vector of estimates.
 Estimates
 }
 \examples{
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

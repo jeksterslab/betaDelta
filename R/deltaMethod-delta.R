@@ -11,7 +11,7 @@
 #'   \describe{
 #'     \item{call}{Function call.}
 #'     \item{args}{Function arguments.}
-#'     \item{coef}{Estimates.}
+#'     \item{est}{Estimates.}
 #'     \item{vcov}{Sampling variance-covariance matrix.}
 #'     \item{jacobian}{Jacobian matrix.}
 #'     \item{fun}{Function used ("Delta").}
@@ -42,7 +42,7 @@
 #'   Degrees of freedom if `z = FALSE`.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -53,8 +53,8 @@
 #'   y[-1]
 #' }
 #' Delta(
-#'   coef = coef(object),
-#'   vcov = vcov(object),
+#'   coef = stats::coef(object),
+#'   vcov = stats::vcov(object),
 #'   func = func,
 #'   alpha = 0.05
 #' )
@@ -70,7 +70,7 @@ Delta <- function(coef,
                   z = TRUE,
                   df = NULL) {
   if (!z) {
-    if (is.null(df)) {
+    if (is.null(x = df)) {
       stop(
         paste0(
           "Please provide a value for the argument `df`.\n",
@@ -89,15 +89,20 @@ Delta <- function(coef,
     z = z,
     df = df
   )
-  j <- numDeriv::jacobian(
-    func = func,
-    x = coef,
-    ...
+  j <- do.call(
+    what = numDeriv::jacobian,
+    args = c(
+      list(
+        func = func,
+        x = coef
+      ),
+      list(...)
+    )
   )
-  k <- length(coef)
+  k <- length(x = coef)
   if (k == 1) {
     # univariate
-    vcov <- as.vector(vcov)
+    vcov <- as.vector(x = vcov)
     vcov <- matrix(
       data = j^2 * vcov,
       nrow = 1,
@@ -105,13 +110,13 @@ Delta <- function(coef,
     )
   } else {
     # multivariate
-    vcov <- j %*% vcov %*% t(j)
+    vcov <- j %*% vcov %*% t(x = j)
   }
   est <- func(
     x = coef,
     ...
   )
-  colnames(vcov) <- rownames(vcov) <- names(est)
+  colnames(x = vcov) <- rownames(x = vcov) <- names(x = est)
   out <- list(
     call = match.call(),
     args = args,
@@ -120,9 +125,9 @@ Delta <- function(coef,
     jacobian = j,
     fun = "Delta"
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "deltamethod",
-    class(out)
+    class(x = out)
   )
   out
 }

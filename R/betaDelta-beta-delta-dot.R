@@ -15,7 +15,7 @@
 #'   }
 #'
 #' @param lm_object object.
-#'   Output of the [.ProcessLM()] function.
+#'   Output of the `.ProcessLM()` function.
 #' @param type Character string.
 #'   If `type = "mvn"`,
 #'   use the multivariate normal-theory approach.

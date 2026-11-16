@@ -19,10 +19,13 @@
 #' @param digits Digits to print.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
-#' print(out)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
+#' print(x = out)
 #'
 #' @keywords methods
 #' @export
@@ -60,10 +63,13 @@ print.esdelta <- function(x,
 #' @param digits Digits to print.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
-#' summary(out)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
+#' summary(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -115,10 +121,13 @@ summary.esdelta <- function(object,
 #' @param ... additional arguments.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
-#' summary(out)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
+#' summary(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -167,10 +176,13 @@ print.summary.esdelta <- function(x,
 #' @param ... additional arguments.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
-#' vcov(out)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
+#' vcov(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -189,10 +201,13 @@ vcov.esdelta <- function(object,
 #' @param ... additional arguments.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
-#' coef(out)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
+#' coef(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -216,10 +231,13 @@ coef.esdelta <- function(object,
 #' @param level the confidence level required.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' std <- BetaDelta(object)
-#' out <- RSqDelta(std)
-#' confint(out, level = 0.95)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' std <- BetaDelta(object = object)
+#' out <- RSqDelta(object = std)
+#' confint(object = out, level = 0.95)
 #'
 #' @keywords methods
 #' @export

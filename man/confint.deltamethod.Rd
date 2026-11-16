@@ -25,7 +25,7 @@ Returns a matrix of confidence intervals.
 Confidence Intervals
 }
 \examples{
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars

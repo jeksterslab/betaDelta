@@ -55,7 +55,7 @@ of class \code{deltamethod} which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
 \item{args}{Function arguments.}
-\item{coef}{Estimates.}
+\item{est}{Estimates.}
 \item{vcov}{Sampling variance-covariance matrix.}
 \item{jacobian}{Jacobian matrix.}
 \item{fun}{Function used ("Delta").}
@@ -67,7 +67,7 @@ for a function of parameters
 using a numerical Jacobian.
 }
 \examples{
-object <- glm(
+object <- stats::glm(
   formula = vs ~ wt + disp,
   family = "binomial",
   data = mtcars
@@ -78,8 +78,8 @@ func <- function(x) {
   y[-1]
 }
 Delta(
-  coef = coef(object),
-  vcov = vcov(object),
+  coef = stats::coef(object),
+  vcov = stats::vcov(object),
   func = func,
   alpha = 0.05
 )

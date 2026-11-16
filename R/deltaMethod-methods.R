@@ -20,7 +20,7 @@
 #' @param digits Digits to print.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -40,10 +40,10 @@ print.deltamethod <- function(x,
                               digits = 4,
                               ...) {
   cat("Call:\n")
-  base::print(x$call)
+  base::print(x = x$call)
   base::print(
-    round(
-      .DeltaCI(
+    x = round(
+      x = .DeltaCI(
         object = x,
         alpha = alpha
       ),
@@ -57,10 +57,10 @@ print.deltamethod <- function(x,
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix of
-#'   standardized regression slopes,
+#'   estimates,
 #'   standard errors,
 #'   test statistics,
-#'   degrees of freedom,
+#'   degrees of freedom (if z = FALSE),
 #'   p-values,
 #'   and
 #'   confidence intervals.
@@ -74,7 +74,7 @@ print.deltamethod <- function(x,
 #' @param digits Digits to print.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -96,14 +96,14 @@ summary.deltamethod <- function(object,
   if (interactive()) {
     # nocov start
     cat("Call:\n")
-    base::print(object$call)
+    base::print(x = object$call)
     # nocov end
   }
   ci <- .DeltaCI(
     object = object,
     alpha = alpha
   )
-  if (!is.null(digits)) {
+  if (!is.null(x = digits)) {
     ci <- round(
       x = ci,
       digits = digits
@@ -123,7 +123,7 @@ summary.deltamethod <- function(object,
 #' @param ... additional arguments.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -153,7 +153,7 @@ vcov.deltamethod <- function(object,
 #' @param ... additional arguments.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -188,7 +188,7 @@ coef.deltamethod <- function(object,
 #' @param level the confidence level required.
 #'
 #' @examples
-#' object <- glm(
+#' object <- stats::glm(
 #'   formula = vs ~ wt + disp,
 #'   family = "binomial",
 #'   data = mtcars
@@ -207,9 +207,9 @@ confint.deltamethod <- function(object,
                                 parm = NULL,
                                 level = 0.95,
                                 ...) {
-  if (is.null(parm)) {
+  if (is.null(x = parm)) {
     parm <- seq_along(
-      object$est
+      along.with = object$est
     )
   }
   ci <- .DeltaCI(
@@ -221,12 +221,12 @@ confint.deltamethod <- function(object,
   } else {
     ci <- ci[parm, 6:7, drop = FALSE]
   }
-  varnames <- colnames(ci)
+  varnames <- colnames(x = ci)
   varnames <- gsub(
     pattern = "%",
     replacement = " %",
     x = varnames
   )
-  colnames(ci) <- varnames
+  colnames(x = ci) <- varnames
   ci
 }

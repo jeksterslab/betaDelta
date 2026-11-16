@@ -4,12 +4,12 @@
 #' The Jacobian `jcap` of an effect size
 #' with respect to the standardized parameter vector
 #' \eqn{\boldsymbol{\theta}^{\ast} = \left( \boldsymbol{\beta}^{\ast},
-#' \sigma_{y}, \boldsymbol{\sigma}_{\mathbf{x}},
-#' \mathrm{vechs} \left( \mathbf{R}_{\mathbf{X}} \right) \right)}
+#' \sigma_{y}, \boldsymbol{\sigma}_{\boldsymbol{x}},
+#' \operatorname{vechs} \left( \boldsymbol{R}_{\boldsymbol{X}} \right) \right)}
 #' is converted to the Jacobian with respect to
-#' \eqn{\mathrm{vech} \left( \boldsymbol{\Sigma} \right)}
+#' \eqn{\operatorname{vech} \left( \boldsymbol{\Sigma} \right)}
 #' through the inverse of the square Jacobian of
-#' \eqn{\mathrm{vech} \left( \boldsymbol{\Sigma} \right)}
+#' \eqn{\operatorname{vech} \left( \boldsymbol{\Sigma} \right)}
 #' with respect to \eqn{\boldsymbol{\theta}^{\ast}},
 #' and applied to the asymptotic covariance matrix
 #' \eqn{\boldsymbol{\Gamma}} stored in `object`.
