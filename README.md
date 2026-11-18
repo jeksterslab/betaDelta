@@ -1,7 +1,7 @@
 betaDelta
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-16
+2026-11-18
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
