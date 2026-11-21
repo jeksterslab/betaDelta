@@ -26,7 +26,11 @@
   the effect-size vignette shows the `coef()`, `vcov()`, and `confint()`
   methods.
 - Removed betaSandwich, betaMC, and betaNB from `Suggests`.
-- Internal functions are refreshed from their source libraries.
+- The internal copies from deltaMethod 0.0.2 (one form of the delta-method
+  covariance for any number of parameters), linearAlgebra 0.0.5 (a faster
+  duplication matrix and its exact inverse), and processLM 0.0.11 are
+  current. Results agree with 1.1.0 up to rounding.
+- `DeltaRSqDelta()` and `FSqDelta()` give references, as in betaSandwich.
 
 # betaDelta 1.0.7
 
