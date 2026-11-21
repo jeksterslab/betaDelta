@@ -113,24 +113,16 @@ DeltaGeneric <- function(object,
   dim(x = def_vec) <- NULL
   coef <- stats::coef(object = object)[def_vars]
   vcov <- stats::vcov(object = object)[def_vars, def_vars]
-  k <- length(x = coef)
   j <- numDeriv::jacobian(
     func = func,
     x = coef,
     def = def
   )
-  if (k == 1) {
-    # univariate
-    vcov <- as.vector(x = vcov)
-    vcov <- matrix(
-      data = j^2 * vcov,
-      nrow = 1,
-      ncol = 1
-    )
-  } else {
-    # multivariate
-    vcov <- j %*% vcov %*% t(x = j)
-  }
+  # J V J' for any number of coefficients and definitions
+  vcov <- j %*% tcrossprod(
+    x = as.matrix(x = vcov),
+    y = j
+  )
   est <- func(
     coef = coef,
     def = def

@@ -56,6 +56,14 @@
 #'
 #' @inheritParams RSqDelta
 #'
+#' @references
+#' Selya, A. S., Rose, J. S., Dierker, L. C., Hedeker, D., & Mermelstein,
+#' R. J. (2012).
+#' A practical guide to calculating Cohen's f2,
+#' a measure of local effect size, from PROC MIXED.
+#' *Frontiers in Psychology*, *3*, 111.
+#' \doi{10.3389/fpsyg.2012.00111}
+#'
 #' @examples
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
