@@ -44,7 +44,14 @@
   [`vcov()`](https://rdrr.io/r/stats/vcov.html), and
   [`confint()`](https://rdrr.io/r/stats/confint.html) methods.
 - Removed betaSandwich, betaMC, and betaNB from `Suggests`.
-- Internal functions are refreshed from their source libraries.
+- The internal copies from deltaMethod 0.0.2 (one form of the
+  delta-method covariance for any number of parameters), linearAlgebra
+  0.0.5 (a faster duplication matrix and its exact inverse), and
+  processLM 0.0.11 are current. Results agree with 1.1.0 up to rounding.
+- [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md)
+  and
+  [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md)
+  give references, as in betaSandwich.
 
 ## betaDelta 1.0.7
 

@@ -49,7 +49,9 @@
 <code><a href="../reference/DiffBetaDelta.html">DiffBetaDelta()</a></code> stops when the slopes are not fully standardized.</li>
 <li>Examples and vignettes use named arguments and <code>pkg::fn()</code> calls; the effect-size vignette shows the <code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code>, <code><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov()</a></code>, and <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code> methods.</li>
 <li>Removed betaSandwich, betaMC, and betaNB from <code>Suggests</code>.</li>
-<li>Internal functions are refreshed from their source libraries.</li>
+<li>The internal copies from deltaMethod 0.0.2 (one form of the delta-method covariance for any number of parameters), linearAlgebra 0.0.5 (a faster duplication matrix and its exact inverse), and processLM 0.0.11 are current. Results agree with 1.1.0 up to rounding.</li>
+<li>
+<code><a href="../reference/DeltaRSqDelta.html">DeltaRSqDelta()</a></code> and <code><a href="../reference/FSqDelta.html">FSqDelta()</a></code> give references, as in betaSandwich.</li>
 </ul></div>
 </div>
     <div class="section level2">

@@ -86,6 +86,13 @@ Jacobian of \\(g\\) and
 sampling covariance matrix stored in `object`
 ([`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)).
 
+## References
+
+Selya, A. S., Rose, J. S., Dierker, L. C., Hedeker, D., & Mermelstein,
+R. J. (2012). A practical guide to calculating Cohen's f2, a measure of
+local effect size, from PROC MIXED. *Frontiers in Psychology*, *3*, 111.
+[doi:10.3389/fpsyg.2012.00111](https://doi.org/10.3389/fpsyg.2012.00111)
+
 ## See also
 
 Other Beta Delta Functions:
