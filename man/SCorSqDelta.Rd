@@ -2,7 +2,9 @@
 % Please edit documentation in R/betaDelta-s-cor-sq-delta.R
 \name{SCorSqDelta}
 \alias{SCorSqDelta}
-\title{Squared Signed-Semipartial Confidence Intervals}
+\title{Estimate Squared Semipartial Correlation Coefficients
+and the Corresponding Confidence Intervals
+From the Signed Intervals}
 \usage{
 SCorSqDelta(object, level = 0.95)
 }
@@ -13,12 +15,14 @@ SCorSqDelta(object, level = 0.95)
 }
 \value{
 Data frame with est, lower and upper columns and predictor
-row names. The point estimate is the squared signed estimate.
+row names.
+The point estimate is the squared signed estimate.
 No standard error is implied by this interval transformation.
 }
 \description{
 Square the signed interval as a set, with lower limit zero if it
-contains zero. This differs from an interval of squared draws.
+contains zero.
+This differs from an interval of squared draws.
 No draws are generated and no endpoints are clipped to one.
 Failed signed endpoints remain missing.
 }
@@ -36,15 +40,35 @@ This is not the interval of squared draws, and it is not an interval for
 \code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}}, which is based on the delta method.
 }
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# SCorSqDelta --------------------------------------------------------------
 SCorSqDelta(object = std, level = 0.95)
+
+}
+\seealso{
+Other Beta Delta Method Functions:
+\code{\link[=BetaDelta]{BetaDelta()}},
+\code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}},
+\code{\link[=DiffBetaDelta]{DiffBetaDelta()}},
+\code{\link[=FSqDelta]{FSqDelta()}},
+\code{\link[=PCorDelta]{PCorDelta()}},
+\code{\link[=RSqDelta]{RSqDelta()}},
+\code{\link[=SCorDelta]{SCorDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
 }
+\concept{Beta Delta Method Functions}
 \keyword{betaDelta}
 \keyword{scor}

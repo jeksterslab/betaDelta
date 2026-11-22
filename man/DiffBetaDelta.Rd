@@ -2,7 +2,7 @@
 % Please edit documentation in R/betaDelta-diff-beta-delta.R
 \name{DiffBetaDelta}
 \alias{DiffBetaDelta}
-\title{Estimate Differences of Standardized Slopes
+\title{Estimate Differences of Standardized Regression Coefficients
 and the Corresponding Sampling Covariance Matrix}
 \usage{
 DiffBetaDelta(object, alpha = c(0.05, 0.01, 0.001))
@@ -17,7 +17,8 @@ Significance level \eqn{\alpha}.}
 }
 \value{
 Returns an object
-of class \code{diffbetadelta} which is a list with the following elements:
+of class \code{esdelta} (and \code{diffbetadelta})
+which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
 \item{fit}{The argument \code{object}.}
@@ -30,17 +31,44 @@ differences of standardized slopes.}
 }
 }
 \description{
-Estimate Differences of Standardized Slopes
+Estimate Differences of Standardized Regression Coefficients
 and the Corresponding Sampling Covariance Matrix
 }
+\details{
+For every pair of regressors \eqn{j < l},
+the difference of the standardized regression slopes (see \code{\link[=BetaDelta]{BetaDelta()}}) is
+\deqn{\Delta \beta^{\ast}_{jl} = \beta^{\ast}_{j} - \beta^{\ast}_{l}.}
+Collect the differences as \eqn{\boldsymbol{C} \boldsymbol{\beta}^{\ast}},
+where each row of \eqn{\boldsymbol{C}} has \eqn{1} in column \eqn{j},
+\eqn{-1} in column \eqn{l}, and zeros elsewhere.
+The sampling covariance matrix is
+\deqn{\widehat{\operatorname{var}} \left( \boldsymbol{C}
+\hat{\boldsymbol{\beta}}^{\ast} \right) = \boldsymbol{C}
+\widehat{\operatorname{var}} \left( \hat{\boldsymbol{\beta}}^{\ast} \right)
+\boldsymbol{C}^{\prime},}
+and the confidence intervals are
+\eqn{\Delta \hat{\beta}^{\ast}_{jl} \pm z_{1 - \alpha / 2}
+\widehat{\operatorname{se}} \left( \Delta \hat{\beta}^{\ast}_{jl} \right)}.
+The slopes must be fully standardized
+(\code{std_y = TRUE} and \code{std_x = NULL} in \code{\link[=BetaDelta]{BetaDelta()}}).
+}
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# DiffBetaDelta ------------------------------------------------------------
 diff <- DiffBetaDelta(object = std)
-# Methods -------------------------------------------------------
+
+## Methods -----------------------------------------------------------------
 print(x = diff)
 summary(object = diff)
 coef(object = diff)
@@ -49,17 +77,18 @@ confint(object = diff, level = 0.95)
 
 }
 \seealso{
-Other Beta Delta Functions:
+Other Beta Delta Method Functions:
 \code{\link[=BetaDelta]{BetaDelta()}},
 \code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}},
 \code{\link[=FSqDelta]{FSqDelta()}},
 \code{\link[=PCorDelta]{PCorDelta()}},
 \code{\link[=RSqDelta]{RSqDelta()}},
-\code{\link[=SCorDelta]{SCorDelta()}}
+\code{\link[=SCorDelta]{SCorDelta()}},
+\code{\link[=SCorSqDelta]{SCorSqDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
 }
-\concept{Beta Delta Functions}
+\concept{Beta Delta Method Functions}
 \keyword{betaDelta}
 \keyword{diff}

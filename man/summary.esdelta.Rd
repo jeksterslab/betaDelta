@@ -30,13 +30,35 @@ confidence intervals.
 \description{
 Summary Method for an Object of Class \code{esdelta}
 }
+\details{
+The confidence intervals are
+\eqn{\hat{\theta} \pm z_{1 - \alpha / 2}
+\widehat{\operatorname{se}} \left( \hat{\theta} \right)},
+where \eqn{\widehat{\operatorname{se}}} is the square root of the
+diagonal of the delta-method sampling covariance matrix of the effect size,
+and \eqn{z_{p}} is the \eqn{p} quantile of the standard normal
+distribution.
+The test statistic is
+\eqn{z = \hat{\theta} / \widehat{\operatorname{se}} \left( \hat{\theta}
+\right)}.
+}
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# RSqDelta -----------------------------------------------------------------
 out <- RSqDelta(object = std)
+
+## Methods -----------------------------------------------------------------
 summary(object = out)
 
 }

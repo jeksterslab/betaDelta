@@ -72,13 +72,22 @@ sampling covariance matrix
 stored in \code{object} (\code{\link[=BetaDelta]{BetaDelta()}}).
 }
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# PCorDelta ----------------------------------------------------------------
 out <- PCorDelta(object = std)
-# Methods -------------------------------------------------------
+
+## Methods -----------------------------------------------------------------
 print(x = out)
 summary(object = out)
 coef(object = out)
@@ -87,17 +96,18 @@ confint(object = out, level = 0.95)
 
 }
 \seealso{
-Other Beta Delta Functions:
+Other Beta Delta Method Functions:
 \code{\link[=BetaDelta]{BetaDelta()}},
 \code{\link[=DeltaRSqDelta]{DeltaRSqDelta()}},
 \code{\link[=DiffBetaDelta]{DiffBetaDelta()}},
 \code{\link[=FSqDelta]{FSqDelta()}},
 \code{\link[=RSqDelta]{RSqDelta()}},
-\code{\link[=SCorDelta]{SCorDelta()}}
+\code{\link[=SCorDelta]{SCorDelta()}},
+\code{\link[=SCorSqDelta]{SCorSqDelta()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
 }
-\concept{Beta Delta Functions}
+\concept{Beta Delta Method Functions}
 \keyword{betaDelta}
 \keyword{pcor}

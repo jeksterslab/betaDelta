@@ -3,6 +3,62 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @details
+#' Partition the covariance matrix of the outcome and the regressors as
+#' \deqn{\boldsymbol{\Sigma} = \begin{pmatrix} \sigma^{2}_{y} &
+#' \boldsymbol{\sigma}_{yx}^{\prime} \\ \boldsymbol{\sigma}_{yx} &
+#' \boldsymbol{\Sigma}_{x} \end{pmatrix}.}
+#' The regression slopes and the standardized regression slopes are
+#' \deqn{\boldsymbol{\beta} = \boldsymbol{\Sigma}_{x}^{-1}
+#' \boldsymbol{\sigma}_{yx}, \quad \beta^{\ast}_{j} = \beta_{j}
+#' \frac{\sigma_{x_{j}}}{\sigma_{y}},}
+#' where \eqn{\sigma_{x_{j}}} is the standard deviation of regressor \eqn{j}.
+#' With `std_y = FALSE`, \eqn{\sigma_{y}} is replaced by one;
+#' for a regressor left out of `std_x`, \eqn{\sigma_{x_{j}}} is replaced by one.
+#'
+#' By the delta method,
+#' the sampling covariance matrix of \eqn{\hat{\boldsymbol{\beta}}^{\ast}} is
+#' \deqn{\widehat{\operatorname{var}} \left( \hat{\boldsymbol{\beta}}^{\ast}
+#' \right) = \frac{1}{n} \boldsymbol{J} \hat{\boldsymbol{\Gamma}}
+#' \boldsymbol{J}^{\prime}, \quad \boldsymbol{J} = \frac{\partial
+#' \boldsymbol{\beta}^{\ast}}{\partial \operatorname{vech} \left(
+#' \boldsymbol{\Sigma} \right)^{\prime}},}
+#' where \eqn{\boldsymbol{J}} is evaluated at the sample covariance matrix
+#' \eqn{\boldsymbol{S}},
+#' and \eqn{\hat{\boldsymbol{\Gamma}}} (`gamma`) estimates the asymptotic
+#' covariance matrix of \eqn{\sqrt{n} \operatorname{vech} \left( \boldsymbol{S}
+#' \right)}.
+#' With `type = "mvn"`,
+#' \deqn{\hat{\boldsymbol{\Gamma}} = 2 \boldsymbol{D}^{+} \left( \boldsymbol{S}
+#' \otimes \boldsymbol{S} \right) \boldsymbol{D}^{+ \prime},}
+#' where \eqn{\boldsymbol{D}^{+}} is the Moore-Penrose inverse of the
+#' duplication matrix.
+#' With `type = "adf"`, \eqn{\hat{\boldsymbol{\Gamma}}} is the unbiased
+#' asymptotic distribution-free estimator
+#' \deqn{\hat{\boldsymbol{\Gamma}} = \frac{n \left( n - 1 \right)}{\left( n - 2
+#' \right) \left( n - 3 \right)} \hat{\boldsymbol{\Gamma}}_{\mathrm{ADF}} -
+#' \frac{n}{\left( n - 2 \right) \left( n - 3 \right)} \left(
+#' \hat{\boldsymbol{\Gamma}}_{\mathrm{N}} - \frac{2}{n - 1} \operatorname{vech}
+#' \left( \tilde{\boldsymbol{S}} \right) \operatorname{vech} \left(
+#' \tilde{\boldsymbol{S}} \right)^{\prime} \right),}
+#' where \eqn{\tilde{\boldsymbol{S}}} is the covariance matrix with divisor
+#' \eqn{n},
+#' \eqn{\hat{\boldsymbol{\Gamma}}_{\mathrm{N}}} is the normal-theory matrix
+#' at \eqn{\tilde{\boldsymbol{S}}}, and
+#' \deqn{\hat{\boldsymbol{\Gamma}}_{\mathrm{ADF}} = \frac{1}{n}
+#' \sum_{i = 1}^{n} \left[ \operatorname{vech} \left( \boldsymbol{d}_{i}
+#' \boldsymbol{d}_{i}^{\prime} \right) - \operatorname{vech} \left(
+#' \tilde{\boldsymbol{S}} \right) \right] \left[ \operatorname{vech} \left(
+#' \boldsymbol{d}_{i} \boldsymbol{d}_{i}^{\prime} \right) - \operatorname{vech}
+#' \left( \tilde{\boldsymbol{S}} \right) \right]^{\prime},}
+#' with \eqn{\boldsymbol{d}_{i}} the deviation of observation \eqn{i} from the
+#' sample means (Jones & Waller, 2015; Yuan & Chan, 2011).
+#' The confidence intervals are
+#' \eqn{\hat{\beta}^{\ast}_{j} \pm t_{1 - \alpha / 2, n - k}
+#' \widehat{\operatorname{se}} \left( \hat{\beta}^{\ast}_{j} \right)},
+#' where \eqn{k} is the number of regression parameters,
+#' including the intercept.
+#'
 #' @return Returns an object
 #'   of class `betadelta` which is a list with the following elements:
 #'   \describe{
@@ -58,19 +114,26 @@
 #' \doi{10.1007/s11336-011-9224-6}
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
-#' # Methods -------------------------------------------------------
+#'
+#' ## Methods -----------------------------------------------------------------
 #' print(x = std)
 #' summary(object = std)
 #' coef(object = std)
 #' vcov(object = std)
 #' confint(object = std, level = 0.95)
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta std
 #' @export
 BetaDelta <- function(object,

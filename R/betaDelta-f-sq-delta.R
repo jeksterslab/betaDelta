@@ -65,20 +65,29 @@
 #' \doi{10.3389/fpsyg.2012.00111}
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
+#'
+#' # FSqDelta -----------------------------------------------------------------
 #' out <- FSqDelta(object = std)
-#' # Methods -------------------------------------------------------
+#'
+#' ## Methods -----------------------------------------------------------------
 #' print(x = out)
 #' summary(object = out)
 #' coef(object = out)
 #' vcov(object = out)
 #' confint(object = out, level = 0.95)
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta fsq
 #' @export
 FSqDelta <- function(object,

@@ -10,7 +10,7 @@
 #' @return Returns a matrix of estimates, standard errors,
 #'   test statistics, p-values, and confidence intervals.
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta ci internal
 #' @noRd
 .ESDeltaCI <- function(object,

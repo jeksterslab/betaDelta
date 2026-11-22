@@ -11,7 +11,7 @@
 #'   If `type = "mvn"`, use the multivariate normal-theory approach.
 #'   If `type = "adf"`, use the asymptotic distribution-free approach.
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta gamma internal
 #' @noRd
 .Gamma <- function(object,

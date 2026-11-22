@@ -6,7 +6,7 @@
 #' @param p_min Positive integer.
 #'   Minimum number of regressors.
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta internal
 #' @noRd
 .CheckDelta <- function(object,

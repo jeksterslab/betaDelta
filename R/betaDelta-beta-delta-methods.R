@@ -20,11 +20,19 @@
 #' @param digits Digits to print.
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
+#'
+#' ## Methods -----------------------------------------------------------------
 #' print(x = std)
 #'
 #' @keywords methods
@@ -46,6 +54,18 @@ print.betadelta <- function(x,
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @details
+#' The confidence intervals are
+#' \eqn{\hat{\theta} \pm t_{1 - \alpha / 2, n - k}
+#' \widehat{\operatorname{se}} \left( \hat{\theta} \right)},
+#' where \eqn{\widehat{\operatorname{se}}} is the square root of the
+#' diagonal of the delta-method sampling covariance matrix (see [BetaDelta()]),
+#' \eqn{n} is the sample size, and \eqn{k} is the number of regression
+#' parameters, including the intercept.
+#' The test statistic is
+#' \eqn{\hat{\theta} / \widehat{\operatorname{se}} \left( \hat{\theta} \right)}
+#' with \eqn{n - k} degrees of freedom.
+#'
 #' @return Returns a matrix of
 #'   standardized regression slopes,
 #'   standard errors,
@@ -64,11 +84,19 @@ print.betadelta <- function(x,
 #' @param digits Digits to print.
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
+#'
+#' ## Methods -----------------------------------------------------------------
 #' summary(object = std)
 #'
 #' @keywords methods
@@ -141,11 +169,19 @@ print.summary.betadelta <- function(x,
 #' @param ... additional arguments.
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
+#'
+#' ## Methods -----------------------------------------------------------------
 #' vcov(object = std)
 #'
 #' @keywords methods
@@ -165,11 +201,19 @@ vcov.betadelta <- function(object,
 #' @param ... additional arguments.
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
+#'
+#' ## Methods -----------------------------------------------------------------
 #' coef(object = std)
 #'
 #' @keywords methods
@@ -185,6 +229,8 @@ coef.betadelta <- function(object,
 #'
 #' @return Returns a matrix of confidence intervals.
 #'
+#' @inherit summary.betadelta details
+#'
 #' @param object Object of class `betadelta`.
 #' @param ... additional arguments.
 #' @param parm a specification of which parameters
@@ -194,11 +240,19 @@ coef.betadelta <- function(object,
 #' @param level the confidence level required.
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaDelta")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
+#'
+#' # BetaDelta ----------------------------------------------------------------
 #' std <- BetaDelta(object = object)
+#'
+#' ## Methods -----------------------------------------------------------------
 #' confint(object = std, level = 0.95)
 #'
 #' @keywords methods

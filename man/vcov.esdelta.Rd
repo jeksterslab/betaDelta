@@ -20,12 +20,22 @@ of the estimates.
 Sampling Covariance Matrix for an Object of Class \code{esdelta}
 }
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# RSqDelta -----------------------------------------------------------------
 out <- RSqDelta(object = std)
+
+## Methods -----------------------------------------------------------------
 vcov(object = out)
 
 }
