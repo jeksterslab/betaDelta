@@ -41,7 +41,7 @@
 #' *Psychometrika*, *76*(4), 670--690.
 #' \doi{10.1007/s11336-011-9224-6}
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta std internal
 #' @param std_y Logical.
 #'   Standardize \eqn{y}.

@@ -32,11 +32,19 @@ confidence intervals.
 Print Method for an Object of Class \code{betadelta}
 }
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+## Methods -----------------------------------------------------------------
 print(x = std)
 
 }

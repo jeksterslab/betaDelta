@@ -15,7 +15,7 @@
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta ci internal
 #' @noRd
 .BetaCI <- function(object,

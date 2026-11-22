@@ -29,7 +29,7 @@
 #'   Name of the calling function.
 #' @param call Function call.
 #'
-#' @family Beta Delta Functions
+#' @family Beta Delta Method Functions
 #' @keywords betaDelta internal
 #' @noRd
 .ESDelta <- function(object,

@@ -18,11 +18,19 @@ Returns a vector of standardized regression slopes.
 Standardized Regression Slopes
 }
 \examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+## Methods -----------------------------------------------------------------
 coef(object = std)
 
 }

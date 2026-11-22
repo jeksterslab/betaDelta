@@ -5,12 +5,12 @@ template:
   package: rProject
 
 reference:
+- title: Delta Method
+  contents:
+  - has_keyword("deltaMethod")
 - title: Standardized Regression Coefficients
   contents:
   - has_keyword("std")
-- title: Differences of Standardized Regression Coefficients
-  contents:
-  - has_keyword("diff")
 - title: R-Squared
   contents:
   - has_keyword("rsq")
@@ -22,9 +22,9 @@ reference:
   contents:
   - has_keyword("deltarsq")
   - has_keyword("fsq")
-- title: Delta Method (General)
+- title: Differences of Standardized Regression Coefficients
   contents:
-  - has_keyword("deltaMethod")
+  - has_keyword("diff")
 - title: Methods
   contents:
   - has_keyword("methods")
