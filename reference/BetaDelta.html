@@ -121,6 +121,62 @@ of the standardized slopes.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Partition the covariance matrix of the outcome and the regressors as
+$$\boldsymbol{\Sigma} = \begin{pmatrix} \sigma^{2}_{y} &amp;
+\boldsymbol{\sigma}_{yx}^{\prime} \\ \boldsymbol{\sigma}_{yx} &amp;
+\boldsymbol{\Sigma}_{x} \end{pmatrix}.$$
+The regression slopes and the standardized regression slopes are
+$$\boldsymbol{\beta} = \boldsymbol{\Sigma}_{x}^{-1}
+\boldsymbol{\sigma}_{yx}, \quad \beta^{\ast}_{j} = \beta_{j}
+\frac{\sigma_{x_{j}}}{\sigma_{y}},$$
+where \(\sigma_{x_{j}}\) is the standard deviation of regressor \(j\).
+With <code>std_y = FALSE</code>, \(\sigma_{y}\) is replaced by one;
+for a regressor left out of <code>std_x</code>, \(\sigma_{x_{j}}\) is replaced by one.</p>
+<p>By the delta method,
+the sampling covariance matrix of \(\hat{\boldsymbol{\beta}}^{\ast}\) is
+$$\widehat{\operatorname{var}} \left( \hat{\boldsymbol{\beta}}^{\ast}
+\right) = \frac{1}{n} \boldsymbol{J} \hat{\boldsymbol{\Gamma}}
+\boldsymbol{J}^{\prime}, \quad \boldsymbol{J} = \frac{\partial
+\boldsymbol{\beta}^{\ast}}{\partial \operatorname{vech} \left(
+\boldsymbol{\Sigma} \right)^{\prime}},$$
+where \(\boldsymbol{J}\) is evaluated at the sample covariance matrix
+\(\boldsymbol{S}\),
+and \(\hat{\boldsymbol{\Gamma}}\) (<code>gamma</code>) estimates the asymptotic
+covariance matrix of \(\sqrt{n} \operatorname{vech} \left( \boldsymbol{S}
+\right)\).
+With <code>type = "mvn"</code>,
+$$\hat{\boldsymbol{\Gamma}} = 2 \boldsymbol{D}^{+} \left( \boldsymbol{S}
+\otimes \boldsymbol{S} \right) \boldsymbol{D}^{+ \prime},$$
+where \(\boldsymbol{D}^{+}\) is the Moore-Penrose inverse of the
+duplication matrix.
+With <code>type = "adf"</code>, \(\hat{\boldsymbol{\Gamma}}\) is the unbiased
+asymptotic distribution-free estimator
+$$\hat{\boldsymbol{\Gamma}} = \frac{n \left( n - 1 \right)}{\left( n - 2
+\right) \left( n - 3 \right)} \hat{\boldsymbol{\Gamma}}_{\mathrm{ADF}} -
+\frac{n}{\left( n - 2 \right) \left( n - 3 \right)} \left(
+\hat{\boldsymbol{\Gamma}}_{\mathrm{N}} - \frac{2}{n - 1} \operatorname{vech}
+\left( \tilde{\boldsymbol{S}} \right) \operatorname{vech} \left(
+\tilde{\boldsymbol{S}} \right)^{\prime} \right),$$
+where \(\tilde{\boldsymbol{S}}\) is the covariance matrix with divisor
+\(n\),
+\(\hat{\boldsymbol{\Gamma}}_{\mathrm{N}}\) is the normal-theory matrix
+at \(\tilde{\boldsymbol{S}}\), and
+$$\hat{\boldsymbol{\Gamma}}_{\mathrm{ADF}} = \frac{1}{n}
+\sum_{i = 1}^{n} \left[ \operatorname{vech} \left( \boldsymbol{d}_{i}
+\boldsymbol{d}_{i}^{\prime} \right) - \operatorname{vech} \left(
+\tilde{\boldsymbol{S}} \right) \right] \left[ \operatorname{vech} \left(
+\boldsymbol{d}_{i} \boldsymbol{d}_{i}^{\prime} \right) - \operatorname{vech}
+\left( \tilde{\boldsymbol{S}} \right) \right]^{\prime},$$
+with \(\boldsymbol{d}_{i}\) the deviation of observation \(i\) from the
+sample means (Jones &amp; Waller, 2015; Yuan &amp; Chan, 2011).
+The confidence intervals are
+\(\hat{\beta}^{\ast}_{j} \pm t_{1 - \alpha / 2, n - k}
+\widehat{\operatorname{se}} \left( \hat{\beta}^{\ast}_{j} \right)\),
+where \(k\) is the number of regression parameters,
+including the intercept.</p>
+    </div>
+    <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Jones, J. A., &amp; Waller, N. G. (2015).
 The normal-theory and asymptotic distribution-free (ADF) covariance matrix
@@ -140,13 +196,14 @@ Biases and standard errors of standardized regression coefficients.
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other Beta Delta Functions:
+    <div class="dont-index"><p>Other Beta Delta Method Functions:
 <code><a href="DeltaRSqDelta.html">DeltaRSqDelta()</a></code>,
 <code><a href="DiffBetaDelta.html">DiffBetaDelta()</a></code>,
 <code><a href="FSqDelta.html">FSqDelta()</a></code>,
 <code><a href="PCorDelta.html">PCorDelta()</a></code>,
 <code><a href="RSqDelta.html">RSqDelta()</a></code>,
-<code><a href="SCorDelta.html">SCorDelta()</a></code></p></div>
+<code><a href="SCorDelta.html">SCorDelta()</a></code>,
+<code><a href="SCorSqDelta.html">SCorSqDelta()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -155,12 +212,19 @@ Biases and standard errors of standardized regression coefficients.
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Data ---------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"nas1982"</span>, package <span class="op">=</span> <span class="st">"betaDelta"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fit Model in lm ----------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># BetaDelta ----------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu">BetaDelta</span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co"># Methods -------------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Methods -----------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">std</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BetaDelta(object = object)</span>

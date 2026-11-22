@@ -1,7 +1,7 @@
-# Estimate Differences of Standardized Slopes and the Corresponding Sampling Covariance Matrix
+# Estimate Differences of Standardized Regression Coefficients and the Corresponding Sampling Covariance Matrix
 
-Estimate Differences of Standardized Slopes and the Corresponding
-Sampling Covariance Matrix
+Estimate Differences of Standardized Regression Coefficients and the
+Corresponding Sampling Covariance Matrix
 
 ## Usage
 
@@ -23,8 +23,8 @@ DiffBetaDelta(object, alpha = c(0.05, 0.01, 0.001))
 
 ## Value
 
-Returns an object of class `diffbetadelta` which is a list with the
-following elements:
+Returns an object of class `esdelta` (and `diffbetadelta`) which is a
+list with the following elements:
 
 - call:
 
@@ -50,15 +50,36 @@ following elements:
 
   Function used ("DiffBetaDelta").
 
+## Details
+
+For every pair of regressors \\(j \< l\\), the difference of the
+standardized regression slopes (see
+[`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md))
+is \$\$\Delta \beta^{\ast}\_{jl} = \beta^{\ast}\_{j} -
+\beta^{\ast}\_{l}.\$\$ Collect the differences as \\(\boldsymbol{C}
+\boldsymbol{\beta}^{\ast}\\), where each row of \\(\boldsymbol{C}\\) has
+\\(1\\) in column \\(j\\), \\(-1\\) in column \\(l\\), and zeros
+elsewhere. The sampling covariance matrix is
+\$\$\widehat{\operatorname{var}} \left( \boldsymbol{C}
+\hat{\boldsymbol{\beta}}^{\ast} \right) = \boldsymbol{C}
+\widehat{\operatorname{var}} \left( \hat{\boldsymbol{\beta}}^{\ast}
+\right) \boldsymbol{C}^{\prime},\$\$ and the confidence intervals are
+\\(\Delta \hat{\beta}^{\ast}\_{jl} \pm z\_{1 - \alpha / 2}
+\widehat{\operatorname{se}} \left( \Delta \hat{\beta}^{\ast}\_{jl}
+\right)\\). The slopes must be fully standardized (`std_y = TRUE` and
+`std_x = NULL` in
+[`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)).
+
 ## See also
 
-Other Beta Delta Functions:
+Other Beta Delta Method Functions:
 [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md),
 [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
 [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md),
 [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
 [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
-[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
+[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md),
+[`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md)
 
 ## Author
 
@@ -67,13 +88,22 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# DiffBetaDelta ------------------------------------------------------------
 diff <- DiffBetaDelta(object = std)
-# Methods -------------------------------------------------------
+
+## Methods -----------------------------------------------------------------
 print(x = diff)
 #> Call:
 #> DiffBetaDelta(object = std)

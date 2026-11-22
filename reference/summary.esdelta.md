@@ -33,6 +33,16 @@ summary(object, alpha = NULL, digits = 4, ...)
 Returns a matrix of estimates, standard errors, test statistics,
 p-values, and confidence intervals.
 
+## Details
+
+The confidence intervals are \\(\hat{\theta} \pm z\_{1 - \alpha / 2}
+\widehat{\operatorname{se}} \left( \hat{\theta} \right)\\), where
+\\(\widehat{\operatorname{se}}\\) is the square root of the diagonal of
+the delta-method sampling covariance matrix of the effect size, and
+\\(z\_{p}\\) is the \\(p\\) quantile of the standard normal
+distribution. The test statistic is \\(z = \hat{\theta} /
+\widehat{\operatorname{se}} \left( \hat{\theta} \right)\\).
+
 ## Author
 
 Ivan Jacob Agaloos Pesigan
@@ -40,12 +50,22 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# RSqDelta -----------------------------------------------------------------
 out <- RSqDelta(object = std)
+
+## Methods -----------------------------------------------------------------
 summary(object = out)
 #> Call:
 #> RSqDelta(object = std)

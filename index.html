@@ -54,14 +54,14 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="betadelta">betaDelta<a class="anchor" aria-label="anchor" href="#betadelta"></a>
 </h1></div>
-<p>Ivan Jacob Agaloos Pesigan 2026-11-21</p>
+<p>Ivan Jacob Agaloos Pesigan 2026-11-22</p>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
 <div class="section level2">
 <h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
 </h2>
-<p>Generates confidence intervals for standardized regression coefficients using delta method standard errors for models fitted by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> as described in Yuan and Chan (2011: <a href="http://doi.org/10.1007/s11336-011-9224-6" class="external-link uri">http://doi.org/10.1007/s11336-011-9224-6</a>) and Jones and Waller (2015: <a href="http://doi.org/10.1007/s11336-013-9380-y" class="external-link uri">http://doi.org/10.1007/s11336-013-9380-y</a>). The package also generates delta method confidence intervals for differences of standardized regression coefficients, R-squared and adjusted R-squared, semipartial and squared partial correlations, the improvement in R-squared, and Cohen’s f-squared, with normal-theory or asymptotically distribution-free standard errors. It can also be used as a general approach to performing the delta method. A description of the package and code examples are presented in Pesigan, Sun, and Cheung (2023: <a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link uri">https://doi.org/10.1080/00273171.2023.2201277</a>).</p>
+<p>Generates confidence intervals for standardized regression coefficients using delta method standard errors for models fitted by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> as described in Yuan and Chan (2011, <a href="https://doi.org/10.1007/s11336-011-9224-6" class="external-link">doi:10.1007/s11336-011-9224-6</a>) and Jones and Waller (2015, <a href="https://doi.org/10.1007/s11336-013-9380-y" class="external-link">doi:10.1007/s11336-013-9380-y</a>). The package also generates delta method confidence intervals for differences of standardized regression coefficients, R-squared and adjusted R-squared, semipartial and squared partial correlations, the improvement in R-squared, and Cohen’s f-squared, with normal-theory or asymptotically distribution-free standard errors. It can also be used as a general approach to performing the delta method. A description of the package and code examples are presented in Pesigan, Sun, and Cheung (2023, <a href="https://doi.org/10.1080/00273171.2023.2201277" class="external-link">doi:10.1080/00273171.2023.2201277</a>).</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -91,10 +91,6 @@
 <div class="section level3">
 <h3 id="estimate-the-standardized-regression-slopes-and-the-corresponding-sampling-covariance-matrix">Estimate the standardized regression slopes and the corresponding sampling covariance matrix.<a class="anchor" aria-label="anchor" href="#estimate-the-standardized-regression-slopes-and-the-corresponding-sampling-covariance-matrix"></a>
 </h3>
-</div>
-<div class="section level3">
-<h3 id="multivariate-normal-theory-approach">Multivariate Normal-Theory Approach<a class="anchor" aria-label="anchor" href="#multivariate-normal-theory-approach"></a>
-</h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"mvn"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
@@ -106,85 +102,67 @@
 <span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469</span></span>
 <span><span class="co">#&gt; PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="asymptotic-distribution-free-approach">Asymptotic Distribution-Free Approach<a class="anchor" aria-label="anchor" href="#asymptotic-distribution-free-approach"></a>
-</h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; BetaDelta(object = object, type = "adf", alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Standardized regression slopes with ADF standard errors:</span></span>
-<span><span class="co">#&gt;            est     se      t df      p   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184</span></span></code></pre></div>
-</div>
 </div>
 <div class="section level2">
 <h2 id="other-features">Other Features<a class="anchor" aria-label="anchor" href="#other-features"></a>
 </h2>
+<p>The package provides the following functions.</p>
 <table class="table">
 <colgroup>
 <col width="50%">
 <col width="50%">
 </colgroup>
 <thead><tr>
-<th>Effect size</th>
 <th>Function</th>
+<th>Purpose</th>
 </tr></thead>
 <tbody>
 <tr>
-<td>Standardized regression slopes</td>
 <td><code><a href="reference/BetaDelta.html">BetaDelta()</a></code></td>
+<td>Standardized regression coefficients with a normal-theory (<code>type = "mvn"</code>) or asymptotically distribution-free (<code>type = "adf"</code>) sampling covariance matrix</td>
 </tr>
 <tr>
-<td>Differences of standardized slopes</td>
-<td><code><a href="reference/DiffBetaDelta.html">DiffBetaDelta()</a></code></td>
-</tr>
-<tr>
-<td>R-squared and adjusted R-squared</td>
 <td><code><a href="reference/RSqDelta.html">RSqDelta()</a></code></td>
+<td>R-squared and adjusted R-squared</td>
 </tr>
 <tr>
-<td>Semipartial correlations</td>
+<td><code><a href="reference/DiffBetaDelta.html">DiffBetaDelta()</a></code></td>
+<td>Differences of standardized regression coefficients</td>
+</tr>
+<tr>
 <td><code><a href="reference/SCorDelta.html">SCorDelta()</a></code></td>
+<td>Semipartial correlations</td>
 </tr>
 <tr>
-<td>Squared signed-semipartial correlations (interval image under squaring)</td>
 <td><code><a href="reference/SCorSqDelta.html">SCorSqDelta()</a></code></td>
+<td>Squared semipartial correlations (squared signed interval)</td>
 </tr>
 <tr>
-<td>Squared partial correlations</td>
 <td><code><a href="reference/PCorDelta.html">PCorDelta()</a></code></td>
+<td>Squared partial correlations</td>
 </tr>
 <tr>
-<td>Improvement in R-squared</td>
 <td><code><a href="reference/DeltaRSqDelta.html">DeltaRSqDelta()</a></code></td>
+<td>Improvement in R-squared</td>
 </tr>
 <tr>
-<td>Cohen’s f-squared</td>
 <td><code><a href="reference/FSqDelta.html">FSqDelta()</a></code></td>
+<td>Cohen’s f-squared and local f-squared</td>
 </tr>
 <tr>
-<td>General delta method</td>
 <td>
 <code><a href="reference/Delta.html">Delta()</a></code>, <code><a href="reference/DeltaGeneric.html">DeltaGeneric()</a></code>
 </td>
+<td>The delta method for a function of the parameters of a fitted model</td>
 </tr>
 </tbody>
 </table>
-<p>The effect-size functions take the output of <code><a href="reference/BetaDelta.html">BetaDelta()</a></code>, so the covariance estimator (<code>type = "mvn"</code> or <code>"adf"</code>) is chosen once. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">std</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/BetaDelta.html">BetaDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, type <span class="op">=</span> <span class="st">"adf"</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/RSqDelta.html">RSqDelta</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">std</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; RSqDelta(object = std)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; R-squared and adjusted R-squared with ADF standard errors:</span></span>
-<span><span class="co">#&gt;        est     se       z p  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%</span></span>
-<span><span class="co">#&gt; rsq 0.8045 0.0519 15.4910 0 0.6336 0.6708 0.7027 0.9063 0.9383 0.9754</span></span>
-<span><span class="co">#&gt; adj 0.7906 0.0556 14.2073 0 0.6075 0.6472 0.6815 0.8996 0.9339 0.9737</span></span></code></pre></div>
+<p>The <code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code>, <code><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov()</a></code>, <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code>, <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, and <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> methods are available for the returned objects. The effect-size functions take the output of <code><a href="reference/BetaDelta.html">BetaDelta()</a></code>, so the normal-theory or asymptotically distribution-free approach is chosen once. Examples for each function are in the package vignettes.</p>
+</div>
+<div class="section level2">
+<h2 id="effect-sizes">Effect Sizes<a class="anchor" aria-label="anchor" href="#effect-sizes"></a>
+</h2>
+<p>The definitions, formulas, and notes on effect sizes near zero are in the help pages of the functions and in the vignette <a href="https://jeksterslab.github.io/betaDelta/articles/example-es-delta.html">betaDelta: Example Using the RSqDelta, SCorDelta, PCorDelta, DeltaRSqDelta, and FSqDelta Functions</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>

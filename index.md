@@ -1,22 +1,25 @@
 # betaDelta
 
-Ivan Jacob Agaloos Pesigan 2026-11-21
+Ivan Jacob Agaloos Pesigan 2026-11-22
 
 ## Description
 
 Generates confidence intervals for standardized regression coefficients
 using delta method standard errors for models fitted by
 [`lm()`](https://rdrr.io/r/stats/lm.html) as described in Yuan and Chan
-(2011: <http://doi.org/10.1007/s11336-011-9224-6>) and Jones and Waller
-(2015: <http://doi.org/10.1007/s11336-013-9380-y>). The package also
-generates delta method confidence intervals for differences of
-standardized regression coefficients, R-squared and adjusted R-squared,
-semipartial and squared partial correlations, the improvement in
-R-squared, and Cohen’s f-squared, with normal-theory or asymptotically
-distribution-free standard errors. It can also be used as a general
-approach to performing the delta method. A description of the package
-and code examples are presented in Pesigan, Sun, and Cheung (2023:
-<https://doi.org/10.1080/00273171.2023.2201277>).
+(2011,
+[doi:10.1007/s11336-011-9224-6](https://doi.org/10.1007/s11336-011-9224-6))
+and Jones and Waller (2015,
+[doi:10.1007/s11336-013-9380-y](https://doi.org/10.1007/s11336-013-9380-y)).
+The package also generates delta method confidence intervals for
+differences of standardized regression coefficients, R-squared and
+adjusted R-squared, semipartial and squared partial correlations, the
+improvement in R-squared, and Cohen’s f-squared, with normal-theory or
+asymptotically distribution-free standard errors. It can also be used as
+a general approach to performing the delta method. A description of the
+package and code examples are presented in Pesigan, Sun, and Cheung
+(2023,
+[doi:10.1080/00273171.2023.2201277](https://doi.org/10.1080/00273171.2023.2201277)).
 
 ## Installation
 
@@ -60,8 +63,6 @@ Jones & Waller (2015).
 
 ### Estimate the standardized regression slopes and the corresponding sampling covariance matrix.
 
-### Multivariate Normal-Theory Approach
-
 \
 [`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object ``=`` ``object``, type ``=`` ``"mvn"``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
@@ -73,48 +74,38 @@ Jones & Waller (2015).
 `#> PCTGRT  0.3915 0.0770 5.0824 42 0.000 0.2360 0.5469`\
 `#> PCTSUPP 0.2632 0.0747 3.5224 42 0.001 0.1124 0.4141`
 
-### Asymptotic Distribution-Free Approach
-
-\
-[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object ``=`` ``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
-`#> Call:`\
-`#> BetaDelta(object = object, type = "adf", alpha = 0.05)`\
-`#> `\
-`#> Standardized regression slopes with ADF standard errors:`\
-`#>            est     se      t df      p   2.5%  97.5%`\
-`#> NARTIC  0.4951 0.0674 7.3490 42 0.0000 0.3592 0.6311`\
-`#> PCTGRT  0.3915 0.0710 5.5164 42 0.0000 0.2483 0.5347`\
-`#> PCTSUPP 0.2632 0.0769 3.4231 42 0.0014 0.1081 0.4184`
-
 ## Other Features
 
-| Effect size | Function |
+The package provides the following functions.
+
+| Function | Purpose |
 |----|----|
-| Standardized regression slopes | [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md) |
-| Differences of standardized slopes | [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md) |
-| R-squared and adjusted R-squared | [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md) |
-| Semipartial correlations | [`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md) |
-| Squared signed-semipartial correlations (interval image under squaring) | [`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md) |
-| Squared partial correlations | [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md) |
-| Improvement in R-squared | [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md) |
-| Cohen’s f-squared | [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md) |
-| General delta method | [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md), [`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md) |
+| [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md) | Standardized regression coefficients with a normal-theory (`type = "mvn"`) or asymptotically distribution-free (`type = "adf"`) sampling covariance matrix |
+| [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md) | R-squared and adjusted R-squared |
+| [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md) | Differences of standardized regression coefficients |
+| [`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md) | Semipartial correlations |
+| [`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md) | Squared semipartial correlations (squared signed interval) |
+| [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md) | Squared partial correlations |
+| [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md) | Improvement in R-squared |
+| [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md) | Cohen’s f-squared and local f-squared |
+| [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md), [`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md) | The delta method for a function of the parameters of a fitted model |
 
-The effect-size functions take the output of
+The [`coef()`](https://rdrr.io/r/stats/coef.html),
+[`vcov()`](https://rdrr.io/r/stats/vcov.html),
+[`confint()`](https://rdrr.io/r/stats/confint.html),
+[`summary()`](https://rdrr.io/r/base/summary.html), and
+[`print()`](https://rdrr.io/r/base/print.html) methods are available for
+the returned objects. The effect-size functions take the output of
 [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md),
-so the covariance estimator (`type = "mvn"` or `"adf"`) is chosen once.
-For example:
+so the normal-theory or asymptotically distribution-free approach is
+chosen once. Examples for each function are in the package vignettes.
 
-\
-`std`` ``<-`` `[`BetaDelta`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)`(``object ``=`` ``object``, type ``=`` ``"adf"``, alpha ``=`` ``0.05``)`\
-[`RSqDelta`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md)`(``object ``=`` ``std``)`\
-`#> Call:`\
-`#> RSqDelta(object = std)`\
-`#> `\
-`#> R-squared and adjusted R-squared with ADF standard errors:`\
-`#>        est     se       z p  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%`\
-`#> rsq 0.8045 0.0519 15.4910 0 0.6336 0.6708 0.7027 0.9063 0.9383 0.9754`\
-`#> adj 0.7906 0.0556 14.2073 0 0.6075 0.6472 0.6815 0.8996 0.9339 0.9737`
+## Effect Sizes
+
+The definitions, formulas, and notes on effect sizes near zero are in
+the help pages of the functions and in the vignette [betaDelta: Example
+Using the RSqDelta, SCorDelta, PCorDelta, DeltaRSqDelta, and FSqDelta
+Functions](https://jeksterslab.github.io/betaDelta/articles/example-es-delta.html).
 
 ## Documentation
 

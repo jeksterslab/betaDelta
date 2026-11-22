@@ -77,6 +77,59 @@ following elements:
 
   Vector of standardized slopes.
 
+## Details
+
+Partition the covariance matrix of the outcome and the regressors as
+\$\$\boldsymbol{\Sigma} = \begin{pmatrix} \sigma^{2}\_{y} &
+\boldsymbol{\sigma}\_{yx}^{\prime} \\\\ \boldsymbol{\sigma}\_{yx} &
+\boldsymbol{\Sigma}\_{x} \end{pmatrix}.\$\$ The regression slopes and
+the standardized regression slopes are \$\$\boldsymbol{\beta} =
+\boldsymbol{\Sigma}\_{x}^{-1} \boldsymbol{\sigma}\_{yx}, \quad
+\beta^{\ast}\_{j} = \beta\_{j} \frac{\sigma\_{x\_{j}}}{\sigma\_{y}},\$\$
+where \\(\sigma\_{x\_{j}}\\) is the standard deviation of regressor
+\\(j\\). With `std_y = FALSE`, \\(\sigma\_{y}\\) is replaced by one; for
+a regressor left out of `std_x`, \\(\sigma\_{x\_{j}}\\) is replaced by
+one.
+
+By the delta method, the sampling covariance matrix of
+\\(\hat{\boldsymbol{\beta}}^{\ast}\\) is
+\$\$\widehat{\operatorname{var}} \left( \hat{\boldsymbol{\beta}}^{\ast}
+\right) = \frac{1}{n} \boldsymbol{J} \hat{\boldsymbol{\Gamma}}
+\boldsymbol{J}^{\prime}, \quad \boldsymbol{J} = \frac{\partial
+\boldsymbol{\beta}^{\ast}}{\partial \operatorname{vech} \left(
+\boldsymbol{\Sigma} \right)^{\prime}},\$\$ where \\(\boldsymbol{J}\\) is
+evaluated at the sample covariance matrix \\(\boldsymbol{S}\\), and
+\\(\hat{\boldsymbol{\Gamma}}\\) (`gamma`) estimates the asymptotic
+covariance matrix of \\(\sqrt{n} \operatorname{vech} \left(
+\boldsymbol{S} \right)\\). With `type = "mvn"`,
+\$\$\hat{\boldsymbol{\Gamma}} = 2 \boldsymbol{D}^{+} \left(
+\boldsymbol{S} \otimes \boldsymbol{S} \right) \boldsymbol{D}^{+
+\prime},\$\$ where \\(\boldsymbol{D}^{+}\\) is the Moore-Penrose inverse
+of the duplication matrix. With `type = "adf"`,
+\\(\hat{\boldsymbol{\Gamma}}\\) is the unbiased asymptotic
+distribution-free estimator \$\$\hat{\boldsymbol{\Gamma}} = \frac{n
+\left( n - 1 \right)}{\left( n - 2 \right) \left( n - 3 \right)}
+\hat{\boldsymbol{\Gamma}}\_{\mathrm{ADF}} - \frac{n}{\left( n - 2
+\right) \left( n - 3 \right)} \left(
+\hat{\boldsymbol{\Gamma}}\_{\mathrm{N}} - \frac{2}{n - 1}
+\operatorname{vech} \left( \tilde{\boldsymbol{S}} \right)
+\operatorname{vech} \left( \tilde{\boldsymbol{S}} \right)^{\prime}
+\right),\$\$ where \\(\tilde{\boldsymbol{S}}\\) is the covariance matrix
+with divisor \\(n\\), \\(\hat{\boldsymbol{\Gamma}}\_{\mathrm{N}}\\) is
+the normal-theory matrix at \\(\tilde{\boldsymbol{S}}\\), and
+\$\$\hat{\boldsymbol{\Gamma}}\_{\mathrm{ADF}} = \frac{1}{n} \sum\_{i =
+1}^{n} \left\[ \operatorname{vech} \left( \boldsymbol{d}\_{i}
+\boldsymbol{d}\_{i}^{\prime} \right) - \operatorname{vech} \left(
+\tilde{\boldsymbol{S}} \right) \right\] \left\[ \operatorname{vech}
+\left( \boldsymbol{d}\_{i} \boldsymbol{d}\_{i}^{\prime} \right) -
+\operatorname{vech} \left( \tilde{\boldsymbol{S}} \right)
+\right\]^{\prime},\$\$ with \\(\boldsymbol{d}\_{i}\\) the deviation of
+observation \\(i\\) from the sample means (Jones & Waller, 2015; Yuan &
+Chan, 2011). The confidence intervals are \\(\hat{\beta}^{\ast}\_{j} \pm
+t\_{1 - \alpha / 2, n - k} \widehat{\operatorname{se}} \left(
+\hat{\beta}^{\ast}\_{j} \right)\\), where \\(k\\) is the number of
+regression parameters, including the intercept.
+
 ## References
 
 Jones, J. A., & Waller, N. G. (2015). The normal-theory and asymptotic
@@ -96,13 +149,14 @@ standardized regression coefficients. *Psychometrika*, *76*(4), 670–690.
 
 ## See also
 
-Other Beta Delta Functions:
+Other Beta Delta Method Functions:
 [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
 [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md),
 [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md),
 [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md),
 [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
-[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
+[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md),
+[`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md)
 
 ## Author
 
@@ -111,12 +165,19 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
-# Methods -------------------------------------------------------
+
+## Methods -----------------------------------------------------------------
 print(x = std)
 #> Call:
 #> BetaDelta(object = object)

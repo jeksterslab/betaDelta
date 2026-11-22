@@ -88,13 +88,14 @@ sampling covariance matrix stored in `object`
 
 ## See also
 
-Other Beta Delta Functions:
+Other Beta Delta Method Functions:
 [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md),
 [`DeltaRSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/DeltaRSqDelta.md),
 [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md),
 [`FSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/FSqDelta.md),
 [`RSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/RSqDelta.md),
-[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md)
+[`SCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorDelta.md),
+[`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md)
 
 ## Author
 
@@ -103,13 +104,22 @@ Ivan Jacob Agaloos Pesigan
 ## Examples
 
 ``` r
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaDelta")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- stats::lm(
   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
   data = nas1982
 )
+
+# BetaDelta ----------------------------------------------------------------
 std <- BetaDelta(object = object)
+
+# PCorDelta ----------------------------------------------------------------
 out <- PCorDelta(object = std)
-# Methods -------------------------------------------------------
+
+## Methods -----------------------------------------------------------------
 print(x = out)
 #> Call:
 #> PCorDelta(object = std)

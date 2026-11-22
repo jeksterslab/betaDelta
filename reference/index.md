@@ -1,15 +1,16 @@
 # Package index
 
+## Delta Method
+
+- [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)
+  : Delta Method
+- [`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)
+  : Delta Method (Generic Object Input)
+
 ## Standardized Regression Coefficients
 
 - [`BetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/BetaDelta.md)
   : Estimate Standardized Regression Coefficients and the Corresponding
-  Sampling Covariance Matrix
-
-## Differences of Standardized Regression Coefficients
-
-- [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
-  : Estimate Differences of Standardized Slopes and the Corresponding
   Sampling Covariance Matrix
 
 ## R-Squared
@@ -24,7 +25,8 @@
   : Estimate Semipartial Correlation Coefficients and the Corresponding
   Sampling Covariance Matrix
 - [`SCorSqDelta()`](https://jeksterslab.github.io/betaDelta/reference/SCorSqDelta.md)
-  : Squared Signed-Semipartial Confidence Intervals
+  : Estimate Squared Semipartial Correlation Coefficients and the
+  Corresponding Confidence Intervals From the Signed Intervals
 - [`PCorDelta()`](https://jeksterslab.github.io/betaDelta/reference/PCorDelta.md)
   : Estimate Squared Partial Correlation Coefficients and the
   Corresponding Sampling Covariance Matrix
@@ -38,12 +40,11 @@
   : Estimate Cohen's f-Squared and Local f-Squared and the Corresponding
   Sampling Covariance Matrix
 
-## Delta Method (General)
+## Differences of Standardized Regression Coefficients
 
-- [`Delta()`](https://jeksterslab.github.io/betaDelta/reference/Delta.md)
-  : Delta Method
-- [`DeltaGeneric()`](https://jeksterslab.github.io/betaDelta/reference/DeltaGeneric.md)
-  : Delta Method (Generic Object Input)
+- [`DiffBetaDelta()`](https://jeksterslab.github.io/betaDelta/reference/DiffBetaDelta.md)
+  : Estimate Differences of Standardized Regression Coefficients and the
+  Corresponding Sampling Covariance Matrix
 
 ## Methods
 
